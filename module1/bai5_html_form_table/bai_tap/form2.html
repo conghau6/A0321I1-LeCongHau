@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>[Bài tập] Tạo form đơn giản</title>
+</head>
+<body>
+<form action="TaoFormCoBan.html" method="get">
+    <h1>đăng ký học viên</h1>
+    <label class="input_ten" for="hoten">Họ và tên</label>
+    <input type="text" required name="hoten" id="hoten">
+    <br><br>
+    <label class="input_ngaysinh">Ngày sinh</label>
+    <input type="date" required>
+    <br><br>
+    <label class="input_gioitinh">Giới tính</label>
+    <input type="radio" required name="gioitinh">Nam
+    <input type="radio" required name="gioitinh">Nữ
+    <br><br>
+    <label class="input_diachi">Địa chỉ</label>
+    <input type="text" name="diachi" style="height: 40px">
+    <br><br>
+    <label class="input_lop">Lớp</label>
+    <select>
+        <option>-Chọn lớp-</option>
+        <option>Lớp 1</option>
+        <option>Lớp 2</option>
+        <option>Lớp 3</option>
+        <option>Lớp 4</option>
+        <option>Lớp 5</option>
+        <option>Lớp 6</option>
+    </select>
+    <br><br>
+    <label class="email">Email</label>
+    <input type="email" required name="email">
+    <br><br>
+    <label class="phone">Số điện thoại</label>
+    <input type="number" required name="sdt">
+    <br><br>
+    <button type="submit">Đăng ký</button>
+    <button type="reset">Nhập lại</button>
+</form>
+</body>
+<style>
+    body {
+        width: 400px ;
+        background-color: white;
+    }
+    form {
+        background: #fff1a6;
+    }
+    h1 {
+        background: #2ff2ff;
+        color: blue;
+        text-transform: uppercase;
+        padding-bottom: 4px;
+        padding-top: 4px;
+        font-size: 20px;
+    }
+    .input_ten,
+    .input_ngaysinh,
+    .email,
+    .input_diachi,
+    .input_lop,
+    .phone,
+    .input_gioitinh {
+        color: blue;
+    }
+
+</style>
+</html>
