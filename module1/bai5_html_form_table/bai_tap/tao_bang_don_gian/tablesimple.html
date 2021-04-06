@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Bài tập] Tạo bảng đơn giản</title>
+</head>
+<body>
+<h1 style="text-align: center">THỜI KHOÁ BIỂU</h1>
+<div class="header">
+    <p>
+    <label>
+        Lớp: T09081
+        <label style="float: right">Thời gian học: 13h30 - 17h30</label>
+    </label>
+    </p>
+    <p>
+    <label>
+        Giáo viên: KhoaNV
+        <label style="float: right">Ngày học: Thứ 3, 5, 7</label>
+    </label>
+    </p>
+    <p>
+        <label>Phòng học: Class3/Lab3</label>
+    </p>
+</div>
+<div class="noidung">
+<table>
+    <tr>
+        <th colspan="3"></th>
+        <th class="thu">Thứ 3</th>
+        <th class="thu">Thứ 5</th>
+        <th class="thu">Thứ 7</th>
+    </tr>
+    <tr class="hang2">
+        <td>Tuần</td>
+        <td>Ngày bắt đầu</td>
+        <td>Ngày kết thúc</td>
+        <td colspan="3">Môn học</td>
+    </tr>
+    <tr>
+        <td>01</td>
+        <td>01/09/2009</td>
+        <td>05/09/2009</td>
+        <td>CF - T1,L1</td>
+        <td>CF - T2,L2</td>
+        <td>CF - T3,L3</td>
+    </tr>
+    <tr>
+        <td>02</td>
+        <td>08/09/2009</td>
+        <td>12/09/2009</td>
+        <td>CF - T4,L4</td>
+        <td>CF - Written Test</td>
+        <td>C - T1,L1</td>
+    </tr>
+    <tr>
+        <td>03</td>
+        <td>...</td>
+        <td>...</td>
+        <td>...</td>
+        <td>...</td>
+        <td>...</td>
+    </tr>
+</table>
+</div>
+</body>
+<style>
+    .noidung {
+        text-align: center;
+    }
+    body {
+        padding: 20px;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    td, th {
+        padding: 10px;
+        border: 2px solid black;
+    }
+    .thu {
+        background-color: yellow;
+    }
+    .hang2 {
+        font-weight: bold;
+        background-color: orange;
+    }
+    h1,label {
+        font-family: Arial;
+        color: blue;
+    }
+</style>
+</html>
