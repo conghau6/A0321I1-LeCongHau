@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Bài tập] Tạo form đơn giản</title>
+</head>
+<body>
+    <form action="TaoFormCoBan.html" method="get">
+        <h1>Sở thích của bạn</h1>
+        <label class="input_ten" for="hoten">Họ và tên</label>
+        <input type="text" required name="hoten" id="hoten">
+        <br><br>
+        <label class="input_email" for="email">Email</label>
+        <input type="email" name="email" required id="email">
+        <br><br>
+        <label class="input_sothich">Sở thích</label>
+        <ul class="sothich" style="list-style-type: none;">
+            <li><input type="checkbox" name="sothich">Thể thao</li>
+            <li><input type="checkbox" name="sothich">Âm nhạc</li>
+            <li><input type="checkbox" name="sothich">Đọc sách</li>
+            <li><input type="checkbox" name="sothich">Lướt web</li>
+            <li><input type="checkbox" name="sothich">Chơi game</li>
+            <li><input type="checkbox" name="sothich">Điện ảnh</li>
+            <li><input type="checkbox" name="sothich">Du lịch</li>
+        </ul>
+        <br><br><br>
+        <button type="submit">Gữi thông tin</button>
+        <button type="reset">Nhập lại</button>
+    </form>
+</body>
+<style>
+    body {
+        width: 400px ;
+        color: orange;
+        background: #00FFFF;
+    }
+    form {
+        background: white;
+    }
+    h1 {
+        background: #FF4C00;
+        color: white;
+        text-transform: uppercase;
+        padding-bottom: 4px;
+        padding-top: 4px;
+        text-align: center;
+    }
+    li {
+        float: left;
+    }.input_ten,
+    .input_email,
+    .input_sothich {
+        color: blue;
+    }
+</style>
+</html>
