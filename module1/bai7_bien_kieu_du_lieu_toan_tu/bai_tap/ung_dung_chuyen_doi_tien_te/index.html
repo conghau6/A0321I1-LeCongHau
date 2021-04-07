@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>Amount</th>
+        <th>From Currency</th>
+        <th>To Currency</th>
+        <th></th>
+    </tr>
+    <tr>
+        <td><input type="text" id="amount"></td>
+        <td>
+            <select style="width: 120px" id="country">
+                <option>VietNam</option>
+                <option>USA</option>
+            </select>
+        </td>
+        <td>
+            <select style="width: 100px" id="currency">
+                <option>USD</option>
+                <option>VND</option>
+            </select>
+        </td>
+        <td>
+            <button type="button" class="button" onclick="myFunction();">Convert</button>
+        </td>
+    </tr>
+</table>
+<p id="text"></p>
+</body>
+<style>
+    td, th {
+        padding: 5px;
+    }
+    .button {
+        background-color: blue;
+        color: white;
+    }
+</style>
+<script type="text/javascript" src="index.js">
+
+</script>
+</html>
