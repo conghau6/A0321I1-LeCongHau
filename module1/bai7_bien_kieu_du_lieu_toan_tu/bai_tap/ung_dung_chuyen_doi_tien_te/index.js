@@ -11,5 +11,5 @@ function myFunction() {
         result = amount * 23092;
         currency = "VND";
     }
-    document.getElementById("text").innerHTML = result + " " + currency;
+    document.getElementById("text").innerHTML = "Result: " + result.toFixed(2) + " " + currency;
 }
