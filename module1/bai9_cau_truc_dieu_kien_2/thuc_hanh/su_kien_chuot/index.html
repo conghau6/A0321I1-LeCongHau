@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<center>
+    <form>
+        <img id="myImage" src="https://s.memehay.com/files/posts/20200811/642db005014d1dca5cb42ea7c6d9b278cau-vang-dan-tay-suy-nghi.jpg" style="width: 100px;">
+        <p>
+            <input type="button" value="Let Left" onclick="moveLeft();">
+            <input type="button" value="Let Right" onclick="moveRight();">
+        </p>
+    </form>
+</center>
+<script>
+    var imgObj = null;
+    imgObj = document.getElementById('myImage');
+    function init() {
+        imgObj = document.getElementById('myImage');
+        imgObj.style.position = 'relative';
+        imgObj.style.left = '0px';
+    }
+    function moveRight() {
+        imgObj.style.left = parseInt(imgObj.style.left) + 10 + 'px';
+    }
+    function moveLeft() {
+        imgObj.style.left = parseInt(imgObj.style.left) + (-10) + 'px';
+    }
+    window.onload = init;
+</script>
+</body>
+</html>
