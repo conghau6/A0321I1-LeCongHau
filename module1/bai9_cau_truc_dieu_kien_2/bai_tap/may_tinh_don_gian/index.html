@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="main">
+<input id="kq">
+    <br/>
+    <div id="container">
+        <input type="button" class="item item1" value="1" onclick="set_num(this.value)">
+        <input type="button" class="item item2" value="2" onclick="set_num(this.value)">
+        <input type="button" class="item item3" value="3" onclick="set_num(this.value)">
+        <input type="button" class="item item4" value="+" onclick="set_num(this.value)">
+        <input type="button" class="item item5" value="4" onclick="set_num(this.value)">
+        <input type="button" class="item item6" value="5" onclick="set_num(this.value)">
+        <input type="button" class="item item7" value="6" onclick="set_num(this.value)">
+        <input type="button" class="item item8" value="-" onclick="set_num(this.value)">
+        <input type="button" class="item item9" value="7" onclick="set_num(this.value)">
+        <input type="button" class="item item10" value="8" onclick="set_num(this.value)">
+        <input type="button" class="item item11" value="9" onclick="set_num(this.value)">
+        <input type="button" class="item item12" value="*" onclick="set_num(this.value)">
+        <input type="button" class="item item13" value="C" onclick="xoa();">
+        <input type="button" class="item item14" value="0" onclick="set_num(this.value)">
+        <input type="button" class="item item15" value="=" onclick="ketqua();">
+        <input type="button" class="item item16" value="/" onclick="set_num(this.value)">
+    </div>
+</div>
+<style>
+    /*
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    #container > #kq {
+        width: 14em;
+        height: 3em;
+    }
+    #container > input {
+        width: 3em;
+        height: 3em;
+        margin: 0.2em;
+    }
+     */
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .main {
+        margin: 10px auto;
+        width: 200px;
+    }
+    #container {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+    #kq {
+        text-align: right;
+        width: 100%;
+        height: 50px;
+    }
+    .item {
+        height: 50px;
+        outline: none;
+        border: 0.1px solid rgb(212, 212, 212);
+    }
+    .item:hover {
+        background-color: rgb(182,182,182);
+        cursor: pointer;
+    }
+    .item13:hover {
+        background-color: #e3baff;
+        cursor: pointer;
+    }
+    .item15:hover {
+        background-color: #e3baff;
+        cursor: pointer;
+    }
+</style>
+</body>
+<script>
+    var x = '';
+    function set_num(num){
+        x += num;
+        document.getElementById("kq").value = x;
+    }
+    function xoa() {
+        x = '';
+        document.getElementById("kq").value = x;
+    }
+    function ketqua() {
+        document.getElementById("kq").value = eval(document.getElementById("kq").value = x);
+        x = document.getElementById("kq").value;
+    }
+</script>
+</html>

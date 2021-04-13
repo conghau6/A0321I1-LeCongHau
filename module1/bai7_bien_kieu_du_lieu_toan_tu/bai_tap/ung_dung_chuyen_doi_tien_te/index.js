@@ -1,15 +1,13 @@
 function myFunction() {
     var amount = document.getElementById('amount').value;
-    var country = document.getElementById("country").value;
-    var currency = document.getElementById("currency").value;
+    var from_currency = document.getElementById("from_currency").value;
+    var to_currency = document.getElementById("to_currency").value;
     var result = amount;
-    if(country=="VietNam" && currency=="USD"){
+    if(from_currency=="VND" && to_currency=="USD"){
         result = amount / 23092;
-        currency = "USD";
     }
-    if(country=="USA" && currency=="VND"){
+    if(from_currency=="USD" && to_currency=="VND"){
         result = amount * 23092;
-        currency = "VND";
     }
-    document.getElementById("text").innerHTML = "Result: " + result.toFixed(2) + " " + currency;
+    document.getElementById("text").innerHTML = "Result: " + result.toFixed(2) + " " + to_currency;
 }
