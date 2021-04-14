@@ -6,7 +6,7 @@
 </head>
 <body onload="doReady();">
 <div id="game">
-<div id="text">&nbsp</div>
+<div id="text">Xếp thành hình 1 con vật hoàn chỉnh</div>
 <div id="img" onclick="check();">
     <img id="img_part1" onclick="changeImage1()" src="https://demo.codegym.vn/8/puzzlegame/img/panda_swap_part1x1.jpg"><br/>
     <img id="img_part2" onclick="changeImage2()" src="https://demo.codegym.vn/8/puzzlegame/img/funny-cat1_part2x1.jpg"><br/>
@@ -71,6 +71,7 @@
             index = 0;
         }
     }
+    var i=1;
     function check() {
         if(
             (document.getElementById('img_part1').src==="https://demo.codegym.vn/8/puzzlegame/img/funny-cat1_part1x1.jpg"
@@ -94,6 +95,13 @@
         ){
             document.getElementById('text').innerText = "Bạn đã chiến thắng";
             document.getElementById('game').style.backgroundColor = "#FFFFE0";
+        }else{
+            var texts = ["Gà quá", "Tệ quá", "Vậy mà không giải được"];
+            document.getElementById('text').innerText = texts[i];
+            i++;
+            if(i==3){
+                i=0;
+            }
         }
     }
 </script>
