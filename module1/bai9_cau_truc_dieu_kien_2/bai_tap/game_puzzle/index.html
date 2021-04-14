@@ -5,6 +5,7 @@
     <title>Title</title>
 </head>
 <body onload="doReady();">
+<div id="game">
 <div id="text">&nbsp</div>
 <div id="img" onclick="check();">
     <img id="img_part1" onclick="changeImage1()" src="https://demo.codegym.vn/8/puzzlegame/img/panda_swap_part1x1.jpg"><br/>
@@ -12,6 +13,7 @@
     <img id="img_part3" onclick="changeImage3()" src="https://demo.codegym.vn/8/puzzlegame/img/monkey_part3x1.jpg"><br/>
     <img id="img_part4" onclick="changeImage4()" src="https://demo.codegym.vn/8/puzzlegame/img/panda_swap_part4x1.jpg"><br/>
     <img id="img_part5" onclick="changeImage5()" src="https://demo.codegym.vn/8/puzzlegame/img/funny-cat1_part5x1.jpg"><br/>
+</div>
 </div>
 <style>
     img {
@@ -24,6 +26,7 @@
         top:200px;
         left:500px;
         color: #ff0017;
+        font-size: 40px;
     }
 </style>
 <script>
@@ -90,6 +93,7 @@
             )
         ){
             document.getElementById('text').innerText = "Bạn đã chiến thắng";
+            document.getElementById('game').style.backgroundColor = "#FFFFE0";
         }
     }
 </script>
