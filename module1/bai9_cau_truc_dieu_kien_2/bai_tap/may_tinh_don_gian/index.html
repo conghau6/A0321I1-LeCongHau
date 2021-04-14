@@ -6,25 +6,25 @@
 </head>
 <body>
 <div class="main">
-<input id="kq">
+<input id="kq" type="text">
     <br/>
     <div id="container">
-        <input type="button" class="item item1" value="1" onclick="set_num(this.value)">
-        <input type="button" class="item item2" value="2" onclick="set_num(this.value)">
-        <input type="button" class="item item3" value="3" onclick="set_num(this.value)">
-        <input type="button" class="item item4" value="+" onclick="set_num(this.value)">
-        <input type="button" class="item item5" value="4" onclick="set_num(this.value)">
-        <input type="button" class="item item6" value="5" onclick="set_num(this.value)">
-        <input type="button" class="item item7" value="6" onclick="set_num(this.value)">
-        <input type="button" class="item item8" value="-" onclick="set_num(this.value)">
-        <input type="button" class="item item9" value="7" onclick="set_num(this.value)">
-        <input type="button" class="item item10" value="8" onclick="set_num(this.value)">
-        <input type="button" class="item item11" value="9" onclick="set_num(this.value)">
-        <input type="button" class="item item12" value="*" onclick="set_num(this.value)">
-        <input type="button" class="item item13" value="C" onclick="xoa();">
-        <input type="button" class="item item14" value="0" onclick="set_num(this.value)">
-        <input type="button" id="item15" class="item item15" value="=" onclick="ketqua();">
-        <input type="button" class="item item16" value="/" onclick="set_num(this.value)">
+        <input type="button" class="item item1" value="1" onclick="kq.value += this.value">
+        <input type="button" class="item item2" value="2" onclick="kq.value += this.value">
+        <input type="button" class="item item3" value="3" onclick="kq.value += this.value">
+        <input type="button" class="item item4" value="+" onclick="kq.value += this.value">
+        <input type="button" class="item item5" value="4" onclick="kq.value += this.value">
+        <input type="button" class="item item6" value="5" onclick="kq.value += this.value">
+        <input type="button" class="item item7" value="6" onclick="kq.value += this.value">
+        <input type="button" class="item item8" value="-" onclick="kq.value += this.value">
+        <input type="button" class="item item9" value="7" onclick="kq.value += this.value">
+        <input type="button" class="item item10" value="8" onclick="kq.value += this.value">
+        <input type="button" class="item item11" value="9" onclick="kq.value += this.value">
+        <input type="button" class="item item12" value="*" onclick="kq.value += this.value">
+        <input type="button" class="item item13" value="C" onclick="kq.value = kq.value.substr(0,kq.value.length-1)">
+        <input type="button" class="item item14" value="0" onclick="kq.value += this.value">
+        <input type="button" id="item15" class="item item15" value="=" onclick="kq.value = eval(kq.value)">
+        <input type="button" class="item item16" value="/" onclick="kq.value += this.value">
     </div>
 </div>
 <style>
@@ -42,7 +42,8 @@
         height: 3em;
         margin: 0.2em;
     }
-     */
+   */
+
     *{
         margin: 0;
         padding: 0;
@@ -74,6 +75,7 @@
 </style>
 </body>
 <script>
+    /*
     var x = '';
     function mouseover() {
         document.getElementById("container").style.color = "red";
@@ -93,5 +95,6 @@
         document.getElementById("kq").value = eval(document.getElementById("kq").value = x);
         x = document.getElementById("kq").value;
     }
+     */
 </script>
 </html>
