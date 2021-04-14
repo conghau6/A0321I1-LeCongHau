@@ -23,7 +23,7 @@
         <input type="button" class="item item12" value="*" onclick="set_num(this.value)">
         <input type="button" class="item item13" value="C" onclick="xoa();">
         <input type="button" class="item item14" value="0" onclick="set_num(this.value)">
-        <input type="button" class="item item15" value="=" onclick="ketqua();">
+        <input type="button" id="item15" class="item item15" value="=" onclick="ketqua();">
         <input type="button" class="item item16" value="/" onclick="set_num(this.value)">
     </div>
 </div>
@@ -49,8 +49,8 @@
         box-sizing: border-box;
     }
     .main {
-        margin: 10px auto;
-        width: 200px;
+        margin: 70px auto;
+        width: 250px;
     }
     #container {
         width: 100%;
@@ -68,21 +68,19 @@
         border: 0.1px solid rgb(212, 212, 212);
     }
     .item:hover {
-        background-color: rgb(182,182,182);
-        cursor: pointer;
-    }
-    .item13:hover {
-        background-color: #e3baff;
-        cursor: pointer;
-    }
-    .item15:hover {
-        background-color: #e3baff;
+        background-color: #ff9dfb;
         cursor: pointer;
     }
 </style>
 </body>
 <script>
     var x = '';
+    function mouseover() {
+        document.getElementById("container").style.color = "red";
+    }
+    function mouseout() {
+        document.getElementById("container").style.color = "black";
+    }
     function set_num(num){
         x += num;
         document.getElementById("kq").value = x;
