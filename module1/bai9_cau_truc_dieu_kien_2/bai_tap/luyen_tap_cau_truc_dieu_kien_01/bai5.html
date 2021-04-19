@@ -10,7 +10,7 @@
     var diemgiuaky = parseInt(prompt("Nhập điểm thi giữa kỳ: "));
     var diemgcuoiky = parseInt(prompt("Nhập điểm thi giữa kỳ: "));
     var diemtb = (diemkiemtra + diemgiuaky*2 + diemgcuoiky*3)/5;
-    if(diemtb>=8){
+    if(diemtb>=8 && diemtb<=10){
         document.write("Giỏi");
     }else if(diemtb>=6.5 && diemtb<8) {
         document.write("Khá");

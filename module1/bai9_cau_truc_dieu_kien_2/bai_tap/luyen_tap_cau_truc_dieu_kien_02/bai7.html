@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var a = parseFloat(prompt("Nhập a: "));
+    var b = parseFloat(prompt("Nhập b: "));
+    var c = parseFloat(prompt("Nhập c: "));
+    var delta = b*b - 4*a*c;
+    if(delta<0) {
+        document.write("Vô nghiệm");
+    } else if (delta==0) {
+        document.write("x = " + (-b)/(2*a));
+    } else {
+        document.write("x1 = " + ((-b)+Math.sqrt(delta))/(2*a));
+        document.write("<br/>x2 = " + ((-b)-Math.sqrt(delta))/(2*a));
+    }
+</script>
+</body>
+</html>

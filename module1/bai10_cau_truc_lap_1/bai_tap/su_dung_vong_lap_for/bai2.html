@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id="demo"></p>
+<script>
+    var x = parseInt(prompt("Nhập 1 số: "));
+    let total = 0;
+    let i = 1;
+    for(i=1; i<=x; i+=1){
+        total += i;
+    }
+    document.getElementById("demo").innerHTML = "Tong tu 1 den " + x + " la " + total;
+</script>
+</body>
+</html>
