@@ -6,20 +6,25 @@
 </head>
 <body>
 <script>
-    let age = 18;
-    let message = "";
-    switch (age) {
-        case 17:
-            message = "Hello";
-        case 19:
-            message = "Good bye";
-            break;
-        case 18:
-            message = "Hi";
-        default:
-            message = "World";
+var count = parseInt(prompt("Bạn muốn hiển thị bao nhiêu số: "));
+function kiem_tra_nt(n) {
+    var dem = 0;
+    for(let i=1; i<=n; i++){
+        if(n%i==0){
+            dem++;
+        }
     }
-    document.writeln(message);
+    if(dem==2){
+        return true;
+    } else {
+        return false;
+    }
+}
+for(let i=1; i<=count; i++){
+    if (kiem_tra_nt(i)==true){
+        document.write(i + " ");
+    }
+}
 </script>
 </body>
 </html>
