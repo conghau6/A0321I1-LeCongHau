@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="play" onclick="play();">Chơi</button>
+</body>
+<style>
+    #play {
+        height: 100px;
+        width: 300px;
+        position: relative;
+        top: 100px;
+        left: 500px;
+        color: red;
+        font-family: Arial;
+        font-size: 30px;
+        background-color: #3af7ff;
+    }
+</style>
+<script>
+    function play() {
+        var a = parseInt(prompt("Bạn muốn nhập số cần đoán trong khoảng bắt đầu từ: "));
+        var b = parseInt(prompt("Tới: "));
+        var xrandom = Math.round(Math.random() * (b-a)) + a;
+        var x = parseInt(prompt("Số bạn muốn đoán: "));
+        while (true){
+            if(x==xrandom){
+                alert("Bạn đã đoán đúng");
+                break;
+            } else if (x > xrandom){
+                x = prompt("Bạn đã đoán lớn hơn số ngẫu nhiên. Hãy đoán lại. Bấm 'e'  để thoát");
+                if(x=='e'){
+                    break;
+                } else {
+                    x = parseInt(x);
+                }
+            } else {
+                x = prompt("Bạn đã đoán nhỏ hơn số ngẫu nhiên. Hãy đoán lại. Bấm 'e' để thoát");
+                if(x=='e'){
+                    break;
+                } else {
+                    x = parseInt(x);
+                }
+            }
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var num1 = 0, num2 = 1, count = 0;
+    while(true){
+        if(num1 % 5 ==0 && num1 > 0 ){
+            document.write(num1 + "<br>");
+            break;
+        }
+        let sum = num1 + num2;
+        num1 = num2;
+        num2 = sum;
+    }
+</script>
+</body>
+</html>
