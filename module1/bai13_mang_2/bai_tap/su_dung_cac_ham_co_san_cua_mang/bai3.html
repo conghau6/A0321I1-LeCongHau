@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var str = prompt("Enter the string: ");
+    str = str.toString();
+    var result = [];
+    var UPPER = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    var LOWER = 'abcdefghijklmnopqrstuvwxyz';
+    for( var x = 0; x < str.length; x++){
+        if(UPPER.indexOf(str[x]) !== -1){
+            result.push(str[x].toLowerCase());
+        } else if (LOWER.indexOf(str[x])!==-1){
+            result.push(str[x].toUpperCase());
+        } else {
+            result.push(str[x]);
+        }
+    }
+    document.write(result.join(''));
+</script>
+</body>
+</html>
