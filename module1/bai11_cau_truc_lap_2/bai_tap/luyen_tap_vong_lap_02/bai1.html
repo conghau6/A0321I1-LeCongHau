@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var count = parseInt(prompt("Bạn muốn hiển thị dãy fibonacci có bao nhiêu số: "));
+    var num1 = 0, num2 = 1;
+    for(let i=1; i<=count; i++){
+        document.write(num1 + "<br>");
+        let sum = num1 + num2;
+        num1 = num2;
+        num2 = sum;
+    }
+</script>
+</body>
+</html>
