@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var array = [3,7,90,5,24,56,23,1,20,7];
+    var max = array[0];
+    var vitri = 0;
+    for(let i=0; i<array.length; i++){
+        if(array[i]>max){
+            max = array[i];
+            vitri = array.indexOf(max) + 1;
+        }
+    }
+    document.write("Giá trị lớn nhất là " + max + " ở vị trí thứ " + vitri + " trong mảng");
+</script>
+</body>
+</html>
