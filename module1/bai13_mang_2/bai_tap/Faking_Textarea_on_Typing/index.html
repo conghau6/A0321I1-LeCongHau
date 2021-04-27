@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<center>
+<div class="main">
+<h3>Type anything slowly</h3>
+<textarea id="text" cols="40" rows="10" onkeydown="myFunction()"></textarea>
+</div>
+</center>
+</body>
+<style>
+    .main {
+        margin: 0px auto;
+        width: 250px;
+    }
+</style>
+<script>
+    var str = "Xin chào các bạn!!!";
+    var data = "";
+    var i = 0;
+    function myFunction() {
+        data += str[i];
+        document.getElementById("text").value = data;
+        i++;
+        if(i===str.length-1){
+            data = "";
+            i=0;
+        }
+    }
+</script>
+</html>
