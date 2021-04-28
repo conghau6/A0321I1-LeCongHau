@@ -7,15 +7,15 @@
 <body>
 <script>
     var x = [];
-    var n  = parseInt(prompt("Nhập số phần tử mảng: "));
-    for(let i=0; i<n; i++){
+    for(let i=0; i<10; i++){
         x[i] = parseInt(prompt("Nhập phần tử thứ " + (i+1) + ": "));
     }
-    document.write("Mảng bạn vừa nhập: " + x);
+    document.write("Mảng vừa nhập: " + x);
+    document.write("<br>");
     x.sort(function (a,b) {
-        return a - b;
-    });
-    document.write("<br>" + "Mảng sau khi sắp xếp: " + x);
+        return b - a;
+    })
+    document.write("Mảng sắp sếp giảm dần: " + x);
 </script>
 </body>
 </html>

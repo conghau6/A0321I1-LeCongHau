@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var a = [];
+    var b = [];
+    var c = [];
+    for(let i=0; i<10; i++){
+        a[i] = parseInt(prompt("Nhập phần tử thứ " + (i+1) + " của mảng A: "));
+    }
+    for(let i=0; i<10; i++){
+        b[i] = parseInt(prompt("Nhập phần tử thứ " + (i+1) + ": của mảng B "));
+    }
+    c = a.concat(b);
+    document.write("Mảng C: " + c);
+</script>
+</body>
+</html>

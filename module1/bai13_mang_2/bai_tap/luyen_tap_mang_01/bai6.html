@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var x = [];
+    for(let i=0; i<10; i++){
+        x[i] = parseInt(prompt("Nhập phần tử thứ " + (i+1) + ": "));
+    }
+    var number = parseInt(prompt("Hãy nhập 1 số: "));
+    if(x.indexOf(number)!==-1){
+        alert(number + " is the array");
+    } else {
+        alert(number + " is not the array");
+    }
+</script>
+</body>
+</html>
