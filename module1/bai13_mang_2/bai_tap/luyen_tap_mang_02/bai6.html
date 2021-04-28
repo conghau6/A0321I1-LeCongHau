@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var array = [];
+    var length = parseInt(prompt("Nhập kích thước mảng: "));
+    for(let i=0; i<length; i++){
+        array[i] = prompt("Nhập phần tử thứ " + (i+1) + ": ");
+        if(array[i]==='-'){
+            array[i]='_';
+        }
+    }
+    document.write(array);
+</script>
+</body>
+</html>
