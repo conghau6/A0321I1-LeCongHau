@@ -12,6 +12,8 @@
     var b = document.getElementById("tictactoe");
     let data = "";
     var board = [];
+    var count = 0;
+    var winer = false;
     for(let i=0; i<3; i++){
         board[i] = new Array('*','*','*',);
     }
@@ -39,6 +41,7 @@
             data += "<br/><br/><input type='button' value='Change Value' onclick='changeValue()'>"
             b.innerHTML = "<hr/>" + data;
             player = "player2";
+            count++;
         } else {
             let positionX = parseInt(prompt("X: "));
             let positionY = parseInt(prompt("Y: "));
@@ -53,6 +56,7 @@
             data += "<br/><br/><input type='button' value='Change Value' onclick='changeValue()'>"
             b.innerHTML = "<hr/>" + data;
             player = "player1";
+            count++;
         }
         if(
             (board[0][0]==='X' && board[0][1]==='X' && board[0][2]==='X')
@@ -65,6 +69,7 @@
             || (board[2][0]==='X' && board[1][1]==='X' && board[0][2]==='X')
         ){
             alert("X đã thắng");
+            winer = true;
         } else if (
             (board[0][0]==='O' && board[0][1]==='O' && board[0][2]==='O')
             || (board[1][0]==='O' && board[1][1]==='O' && board[1][2]==='O')
@@ -76,6 +81,11 @@
             || (board[2][0]==='O' && board[1][1]==='O' && board[0][2]==='O')
         ){
             alert("O đã chiến thắng");
+            winer = true;
+        } else {
+            if(count===9 && winer===false){
+                alert("Hoà rồi");
+            }
         }
     }
 </script>
