@@ -5,6 +5,18 @@
     <title>Title</title>
 </head>
 <body>
-
+<script>
+    let str = prompt("Nhập tên sao: ");
+    arr1 = ['Polaris', 'Aldebaran','Deneb','Vega','Altair','Dubhe','Regulus'];
+    arr2 = ['Ursa Minor','Tarurus','Cygnus','Lyra','Aquila','Ursa Major','Leo'];
+    function myFunction(nameStar) {
+        if(arr1.indexOf(nameStar)===-1){
+            document.write("Không có sao này");
+        } else {
+            document.write("Tên chòm sao tương ứng là: " + arr2[arr1.indexOf(nameStar)]);
+        }
+    }
+    myFunction(str);
+</script>
 </body>
 </html>
