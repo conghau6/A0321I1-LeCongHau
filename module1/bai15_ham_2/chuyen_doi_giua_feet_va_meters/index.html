@@ -5,8 +5,18 @@
     <title>Title</title>
 </head>
 <body>
+<input type="number" id="text">
+<button onclick="footToMeter(document.getElementById('text').value)">Foot to meter</button>
+<button onclick="meterToFoot(document.getElementById('text').value)">Meter to foot</button>
+<p id="result"></p>
 <script>
-    
+    function footToMeter(foot) {
+        document.getElementById("result").innerText =  0.305 * foot + " meter";
+    }
+    function meterToFoot(meter) {
+        document.getElementById("result").innerText =  3.279 * meter + " foot";
+    }
+
 </script>
 </body>
 </html>
