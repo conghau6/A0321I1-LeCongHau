@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function checkNumber(x) {
+        let str = "0123456789";
+        if(str.indexOf(x)!==-1){
+            return true;
+        } else {
+            return false;
+        }
+    }
+    let input = prompt("Nhập vào 1 ký tự: ");
+    document.write(checkNumber(input));
+</script>
+</body>
+</html>

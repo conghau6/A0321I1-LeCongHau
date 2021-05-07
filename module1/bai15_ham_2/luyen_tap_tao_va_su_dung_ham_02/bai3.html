@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function giaiThua(x) {
+        var total = 1;
+        for(let i=1; i<=x; i++){
+            total *= i;
+        }
+        return total;
+    }
+    let number = parseInt(prompt("Nhập vào 1 số: "));
+    document.write(giaiThua(number));
+</script>
+</body>
+</html>
