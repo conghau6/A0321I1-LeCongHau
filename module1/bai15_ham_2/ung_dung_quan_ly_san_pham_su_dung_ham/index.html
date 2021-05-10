@@ -35,15 +35,14 @@
     var index;
     function display() {
         var tableString = '<table border="1">';
-        index = 0;
         for(let i=0; i<arr.length; i++){
             tableString += '<tr>';
-            tableString += '<td>' + (index+1) + '</td>'
+            tableString += '<td>' + (i+1) + '</td>';
             tableString += '<td>' + arr[i] + '</td>';
             tableString += '<td>' + '<button onclick="edit()">Edit</button>' + '</td>';
-            tableString += '<td>' + '<button onclick="xoa(index)">Delete</button>' + '</td>';
+            // tableString += '<td><input type="button" onclick="deleteProduct(' + i +')" value="Delete"></td>';
+            tableString += '<td>' + '<button onclick="deleteProduct(' + i + ')">Edit</button>' + '</td>';
             tableString += '</tr>';
-            index++;
         }
         document.getElementById('display').innerHTML = tableString;
     }
@@ -55,8 +54,8 @@
         var str = prompt("Bạn muốn sửa tên sản phẩm này thành: ");
 
     }
-    function xoa(s) {
-        console(s);
+    function deleteProduct(s) {
+        alert(s);
     }
 </script>
 </body>
