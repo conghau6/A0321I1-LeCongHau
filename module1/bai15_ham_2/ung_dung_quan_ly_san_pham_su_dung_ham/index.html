@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Add new product</h3>
+<input type="text" id="input" placeholder="New product">
+<button onclick="addNewProduct()">Add</button>
+<p id="display"></p>
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 40%;
+    }
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 10px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+    button {
+        background-color: #009907;
+        color: #dddddd;
+    }
+</style>
+<script>
+    var arr = [];
+    var index;
+    function display() {
+        var tableString = '<table border="1">';
+        index = 0;
+        for(let i=0; i<arr.length; i++){
+            tableString += '<tr>';
+            tableString += '<td>' + (index+1) + '</td>'
+            tableString += '<td>' + arr[i] + '</td>';
+            tableString += '<td>' + '<button onclick="edit()">Edit</button>' + '</td>';
+            tableString += '<td>' + '<button onclick="xoa(index)">Delete</button>' + '</td>';
+            tableString += '</tr>';
+            index++;
+        }
+        document.getElementById('display').innerHTML = tableString;
+    }
+    function addNewProduct() {
+        arr.push(document.getElementById('input').value);
+        display();
+    }
+    function edit() {
+        var str = prompt("Bạn muốn sửa tên sản phẩm này thành: ");
+
+    }
+    function xoa(s) {
+        console(s);
+    }
+</script>
+</body>
+</html>
