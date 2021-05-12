@@ -25,12 +25,15 @@
         this.setYear = function (year) {
             return this.year;
         }
+        this.toString = function (){
+            return day + "/" + month + "/" + year;
+        }
     };
     let date = new MyDate(31,10,2001);
     let day = date.getDay();
     let month = date.getMonth();
     let year = date.getYear();
-    document.write(day + "/" + month + "/" +year);
+    document.write(date.toString());
 </script>
 </body>
 </html>
