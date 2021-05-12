@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="myCanvas" width="350" height="250" style="border:1px solid #c3c3c3;">
+    Trình duyệt của bạn không hỗ trợ thẻ canvas trong HTML5.
+</canvas>
+<label id="text"></label>
+<script>
+    let Rectangle = function (length, width) {
+        this.length = length;
+        this.width = width;
+        this.getLength = function () {
+            return this.length;
+        }
+        this.getWidth = function () {
+            return this.width;
+        }
+        this.setLength = function (length) {
+            this.length = length;
+        }
+        this.setWidth = function (width) {
+            this.width = width;
+        }
+        this.getArea = function () {
+            return this.length * this.width;
+        }
+        this.getPerimeter = function () {
+            return (this.length + this.width) * 2;
+        }
+    }
+    function getRandomHex(){
+        return Math.floor(Math.random()*255);
+    }
+    function getRandomColor(){
+        var red = getRandomHex();
+        var green = getRandomHex();
+        var blue = getRandomHex();
+        return "rgb(" + red + "," + blue + "," + green +")";
+    }
+    var color = getRandomColor();
+    let rectangle = new Rectangle(300,200);
+    rectangle.setLength(100);
+    rectangle.setWidth(40);
+    let length = rectangle.getLength();
+    let width = rectangle.getWidth();
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+    ctx.fillStyle = color;
+    ctx.fillRect(0,0,length,width);
+    document.getElementById("text").innerHTML = "Dien tich: " + rectangle.getArea() + " Chu vi: " + rectangle.getPerimeter();
+</script>
+</body>
+</html>
