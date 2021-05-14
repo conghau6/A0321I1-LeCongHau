@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Temperature {
+        constructor(celsius){
+            this.celsius = celsius;
+        }
+        chuyenDoiSangF (){
+            return this.celsius * 9/5 + 32;
+        }
+        chuyenDoiSangK(){
+            return this.celsius + 273.15;
+        }
+    };
+    let a = new Temperature(37);
+    document.write("Độ C sang F: " + a.chuyenDoiSangF() + "<br>");
+    document.write("Độ C sang K: " + a.chuyenDoiSangK())
+</script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Mobile {
+        constructor(id, name) {
+            this.id = id;
+            this.name = name;
+            this.message = "";
+            this.batery = 100;
+            this.power = "off";
+        }
+        powerOn(){
+            this.power = "on";
+        }
+        powerOff(){
+            this.power = "off";
+        }
+        getPower(){
+            return this.power;
+        }
+        getBatery(){
+            return this.batery;
+        }
+        setBatery(batery){
+            this.batery = batery;
+        }
+        setMessage(message){
+            this.message = message;
+        }
+        getMessage(){
+            this.setBatery(this.batery-1);
+            return this.message;
+        }
+        charge(){
+            this.batery = 100;
+        }
+        sendMessage(message,mobile){
+            if(this.power==="on" && mobile.power==="on") {
+                mobile.setMessage(message);
+                this.setBatery(this.batery - 1);
+            } else if (this.power==="of"){
+                alert("Vui lòng bật " + this.name);
+            } else {
+                alert("Vui lòng bật " + mobile.name);
+            }
+        }
+    };
+    var iphone = new Mobile(1,"iphone");
+    var android = new Mobile(2,"android");
+    iphone.charge();
+    iphone.powerOn();
+    android.powerOn();
+    document.write("Trang thái iphone: " + iphone.getPower());
+    document.write("<br>Trang thái android: " + android.getPower());
+    iphone.sendMessage("<br>Message(iphone): hello android",android);
+    document.write(android.getMessage());
+    document.write("<br> Dung lượng pin còn lại của iphone: " + iphone.getBatery());
+    document.write("<br> Dung lượng pin còn lại của android: " + android.getBatery());
+</script>
+</body>
+</html>
