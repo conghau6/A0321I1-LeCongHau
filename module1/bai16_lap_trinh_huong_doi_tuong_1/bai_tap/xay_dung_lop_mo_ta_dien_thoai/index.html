@@ -13,6 +13,13 @@
             this.message = "";
             this.batery = 100;
             this.power = "off";
+            this.savedMessage = "";
+        }
+        getSavedMessage(){
+            return this.savedMessage;
+        }
+        setSavedMessage(message){
+            this.savedMessage = this.savedMessage + message + ", ";
         }
         powerOn(){
             this.power = "on";
@@ -42,6 +49,7 @@
         sendMessage(message,mobile){
             if(this.power==="on" && mobile.power==="on") {
                 mobile.setMessage(message);
+                this.setSavedMessage(message);
                 this.setBatery(this.batery - 1);
             } else if (this.power==="of"){
                 alert("Vui lòng bật " + this.name);
@@ -58,12 +66,13 @@
     android.powerOn();
     document.write("Trang thái iphone: " + iphone.getPower());
     document.write("<br>Trang thái android: " + android.getPower());
-    iphone.sendMessage("<br>Message(iphone): hello bạn android",android);
-    android.sendMessage("<br>Message(android): hello bạn iphone",iphone);
-    document.write(android.getMessage());
-    document.write(iphone.getMessage());
+    iphone.sendMessage("hello bạn android",android);
+    android.sendMessage("hello bạn iphone",iphone);
+    document.write("<br>iphone: " + iphone.getMessage());
+    document.write("<br>android: " + android.getMessage());
     document.write("<br> Dung lượng pin còn lại của iphone: " + iphone.getBatery());
     document.write("<br> Dung lượng pin còn lại của android: " + android.getBatery());
+    document.write("<br> Tin nhắn đã gữi của iphone: " + iphone.getSavedMessage());
 </script>
 </body>
 </html>
