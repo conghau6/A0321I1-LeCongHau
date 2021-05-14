@@ -58,8 +58,10 @@
     android.powerOn();
     document.write("Trang thái iphone: " + iphone.getPower());
     document.write("<br>Trang thái android: " + android.getPower());
-    iphone.sendMessage("<br>Message(iphone): hello android",android);
+    iphone.sendMessage("<br>Message(iphone): hello bạn android",android);
+    android.sendMessage("<br>Message(android): hello bạn iphone",iphone);
     document.write(android.getMessage());
+    document.write(iphone.getMessage());
     document.write("<br> Dung lượng pin còn lại của iphone: " + iphone.getBatery());
     document.write("<br> Dung lượng pin còn lại của android: " + android.getBatery());
 </script>
