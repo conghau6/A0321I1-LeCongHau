@@ -9,7 +9,7 @@
     class Mouse {
         constructor(name) {
             this.name = name;
-            this.weight = "";
+            this.weight = 10;
             this.speed = 50;
             this.status = true;
         }
@@ -18,6 +18,9 @@
         }
         setName(name){
             this.name = name;
+        }
+        setWeight(weight){
+            this.weight = weight;
         }
         getWeight(){
             return this.weight;
@@ -31,7 +34,7 @@
         setStatus(status){
             this.status = status;
         }
-        getStatus(){
+        checkStatus(){
             if(this.weight>0){
                 return true;
             } else return false;
@@ -54,8 +57,7 @@
             return this.speed;
         }
         catchMouse(mouse){
-            if(this.speed > mouse.getSpeed){
-                alert("Đã bắt được " + mouse.getName());
+            if(this.speed > mouse.getSpeed()){
                 return true;
             } else {
                 alert("Chuột chạy nhanh quá không bắt được");
@@ -63,20 +65,25 @@
             }
         }
         eatMouse(mouse){
-            if(this.catchMouse() && mouse.getStatus()){
-               mouse.setStatus(false);
-               this.increaseWeight();
-               alert(this.name + " đã ăn thịt " + mouse.getName());
+            if(this.catchMouse(mouse)){
+                if(mouse.checkStatus()){
+                    alert("Đã ăn thịt " + mouse.getName());
+                    mouse.setWeight(0);
+                    this.increaseWeight();
+                } else {
+                    alert("Chuột đã chết, không ăn được !");
+                    mouse.setStatus(false);
+                    this.increaseWeight();
+                }
             } else {
-                alert("Chuột đã chết, không ăn được");
+                alert("Chưa bắt được");
             }
         }
     };
     var jerry = new Mouse("Jerry");
     var tom = new Cat("Tom");
-    document.write(jerry.getSpeed() + " " + tom.getSpeed());
     tom.catchMouse(jerry);
-
+    tom.eatMouse(jerry);
 </script>
 </body>
 </html>
