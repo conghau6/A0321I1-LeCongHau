@@ -10,28 +10,18 @@
 </canvas>
 <label id="text"></label>
 <script>
-    let Rectangle = function (length, width) {
-        this.length = length;
-        this.width = width;
-        this.getLength = function () {
-            return this.length;
-        }
-        this.getWidth = function () {
-            return this.width;
-        }
-        this.setLength = function (length) {
+    class Rectangle {
+        constructor(length,width) {
             this.length = length;
+            this.width =width;
         }
-        this.setWidth = function (width) {
-            this.width = width;
-        }
-        this.getArea = function () {
+        getArea(){
             return this.length * this.width;
         }
-        this.getPerimeter = function () {
+        getPerimeter(){
             return (this.length + this.width) * 2;
         }
-    }
+    };
     function getRandomHex(){
         return Math.floor(Math.random()*255);
     }
@@ -42,15 +32,11 @@
         return "rgb(" + red + "," + blue + "," + green +")";
     }
     var color = getRandomColor();
-    let rectangle = new Rectangle(300,200);
-    rectangle.setLength(100);
-    rectangle.setWidth(40);
-    let length = rectangle.getLength();
-    let width = rectangle.getWidth();
+    var rectangle = new Rectangle(300,200);
     var c = document.getElementById("myCanvas");
     var ctx = c.getContext("2d");
     ctx.fillStyle = color;
-    ctx.fillRect(0,0,length,width);
+    ctx.fillRect(0,0,rectangle.length,rectangle.width);
     document.getElementById("text").innerHTML = "Dien tich: " + rectangle.getArea() + " Chu vi: " + rectangle.getPerimeter();
 </script>
 </body>
