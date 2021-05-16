@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Remote {
+        constructor() {
+            this.name = "";
+            this.volume = 20;
+            this.tv = null;
+            this.chanel = 1;
+        }
+        switchChanel(chanel){
+            this.chanel = chanel;
+        }
+        getChanel(){
+            return this.chanel;
+        }
+        setVolume(volume){
+            this.volume = volume;
+        }
+        getVolume(){
+            return this.volume;
+        }
+        volumeUp(){
+            this.volume++;
+        }
+        volumpDown(){
+            this.volume--;
+        }
+        turnOnTv(tv){
+            this.tv.turnOn();
+        }
+        turnOfTv(tv){
+            this.tv.turnOff();
+        }
+    };
+    class TV {
+        constructor() {
+            this.remote = null;
+            this.status = false;
+        }
+        turnOn(){
+            this.status = true;
+        }
+        turnOff(){
+            this.status = false;
+        }
+        connectRemote(remote){
+            this.remote = remote;
+        }
+        seeVolume(){
+            return this.remote.getVolume();
+        }
+        changeChanel(chanel){
+            this.remote.switchChanel(chanel);
+        }
+        getChanel(){
+            return this.remote.getChanel();
+        }
+        getVolume(){
+            return this.remote.getVolume();
+        }
+        volumUp(){
+            this.remote.volume++;
+        }
+        volumDown(){
+            this.remote.volume--;
+        }
+    };
+    var tv = new TV();
+    var remote = new Remote();
+    tv.turnOn();
+    tv.connectRemote(remote);
+    tv.changeChanel(7);
+    remote.switchChanel(3);
+    tv.volumUp();
+    tv.volumUp();
+    document.write("Kênh hiện tại: " + tv.getChanel() + "<br>");
+    document.write("Âm lượng hiện tại: " + tv.getVolume() + "<br>");
+    remote.turnOfTv();
+</script>
+</body>
+</html>
