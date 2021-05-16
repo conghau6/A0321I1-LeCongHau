@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Apple {
+        constructor() {
+            this.weight = 10;
+        }
+        decrease(){
+            this.weight--;
+        }
+        isEmpty(){
+            if(this.weight>0){
+                return true;
+            }
+            return false;
+        }
+        getWeight(){
+            return this.weight;
+        }
+    };
+
+    class Human {
+        constructor() {
+            this.name = "o";
+            this.gender = true;
+            this.weight = 0;
+        }
+        isMale(){
+            if(this.gender===true){
+                return true;
+            } else {
+                return false;
+            }
+        }
+        setGender(gender){
+            this.gender = gender;
+        }
+        checkApple(apple){
+            if(apple.isEmpty()===true){
+                return true;
+            } else return false;
+        }
+        eatApple(apple){
+            apple.decrease();
+            this.weight++;
+        }
+        say(){
+            return "hello";
+        }
+        getName(){
+            return this.name;
+        }
+        setName(name){
+            this.name = name;
+        }
+        getWeight(){
+            return this.weight;
+        }
+        setWeight(weight){
+            this.weight = weight;
+        }
+    };
+    var apple = new Apple();
+    var adam = new Human();
+    adam.setName("Adam");
+    adam.setWeight(70);
+    adam.setGender(true);
+    adam.eatApple(apple);
+    document.write("Giới tính của " + adam.getName() + ": " + adam.isMale() + "<br>");
+    document.write("Cân nặng của " + adam.getName() + " sau khi ăn táo: " + adam.getWeight() + "<br>") ;
+    document.write("Khối lượng còn lại của quả táo: " + apple.getWeight() + "<br>");
+</script>
+</body>
+</html>
