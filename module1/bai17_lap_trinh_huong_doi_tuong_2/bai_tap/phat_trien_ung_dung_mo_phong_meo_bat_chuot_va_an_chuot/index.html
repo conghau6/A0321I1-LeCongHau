@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Mouse {
+        constructor(name) {
+            this.name = name;
+            this.weight = "";
+            this.speed = 50;
+            this.status = true;
+        }
+        getName(){
+            return this.name;
+        }
+        setName(name){
+            this.name = name;
+        }
+        getWeight(){
+            return this.weight;
+        }
+        getSpeed(){
+            return this.speed;
+        }
+        say(){
+            return "chít, chít";
+        }
+        setStatus(status){
+            this.status = status;
+        }
+        getStatus(){
+            if(this.weight>0){
+                return true;
+            } else return false;
+        }
+    };
+    class Cat {
+        constructor(name) {
+            this.name = name;
+            this.weight = "";
+            this.speed = 100;
+            this.status = true;
+        }
+        say(){
+            return "meo meo";
+        }
+        increaseWeight(){
+            this.weight++;
+        }
+        getSpeed(){
+            return this.speed;
+        }
+        catchMouse(mouse){
+            if(this.speed > mouse.getSpeed){
+                alert("Đã bắt được " + mouse.getName());
+                return true;
+            } else {
+                alert("Chuột chạy nhanh quá không bắt được");
+                return false;
+            }
+        }
+        eatMouse(mouse){
+            if(this.catchMouse() && mouse.getStatus()){
+               mouse.setStatus(false);
+               this.increaseWeight();
+               alert(this.name + " đã ăn thịt " + mouse.getName());
+            } else {
+                alert("Chuột đã chết, không ăn được");
+            }
+        }
+    };
+    var jerry = new Mouse("Jerry");
+    var tom = new Cat("Tom");
+    document.write(jerry.getSpeed() + " " + tom.getSpeed());
+    tom.catchMouse(jerry);
+
+</script>
+</body>
+</html>
