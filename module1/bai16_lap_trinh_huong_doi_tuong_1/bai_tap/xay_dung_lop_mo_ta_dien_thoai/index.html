@@ -5,74 +5,84 @@
     <title>Title</title>
 </head>
 <body>
+<div>
+    <input type="text" id="samSung"  style="height: 40px;width: 300px;">
+    <input type="button" value="Send" onclick="send('samSung')">
+    <input type="button" value="show" onclick="show('samSung')">
+    <input type="button" value="On/Off" onclick="onOff('samSung')">
+</div>
+<div>
+    <input type="text" id="nokia" style="height: 40px;width: 300px">
+    <input type="button" value="Send" onclick="send('nokia')">
+    <input type="button" value="show" onclick="show('nokia')">
+    <input type="button" value="On/Off" onclick="onOff('nokia')">
+</div>
 <script>
-    class Mobile {
-        constructor(id, name) {
-            this.id = id;
-            this.name = name;
-            this.message = "";
-            this.batery = 100;
-            this.power = "off";
-            this.savedMessage = "";
+    class DienThoai {
+        constructor() {
+            this.trangThai="On";
+            this.pin=10;
+            this.tinSoan="";
+            this.tinDaGui="";
+            this.tinNhan="";// tin nhận
         }
-        getSavedMessage(){
-            return this.savedMessage;
-        }
-        setSavedMessage(message){
-            this.savedMessage = this.savedMessage + message + ", ";
-        }
-        powerOn(){
-            this.power = "on";
-        }
-        powerOff(){
-            this.power = "off";
-        }
-        getPower(){
-            return this.power;
-        }
-        getBatery(){
-            return this.batery;
-        }
-        setBatery(batery){
-            this.batery = batery;
-        }
-        setMessage(message){
-            this.message = message;
-        }
-        getMessage(){
-            this.setBatery(this.batery-1);
-            return this.message;
-        }
-        charge(){
-            this.batery = 100;
-        }
-        sendMessage(message,mobile){
-            if(this.power==="on" && mobile.power==="on") {
-                mobile.setMessage(message);
-                this.setSavedMessage(message);
-                this.setBatery(this.batery - 1);
-            } else if (this.power==="of"){
-                alert("Vui lòng bật " + this.name);
-            } else {
-                alert("Vui lòng bật " + mobile.name);
+        batTat(){
+            if(this.trangThai=="On"){
+                this.trangThai ="Off"
+            }else {
+                this.trangThai ="On"
             }
         }
-    };
-    var iphone = new Mobile(1,"iphone");
-    var android = new Mobile(2,"android");
-    iphone.charge();
-    android.charge();
-    iphone.powerOn();
-    android.powerOn();
-    document.write("Trang thái iphone: " + iphone.getPower());
-    document.write("<br>Trang thái android: " + android.getPower());
-    iphone.sendMessage("hello bạn android",android);
-    android.sendMessage("hello bạn iphone",iphone);
-    document.write("<br>iphone: " + iphone.getMessage());
-    document.write("<br>android: " + android.getMessage());
-    document.write("<br> Dung lượng pin còn lại của iphone: " + iphone.getBatery());
-    document.write("<br> Dung lượng pin còn lại của android: " + android.getBatery());
-    document.write("<br> Tin nhắn đã gữi của iphone: " + iphone.getSavedMessage());
+        sac(){
+            this.pin=100;
+        }
+        getTrangThai(){
+            return this.trangThai;
+        }
+        // soạn tin nhắn
+        soanTinNhan(text){
+            this.tinSoan=text;
+            this.pin--;
+        }
+        // nhận tin nhắn
+        nhanTinNhan(text){
+            this.tinNhan= text;
+            this.pin--;
+        }
+        // gửi tin nhăn
+        guiTinNhan(dienThoai, text){
+            this.soanTinNhan(text);
+            this.tinDaGui=this.tinSoan;
+            this.tinSoan="";
+            dienThoai.nhanTinNhan(this.tinDaGui)
+            this.pin--;
+        }
+        hienThiTinNhanDen(){
+            return this.tinNhan;
+        }
+    }
+    let nokia = new DienThoai();
+    let samsung = new DienThoai();
+function send(dienThoai) {
+    if(dienThoai=="samSung"){
+        let tinNhan=document.getElementById("samSung").value;
+        samsung.guiTinNhan(nokia,tinNhan);
+        document.getElementById("samSung").value="tin của bạn đã gửi";
+        document.getElementById("nokia").value="bạn có tin nhăn mới";
+    }else {
+        let tinNhan=document.getElementById("nokia").value;
+        nokia.guiTinNhan(samsung,tinNhan);
+        document.getElementById("nokia").value="tin của bạn đã gửi";
+        document.getElementById("samSung").value="bạn có tin nhăn mới";
+    }
+}
+    function show(dienThoai) {
+        if(dienThoai=="samSung"){
+            document.getElementById("samSung").value=samsung.hienThiTinNhanDen();
+        }else {
+            document.getElementById("nokia").value=nokia.hienThiTinNhanDen();
+        }
+    }
 </script>
 </body>
 </html>
