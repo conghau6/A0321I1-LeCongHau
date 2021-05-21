@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    numerators = [5,2,5];
+    denomirator = [6,3,4];
+    var x = 0;
+    var max = numerators[0] / denomirator [0];
+    for(let i =0 ; i<numerators.length; i++){
+        if(numerators[i] / denomirator[i] > max){
+            max  = numerators[i]/denomirator[i];
+            x = i;
+        }
+    }
+    document.write(x);
+</script>
+</body>
+</html>

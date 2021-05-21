@@ -6,15 +6,17 @@
 </head>
 <body>
 <script>
-    for(let i = 1; i<=4; i++){
-        for(let j=1; j<=5; j++){
-            if(i===1 || i===4 || j===1 || j===5){
-                document.write("*");
-            } else {
+    var i=1;
+    var h = 5;
+    while(i<=h){
+        for(let x=i; x<=h-1; x++){
                 document.write("&nbsp;&nbsp;");
-            }
+        }
+        for(let k=1; k<=2*i-1; k++){
+            document.write("*");
         }
         document.write("<br>");
+        i++;
     }
 </script>
 </body>

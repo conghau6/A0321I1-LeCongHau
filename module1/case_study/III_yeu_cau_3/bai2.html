@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var a = [7,2,5,3,5,3]
+    var b = [7,2,5,4,6,3,5,3];
+    var c = [];
+    for(let i = 0; i<a.length ; i++){
+        for(let j=0; j<b.length; j++){
+            if(a.indexOf(b[j])===-1){
+                if(c.indexOf(b[j])===-1){
+                    c.push(b[j]);
+                }
+            }
+        }
+    }
+    document.write(c.join());
+</script>
+</body>
+</html>

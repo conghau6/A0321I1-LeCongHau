@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var i=1;
+    var h = 5;
+    while(i<=h){
+        for(let x=1; x<=i; x++) {
+            if(x===1 || x===i){
+                document.write("*");
+            } else {
+                document.write("&nbsp;&nbsp");
+            }
+        }
+        document.write("<br>");
+        i++;
+        if(i===h){
+            for(let i=0; i<h; i++){
+                document.write("*");
+            }
+            break;
+        }
+    }
+</script>
+</body>
+</html>

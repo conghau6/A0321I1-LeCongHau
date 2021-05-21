@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let salary = parseInt(prompt("Nhập tiền lương(triệu): "));
+    let thue;
+    if(salary>15){
+        thue = salary * 20 / 100;
+    } else if(salary<15 && salary>7){
+        thue = salary * 10 /100;
+    } else {
+        thue = salary * 5 / 100;
+    }
+    document.write("Thuế: " + thue + "<br>");
+    document.write("Lương nhận được: " + (salary-thue) + " triệu");
+</script>
+</body>
+</html>
