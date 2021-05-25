@@ -77,14 +77,19 @@
     }
     function check() {
         var arrKetQua=[12,44,21,15,8,54];
-        for(let i=0; i<arrKetQua.length; i++){
-            if(arrKetQua[i]!==soVeDaMua[i]) return false;
+        if(arrKetQua[5]===soVeDaMua[5] && arrKetQua[4]===soVeDaMua[4] && arrKetQua[3]===soVeDaMua[3]) {
+            if (arrKetQua[2] === soVeDaMua[2]) {
+                if (arrKetQua[1] === soVeDaMua[1]) return 1;
+                else return 2;
+            } else return 3;
         }
-        return true;
+        return 0;
     }
     function xemKetQua() {
-       if(check()) alert("ok");
-       else alert("Chúc bạn may mắn lần sau");
+       if(check()===1) alert("Chúc mừng bạn đã trúng giải Nhất!");
+       if(check()===2) alert("Chúc mừng bạn đã trúng giải Nhì!");
+       if(check()===3) alert("Chúc mừng bạn đã trúng giải Ba!");
+       if(check()===0) alert("Chúc bạn may mắn lần sau");
     }
 </script>
 </html>
