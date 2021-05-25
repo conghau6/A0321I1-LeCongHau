@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var m = parseInt(prompt("Nhập m:"));
+    var n = parseInt(prompt("Nhập n:"));
+    var arr = [];
+    var sum = 0;
+    for(let i=0; i<m; i++){
+        arr[i] = [];
+        for(let j=0; j<n; j++){
+            arr[i][j]=parseInt(prompt("a["+i+"]["+j+"]"));
+            if(arr[i][j]%2===0) sum+=arr[i][j];
+        }
+    }
+    document.write("Tổng số chẳn = " + sum);
+</script>
+</body>
+</html>

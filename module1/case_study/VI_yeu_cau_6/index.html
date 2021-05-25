@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Xổ số CodeGym</h3>
+<table>
+    <tr>
+        <td><input readonly value="15"></td>
+        <td><input readonly value="25"></td>
+        <td><input readonly value="35"></td>
+        <td><input readonly value="45"></td>
+        <td><input readonly value="55"></td>
+        <td><input readonly value="65"></td>
+    </tr>
+    <tr>
+        <td><input readonly value="10"></td>
+        <td><input readonly value="20"></td>
+        <td><input readonly value="30"></td>
+        <td><input readonly value="40"></td>
+        <td><input readonly value="50"></td>
+        <td><input readonly value="60"></td>
+    </tr>
+</table>
+<button style="width: 70px" onclick="muaVe()">Mua vé</button>
+<button onclick="xemKetQua()">Xem kết quả</button>
+<p id="display"></p>
+<p id="chonso"></p>
+<p>Số bạn đã chọn<input id="sove" readonly style="width: 160px"></p>
+</body>
+<style>
+    input{
+        width: 60px;
+    }
+</style>
+<script>
+    var soVeDaMua = [];
+    let array = new Array(10);
+    for (let i=0; i<10; i++){
+        array[i] = new Array(10);
+        for (let j=0; j<10; j++){
+            array[i][j]=i*10+j;
+        }
+    }
+    function hienThi() {
+        let tableString='<table border="1">';
+        for (let i=0; i<10; i++){
+            tableString += '<tr>';
+            for (let j=0; j<10; j++){
+                tableString += '<td width="20" height="20" onclick="chonSo('+array[i][j]+')">' + array[i][j] + '</td>';
+            }
+            tableString += '</tr>'
+        }
+        document.getElementById("display").innerHTML = tableString;
+    }
+    function chonSo(x) {
+        if(soVeDaMua.length<6) {
+            soVeDaMua.push(x);
+            document.getElementById("sove").value += x + " ";
+        }
+    }
+    function muaVe() {
+        do{
+            var luaChon = parseInt(prompt("Bạn có 2 lựa chọn: " + "\n" + "1. Bạn muốn tự chọn số." + "\n" + "2. He thong tu random."));
+        }while(luaChon!==1 && luaChon!==2);
+        if(luaChon===1) {
+            hienThi();
+        } else {
+            for (let i = 0; i < 6; i++) {
+                var x = Math.floor(Math.random() * 100) + 1;
+                soVeDaMua.push(x);
+                document.getElementById("sove").value += x + " ";
+            }
+        }
+    }
+    function check() {
+        var arrKetQua=[12,44,21,15,8,54];
+        for(let i=0; i<arrKetQua.length; i++){
+            if(arrKetQua[i]!==soVeDaMua[i]) return false;
+        }
+        return true;
+    }
+    function xemKetQua() {
+       if(check()) alert("ok");
+       else alert("Chúc bạn may mắn lần sau");
+    }
+</script>
+</html>

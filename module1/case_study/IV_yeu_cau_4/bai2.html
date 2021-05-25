@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function differentSymbolsNaive(s) {
+        var count = 0;
+        for(let i=0; i<s.length; i++){
+            var k = 0;
+            for(let j=0; j<i; j++){
+                if(s[i]!==s[j]){
+                    k++;
+                }
+            }
+            if(i===k) count++;
+        }
+        return count;
+    }
+    var s = "calkkbca";
+    document.write(differentSymbolsNaive(s));
+</script>
+</body>
+</html>

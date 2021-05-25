@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<ol>
+    <li>Cafe 15k</li>
+    <li>Cam vắt 15k</li>
+    <li>Nước ép cà rốt 10k</li>
+    <li>Nước ép cà chua 20k</li>
+    <li>Nước lọc 5k</li>
+    <li>Nước dừa 15k</li>
+</ol>
+<body>
+<script>
+    while(true){
+        var x = parseInt(prompt("Bạn cần mua gì(1->6): "));
+        var count = 0;
+        switch (x) {
+            case 1: count = 15; alert("Giá 15k/1 ly caffe"); break;
+            case 2: count = 15; alert("Giá 15k/1 ly cam vắt"); break;
+            case 3: count = 10; alert("Giá 10k/1 ly nước ép cà rốt"); break;
+            case 4: count = 20; alert("Giá 20k/1 ly nước ép cà chua"); break;
+            case 5: count = 5; alert("Giá 5k/ 1 ly nước lọc"); break;
+            case 6: count = 15; alert("Giá 15k/ 1 ly nước dừa"); break;
+            default:  break;
+        }
+        if(x===7) break;
+        if(x>7){
+            alert("Nhập sai, vui lòng nhập lại!");
+        } else {
+            var soLuong = parseInt(prompt("Nhập số lượng: "));
+            alert("Tổng tiền: " + soLuong * count + "000 VND");
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function chuanHoa(str) {
+        var newStr = "";
+        str = str.toLowerCase();
+        newStr += str[0].toUpperCase();
+        for(let i=1; i<str.length; i++){
+            if(str[i]!==" "){
+                if(str[i-1]===" ") newStr += str[i].toUpperCase();
+                else newStr += str[i];
+            }
+            if(str[i]===" " && str[i+1]!==" "){
+                newStr += str[i];
+            }
+        }
+        return newStr;
+    }
+    function tuDaiNhat(str) {
+        var newStr = "";
+        var count = 0;
+        var max = 0;
+        var begin = 0;
+        var end = 0;
+        for(let i=0; i<str.length; i++){
+            count = 0;
+            var j = i;
+            while(str[j]!==" ") {
+                count++;
+                j++;
+            }
+            if(count>max){
+                max = count;
+                begin = i;
+                end = j;
+                newStr = str.slice(begin,end);
+            }
+        }
+        return newStr;
+    }
+    var str = "tRuong    TaN   HAI    ";
+    var newStr = chuanHoa(str)
+    document.write("Xâu trước khi chuẩn hoá: " + str + "<br>");
+    document.write("Xâu sau khi chuẩn hoá: " + newStr + "<br>");
+    document.write("Từ dài nhất: " + tuDaiNhat(chuanHoa(str)));
+</script>
+</body>
+</html>
