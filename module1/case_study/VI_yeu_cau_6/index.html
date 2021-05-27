@@ -1,95 +1,182 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
+<div class="page">
+<p>
 <h3>Xổ số CodeGym</h3>
-<table>
-    <tr>
-        <td><input readonly value="15"></td>
-        <td><input readonly value="25"></td>
-        <td><input readonly value="35"></td>
-        <td><input readonly value="45"></td>
-        <td><input readonly value="55"></td>
-        <td><input readonly value="65"></td>
-    </tr>
-    <tr>
-        <td><input readonly value="10"></td>
-        <td><input readonly value="20"></td>
-        <td><input readonly value="30"></td>
-        <td><input readonly value="40"></td>
-        <td><input readonly value="50"></td>
-        <td><input readonly value="60"></td>
-    </tr>
-</table>
-<button style="width: 70px" onclick="muaVe()">Mua vé</button>
-<button onclick="xemKetQua()">Xem kết quả</button>
+<p id="danhSachVe"></p>
+<p id="buttonMuaVe"><button style="width: 70px" onclick="muaVe()">Mua vé</button> <label id="xemKetQua"></label></p>
 <p id="display"></p>
 <p id="chonso"></p>
-<p>Số bạn đã chọn<input id="sove" readonly style="width: 160px"></p>
+</div>
 </body>
 <style>
-    input{
+    input {
         width: 60px;
+        background-color: #9dffb7;
+        text-align: center;
+        color: brown;
+    }
+    .page {
+       font-family: sans-serif;
+    }
+    button{
+        background:#1AAB8A;
+        color:#fff;
+        border:none;
+        position:relative;
+        height:20px;
+        width: 130px;
+        font-size:15px;
+        padding: 0px;
+        cursor:pointer;
+        transition:800ms ease all;
+        outline:none;
+    }
+    button:hover{
+        background:#fff;
+        color:#1AAB8A;
+    }
+    button:before,button:after{
+        content:'';
+        position:absolute;
+        top:0;
+        right:0;
+        height:2px;
+        width:0;
+        background: #1AAB8A;
+        transition:400ms ease all;
+    }
+    button:after{
+        right:inherit;
+        top:inherit;
+        left:0;
+        bottom:0;
+    }
+    button:hover:before,button:hover:after{
+        width:100%;
+        transition:800ms ease all;
+    }
+    table {
+        width: 10%;
+        border-collapse: collapse;
+    }
+    td, th {
+        background-color: #bcfff1;
+        color: black;
+        padding: 1px;
+        border: 2px solid beige;
+    }
+    .buttonTable {
+        all: revert;
+    }
+    .buttonTable:hover{
+        size: 40px;
+        padding-top: 0px;
+        background: orange;
+        color:black;
     }
 </style>
 <script>
-    var soVeDaMua = [];
-    let array = new Array(10);
-    for (let i=0; i<10; i++){
-        array[i] = new Array(10);
-        for (let j=0; j<10; j++){
-            array[i][j]=i*10+j;
-        }
-    }
-    function hienThi() {
-        let tableString='<table border="1">';
-        for (let i=0; i<10; i++){
-            tableString += '<tr>';
-            for (let j=0; j<10; j++){
-                tableString += '<td width="20" height="20" onclick="chonSo('+array[i][j]+')">' + array[i][j] + '</td>';
-            }
-            tableString += '</tr>'
-        }
-        document.getElementById("display").innerHTML = tableString;
-    }
-    function chonSo(x) {
-        if(soVeDaMua.length<6) {
-            soVeDaMua.push(x);
-            document.getElementById("sove").value += x + " ";
-        }
-    }
+    var count = 0;
+    document.getElementById("danhSachVe").innerHTML = "Bạn đã mua "+'<lable id="countVe">0</lable>' + " vé: <br>" ;
+    var danhSachVe = [];
+    var array = [];
+    var soBanDaChon = [];
     function muaVe() {
-        do{
-            var luaChon = parseInt(prompt("Bạn có 2 lựa chọn: " + "\n" + "1. Bạn muốn tự chọn số." + "\n" + "2. Hệ thống tự random."));
-        }while(luaChon!==1 && luaChon!==2);
-        if(luaChon===1) {
-            hienThi();
-        } else {
-            for (let i = 0; i < 6; i++) {
-                var x = Math.floor(Math.random() * 100) + 1;
-                soVeDaMua.push(x);
-                document.getElementById("sove").value += x + " ";
+        if(danhSachVe.length<4) {
+            var luaChon = parseInt(prompt('Bạn có 2 lụa chọn:\n1. Bạn muốn tự chọn số\n2. Hệ thống tự random'));
+            if (luaChon === 1) {
+                array = [];
+                for (let i = 0; i < 10; i++) {
+                    array[i] = new Array(10);
+                    for (let j = 0; j < 10; j++) {
+                        array[i][j] = i * 10 + j;
+                    }
+                }
+                let tableString = '<table border="1">';
+                for (let i = 0; i < 10; i++) {
+                    tableString += '<tr>';
+                    for (let j = 0; j < 10; j++) {
+                        tableString += '<td><button class="buttonTable" width="20" height="20" onclick="themSo(' + array[i][j] + ')">' + array[i][j]+ '</button></td>';
+                        // tableString += '<td width="20" height="20" onclick="themSo(' + array[i][j] + ')">' + array[i][j] + '</td>';
+                    }
+                    tableString += '</tr>';
+                }
+                document.getElementById("display").innerHTML = tableString
+                    + '<p>Số bạn đã chọn<input id="soBanDaChon" readonly style="width: 160px" disabled><button class="buttonThemVe" onclick="themVe()">Thêm vé</button></p>';
+            } else if (luaChon === 2) {
+                document.getElementById("display").innerHTML = "";
+                randomVe();
             }
+        } else alert("Mua tối đa 4 vé");
+    }
+    function themSo(x) {
+        if(soBanDaChon.length<6) {
+            soBanDaChon.push(x);
+            document.getElementById("soBanDaChon").value += x + " ";
         }
     }
-    function check() {
-        var arrKetQua=[12,44,21,15,8,54];
-        if(arrKetQua[5]===soVeDaMua[5] && arrKetQua[4]===soVeDaMua[4] && arrKetQua[3]===soVeDaMua[3]) {
-            if (arrKetQua[2] === soVeDaMua[2]) {
-                if (arrKetQua[1] === soVeDaMua[1]) return 1;
-                else return 2;
-            } else return 3;
+    function themVe() {
+        if(soBanDaChon.length<6) alert("Nhập đủ 6 số!");
+        else {
+            if(danhSachVe.length<4) {
+                document.getElementById("xemKetQua").innerHTML = '<button onclick="xemKetQua()">Xem kết quả</button>';
+                count++;
+                document.getElementById("countVe").innerHTML = count;
+                danhSachVe.push(soBanDaChon);
+                document.getElementById("danhSachVe").innerHTML += "Vé " + danhSachVe.length + ": ";
+                for (let i = 0; i < soBanDaChon.length; i++) {
+                    document.getElementById("danhSachVe").innerHTML += '<input disabled value="' + soBanDaChon[i] + '">' + ' ';
+                }
+                document.getElementById("danhSachVe").innerHTML += "<br>";
+                document.getElementById("soBanDaChon").value = null;
+                soBanDaChon = [];
+            } else alert("Bạn đã hết lượt mua");
         }
-        return 0;
+    }
+    function randomVe() {
+        document.getElementById("xemKetQua").innerHTML = '<button onclick="xemKetQua()">Xem kết quả</button>';
+            for (let i = 0; i < 6; i++) {
+                soBanDaChon.push(Math.floor(Math.random() * 100));
+            }
+            count++;
+            document.getElementById("countVe").innerHTML = count;
+            danhSachVe.push(soBanDaChon);
+            document.getElementById("danhSachVe").innerHTML += "Vé " + danhSachVe.length + ": ";
+            for (let i = 0; i < soBanDaChon.length; i++) {
+                document.getElementById("danhSachVe").innerHTML += '<input disabled value="' + soBanDaChon[i] + '">' + ' ';
+            }
+            soBanDaChon = [];
+            document.getElementById("danhSachVe").innerHTML += "<br>";
     }
     function xemKetQua() {
-       if(check()===1) alert("Chúc mừng bạn đã trúng giải Nhất!");
-       if(check()===2) alert("Chúc mừng bạn đã trúng giải Nhì!");
-       if(check()===3) alert("Chúc mừng bạn đã trúng giải Ba!");
-       if(check()===0) alert("Chúc bạn may mắn lần sau");
+        var arrKetQua = [31,10,1,10,6,2];
+        var soGiaiNhat = 0;
+        var soGiaiNhi = 0;
+        var soGiaiBa = 0;
+        var winer = false;
+        for(let i=0; i<danhSachVe.length; i++){
+                if(arrKetQua[5]===danhSachVe[i][5] && arrKetQua[4]===danhSachVe[i][4] && arrKetQua[3]===danhSachVe[i][3]) {
+                    if (arrKetQua[2] === danhSachVe[i][2]) {
+                        if (arrKetQua[1] === danhSachVe[i][1]) {
+                            if(arrKetQua[0]===danhSachVe[i][0]){soGiaiNhat++; winer=true}
+                            else {soGiaiNhi++; winer=true}
+                        }
+                    } else {soGiaiBa++; winer=true;}
+                }
+        }
+        if(!winer) alert("Chúc bạn may mắn lần sau");
+        else{
+            var str = (soGiaiNhat>0)?(soGiaiNhat + " vé trúng giải nhất\n"):" ";
+            (soGiaiNhi>0)?(str+=soGiaiNhi + " vé trúng giải nhì\n"):"";
+            (soGiaiBa>0)?(str+=soGiaiBa + " vé trúng giải ba"):"";
+            alert(str);
+        }
     }
 </script>
 </html>
