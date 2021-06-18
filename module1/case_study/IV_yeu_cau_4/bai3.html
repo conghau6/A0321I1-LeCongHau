@@ -8,8 +8,9 @@
 <script>
     function commonCharacterCount(s1, s2) {
         var count = 0;
+        let index;
         for (let i = 0; i < s1.length; i++) {
-            let index = s2.indexOf(s1.charAt(i));
+             index = s2.indexOf(s1.charAt(i));
             if (index !== -1) {
                 count++;
                 s2 = s2.replace(s2.charAt(index),"");
@@ -17,7 +18,7 @@
         }
         return count;
     }
-    var str1 = "aabcc";
+    var str1 = "aaaac";
     var str2 = "adcaa";
     document.write(commonCharacterCount(str1, str2));
 </script>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let soNhapVao = parseInt(prompt("Nhập 1 số: "));
+    function kiemTraSoHoanHao(so) {
+        let tong = 0;
+        for(let i=1; i<=so/2; i++){
+            if(so%i===0) {
+                tong += i;
+            }
+        }
+        if(tong===so) return true;
+        return false;
+    }
+    document.write(kiemTraSoHoanHao(soNhapVao));
+</script>
+</body>
+</html>

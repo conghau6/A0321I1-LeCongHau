@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<center>
+<h4>Quản lý công nhân</h4>
+<p id="hienThi"></p>
+<script>
+    class CongNhan {
+        constructor(hoTen, ngaySinh, diaChi, luong, chucVu) {
+            this.hoTen = hoTen;
+            this.ngaySinh = ngaySinh;
+            this.diaChi = diaChi;
+            this.luong = luong;
+            this.chucVu = chucVu;
+        }
+
+        getHoTen() {
+            return this.hoTen;
+        }
+
+        getNgaySinh() {
+            return this.ngaySinh;
+        }
+
+        getDiaChi() {
+            return this.diaChi;
+        }
+
+        getLuong() {
+            return this.luong;
+        }
+
+        getChucVu() {
+            return this.chucVu;
+        }
+
+        setHoTen(hoTen) {
+            this.hoTen = hoTen;
+        }
+
+        setNgaySinh(ngaySinh) {
+            this.ngaySinh = ngaySinh;
+        }
+
+        setLuong(luong){
+            this.luong = luong;
+        }
+
+        setDiaChi(diaChi){
+            this.diaChi = diaChi;
+        }
+
+        setChucVu(chucVu){
+            this.chucVu = chucVu;
+        }
+
+    }
+    
+    let listCongNhan = [];
+    listCongNhan.push(new CongNhan("Trương Tấn A","11-11-1997","Quảng Nam",2000,"Abc"));
+    listCongNhan.push(new CongNhan("Trương Tấn B","11-11-1998","Đà Nẵng",2000,"Abc"));
+    listCongNhan.push(new CongNhan("Trương Tấn C","11-11-1999","Huế",2000,"Abc"));
+
+
+    function hienThi(danhSach) {
+        let tabeString = '<table border="1">' +
+            '<tr>' +
+            '<td>STT</td>' +
+            '<td>Họ và tên</td>' +
+            '<td>Ngày sinh</td>' +
+            '<td>Địa chỉ</td>' +
+            '<td>Lương</td>' +
+            '<td>Chức vụ</td>' + '</tr>'
+        for(let i=0; i<danhSach.length; i++){
+            tabeString += '<tr>' +
+                '<td>' + (i+1) + '</td>' +
+                '<td>' + danhSach[i].getHoTen() + '</td>' +
+                '<td>' +  danhSach[i].getNgaySinh() + '</td>' +
+                '<td>' +  danhSach[i].getDiaChi() + '</td>' +
+                '<td>' +  danhSach[i].getLuong() + '</td>' +
+                '<td>' +  danhSach[i].getChucVu() + '</td>' + '</tr>'
+        }
+        document.getElementById("hienThi").innerHTML = tabeString;
+    }
+    hienThi(listCongNhan);
+</script>
+</center>
+</body>
+
+<style>
+    *{
+        font-family: arial, sans-serif;
+    }
+    table {
+        border-collapse: collapse;
+        width: 50%;
+    }
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+</style>
+</html>

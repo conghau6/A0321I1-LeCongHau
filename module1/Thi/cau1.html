@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr = new Array();
+    let tong = 0;
+    let dem = 0;
+    let soLuong = 0;
+    do {
+        soLuong = parseInt(prompt("Nhập số lượng phần tử mảng"));
+    }while(soLuong>=50);
+    for(let i=0; i<soLuong; i++){
+        let x = parseInt(prompt("Nhập phần tử arr[" + i + "]: "));
+        arr.push(x);
+    }
+    for(let i=0; i<arr.length; i++){
+        if(arr[i]%3===0){
+            tong += arr[i];
+            dem++;
+        }
+    }
+    document.write("Mảng vùa nhập là: " + arr + "<br>");
+    document.write("TBC các số chia hết cho 3 là: " + tong/dem);
+</script>
+</body>
+</html>

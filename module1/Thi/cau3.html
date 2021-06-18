@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let nhapVao = "";
+    let thang = 0;
+    let nam = 0;
+    let soNgay = "";
+    function kiemTra(x) {
+        thang = x.substr(0,2);
+            if(thang>12 || thang<0) return false;
+        nam = x.substr(3,7);
+            if(nam<0) return false;
+        if(x.charAt(2)!=="/" && x.length!==7) return false;
+        return true;
+    }
+    do {
+        nhapVao = prompt("Nhập vào 1 tháng (MM/yyyy): ");
+    }while (!kiemTra(nhapVao));
+
+    switch (parseInt(thang)) {
+        case 1: case 3: case 5: case 7: case 8: case 10: case 12:
+            soNgay = "31 ngày";
+            break;
+        case 4: case 6: case 9: case 11:
+            soNgay = "30 ngày";
+            break;
+        case 2:
+            if(nam % 4===0 && nam % 100 !==0){
+                soNgay = "28 ngày (năm nhuận)";
+            }else {
+                soNgay = "29 ngày";
+            }
+            break;
+    }
+    document.write("Tháng " + nhapVao + " có " + soNgay);
+</script>
+</body>
+</html>
