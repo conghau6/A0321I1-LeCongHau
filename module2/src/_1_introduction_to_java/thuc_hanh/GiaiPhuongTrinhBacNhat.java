@@ -26,7 +26,7 @@ public class GiaiPhuongTrinhBacNhat {
         }
     }
     public static void main(String[] args) {
-        GiaiPhuongTrinhBacNhat.nhap();
-        GiaiPhuongTrinhBacNhat.giai();
+        nhap();
+        giai();
     }
 }
