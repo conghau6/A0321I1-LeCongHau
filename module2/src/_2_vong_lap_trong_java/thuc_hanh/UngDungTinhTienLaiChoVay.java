@@ -4,6 +4,6 @@ import java.util.Scanner;
 
 public class UngDungTinhTienLaiChoVay {
     public static void main(String[] args) {
-        
+
     }
 }
