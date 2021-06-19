@@ -9,7 +9,10 @@ public class TimUocChungLonNhat {
         int a = scanner.nextInt();
         System.out.print("Nhập số b: ");
         int b = scanner.nextInt();
-        if(a==0 || b==0) System.out.println("Không có ước chung lớn nhất");
+        if(a==0 || b==0) {
+            System.out.println("Không có ước chung lớn nhất");
+            System.exit(0);
+        }
         while (a!=b){
             if(a>b) a = a - b;
             else b = b - a;
