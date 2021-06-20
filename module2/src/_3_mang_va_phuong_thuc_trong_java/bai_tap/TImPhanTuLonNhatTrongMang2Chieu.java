@@ -1,5 +1,7 @@
 package _3_mang_va_phuong_thuc_trong_java.bai_tap;
 
+import java.util.Scanner;
+
 public class TImPhanTuLonNhatTrongMang2Chieu {
     public static void maxValue(double[][] array){
         double max = array[0][0];
@@ -17,11 +19,17 @@ public class TImPhanTuLonNhatTrongMang2Chieu {
                 +x+","+y+"]");
     }
     public static void main(String[] args) {
-        double[][] arr = {
-                {1.3,43.2,7.4},
-                {2.3,3.3,2.9},
-                {6.3,7.3,8.9},
-        };
+        int size;
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a size: ");
+        size = scanner.nextInt();
+        double[][] arr = new double[size][size];
+        for(int i=0; i<size; i++){
+            for(int j=0; j<arr[i].length; j++){
+                System.out.print("Enter element arr[" + i + "," + j + "]");
+                arr[i][j] = scanner.nextDouble();
+            }
+        }
         maxValue(arr);
     }
 }
