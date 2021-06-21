@@ -4,14 +4,15 @@ import java.util.Scanner;
 
 public class DemSoLuongSinhVienDo {
     public static void main(String[] args) {
-        int numberStudent;
+        int size;
         Scanner scanner = new Scanner(System.in);
         do {
             System.out.print("Enter a size: ");
-            numberStudent = scanner.nextInt();
-        }while(numberStudent>30);
+            size = scanner.nextInt();
+            System.out.println("Size should not exceed 30");
+        }while(size>30);
 
-        int[] arr = new int[numberStudent];
+        int[] arr = new int[size];
         int count = 0;
         for(int i=0; i<arr.length; i++){
             System.out.print("Enter a mark of student " + (i+1) +": ");
