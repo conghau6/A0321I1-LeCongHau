@@ -14,10 +14,13 @@ public class TongCacSoOMotCotNhatDinh {
     }
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int size, column;
-        System.out.print("Enter a size: ");
+        int size, column, row;
+        System.out.print("Enter a row: ");
+        row = scanner.nextInt();
+        System.out.print("Enter a column: ");
+        column = scanner.nextInt();
         size = scanner.nextInt();
-        int[][] arr = new int[size][size];
+        int[][] arr = new int[row][column];
         for(int i=0; i<size; i++){
             for(int j=0; j<arr[i].length; j++){
                 System.out.print("Enter element arr[" + i + "," + j + "]: ");
