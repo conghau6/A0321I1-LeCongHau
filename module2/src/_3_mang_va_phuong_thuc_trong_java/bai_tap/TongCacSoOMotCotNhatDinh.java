@@ -14,21 +14,20 @@ public class TongCacSoOMotCotNhatDinh {
     }
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int size, column, row;
+        int column, row;
         System.out.print("Enter a row: ");
         row = scanner.nextInt();
         System.out.print("Enter a column: ");
         column = scanner.nextInt();
-        size = scanner.nextInt();
         int[][] arr = new int[row][column];
-        for(int i=0; i<size; i++){
-            for(int j=0; j<arr[i].length; j++){
+        for(int i=0; i<row; i++){
+            for(int j=0; j<column; j++){
                 System.out.print("Enter element arr[" + i + "," + j + "]: ");
                 arr[i][j] = scanner.nextInt();
             }
         }
-        System.out.print("Enter the column: ");
-        column = scanner.nextInt();
-        System.out.println("Sum of column " + column + " = " + sumOfColumn(arr,column));
+        System.out.print("Sum of column (Enter column): ");
+        int x = scanner.nextInt();
+        System.out.println("Sum of column " + column + " = " + sumOfColumn(arr,x));
     }
 }
