@@ -2,7 +2,7 @@ package _3_mang_va_phuong_thuc_trong_java.bai_tap;
 
 import java.util.Scanner;
 
-public class TongCacSoODuongCheoChinh {
+public class TongCacSoODuongCheoChinhMaTran {
     public static int sumOfDiagonalLine(int[][] array){
         int sum1 =0, sum2 = 0;
         for(int i=0; i<array.length; i++){
