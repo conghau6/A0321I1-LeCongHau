@@ -1,13 +1,13 @@
-package _6_ke_thua.bai_tap.lop_point2d_va_lop_point3d;
+package _6_ke_thua.bai_tap.lop_point_va_movablepoint;
 
-public class Point2D {
+public class Point {
     private float x = 0.0f;
     private float y = 0.0f;
 
-    public Point2D() {
+    public Point() {
     }
 
-    public Point2D(float x, float y) {
+    public Point(float x, float y) {
         this.x = x;
         this.y = y;
     }
@@ -42,4 +42,5 @@ public class Point2D {
     public String toString(){
         return "(" + x + "," + y + ")";
     }
+
 }
