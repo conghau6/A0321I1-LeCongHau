@@ -19,7 +19,8 @@ public class Cylinder extends Circle {
     public void setHight(double hight) {
         this.hight = hight;
     }
-    public double geVolume(){
+
+    public double geVolume() {
         return Math.PI * hight * getRadius() * getRadius();
     }
 
@@ -29,7 +30,7 @@ public class Cylinder extends Circle {
                 "hight=" + hight +
                 ", radius=" + getRadius() +
                 ", color='" + getColor() +
-                ", volume='" + geVolume()+ '\'' +
+                ", volume='" + geVolume() + '\'' +
                 '}';
     }
 
