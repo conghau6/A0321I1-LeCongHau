@@ -1,4 +1,4 @@
-package _4_lop_va_doi_tuong_trong_java.bai_tap;
+package _4_lop_va_doi_tuong_trong_java.bai_tap.xay_dung_lop_stopwatch;
 
 public class StopWatch {
     private long startTime, endTime;
@@ -19,22 +19,19 @@ public class StopWatch {
         this.endTime = endTime;
     }
 
-    public StopWatch(){
+    public StopWatch() {
         startTime = System.currentTimeMillis();
     }
-    public void start(){
+
+    public void start() {
         startTime = System.currentTimeMillis();
     }
-    public void end(){
+
+    public void end() {
         endTime = System.currentTimeMillis();
     }
-    public long getElapsedTime(){
+
+    public long getElapsedTime() {
         return endTime - startTime;
-    }
-    public static void main(String[] args) {
-        StopWatch stopWatch = new StopWatch();
-        stopWatch.start();
-        stopWatch.end();
-        System.out.println(stopWatch.getElapsedTime());
     }
 }
