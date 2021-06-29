@@ -1,9 +1,9 @@
 package _6_ke_thua.bai_tap.thiet_ke_va_trien_khai_lop_triangle;
 
 public class Triangle extends Shape {
-    private double side1;
-    private double side2;
-    private double side3;
+    private double side1 = 1.0;
+    private double side2 = 1.0;
+    private double side3 = 1.0;
 
     public Triangle() {
     }
