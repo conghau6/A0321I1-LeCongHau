@@ -1,7 +1,9 @@
 package _4_lop_va_doi_tuong_trong_java.bai_tap.xay_dung_lop_quadraticequation;
 
 public class QuadraticEquation {
-    private double a, b, c;
+    private double a;
+    private double b;
+    private double c;
 
     public QuadraticEquation() {
         this.a = this.b = this.c = 0;

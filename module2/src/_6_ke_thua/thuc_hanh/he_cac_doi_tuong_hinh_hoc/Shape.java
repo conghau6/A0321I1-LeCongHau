@@ -3,7 +3,8 @@ package _6_ke_thua.thuc_hanh.he_cac_doi_tuong_hinh_hoc;
 public class Shape {
     private String color = "red";
     private boolean filled = true;
-    public Shape(){
+
+    public Shape() {
     }
 
     public Shape(String color, boolean filled) {
@@ -28,7 +29,7 @@ public class Shape {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return "A Shape with color of "
                 + getColor()
                 + " and "
