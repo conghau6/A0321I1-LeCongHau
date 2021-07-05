@@ -18,28 +18,28 @@ public class FuramaController {
                 System.out.println("1. Display list employees");
                 System.out.println("2. Add new employee");
                 System.out.println("3. Edit employee");
-                System.out.println("4. Return main menu");
+                System.out.println("4. Return Main menu");
             case 2:
                 System.out.println("1. Display list customers");
                 System.out.println("2. Add new customer");
                 System.out.println("3. Edit customer");
-                System.out.println("4. Return main menu");
+                System.out.println("4. Return Main menu");
             case 3:
                 System.out.println("1. Display list facility");
                 System.out.println("2. Add new facility");
                 System.out.println("3. Display list facility maintenance");
-                System.out.println("4. Return main menu");
+                System.out.println("4. Return Main menu");
             case 4:
                 System.out.println("1. Add new booking");
                 System.out.println("2. Display list booking");
                 System.out.println("3. Create new contracts");
                 System.out.println("4. Display list contracts");
                 System.out.println("5. Edit contracts");
-                System.out.println("6. Return main menu");
+                System.out.println("6. Return Main menu");
             case 5:
                 System.out.println("1. Display list customer use service");
                 System.out.println("2. Display list customer get voucher");
-                System.out.println("3. Return main menu");
+                System.out.println("3. Return Main menu");
             case 6:
                 System.exit(0);
         }

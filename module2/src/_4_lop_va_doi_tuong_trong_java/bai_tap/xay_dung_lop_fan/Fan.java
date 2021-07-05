@@ -59,10 +59,4 @@ public class Fan {
         return "Fan{"+speed+","+color+","+radius+","+(isOn()?"Fan is on":"Fan is off")+"}";
 
     }
-    public static void main(String[] args) {
-        Fan Fan1 = new Fan(FAST,10,"yellow",true);
-        Fan Fan2 = new Fan(MEDIUM,5,"blue",false);
-        System.out.println(Fan1);
-        System.out.println(Fan2);
-    }
 }
