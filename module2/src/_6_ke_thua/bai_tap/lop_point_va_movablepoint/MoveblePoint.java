@@ -26,11 +26,12 @@ public class MoveblePoint extends Point {
     }
 
     public String toString() {
-        return super.toString() + ", speed = (" +xSpeed+","+ySpeed+")";
+        return super.toString() + ", speed = (" + xSpeed + "," + ySpeed + ")";
     }
-    public MoveblePoint move(){
-        setX(getX()+xSpeed);
-        setY(getY()+ySpeed);
+
+    public MoveblePoint move() {
+        this.setX(this.getX() + xSpeed);
+        this.setY(this.getY() + ySpeed);
         return this;
     }
 }
