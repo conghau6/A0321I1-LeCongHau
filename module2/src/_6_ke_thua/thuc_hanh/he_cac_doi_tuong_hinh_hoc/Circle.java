@@ -1,6 +1,6 @@
 package _6_ke_thua.thuc_hanh.he_cac_doi_tuong_hinh_hoc;
 
-public class Circle extends Shape{
+public class Circle extends Shape {
     private double radius = 1.0;
 
     public Circle() {
@@ -10,7 +10,7 @@ public class Circle extends Shape{
         this.radius = radius;
     }
 
-    public Circle(String color, boolean filled, double radius) {
+    public Circle(double radius, String color, boolean filled) {
         super(color, filled);
         this.radius = radius;
     }
@@ -23,15 +23,16 @@ public class Circle extends Shape{
         this.radius = radius;
     }
 
-    public double getArea(){
-        return Math.PI*radius * radius;
+    public double getArea() {
+        return Math.PI * radius * radius;
     }
-    public double getPerimeter(){
-        return  2*Math.PI*radius;
+
+    public double getPerimeter() {
+        return 2 * Math.PI * radius;
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return "A Circle with radius="
                 + getRadius()
                 + ",which is a subclass of "

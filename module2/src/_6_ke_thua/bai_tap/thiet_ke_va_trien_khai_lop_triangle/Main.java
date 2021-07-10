@@ -5,7 +5,7 @@ public class Main {
         Shape shape = new Shape("blue");
         System.out.println(shape);
 
-        Triangle triangle = new Triangle("red",3,4,5);
+        Shape triangle = new Triangle("red",3,4,5);
         System.out.println(triangle);
     }
 }
