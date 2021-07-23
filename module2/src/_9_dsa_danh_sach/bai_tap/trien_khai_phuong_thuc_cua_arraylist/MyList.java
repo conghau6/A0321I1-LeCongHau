@@ -54,8 +54,8 @@ public class MyList<E> {
         return this.size;
     }
 
-    public E clone() {
-        return (E) elements;
+    public E[] clone() {
+        return (E[]) elements;
     }
 
     public boolean contains(E o) {
