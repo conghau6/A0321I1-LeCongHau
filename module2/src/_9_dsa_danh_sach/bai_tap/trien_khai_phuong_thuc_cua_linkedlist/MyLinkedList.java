@@ -142,15 +142,4 @@ public class MyLinkedList<E> {
         }
         return -1;
     }
-
-    public static void main(String[] args) {
-        List<String> a = new LinkedList<>();
-        a.add("Hello");
-        a.add(1, "Hau1");
-        a.add(2, "Hau2");
-        a.add(3, "Hau3");
-        for (int i = 0; i < a.size(); i++) {
-            System.out.println(i + " " + a.get(i));
-        }
-    }
 }
