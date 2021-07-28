@@ -1,4 +1,4 @@
-package _9_dsa_danh_sach.bai_tap.trien_khai_phuong_thuc_cua_arraylist;
+package _10_dsa_danh_sach.bai_tap.trien_khai_phuong_thuc_cua_arraylist;
 
 import java.util.Arrays;
 

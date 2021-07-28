@@ -1,4 +1,4 @@
-package _9_dsa_danh_sach.bai_tap.trien_khai_phuong_thuc_cua_linkedlist;
+package _10_dsa_danh_sach.bai_tap.trien_khai_phuong_thuc_cua_linkedlist;
 
 import java.util.LinkedList;
 import java.util.List;

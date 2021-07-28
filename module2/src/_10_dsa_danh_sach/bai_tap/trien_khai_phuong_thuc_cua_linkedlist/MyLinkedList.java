@@ -1,9 +1,4 @@
-package _9_dsa_danh_sach.bai_tap.trien_khai_phuong_thuc_cua_linkedlist;
-
-import javax.management.StandardMBean;
-import java.lang.reflect.Array;
-import java.util.LinkedList;
-import java.util.List;
+package _10_dsa_danh_sach.bai_tap.trien_khai_phuong_thuc_cua_linkedlist;
 
 public class MyLinkedList<E> {
     private Node head;
