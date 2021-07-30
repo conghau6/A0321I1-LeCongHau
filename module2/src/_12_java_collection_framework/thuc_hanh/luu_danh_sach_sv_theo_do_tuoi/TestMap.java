@@ -7,19 +7,19 @@ import java.util.TreeMap;
 
 public class TestMap {
     public static void main(String[] args) {
-        Map<String, Integer> hashMap  = new HashMap<>();
-        hashMap .put("Hau", 19);
-        hashMap .put("Hau1", 20);
-        hashMap .put("Hau2", 21);
-        hashMap .put("Hau3", 22);
+        Map<String, Integer> hashMap = new HashMap<>();
+        hashMap.put("Hau", 19);
+        hashMap.put("Hau1", 20);
+        hashMap.put("Hau2", 21);
+        hashMap.put("Hau3", 22);
         System.out.println("Display entries in HashMap");
-        System.out.println(hashMap );
+        System.out.println(hashMap);
 
-        Map<String,Integer> treeMap = new TreeMap<>(hashMap );
+        Map<String, Integer> treeMap = new TreeMap<>(hashMap);
         System.out.println("Display entries in ascending order of key");
         System.out.println(treeMap);
 
-        Map<String,Integer> linkedHashMap = new LinkedHashMap<>(16, 0.75f, true);
+        Map<String, Integer> linkedHashMap = new LinkedHashMap<>(16, 0.75f, true);
         linkedHashMap.put("Smith", 30);
         linkedHashMap.put("Anderson", 31);
         linkedHashMap.put("Lewis", 29);
