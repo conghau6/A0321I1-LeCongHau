@@ -5,21 +5,7 @@ import java.util.Arrays;
 import java.util.Stack;
 
 public class ReverseArray {
-    private int[] arrayInteger;
-    private String myString;
-
-    public ReverseArray() {
-    }
-
-    public ReverseArray(int[] arrayInteger) {
-        this.arrayInteger = arrayInteger;
-    }
-
-    public ReverseArray(String myString) {
-        this.myString = myString;
-    }
-
-    public int[] reverseArrInt() {
+    public int[] reverseArrInt(int[] arrayInteger) {
         Stack<Integer> stacks = new Stack<>();
         for (int i = 0; i < arrayInteger.length; i++) {
             stacks.push(arrayInteger[i]);
@@ -31,7 +17,7 @@ public class ReverseArray {
         return newArrayInteger;
     }
 
-    public String reverseArrStr() {
+    public String reverseArrStr(String myString) {
         Stack<String> stacks = new Stack<>();
         for (int i = 0; i < myString.length(); i++) {
             stacks.push(myString.charAt(i) + "");
@@ -44,9 +30,9 @@ public class ReverseArray {
     }
 
     public static void main(String[] args) {
-        ReverseArray intArray = new ReverseArray(new int[]{1, 2, 3, 4, 5});
-        System.out.println(Arrays.toString(intArray.reverseArrInt()));
-        ReverseArray strArray = new ReverseArray("leconghau");
-        System.out.println(strArray.reverseArrStr());
+        ReverseArray a = new ReverseArray();
+        System.out.println(Arrays.toString(a.reverseArrInt(new int[] {1,2,4})));
+        ReverseArray b = new ReverseArray();
+        System.out.println(b.reverseArrStr("Le Cong Hau"));
     }
 }
