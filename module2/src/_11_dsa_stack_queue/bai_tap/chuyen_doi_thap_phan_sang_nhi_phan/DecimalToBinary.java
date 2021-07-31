@@ -3,7 +3,16 @@ package _11_dsa_stack_queue.bai_tap.chuyen_doi_thap_phan_sang_nhi_phan;
 import java.util.Stack;
 
 public class DecimalToBinary {
-    public static String convertToBinary (int decimal) {
+    private int decimal;
+
+    public DecimalToBinary() {
+    }
+
+    public DecimalToBinary(int decimal) {
+        this.decimal = decimal;
+    }
+
+    public String convertToBinary () {
         String stringBinary = "";
         Stack<Integer> stack = new Stack<>();
         int surPlus;
@@ -17,10 +26,5 @@ public class DecimalToBinary {
             stringBinary += stack.pop();
         }
         return stringBinary;
-    }
-
-    public static void main(String[] args) {
-        DecimalToBinary a = new DecimalToBinary();
-        System.out.println(a.convertToBinary(111));
     }
 }

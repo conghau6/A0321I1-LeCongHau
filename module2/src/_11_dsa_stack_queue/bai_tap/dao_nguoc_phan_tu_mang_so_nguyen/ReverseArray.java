@@ -27,11 +27,4 @@ public class ReverseArray {
         }
         return newMyStr;
     }
-
-    public static void main(String[] args) {
-        ReverseArray a = new ReverseArray();
-        System.out.println(Arrays.toString(a.reverseArrInt(new int[] {1,2,4})));
-        ReverseArray b = new ReverseArray();
-        System.out.println(b.reverseArrStr("Le Cong Hau"));
-    }
 }
