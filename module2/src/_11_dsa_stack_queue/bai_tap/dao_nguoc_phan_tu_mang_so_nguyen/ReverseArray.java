@@ -1,6 +1,5 @@
 package _11_dsa_stack_queue.bai_tap.dao_nguoc_phan_tu_mang_so_nguyen;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Stack;
 
