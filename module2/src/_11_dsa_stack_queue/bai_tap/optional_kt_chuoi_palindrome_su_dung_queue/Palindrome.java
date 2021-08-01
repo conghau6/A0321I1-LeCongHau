@@ -1,6 +1,5 @@
 package _11_dsa_stack_queue.bai_tap.optional_kt_chuoi_palindrome_su_dung_queue;
 
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
