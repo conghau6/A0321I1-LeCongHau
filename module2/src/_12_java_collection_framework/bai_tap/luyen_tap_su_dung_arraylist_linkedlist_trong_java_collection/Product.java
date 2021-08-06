@@ -1,7 +1,5 @@
 package _12_java_collection_framework.bai_tap.luyen_tap_su_dung_arraylist_linkedlist_trong_java_collection;
 
-import java.util.Comparator;
-
 public class Product implements Comparable<Product> {
     private int id;
     private String nameProduct;
