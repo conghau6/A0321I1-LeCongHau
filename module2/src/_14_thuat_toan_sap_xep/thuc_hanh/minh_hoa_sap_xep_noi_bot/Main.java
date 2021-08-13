@@ -1,4 +1,4 @@
-package _15_thuat_toan_sap_xep.thuc_hanh.minh_hoa_sap_xep_noi_bot;
+package _14_thuat_toan_sap_xep.thuc_hanh.minh_hoa_sap_xep_noi_bot;
 
 import java.util.Arrays;
 

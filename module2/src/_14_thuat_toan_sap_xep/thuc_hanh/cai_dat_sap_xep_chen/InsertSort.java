@@ -1,4 +1,4 @@
-package _15_thuat_toan_sap_xep.thuc_hanh.cai_dat_sap_xep_chen;
+package _14_thuat_toan_sap_xep.thuc_hanh.cai_dat_sap_xep_chen;
 
 public class InsertSort {
     public void insertionSort(int[] arr) {

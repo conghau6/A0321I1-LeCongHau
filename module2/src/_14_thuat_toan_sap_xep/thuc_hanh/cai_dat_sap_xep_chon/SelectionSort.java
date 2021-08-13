@@ -1,4 +1,4 @@
-package _15_thuat_toan_sap_xep.thuc_hanh.cai_dat_sap_xep_chon;
+package _14_thuat_toan_sap_xep.thuc_hanh.cai_dat_sap_xep_chon;
 
 public class SelectionSort {
     public void selectionSort(int[] arr) {
