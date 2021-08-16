@@ -79,8 +79,8 @@ public class CustomerServiceImpl {
     }
 
     public static void main(String[] args) {
-        CustomerServiceImpl.addNewCustomer();
-        CustomerServiceImpl.editCustomer();
-        CustomerServiceImpl.displayListCustomer();
+        addNewCustomer();
+        editCustomer();
+        displayListCustomer();
     }
 }

@@ -79,8 +79,8 @@ public class EmployeeServiceImpl {
     }
 
     public static void main(String[] args) {
-        EmployeeServiceImpl.addNewEmployee();
-        EmployeeServiceImpl.editEmployee();
-        EmployeeServiceImpl.displayListEmployee();
+        addNewEmployee();
+        editEmployee();
+        displayListEmployee();
     }
 }

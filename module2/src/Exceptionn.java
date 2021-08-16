@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Exceptionn {
@@ -10,8 +11,8 @@ public class Exceptionn {
     public static void main(String[] args) {
         try {
             checkAge();
-        } catch (NumberFormatException e){
-            System.out.println("SỐ vừa nhập là chữ");
+        } catch (InputMismatchException e){
+            System.err.println("SỐ vừa nhập là chữ");
         } catch (Exception e){
             System.err.println(e.getMessage());
         }

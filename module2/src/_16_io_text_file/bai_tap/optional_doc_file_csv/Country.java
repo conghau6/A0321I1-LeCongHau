@@ -70,13 +70,11 @@ public class Country {
 
     @Override
     public String toString() {
-        return "Country{" +
-                "startIp='" + startIp + '\'' +
-                ", endIp='" + endIp + '\'' +
-                ", numStart='" + numStart + '\'' +
-                ", numEnd='" + numEnd + '\'' +
-                ", countryCode='" + countryCode + '\'' +
-                ", country='" + country + '\'' +
-                '}';
+        return   startIp + ","
+                + endIp + ","
+                + numStart + ","
+                + numEnd + ","
+                + countryCode + ","
+                + country;
     }
 }
