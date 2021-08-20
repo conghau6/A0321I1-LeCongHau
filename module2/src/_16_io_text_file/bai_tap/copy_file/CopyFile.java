@@ -9,10 +9,13 @@ public class CopyFile {
             BufferedReader bufferedReader = new BufferedReader(fileReader);
             FileWriter fileWriter = new FileWriter("./src/_16_io_text_file/bai_tap/copy_file/Target.txt",false);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-            String line;
+            String result = "";
+            String line = "";
             while ((line = bufferedReader.readLine()) != null) {
-                bufferedWriter.write(line + "\n");
+                result += line + '\n';
             }
+            result = result.substring(0, result.length() - 1);
+            bufferedWriter.write(result);
             bufferedReader.close();
             fileReader.close();
             bufferedWriter.close();
