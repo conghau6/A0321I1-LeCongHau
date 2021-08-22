@@ -1,56 +1,56 @@
 package case_study_furama_resort._models;
 
 public class Villa extends  Facility{
-    private int roomStandard; //1 đến 5 sao
-    private double swimmingPoolArea;
-    private int numberFloors;
+    private int tieuChuanPhong; //1 đến 5 sao
+    private double dtHoBoi;
+    private int soTang;
 
     public Villa() {
         super();
     }
 
-    public Villa(String tenDv, double dienTichSd, double chiPhiThue, int soLuongNgToiDa, char kieuThue, int roomStandard, double swimmingPoolArea, int numberFloors) {
+    public Villa(String tenDv, double dienTichSd, double chiPhiThue, int soLuongNgToiDa, char kieuThue, int tieuChuanPhong, double dtHoBoi, int soTang) {
         super(tenDv, dienTichSd, chiPhiThue, soLuongNgToiDa, kieuThue);
-        this.roomStandard = roomStandard;
-        this.swimmingPoolArea = swimmingPoolArea;
-        this.numberFloors = numberFloors;
+        this.tieuChuanPhong = tieuChuanPhong;
+        this.dtHoBoi = dtHoBoi;
+        this.soTang = soTang;
     }
 
-    public int getRoomStandard() {
-        return roomStandard;
+    public int getTieuChuanPhong() {
+        return tieuChuanPhong;
     }
 
-    public void setRoomStandard(int roomStandard) {
-        this.roomStandard = roomStandard;
+    public void setTieuChuanPhong(int tieuChuanPhong) {
+        this.tieuChuanPhong = tieuChuanPhong;
     }
 
-    public double getSwimmingPoolArea() {
-        return swimmingPoolArea;
+    public double getDtHoBoi() {
+        return dtHoBoi;
     }
 
-    public void setSwimmingPoolArea(double swimmingPoolArea) {
-        this.swimmingPoolArea = swimmingPoolArea;
+    public void setDtHoBoi(double dtHoBoi) {
+        this.dtHoBoi = dtHoBoi;
     }
 
-    public int getNumberFloors() {
-        return numberFloors;
+    public int getSoTang() {
+        return soTang;
     }
 
-    public void setNumberFloors(int numberFloors) {
-        this.numberFloors = numberFloors;
+    public void setSoTang(int soTang) {
+        this.soTang = soTang;
     }
 
     @Override
     public String toString() {
         return "Villa{" +
-                "tenDv='" + super.getTenDv() + '\'' +
-                ", dienTichSd=" + super.getDienTichSd() +
-                ", chiPhiThue=" + super.getChiPhiThue() +
-                ", soLuongNgToiDa=" + super.getSoLuongNgToiDa() +
-                ", kieuThue=" + super.getKieuThue() +
-                ", roomStandard=" + roomStandard +
-                ", swimmingPoolArea=" + swimmingPoolArea +
-                ", numberFloors=" + numberFloors +
+                "tenDv='" + tenDv + '\'' +
+                ", dienTichSd=" + dienTichSd +
+                ", chiPhiThue=" + chiPhiThue +
+                ", soLuongNgToiDa=" + soLuongNgToiDa +
+                ", kieuThue=" + kieuThue +
+                ", tieuChuanPhong=" + tieuChuanPhong +
+                ", dienTichHoBoi=" + dtHoBoi +
+                ", soTang=" + soTang +
                 '}';
     }
 

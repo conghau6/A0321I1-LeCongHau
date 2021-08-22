@@ -1,4 +1,5 @@
 package case_study_furama_resort._services;
 
-public class FacilityServiceImpl {
+public class FacilityServiceImpl implements  FacilityService{
+
 }

@@ -1,60 +1,57 @@
 package case_study_furama_resort._models;
 
 public class Employee extends Person{
-    private String id;
-    private String name;
-    private int age;
-    private double salary;
+    private String trinhDo;
+    private String viTri;
+    private double luong;
 
     public Employee() {
     }
 
-    public Employee(String id, String name, int age, double salary) {
-        this.id = id;
-        this.name = name;
-        this.age = age;
-        this.salary = salary;
+    public Employee(String ma, String hoTen, String ngaySinh, String gioiTinh, String cmnd, String sdt, String email, String trinhDo, String viTri, double luong) {
+        super(ma, hoTen, ngaySinh, gioiTinh, cmnd, sdt, email);
+        this.trinhDo = trinhDo;
+        this.viTri = viTri;
+        this.luong = luong;
     }
 
-    public String getId() {
-        return id;
+    public String getTrinhDo() {
+        return trinhDo;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setTrinhDo(String trinhDo) {
+        this.trinhDo = trinhDo;
     }
 
-    public String getName() {
-        return name;
+    public String getViTri() {
+        return viTri;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setViTri(String viTri) {
+        this.viTri = viTri;
     }
 
-    public int getAge() {
-        return age;
+    public double getLuong() {
+        return luong;
     }
 
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public double getSalary() {
-        return salary;
-    }
-
-    public void setSalary(double salary) {
-        this.salary = salary;
+    public void setLuong(double luong) {
+        this.luong = luong;
     }
 
     @Override
     public String toString() {
         return "Employee{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", age=" + age +
-                ", salary=" + salary +
+                "ma='" + ma + '\'' +
+                ", hoTen='" + hoTen + '\'' +
+                ", ngaySinh='" + ngaySinh + '\'' +
+                ", gioiTinh='" + gioiTinh + '\'' +
+                ", cmnd='" + cmnd + '\'' +
+                ", sdt='" + sdt + '\'' +
+                ", email='" + email + '\'' +
+                ", trinhDo='" + trinhDo + '\'' +
+                ", viTri='" + viTri + '\'' +
+                ", luong=" + luong +
                 '}';
     }
 }

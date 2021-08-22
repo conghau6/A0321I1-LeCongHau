@@ -22,11 +22,11 @@ public class Room extends Facility {
     @Override
     public String toString() {
         return "Room{" +
-                "tenDv='" + super.getTenDv() + '\'' +
-                ", dienTichSd=" + super.getDienTichSd() +
-                ", chiPhiThue=" + super.getChiPhiThue() +
-                ", soLuongNgToiDa=" + super.getSoLuongNgToiDa() +
-                ", kieuThue=" + super.getKieuThue() +
+                "tenDv='" + tenDv + '\'' +
+                ", dienTichSd=" + dienTichSd +
+                ", chiPhiThue=" + chiPhiThue +
+                ", soLuongNgToiDa=" + soLuongNgToiDa+
+                ", kieuThue=" + kieuThue +
                 ", dichVuFree=" + dichVuFree +
                 '}';
     }

@@ -1,11 +1,11 @@
 package case_study_furama_resort._models;
 
 public abstract class Facility {
-    private String tenDv;
-    private double dienTichSd;
-    private double chiPhiThue;
-    private int soLuongNgToiDa;
-    private char kieuThue; //'Y': theo năm, 'M' theo tháng, 'D': theo ngàym, 'H' theo giờ
+    protected String tenDv;
+    protected double dienTichSd;
+    protected double chiPhiThue;
+    protected int soLuongNgToiDa;
+    protected char kieuThue; //'Y': theo năm, 'M' theo tháng, 'D': theo ngàym, 'H' theo giờ
 
     public Facility() {
     }
