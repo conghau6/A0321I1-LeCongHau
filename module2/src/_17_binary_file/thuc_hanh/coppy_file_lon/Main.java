@@ -41,6 +41,7 @@ public class Main {
 
         try {
             copyFileUsingStream(sourceFile, destFile);
+            System.out.println("Copy completed");
         } catch (IOException ioe) {
             System.out.println("Cant't copy that file");
             System.out.println(ioe.getMessage());
