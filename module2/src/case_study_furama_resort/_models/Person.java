@@ -1,7 +1,7 @@
 package case_study_furama_resort._models;
 
 public abstract class Person {
-    protected String ma;
+    protected int ma;
     protected String hoTen;
     protected String ngaySinh;
     protected String gioiTinh;
@@ -12,7 +12,7 @@ public abstract class Person {
     public Person() {
     }
 
-    public Person(String ma, String hoTen, String ngaySinh, String gioiTinh, String cmnd, String sdt, String email) {
+    public Person(int ma, String hoTen, String ngaySinh, String gioiTinh, String cmnd, String sdt, String email) {
         this.ma = ma;
         this.hoTen = hoTen;
         this.ngaySinh = ngaySinh;
@@ -22,11 +22,11 @@ public abstract class Person {
         this.email = email;
     }
 
-    public String getMa() {
+    public int getMa() {
         return ma;
     }
 
-    public void setMa(String ma) {
+    public void setMa(int ma) {
         this.ma = ma;
     }
 
