@@ -1,13 +1,15 @@
 package case_study_furama_resort._models;
 
 public class Room extends Facility {
+    private String tenDv;
     private String dichVuFree;
     public Room() {
         super();
     }
 
-    public Room(String tenDv, double dienTichSd, double chiPhiThue, int soLuongNgToiDa, char kieuThue, String dichVuFree) {
-        super(tenDv, dienTichSd, chiPhiThue, soLuongNgToiDa, kieuThue);
+    public Room(double dienTichSd, double chiPhiThue, int soLuongNgToiDa, char kieuThue, String dichVuFree) {
+        super(dienTichSd, chiPhiThue, soLuongNgToiDa, kieuThue);
+        this.tenDv = "Room";
         this.dichVuFree = dichVuFree;
     }
 
@@ -32,7 +34,7 @@ public class Room extends Facility {
     }
 
     public static void main(String[] args) {
-        Room room = new Room("house",1000,200.4,30,'Y',"Villa");
+        Room room = new Room(1000,200.4,30,'Y',"Villa");
         System.out.println(room);
     }
 }

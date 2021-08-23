@@ -16,6 +16,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public void themMoi() {
         Scanner scanner = new Scanner(System.in);
+        System.out.println("+++Thêm nhân viên mới+++");
         System.out.print("Nhập mã nhân viên: ");
         int ma = Integer.parseInt(scanner.nextLine());
         System.out.print("Nhập tên nhân viên: ");
@@ -43,8 +44,8 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public int timIndex(int ma) {
-        for(int i=0; i<listNhanVien.size(); i++){
-            if(listNhanVien.get(i).getMa()==ma) {
+        for (int i = 0; i < listNhanVien.size(); i++) {
+            if (listNhanVien.get(i).getMa() == ma) {
                 return i;
             }
         }
@@ -54,18 +55,13 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public void sua() {
         Scanner scanner = new Scanner(System.in);
+        System.out.println("+++Sủa thông tin nhân viên+++");
         int ma;
-        try {
-            do {
-                System.out.print("Nhập mã nhân viên cần sửa: ");
-                ma = scanner.nextInt();
-            } while (timIndex(ma)==-1);
-        } catch (Exception e) {
-            do {
-                System.out.print("Nhập mã nhân viên cần sửa: ");
-                ma = scanner.nextInt();
-            } while (timIndex(ma)==-1);
-        }
+        do {
+            System.out.print("Nhập mã nhân viên cần sửa: ");
+            ma = scanner.nextInt();
+        } while (timIndex(ma) == -1);
+        int index = timIndex(ma);
         System.out.println("1. Sủa tên");
         System.out.println("2. Sủa ngày sinh");
         System.out.println("3. Sửa giới tính");
@@ -82,22 +78,63 @@ public class EmployeeServiceImpl implements EmployeeService {
                 System.out.print("Nhập tên mới: ");
                 scanner.skip("\\R");
                 String ten = scanner.nextLine();
-                int index = timIndex(ma);
                 listNhanVien.get(index).setHoTen(ten);
                 break;
-            default: break;
+            case 2:
+                System.out.print("Nhập ngày sinh mới: ");
+                String ngaySinh = scanner.next();
+                listNhanVien.get(index).setNgaySinh(ngaySinh);
+                break;
+            case 3:
+                System.out.print("Nhập giới tính mới: ");
+                String gioiTinh = scanner.next();
+                listNhanVien.get(index).setGioiTinh(gioiTinh);
+                break;
+            case 4:
+                System.out.print("Nhập cmnd mới: ");
+                String cmnd = scanner.next();
+                listNhanVien.get(index).setCmnd(cmnd);
+                break;
+            case 5:
+                System.out.print("Nhập số đt mới: ");
+                String sdt = scanner.next();
+                listNhanVien.get(index).setSdt(sdt);
+                break;
+            case 6:
+                System.out.print("Nhập email mới: ");
+                String email = scanner.next();
+                listNhanVien.get(index).setEmail(email);
+                break;
+            case 7:
+                System.out.print("Nhập trình độ mới: ");
+                String trinhDo = scanner.next();
+                listNhanVien.get(index).setTrinhDo(trinhDo);
+                break;
+            case 8:
+                System.out.print("Nhập vị trí mới: ");
+                String vt = scanner.next();
+                listNhanVien.get(index).setViTri(vt);
+                break;
+            case 9:
+                System.out.print("Nhập lương mới: ");
+                double luong = scanner.nextDouble();
+                listNhanVien.get(index).setLuong(luong);
+                break;
+            default:
+                break;
         }
     }
 
     @Override
     public void hienThi() {
-        for(Employee employee : listNhanVien) {
+        System.out.println("+++Danh sách nhân viên+++");
+        for (Employee employee : listNhanVien) {
             System.out.println(employee);
         }
     }
 
     public static void main(String[] args) {
-        EmployeeServiceImpl employeeService  = new EmployeeServiceImpl();
+        EmployeeServiceImpl employeeService = new EmployeeServiceImpl();
         employeeService.themMoi();
         employeeService.hienThi();
     }

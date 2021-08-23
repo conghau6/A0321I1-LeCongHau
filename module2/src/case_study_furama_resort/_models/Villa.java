@@ -1,6 +1,7 @@
 package case_study_furama_resort._models;
 
-public class Villa extends  Facility{
+public class Villa extends Facility{
+    private String tenDv;
     private int tieuChuanPhong; //1 đến 5 sao
     private double dtHoBoi;
     private int soTang;
@@ -9,8 +10,9 @@ public class Villa extends  Facility{
         super();
     }
 
-    public Villa(String tenDv, double dienTichSd, double chiPhiThue, int soLuongNgToiDa, char kieuThue, int tieuChuanPhong, double dtHoBoi, int soTang) {
-        super(tenDv, dienTichSd, chiPhiThue, soLuongNgToiDa, kieuThue);
+    public Villa(double dienTichSd, double chiPhiThue, int soLuongNgToiDa, char kieuThue, int tieuChuanPhong, double dtHoBoi, int soTang) {
+        super(dienTichSd, chiPhiThue, soLuongNgToiDa, kieuThue);
+        this.tenDv = "Villa";
         this.tieuChuanPhong = tieuChuanPhong;
         this.dtHoBoi = dtHoBoi;
         this.soTang = soTang;
@@ -55,7 +57,7 @@ public class Villa extends  Facility{
     }
 
     public static void main(String[] args) {
-        Villa villa = new Villa("villa",1000,200.4,30,'Y',5,30.5,6);
+        Villa villa = new Villa(1000,200.4,30,'Y',5,30.5,6);
         System.out.println(villa);
     }
 }

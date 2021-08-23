@@ -1,7 +1,6 @@
 package case_study_furama_resort._models;
 
 public abstract class Facility {
-    protected String tenDv;
     protected double dienTichSd;
     protected double chiPhiThue;
     protected int soLuongNgToiDa;
@@ -10,20 +9,11 @@ public abstract class Facility {
     public Facility() {
     }
 
-    public Facility(String tenDv, double dienTichSd, double chiPhiThue, int soLuongNgToiDa, char kieuThue) {
-        this.tenDv = tenDv;
+    public Facility(double dienTichSd, double chiPhiThue, int soLuongNgToiDa, char kieuThue) {
         this.dienTichSd = dienTichSd;
         this.chiPhiThue = chiPhiThue;
         this.soLuongNgToiDa = soLuongNgToiDa;
         this.kieuThue = kieuThue;
-    }
-
-    public String getTenDv() {
-        return tenDv;
-    }
-
-    public void setTenDv(String tenDv) {
-        this.tenDv = tenDv;
     }
 
     public double getDienTichSd() {
@@ -61,7 +51,6 @@ public abstract class Facility {
     @Override
     public String toString() {
         return "Facility{" +
-                "tenDv='" + tenDv + '\'' +
                 ", dienTichSd=" + dienTichSd +
                 ", chiPhiThue=" + chiPhiThue +
                 ", soLuongNgToiDa=" + soLuongNgToiDa +
