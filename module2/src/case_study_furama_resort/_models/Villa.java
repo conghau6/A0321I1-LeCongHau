@@ -10,9 +10,8 @@ public class Villa extends Facility{
         super();
     }
 
-    public Villa(double dienTichSd, double chiPhiThue, int soLuongNgToiDa, char kieuThue, int tieuChuanPhong, double dtHoBoi, int soTang) {
-        super(dienTichSd, chiPhiThue, soLuongNgToiDa, kieuThue);
-        this.tenDv = "Villa";
+    public Villa(String tenDv, double dienTichSd, double chiPhiThue, int soLuongNgToiDa, char kieuThue, int tieuChuanPhong, double dtHoBoi, int soTang) {
+        super(tenDv, dienTichSd, chiPhiThue, soLuongNgToiDa, kieuThue);
         this.tieuChuanPhong = tieuChuanPhong;
         this.dtHoBoi = dtHoBoi;
         this.soTang = soTang;
@@ -57,7 +56,7 @@ public class Villa extends Facility{
     }
 
     public static void main(String[] args) {
-        Villa villa = new Villa(1000,200.4,30,'Y',5,30.5,6);
+        Villa villa = new Villa("abc",1000,200.4,30,'Y',5,30.5,6);
         System.out.println(villa);
     }
 }
