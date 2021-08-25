@@ -1,5 +1,6 @@
 package case_study_furama_resort._controllers;
 
+import case_study_furama_resort._services.BookingServiceImpl;
 import case_study_furama_resort._services.CustomerServiceImpl;
 import case_study_furama_resort._services.EmployeeServiceImpl;
 import case_study_furama_resort._services.FacilityServiceImpl;
@@ -10,6 +11,7 @@ public class FuramaController {
     EmployeeServiceImpl employeeService = new EmployeeServiceImpl();
     CustomerServiceImpl customerService = new CustomerServiceImpl();
     FacilityServiceImpl facilityService = new FacilityServiceImpl();
+    BookingServiceImpl bookingService = new BookingServiceImpl();
 
     public void displayMainMenu() {
         System.out.println("1. Employee Management");
@@ -61,6 +63,8 @@ public class FuramaController {
                     case 1: facilityService.hienThi(); break;
                     case 2: facilityService.themMoi(); break;
                     case 3: facilityService.hienThiFacilityCanBaoTri(); break;
+                    case 4: break;
+                    default: break;
                 }
                 break;
             case 4:
@@ -70,6 +74,12 @@ public class FuramaController {
                 System.out.println("4. Display list contracts");
                 System.out.println("5. Edit contracts");
                 System.out.println("6. Return QLSanPham menu");
+                System.out.print("Nhập lựa chọn: ");
+                choice = scanner.nextInt();
+                switch (choice) {
+                    case 1: bookingService.themMoi(); break;
+                    case 2: bookingService.hienThi(); break;
+                }
                 break;
             case 5:
                 System.out.println("1. Display list customer use service");

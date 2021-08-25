@@ -13,7 +13,10 @@ public class FacilityServiceImpl implements FacilityService {
 
     static {
         listFacility = new LinkedHashMap<>();
+        listFacility.put(new Villa("Villa_1",1000,200.4,30,'Y',5,30.5,6),0);
+        listFacility.put(new House("House_1",1000, 200.4, 30, 'Y', 5, 6),0);
     }
+
 
     @Override
     public void hienThiFacilityCanBaoTri() {
@@ -22,18 +25,6 @@ public class FacilityServiceImpl implements FacilityService {
                 System.out.println(facilityIntegerEntry.toString());
             }
         }
-    }
-
-    @Override
-    public int timIndex(String tenDv) {
-//        Set<Facility> facilityKeySet = listFacility.keySet();
-        List<Facility> facilityKeyList = new ArrayList<>(listFacility.keySet());
-        for (int i = 0; i < facilityKeyList.size(); i++) {
-            if (facilityKeyList.get(i).getTenDv() == tenDv) {
-                return i;
-            }
-        }
-        return -1;
     }
 
     @Override
@@ -81,8 +72,9 @@ public class FacilityServiceImpl implements FacilityService {
                 listFacility.put(villa, soLanSd);
                 break;
             case 2:
-                System.out.println("Thêm mới House");
+                System.out.println("++THÊM MỚI HOUSE++");
                 System.out.println("Nhập tên house: ");
+                scanner.skip("\\R");
                 tenDv = scanner.nextLine();
                 System.out.print("Nhập Diện tích sd: ");
                 dienTich = scanner.nextDouble();
@@ -103,8 +95,9 @@ public class FacilityServiceImpl implements FacilityService {
                 listFacility.put(house, soLanSd);
                 break;
             case 3:
-                System.out.println("Thêm mới Room");
+                System.out.println("++THÊM MỚI ROOM++");
                 System.out.println("Nhập tên room: ");
+                scanner.skip("\\R");
                 tenDv = scanner.nextLine();
                 System.out.print("Nhập Diện tích sd: ");
                 dienTich = scanner.nextDouble();
@@ -132,40 +125,7 @@ public class FacilityServiceImpl implements FacilityService {
 
     @Override
     public void sua() {
-        System.out.println("++Sủa FACILITY++");
-        Scanner scanner = new Scanner(System.in);
-        int choice;
-        int index;
-        String tenDv;
-        System.out.print("Nhập tên dịch vụ: ");
-        tenDv = scanner.nextLine();
-        System.out.println("1. Sủa diện tích");
-        System.out.println("2. Sủa chi phí thuê");
-        System.out.println("3. Sủa số lượng người tối đa");
-        System.out.println("4. Sủa kiểu thuê");
-        System.out.println("5. Sủa tiêu chuẩn phòng");
-        System.out.println("6. Sủa dt hồ bơi");
-        System.out.println("7. Sủa số tầng");
-        System.out.print("8. Sủa số lần sữ dụng: ");
-        System.out.print("Nhập lựa chọn: ");
-        choice = scanner.nextInt();
-        index = timIndex(tenDv);
-        List<Facility> facilityKey = new ArrayList<>(listFacility.keySet());
-        switch (choice) {
-            case 1:
-                System.out.print("Nhập diện tích mới: ");
-                double dienTich = scanner.nextDouble();
-                Facility oldVilla = facilityKey.get(index);
-                int soLanSdCu = listFacility.get(oldVilla);
-
-                Villa newVilla = (Villa) oldVilla;
-                newVilla.setTenDv(tenDv);
-
-                listFacility.remove(oldVilla);
-                listFacility.put(newVilla,soLanSdCu);
-                break;
-        }
-
+        return;
     }
 
     @Override

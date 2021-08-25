@@ -4,5 +4,4 @@ import case_study_furama_resort._models.Facility;
 
 public interface FacilityService extends Service {
     void hienThiFacilityCanBaoTri();
-    int timIndex(String tenDv);
 }

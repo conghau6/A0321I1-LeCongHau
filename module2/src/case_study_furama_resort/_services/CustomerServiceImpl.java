@@ -2,7 +2,9 @@ package case_study_furama_resort._services;
 
 import case_study_furama_resort._models.Customer;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Scanner;
 
 public class CustomerServiceImpl implements CustomerService {
@@ -10,6 +12,14 @@ public class CustomerServiceImpl implements CustomerService {
 
     static {
         listKhachHang = new LinkedList<>();
+    }
+
+    public ArrayList<Integer> listMaKhachHang () {
+        ArrayList<Integer> lisMa = new ArrayList<>();
+        for(Customer customer : listKhachHang) {
+            lisMa.add(customer.getMa());
+        }
+        return lisMa;
     }
 
     @Override
