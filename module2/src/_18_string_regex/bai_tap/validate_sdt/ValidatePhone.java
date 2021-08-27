@@ -1,5 +1,7 @@
 package _18_string_regex.bai_tap.validate_sdt;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
