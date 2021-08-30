@@ -1,9 +1,10 @@
-package CaseStudy.service;
+package CaseStudy.service.impl;
 
 import CaseStudy.models.Facility;
 import CaseStudy.models.House;
 import CaseStudy.models.Room;
 import CaseStudy.models.Villa;
+import CaseStudy.service.FacilityService;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -58,6 +59,8 @@ public class FacilityServiceImpl implements FacilityService {
 
     public void addNewVilla() {
         System.out.println("==Add new Villa==");
+        System.out.print("Nhập id: ");
+        int id = Integer.parseInt(scanner.nextLine());
         System.out.print("Nhập tên dịch vụ: ");
         String tenDv = scanner.nextLine();
         System.out.print("Nhập dt sũ dụng: ");
@@ -78,13 +81,15 @@ public class FacilityServiceImpl implements FacilityService {
         System.out.print("Nhập số tầng: ");
         int soTang = Integer.parseInt(scanner.nextLine());
 
-        Villa villa = new Villa(tenDv, dt, phiThue, ngToiDa, kieuThue, tieuChuan, dtHoBoi, soTang);
+        Villa villa = new Villa(id, tenDv, dt, phiThue, ngToiDa, kieuThue, tieuChuan, dtHoBoi, soTang);
         facilityIntegerMap.put(villa, 0);
         System.out.println("Đã thêm thành công villa!");
     }
 
     public void addNewHouse() {
         System.out.println("==Add new House==");
+        System.out.print("Nhập id: ");
+        int id = Integer.parseInt(scanner.nextLine());
         System.out.print("Nhập tên dịch vụ: ");
         String tenDv = scanner.nextLine();
         System.out.print("Nhập dt sũ dụng: ");
@@ -103,13 +108,15 @@ public class FacilityServiceImpl implements FacilityService {
         System.out.print("Nhập số tâng: ");
         int soTang = Integer.parseInt(scanner.nextLine());
 
-        House house = new House(tenDv, dt, phiThue, ngToiDa, kieuThue, tieuChuan, soTang);
+        House house = new House(id,tenDv, dt, phiThue, ngToiDa, kieuThue, tieuChuan, soTang);
         facilityIntegerMap.put(house,0);
         System.out.println("Đã thêm thành công house!");
     }
 
     public void addNewRoom() {
         System.out.println("==Add new Room==");
+        System.out.print("Nhập id: ");
+        int id = Integer.parseInt(scanner.nextLine());
         System.out.print("Nhập tên dịch vụ: ");
         String tenDv = scanner.nextLine();
         System.out.print("Nhập dt sũ dụng: ");
@@ -126,7 +133,7 @@ public class FacilityServiceImpl implements FacilityService {
         System.out.print("Dịch vụ miễn phí đi kèm: ");
         String dvFree = scanner.nextLine();
 
-        Room room = new Room(tenDv, dt, phiThue, ngToiDa, kieuThue, dvFree);
+        Room room = new Room(id,tenDv, dt, phiThue, ngToiDa, kieuThue, dvFree);
         facilityIntegerMap.put(room,0);
         System.out.println("Đã thêm thành công room!");
     }

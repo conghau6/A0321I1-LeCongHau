@@ -1,18 +1,18 @@
-package CaseStudy.service;
+package CaseStudy.service.impl;
 
-import CaseStudy.models.Employee;
+import CaseStudy.models.Customer;
+import CaseStudy.service.CustomerService;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.Scanner;
 
-public class EmployeeServiceImpl implements EmployeeService {
-    public static ArrayList<Employee> employeeList = new ArrayList<>();
-    public static Scanner scanner = new Scanner(System.in);
-
+public class CustomerServiceImpl implements CustomerService {
+    private static LinkedList<Customer> customerLinkedList = new LinkedList<>();
+    private static Scanner scanner = new Scanner(System.in);
     @Override
     public void display() {
-        for (Employee employee : employeeList) {
-            System.out.println(employee);
+        for(Customer customer : customerLinkedList) {
+            System.out.println(customer);
         }
     }
 
@@ -29,17 +29,16 @@ public class EmployeeServiceImpl implements EmployeeService {
         } while (index == -1);
 
         while (check) {
-            System.out.println("==Edit employee==");
+            System.out.println("==Edit customer==");
             System.out.println("1. Sủa tên");
             System.out.println("2. Sửa ngày sinh");
             System.out.println("3. Sủa giới tính");
             System.out.println("4. Sửa số cmnd");
             System.out.println("5. Sủa số đt");
             System.out.println("6. Sửa email");
-            System.out.println("7. Sửa trình độ");
-            System.out.println("8. Sủa vị trí");
-            System.out.println("9. Sửa tiền lương");
-            System.out.println("10. Quay lại");
+            System.out.println("7. Sửa loại khách");
+            System.out.println("8. Sủa địa chỉ");
+            System.out.println("9. Quay lại");
             System.out.print("Nhập lựa chọn: ");
             Scanner scanner = new Scanner(System.in);
             int luaChon = Integer.parseInt(scanner.nextLine());
@@ -47,7 +46,7 @@ public class EmployeeServiceImpl implements EmployeeService {
                 case 1:
                     System.out.print("Nhập tên mới: ");
                     String ten = scanner.nextLine();
-                    employeeList.get(index).setTen(ten);
+                    customerLinkedList.get(index).setTen(ten);
                     break;
                 case 2:
                     String ngaySinh;
@@ -55,12 +54,12 @@ public class EmployeeServiceImpl implements EmployeeService {
                         System.out.print("Nhập ngày sinh mới: ");
                         ngaySinh = scanner.nextLine();
                     } while (!patternBirthday.matcher(ngaySinh).matches());
-                    employeeList.get(index).setNgaySinh(ngaySinh);
+                    customerLinkedList.get(index).setNgaySinh(ngaySinh);
                     break;
                 case 3:
                     System.out.print("Nhập giới tính: ");
                     String gt = scanner.nextLine();
-                    employeeList.get(index).setGioiTinh(gt);
+                    customerLinkedList.get(index).setGioiTinh(gt);
                     break;
                 case 4:
                     String cmnd;
@@ -68,7 +67,7 @@ public class EmployeeServiceImpl implements EmployeeService {
                         System.out.print("Nhập cmnd mới: ");
                         cmnd = scanner.nextLine();
                     } while (!patternCmnd.matcher(cmnd).matches());
-                    employeeList.get(index).setCmnd(cmnd);
+                    customerLinkedList.get(index).setCmnd(cmnd);
                     break;
                 case 5:
                     String sdt;
@@ -76,7 +75,7 @@ public class EmployeeServiceImpl implements EmployeeService {
                         System.out.print("Nhập sdt mới: ");
                         sdt = scanner.nextLine();
                     } while (!patternPhone.matcher(sdt).matches());
-                    employeeList.get(index).setSdt(sdt);
+                    customerLinkedList.get(index).setSdt(sdt);
                     break;
                 case 6:
                     String email;
@@ -84,38 +83,32 @@ public class EmployeeServiceImpl implements EmployeeService {
                         System.out.print("Nhập email mới: ");
                         email = scanner.nextLine();
                     } while (!patternEmail.matcher(email).matches());
-                    employeeList.get(index).setEmail(email);
+                    customerLinkedList.get(index).setEmail(email);
                     break;
                 case 7:
-                    String trinhDo;
+                    String loaiKhach;
                     do {
-                        System.out.print("Nhập trình độ (trung cấp/cao đẳng/đại học): ");
-                        trinhDo = scanner.nextLine();
-                    } while (!patternLevel.matcher(trinhDo).matches());
-                    employeeList.get(index).setTrinhDo(trinhDo);
+                        System.out.print("Nhập loại khách (diamond/platinum/silver/gold/member): ");
+                        loaiKhach = scanner.nextLine();
+                    } while (!patternLoaiKhach.matcher(loaiKhach).matches());
+                    customerLinkedList.get(index).setLoaiKhach(loaiKhach);
                     break;
                 case 8:
-                    String viTri;
-                    do {
-                        System.out.print("Nhập vị trí (lễ tân/phục vụ/chuyên viên/giám sát/quản lý/giám đốc): ");
-                        viTri = scanner.nextLine();
-                    } while (!patternPosition.matcher(viTri).matches());
-                    employeeList.get(index).setViTri(viTri);
+                    System.out.print("Nhập địa chỉ: ");
+                    String diaChi = scanner.nextLine();
+                    customerLinkedList.get(index).setDiaChi(diaChi);
                     break;
                 case 9:
-                    System.out.print("Nhập tiền lương mới: ");
-                    double luong = Double.parseDouble(scanner.nextLine());
-                    employeeList.get(index).setLuong(luong);
+                    check = false; break;
+                default:
                     break;
-                case 10: check = false; break;
-                default: break;
             }
         }
     }
 
     @Override
     public void addNew() {
-        System.out.println("==Add new facility==");
+        System.out.println("==Add new customer==");
         boolean check = true;
         int id = -1;
         do {
@@ -151,26 +144,21 @@ public class EmployeeServiceImpl implements EmployeeService {
             System.out.print("Nhập email: ");
             email = scanner.nextLine();
         } while (!patternEmail.matcher(email).matches());
-        String trinhDo;
+        String loaiKhach;
         do {
-            System.out.print("Nhập trình đọ (trung cấp/cao đẳng/đại học): ");
-            trinhDo = scanner.nextLine();
-        } while (!patternLevel.matcher(trinhDo).matches());
-        String viTri;
-        do {
-            System.out.print("Nhập vị trí (lễ tân/phục vụ/chuyên viên/giám sát/quản lý/giám đốc): ");
-            viTri = scanner.nextLine();
-        } while (!patternPosition.matcher(viTri).matches());
-        System.out.print("Nhập tiền lương: ");
-        double luong = Double.parseDouble(scanner.nextLine());
-        employeeList.add(new Employee(id, name, ngaySinh, gt, cmnd, sdt, email, trinhDo, viTri, luong));
-        System.out.println("Đã thêm thành công Employee!");
+            System.out.print("Nhập loại khách (diamond/platinum/silver/gold/member): ");
+            loaiKhach = scanner.nextLine();
+        } while (!patternLoaiKhach.matcher(loaiKhach).matches());
+        System.out.print("Nhập địa chỉ: ");
+        String diaChi = scanner.nextLine();
+        customerLinkedList.add(new Customer(id, name, ngaySinh, gt, cmnd, sdt, email, loaiKhach, diaChi));
+        System.out.println("Đã thêm thành công Customer!");
     }
 
     @Override
     public int findId(int id) {
-        for (int i = 0; i < employeeList.size(); i++) {
-            if (employeeList.get(i).getId() == id) {
+        for (int i = 0; i < customerLinkedList.size(); i++) {
+            if (customerLinkedList.get(i).getId() == id) {
                 return i;
             }
         }

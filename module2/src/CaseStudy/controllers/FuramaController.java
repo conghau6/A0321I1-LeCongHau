@@ -1,8 +1,10 @@
 package CaseStudy.controllers;
 
-import CaseStudy.service.CustomerServiceImpl;
-import CaseStudy.service.EmployeeServiceImpl;
-import CaseStudy.service.FacilityServiceImpl;
+import CaseStudy.models.Booking;
+import CaseStudy.service.impl.BookingServiceImpl;
+import CaseStudy.service.impl.CustomerServiceImpl;
+import CaseStudy.service.impl.EmployeeServiceImpl;
+import CaseStudy.service.impl.FacilityServiceImpl;
 
 import java.util.Scanner;
 
@@ -130,6 +132,7 @@ public class FuramaController {
     }
 
     public static void displayBookingMenu() {
+        BookingServiceImpl bookingService = new BookingServiceImpl();
         boolean check = true;
         while (check) {
             System.out.println("1. Add new booking");
@@ -138,6 +141,17 @@ public class FuramaController {
             System.out.println("4. Display list contracts");
             System.out.println("5. Edit contracts");
             System.out.println("6. Return main menu");
+            System.out.print("Nhập lựa chọn: ");
+            Scanner scanner = new Scanner(System.in);
+            switch (scanner.nextInt()){
+                case 1:
+                    bookingService.addBooking();
+                    break;
+                case 2:
+                    bookingService.displayListBooking();
+                    break;
+                default: break;
+            }
         }
     }
 

@@ -6,18 +6,16 @@ public class Booking {
     private String ngayKt;
     private Customer customer;
     private Facility facility;
-    private String loaiDv;
 
     public Booking() {
     }
 
-    public Booking(int maBooking, String ngayBd, String ngayKt, Customer customer, Facility facility, String loaiDv) {
+    public Booking(int maBooking, String ngayBd, String ngayKt, Customer customer, Facility facility) {
         this.maBooking = maBooking;
         this.ngayBd = ngayBd;
         this.ngayKt = ngayKt;
         this.customer = customer;
         this.facility = facility;
-        this.loaiDv = loaiDv;
     }
 
     public int getMaBooking() {
@@ -60,11 +58,14 @@ public class Booking {
         this.facility = facility;
     }
 
-    public String getLoaiDv() {
-        return loaiDv;
-    }
-
-    public void setLoaiDv(String loaiDv) {
-        this.loaiDv = loaiDv;
+    @Override
+    public String toString() {
+        return "Booking{" +
+                "maBooking=" + maBooking +
+                ", ngayBd='" + ngayBd + '\'' +
+                ", ngayKt='" + ngayKt + '\'' +
+                ", customer=" + customer +
+                ", facility=" + facility +
+                '}';
     }
 }

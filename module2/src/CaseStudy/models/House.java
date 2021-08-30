@@ -7,8 +7,8 @@ public class House extends Facility {
     public House() {
     }
 
-    public House(String tenDv, double dtSd, double phiThue, int soNgToiDa, String kieuThue, String tieuChuanPhong, int soTang) {
-        super(tenDv, dtSd, phiThue, soNgToiDa, kieuThue);
+    public House(int id, String tenDv, double dtSd, double phiThue, int soNgToiDa, String kieuThue, String tieuChuanPhong, int soTang) {
+        super(id, tenDv, dtSd, phiThue, soNgToiDa, kieuThue);
         this.tieuChuanPhong = tieuChuanPhong;
         this.soTang = soTang;
     }
@@ -34,8 +34,9 @@ public class House extends Facility {
         return "House{" +
                 "tieuChuanPhong='" + tieuChuanPhong + '\'' +
                 ", soTang=" + soTang +
+                ", id=" + id +
                 ", tenDv='" + tenDv + '\'' +
-                ", dtSd='" + dtSd + '\'' +
+                ", dtSd=" + dtSd +
                 ", phiThue=" + phiThue +
                 ", soNgToiDa=" + soNgToiDa +
                 ", kieuThue='" + kieuThue + '\'' +

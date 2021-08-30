@@ -1,6 +1,7 @@
 package CaseStudy.models;
 
 public abstract class Facility {
+    protected int id;
     protected String tenDv;
     protected double dtSd;
     protected double phiThue;
@@ -10,12 +11,21 @@ public abstract class Facility {
     public Facility() {
     }
 
-    public Facility(String tenDv, double dtSd, double phiThue, int soNgToiDa, String kieuThue) {
+    public Facility(int id, String tenDv, double dtSd, double phiThue, int soNgToiDa, String kieuThue) {
+        this.id = id;
         this.tenDv = tenDv;
         this.dtSd = dtSd;
         this.phiThue = phiThue;
         this.soNgToiDa = soNgToiDa;
         this.kieuThue = kieuThue;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getTenDv() {

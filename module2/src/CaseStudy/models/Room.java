@@ -6,8 +6,8 @@ public class Room extends Facility {
     public Room() {
     }
 
-    public Room(String tenDv, double dtSd, double phiThue, int soNgToiDa, String kieuThue, String dvFree) {
-        super(tenDv, dtSd, phiThue, soNgToiDa, kieuThue);
+    public Room(int id, String tenDv, double dtSd, double phiThue, int soNgToiDa, String kieuThue, String dvFree) {
+        super(id, tenDv, dtSd, phiThue, soNgToiDa, kieuThue);
         this.dvFree = dvFree;
     }
 
@@ -23,8 +23,9 @@ public class Room extends Facility {
     public String toString() {
         return "Room{" +
                 "dvFree='" + dvFree + '\'' +
+                ", id=" + id +
                 ", tenDv='" + tenDv + '\'' +
-                ", dtSd='" + dtSd + '\'' +
+                ", dtSd=" + dtSd +
                 ", phiThue=" + phiThue +
                 ", soNgToiDa=" + soNgToiDa +
                 ", kieuThue='" + kieuThue + '\'' +
