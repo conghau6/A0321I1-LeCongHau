@@ -25,7 +25,7 @@ public class BookingComparator implements Comparator<Booking> {
             } else if(endDay1.compareTo(endDay2) < 0){
                 return -1;
             } else {
-                return 0;
+                return 1;
             }
         }
     }
