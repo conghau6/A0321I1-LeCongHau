@@ -1,44 +1,44 @@
 package CaseStudy.models;
 
 public class House extends Facility {
-    private String standardRoom;
-    private int numFloor;
+    private String tieuChuanPhong;
+    private int soTang;
 
     public House() {
     }
 
-    public House(String nameService, String areaUsed, double rentalFee, int maxPerson, String rentalType, String standardRoom, int numFloor) {
-        super(nameService, areaUsed, rentalFee, maxPerson, rentalType);
-        this.standardRoom = standardRoom;
-        this.numFloor = numFloor;
+    public House(String tenDv, double dtSd, double phiThue, int soNgToiDa, String kieuThue, String tieuChuanPhong, int soTang) {
+        super(tenDv, dtSd, phiThue, soNgToiDa, kieuThue);
+        this.tieuChuanPhong = tieuChuanPhong;
+        this.soTang = soTang;
     }
 
-    public String getStandardRoom() {
-        return standardRoom;
+    public String getTieuChuanPhong() {
+        return tieuChuanPhong;
     }
 
-    public void setStandardRoom(String standardRoom) {
-        this.standardRoom = standardRoom;
+    public void setTieuChuanPhong(String tieuChuanPhong) {
+        this.tieuChuanPhong = tieuChuanPhong;
     }
 
-    public int getNumFloor() {
-        return numFloor;
+    public int getSoTang() {
+        return soTang;
     }
 
-    public void setNumFloor(int numFloor) {
-        this.numFloor = numFloor;
+    public void setSoTang(int soTang) {
+        this.soTang = soTang;
     }
 
     @Override
     public String toString() {
         return "House{" +
-                "standardRoom='" + standardRoom + '\'' +
-                ", numFloor=" + numFloor +
-                ", nameService='" + nameService + '\'' +
-                ", areaUsed='" + areaUsed + '\'' +
-                ", rentalFee=" + rentalFee +
-                ", maxPerson=" + maxPerson +
-                ", rentalType='" + rentalType + '\'' +
+                "tieuChuanPhong='" + tieuChuanPhong + '\'' +
+                ", soTang=" + soTang +
+                ", tenDv='" + tenDv + '\'' +
+                ", dtSd='" + dtSd + '\'' +
+                ", phiThue=" + phiThue +
+                ", soNgToiDa=" + soNgToiDa +
+                ", kieuThue='" + kieuThue + '\'' +
                 '}';
     }
 }

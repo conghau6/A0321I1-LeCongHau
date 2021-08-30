@@ -2,23 +2,23 @@ package CaseStudy.models;
 
 public abstract class Person {
     protected int id;
-    protected String name;
-    protected String date;
-    protected String gender;
-    protected String idCard;
-    protected String phone;
+    protected String ten;
+    protected String ngaySinh;
+    protected String gioiTinh;
+    protected String cmnd;
+    protected String sdt;
     protected String email;
 
     public Person() {
     }
 
-    public Person(int id, String name, String date, String gender, String idCard, String phone, String email) {
+    public Person(int id, String ten, String ngaySinh, String gioiTinh, String cmnd, String sdt, String email) {
         this.id = id;
-        this.name = name;
-        this.date = date;
-        this.gender = gender;
-        this.idCard = idCard;
-        this.phone = phone;
+        this.ten = ten;
+        this.ngaySinh = ngaySinh;
+        this.gioiTinh = gioiTinh;
+        this.cmnd = cmnd;
+        this.sdt = sdt;
         this.email = email;
     }
 
@@ -30,44 +30,44 @@ public abstract class Person {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getTen() {
+        return ten;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTen(String ten) {
+        this.ten = ten;
     }
 
-    public String getDate() {
-        return date;
+    public String getNgaySinh() {
+        return ngaySinh;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setNgaySinh(String ngaySinh) {
+        this.ngaySinh = ngaySinh;
     }
 
-    public String getGender() {
-        return gender;
+    public String getGioiTinh() {
+        return gioiTinh;
     }
 
-    public void setGender(String gender) {
-        this.gender = gender;
+    public void setGioiTinh(String gioiTinh) {
+        this.gioiTinh = gioiTinh;
     }
 
-    public String getIdCard() {
-        return idCard;
+    public String getCmnd() {
+        return cmnd;
     }
 
-    public void setIdCard(String idCard) {
-        this.idCard = idCard;
+    public void setCmnd(String cmnd) {
+        this.cmnd = cmnd;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getSdt() {
+        return sdt;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setSdt(String sdt) {
+        this.sdt = sdt;
     }
 
     public String getEmail() {

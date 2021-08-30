@@ -1,56 +1,56 @@
 package CaseStudy.models;
 
 public class Employee extends Person{
-    private String level;
-    private String position;
-    private double salary;
+    private String trinhDo;
+    private String viTri;
+    private double luong;
 
     public Employee() {
     }
 
-    public Employee(int id, String name, String date, String gender, String idCard, String phone, String email, String level, String position, double salary) {
-        super(id, name, date, gender, idCard, phone, email);
-        this.level = level;
-        this.position = position;
-        this.salary = salary;
+    public Employee(int id, String ten, String ngaySinh, String gioiTinh, String cmnd, String sdt, String email, String trinhDo, String viTri, double luong) {
+        super(id, ten, ngaySinh, gioiTinh, cmnd, sdt, email);
+        this.trinhDo = trinhDo;
+        this.viTri = viTri;
+        this.luong = luong;
     }
 
-    public String getLevel() {
-        return level;
+    public String getTrinhDo() {
+        return trinhDo;
     }
 
-    public void setLevel(String level) {
-        this.level = level;
+    public void setTrinhDo(String trinhDo) {
+        this.trinhDo = trinhDo;
     }
 
-    public String getPosition() {
-        return position;
+    public String getViTri() {
+        return viTri;
     }
 
-    public void setPosition(String position) {
-        this.position = position;
+    public void setViTri(String viTri) {
+        this.viTri = viTri;
     }
 
-    public double getSalary() {
-        return salary;
+    public double getLuong() {
+        return luong;
     }
 
-    public void setSalary(double salary) {
-        this.salary = salary;
+    public void setLuong(double luong) {
+        this.luong = luong;
     }
 
     @Override
     public String toString() {
         return "Employee{" +
-                "level='" + level + '\'' +
-                ", position='" + position + '\'' +
-                ", salary=" + salary +
+                "trinhDo='" + trinhDo + '\'' +
+                ", viTri='" + viTri + '\'' +
+                ", luong=" + luong +
                 ", id=" + id +
-                ", name='" + name + '\'' +
-                ", date='" + date + '\'' +
-                ", gender='" + gender + '\'' +
-                ", idCard='" + idCard + '\'' +
-                ", phone='" + phone + '\'' +
+                ", ten='" + ten + '\'' +
+                ", ngaySinh='" + ngaySinh + '\'' +
+                ", gioiTinh='" + gioiTinh + '\'' +
+                ", cmnd='" + cmnd + '\'' +
+                ", sdt='" + sdt + '\'' +
                 ", email='" + email + '\'' +
                 '}';
     }

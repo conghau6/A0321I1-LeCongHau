@@ -1,33 +1,33 @@
 package CaseStudy.models;
 
 public class Room extends Facility {
-    private String serviceFree;
+    private String dvFree;
 
     public Room() {
     }
 
-    public Room(String nameService, String areaUsed, double rentalFee, int maxPerson, String rentalType, String serviceFree) {
-        super(nameService, areaUsed, rentalFee, maxPerson, rentalType);
-        this.serviceFree = serviceFree;
+    public Room(String tenDv, double dtSd, double phiThue, int soNgToiDa, String kieuThue, String dvFree) {
+        super(tenDv, dtSd, phiThue, soNgToiDa, kieuThue);
+        this.dvFree = dvFree;
     }
 
-    public String getServiceFree() {
-        return serviceFree;
+    public String getDvFree() {
+        return dvFree;
     }
 
-    public void setServiceFree(String serviceFree) {
-        this.serviceFree = serviceFree;
+    public void setDvFree(String dvFree) {
+        this.dvFree = dvFree;
     }
 
     @Override
     public String toString() {
         return "Room{" +
-                "serviceFree='" + serviceFree + '\'' +
-                ", nameService='" + nameService + '\'' +
-                ", areaUsed='" + areaUsed + '\'' +
-                ", rentalFee=" + rentalFee +
-                ", maxPerson=" + maxPerson +
-                ", rentalType='" + rentalType + '\'' +
+                "dvFree='" + dvFree + '\'' +
+                ", tenDv='" + tenDv + '\'' +
+                ", dtSd='" + dtSd + '\'' +
+                ", phiThue=" + phiThue +
+                ", soNgToiDa=" + soNgToiDa +
+                ", kieuThue='" + kieuThue + '\'' +
                 '}';
     }
 }

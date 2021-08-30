@@ -1,60 +1,60 @@
 package CaseStudy.models;
 
 public abstract class Facility {
-    protected String nameService;
-    protected String areaUsed;
-    protected double rentalFee;
-    protected int maxPerson;
-    protected String rentalType;
+    protected String tenDv;
+    protected double dtSd;
+    protected double phiThue;
+    protected int soNgToiDa;
+    protected String kieuThue;
 
     public Facility() {
     }
 
-    public Facility(String nameService, String areaUsed, double rentalFee, int maxPerson, String rentalType) {
-        this.nameService = nameService;
-        this.areaUsed = areaUsed;
-        this.rentalFee = rentalFee;
-        this.maxPerson = maxPerson;
-        this.rentalType = rentalType;
+    public Facility(String tenDv, double dtSd, double phiThue, int soNgToiDa, String kieuThue) {
+        this.tenDv = tenDv;
+        this.dtSd = dtSd;
+        this.phiThue = phiThue;
+        this.soNgToiDa = soNgToiDa;
+        this.kieuThue = kieuThue;
     }
 
-    public String getNameService() {
-        return nameService;
+    public String getTenDv() {
+        return tenDv;
     }
 
-    public void setNameService(String nameService) {
-        this.nameService = nameService;
+    public void setTenDv(String tenDv) {
+        this.tenDv = tenDv;
     }
 
-    public String getAreaUsed() {
-        return areaUsed;
+    public double getDtSd() {
+        return dtSd;
     }
 
-    public void setAreaUsed(String areaUsed) {
-        this.areaUsed = areaUsed;
+    public void setDtSd(double dtSd) {
+        this.dtSd = dtSd;
     }
 
-    public double getRentalFee() {
-        return rentalFee;
+    public double getPhiThue() {
+        return phiThue;
     }
 
-    public void setRentalFee(double rentalFee) {
-        this.rentalFee = rentalFee;
+    public void setPhiThue(double phiThue) {
+        this.phiThue = phiThue;
     }
 
-    public int getMaxPerson() {
-        return maxPerson;
+    public int getSoNgToiDa() {
+        return soNgToiDa;
     }
 
-    public void setMaxPerson(int maxPerson) {
-        this.maxPerson = maxPerson;
+    public void setSoNgToiDa(int soNgToiDa) {
+        this.soNgToiDa = soNgToiDa;
     }
 
-    public String getRentalType() {
-        return rentalType;
+    public String getKieuThue() {
+        return kieuThue;
     }
 
-    public void setRentalType(String rentalType) {
-        this.rentalType = rentalType;
+    public void setKieuThue(String kieuThue) {
+        this.kieuThue = kieuThue;
     }
 }
