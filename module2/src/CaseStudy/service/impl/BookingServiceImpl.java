@@ -27,6 +27,10 @@ public class BookingServiceImpl implements BookingService {
         facilityIntegerMap.put(new Villa(2,"villa2",154,330,40,"thang",
                 "Vip",30.2,10), 0);
     }
+
+    public Set<Booking> sendBooking() {
+        return bookingSet;
+    }
     @Override
     public void display() {
 
@@ -57,6 +61,7 @@ public class BookingServiceImpl implements BookingService {
         Booking booking = new Booking(id,ngayBd,ngayKt,customer,facility);
 
         bookingSet.add(booking);
+        facilityIntegerMap.put(facility, facilityIntegerMap.get(facility) + 1);
         System.out.println("Đã booking thành công!");
     }
 

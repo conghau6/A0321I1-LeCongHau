@@ -1,10 +1,8 @@
 package CaseStudy.controllers;
 
 import CaseStudy.models.Booking;
-import CaseStudy.service.impl.BookingServiceImpl;
-import CaseStudy.service.impl.CustomerServiceImpl;
-import CaseStudy.service.impl.EmployeeServiceImpl;
-import CaseStudy.service.impl.FacilityServiceImpl;
+import CaseStudy.service.ContractService;
+import CaseStudy.service.impl.*;
 
 import java.util.Scanner;
 
@@ -121,6 +119,7 @@ public class FuramaController {
                     facilityService.addNew();
                     break;
                 case 3:
+                    facilityService.displayFacilityMaintenance();
                     break;
                 case 4:
                     check = false;
@@ -133,6 +132,7 @@ public class FuramaController {
 
     public static void displayBookingMenu() {
         BookingServiceImpl bookingService = new BookingServiceImpl();
+        ContractServiceImpl contractService = new ContractServiceImpl();
         boolean check = true;
         while (check) {
             System.out.println("1. Add new booking");
@@ -149,6 +149,12 @@ public class FuramaController {
                     break;
                 case 2:
                     bookingService.displayListBooking();
+                    break;
+                case 3:
+                    contractService.createNewContract();
+                    break;
+                case 4:
+                    contractService.displayListContract();
                     break;
                 default: break;
             }
