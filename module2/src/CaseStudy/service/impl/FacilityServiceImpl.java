@@ -73,7 +73,7 @@ public class FacilityServiceImpl implements FacilityService {
         do {
             System.out.print("Nhập kiểu thuê (năm/tháng/ngày/giờ): ");
             kieuThue = scanner.nextLine();
-        } while (!patternKieuThue.matcher(kieuThue).matches());
+        } while (!validateKieuThue.matcher(kieuThue).matches());
         System.out.print("Nhập tiêu chuẩn phòng: ");
         String tieuChuan = scanner.nextLine();
         System.out.print("Nhập diệnt tích hồ bơi: ");
@@ -102,7 +102,7 @@ public class FacilityServiceImpl implements FacilityService {
         do {
             System.out.print("Nhập kiểu thuê (năm/tháng/ngày/giờ): ");
             kieuThue = scanner.nextLine();
-        } while (!patternKieuThue.matcher(kieuThue).matches());
+        } while (!validateKieuThue.matcher(kieuThue).matches());
         System.out.print("Nhập tiêu chuẩn phòng: ");
         String tieuChuan = scanner.nextLine();
         System.out.print("Nhập số tâng: ");
@@ -129,7 +129,7 @@ public class FacilityServiceImpl implements FacilityService {
         do {
             System.out.print("Nhập kiểu thuê (năm/tháng/ngày/giờ): ");
             kieuThue = scanner.nextLine();
-        } while (!patternKieuThue.matcher(kieuThue).matches());
+        } while (!validateKieuThue.matcher(kieuThue).matches());
         System.out.print("Dịch vụ miễn phí đi kèm: ");
         String dvFree = scanner.nextLine();
 

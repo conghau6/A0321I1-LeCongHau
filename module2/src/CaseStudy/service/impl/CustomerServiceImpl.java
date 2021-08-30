@@ -90,7 +90,7 @@ public class CustomerServiceImpl implements CustomerService {
                     do {
                         System.out.print("Nhập loại khách (diamond/platinum/silver/gold/member): ");
                         loaiKhach = scanner.nextLine();
-                    } while (!patternLoaiKhach.matcher(loaiKhach).matches());
+                    } while (!validateLoaiKhach.matcher(loaiKhach).matches());
                     customerLinkedList.get(index).setLoaiKhach(loaiKhach);
                     break;
                 case 8:
@@ -148,7 +148,7 @@ public class CustomerServiceImpl implements CustomerService {
         do {
             System.out.print("Nhập loại khách (diamond/platinum/silver/gold/member): ");
             loaiKhach = scanner.nextLine();
-        } while (!patternLoaiKhach.matcher(loaiKhach).matches());
+        } while (!validateLoaiKhach.matcher(loaiKhach).matches());
         System.out.print("Nhập địa chỉ: ");
         String diaChi = scanner.nextLine();
         customerLinkedList.add(new Customer(id, name, ngaySinh, gt, cmnd, sdt, email, loaiKhach, diaChi));
