@@ -6,10 +6,10 @@ public interface Service {
     String EMAIL = "^[a-zA-Z][a-zA-z0-9]+\\@[a-zA-Z]+\\.([a-zA-z])+$";
     String PHONE = "^[0-9]{7,10}$";
     String BIRTHDAY = "^[0-9][0-9]{1}[/][0-9]{2}[/][0-9]{4}$";
-    Pattern patternCmnd = Pattern.compile(CMND);
-    Pattern patternEmail = Pattern.compile(EMAIL);
-    Pattern patternPhone = Pattern.compile(PHONE);
-    Pattern patternBirthday = Pattern.compile(BIRTHDAY);
+    Pattern validateCmnd = Pattern.compile(CMND);
+    Pattern validateEmail = Pattern.compile(EMAIL);
+    Pattern validatePhone = Pattern.compile(PHONE);
+    Pattern validateBirthDay = Pattern.compile(BIRTHDAY);
     void display();
     void edit();
     void addNew();

@@ -53,7 +53,7 @@ public class CustomerServiceImpl implements CustomerService {
                     do {
                         System.out.print("Nhập ngày sinh mới: ");
                         ngaySinh = scanner.nextLine();
-                    } while (!patternBirthday.matcher(ngaySinh).matches());
+                    } while (!validateBirthDay.matcher(ngaySinh).matches());
                     customerLinkedList.get(index).setNgaySinh(ngaySinh);
                     break;
                 case 3:
@@ -66,7 +66,7 @@ public class CustomerServiceImpl implements CustomerService {
                     do {
                         System.out.print("Nhập cmnd mới: ");
                         cmnd = scanner.nextLine();
-                    } while (!patternCmnd.matcher(cmnd).matches());
+                    } while (!validateCmnd.matcher(cmnd).matches());
                     customerLinkedList.get(index).setCmnd(cmnd);
                     break;
                 case 5:
@@ -74,7 +74,7 @@ public class CustomerServiceImpl implements CustomerService {
                     do {
                         System.out.print("Nhập sdt mới: ");
                         sdt = scanner.nextLine();
-                    } while (!patternPhone.matcher(sdt).matches());
+                    } while (!validatePhone.matcher(sdt).matches());
                     customerLinkedList.get(index).setSdt(sdt);
                     break;
                 case 6:
@@ -82,7 +82,7 @@ public class CustomerServiceImpl implements CustomerService {
                     do {
                         System.out.print("Nhập email mới: ");
                         email = scanner.nextLine();
-                    } while (!patternEmail.matcher(email).matches());
+                    } while (!validateEmail.matcher(email).matches());
                     customerLinkedList.get(index).setEmail(email);
                     break;
                 case 7:
@@ -126,24 +126,24 @@ public class CustomerServiceImpl implements CustomerService {
         do {
             System.out.print("Nhập ngày sinh: ");
             ngaySinh = scanner.nextLine();
-        } while (!patternBirthday.matcher(ngaySinh).matches());
+        } while (!validateBirthDay.matcher(ngaySinh).matches());
         System.out.print("Nhập giới tính: ");
         String gt = scanner.nextLine();
         String cmnd;
         do {
             System.out.print("Nhập số cmnd: ");
             cmnd = scanner.nextLine();
-        } while (!patternCmnd.matcher(cmnd).matches());
+        } while (!validateCmnd.matcher(cmnd).matches());
         String sdt;
         do {
             System.out.print("Nhập sdt: ");
             sdt = scanner.nextLine();
-        } while (!patternPhone.matcher(sdt).matches());
+        } while (!validatePhone.matcher(sdt).matches());
         String email;
         do {
             System.out.print("Nhập email: ");
             email = scanner.nextLine();
-        } while (!patternEmail.matcher(email).matches());
+        } while (!validateEmail.matcher(email).matches());
         String loaiKhach;
         do {
             System.out.print("Nhập loại khách (diamond/platinum/silver/gold/member): ");

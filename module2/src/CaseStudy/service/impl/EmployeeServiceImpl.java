@@ -55,7 +55,7 @@ public class EmployeeServiceImpl implements EmployeeService {
                     do {
                         System.out.print("Nhập ngày sinh mới: ");
                         ngaySinh = scanner.nextLine();
-                    } while (!patternBirthday.matcher(ngaySinh).matches());
+                    } while (!validateBirthDay.matcher(ngaySinh).matches());
                     employeeList.get(index).setNgaySinh(ngaySinh);
                     break;
                 case 3:
@@ -68,7 +68,7 @@ public class EmployeeServiceImpl implements EmployeeService {
                     do {
                         System.out.print("Nhập cmnd mới: ");
                         cmnd = scanner.nextLine();
-                    } while (!patternCmnd.matcher(cmnd).matches());
+                    } while (!validateCmnd.matcher(cmnd).matches());
                     employeeList.get(index).setCmnd(cmnd);
                     break;
                 case 5:
@@ -76,7 +76,7 @@ public class EmployeeServiceImpl implements EmployeeService {
                     do {
                         System.out.print("Nhập sdt mới: ");
                         sdt = scanner.nextLine();
-                    } while (!patternPhone.matcher(sdt).matches());
+                    } while (!validatePhone.matcher(sdt).matches());
                     employeeList.get(index).setSdt(sdt);
                     break;
                 case 6:
@@ -84,7 +84,7 @@ public class EmployeeServiceImpl implements EmployeeService {
                     do {
                         System.out.print("Nhập email mới: ");
                         email = scanner.nextLine();
-                    } while (!patternEmail.matcher(email).matches());
+                    } while (!validateEmail.matcher(email).matches());
                     employeeList.get(index).setEmail(email);
                     break;
                 case 7:
@@ -100,7 +100,7 @@ public class EmployeeServiceImpl implements EmployeeService {
                     do {
                         System.out.print("Nhập vị trí (lễ tân/phục vụ/chuyên viên/giám sát/quản lý/giám đốc): ");
                         viTri = scanner.nextLine();
-                    } while (!patternPosition.matcher(viTri).matches());
+                    } while (!validateViTri.matcher(viTri).matches());
                     employeeList.get(index).setViTri(viTri);
                     break;
                 case 9:
@@ -134,24 +134,24 @@ public class EmployeeServiceImpl implements EmployeeService {
         do {
             System.out.print("Nhập ngày sinh: ");
             ngaySinh = scanner.nextLine();
-        } while (!patternBirthday.matcher(ngaySinh).matches());
+        } while (!validateBirthDay.matcher(ngaySinh).matches());
         System.out.print("Nhập giới tính: ");
         String gt = scanner.nextLine();
         String cmnd;
         do {
             System.out.print("Nhập số cmnd: ");
             cmnd = scanner.nextLine();
-        } while (!patternCmnd.matcher(cmnd).matches());
+        } while (!validateCmnd.matcher(cmnd).matches());
         String sdt;
         do {
             System.out.print("Nhập sdt: ");
             sdt = scanner.nextLine();
-        } while (!patternPhone.matcher(sdt).matches());
+        } while (!validatePhone.matcher(sdt).matches());
         String email;
         do {
             System.out.print("Nhập email: ");
             email = scanner.nextLine();
-        } while (!patternEmail.matcher(email).matches());
+        } while (!validateEmail.matcher(email).matches());
         String trinhDo;
         do {
             System.out.print("Nhập trình đọ (trung cấp/cao đẳng/đại học): ");
@@ -161,7 +161,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         do {
             System.out.print("Nhập vị trí (lễ tân/phục vụ/chuyên viên/giám sát/quản lý/giám đốc): ");
             viTri = scanner.nextLine();
-        } while (!patternPosition.matcher(viTri).matches());
+        } while (!validateViTri.matcher(viTri).matches());
         System.out.print("Nhập tiền lương: ");
         double luong = Double.parseDouble(scanner.nextLine());
         employeeList.add(new Employee(id, name, ngaySinh, gt, cmnd, sdt, email, trinhDo, viTri, luong));
