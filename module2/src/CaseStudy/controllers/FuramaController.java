@@ -18,8 +18,13 @@ public class FuramaController {
             System.out.println("6. Exit Management");
             Scanner scanner = new Scanner(System.in);
             System.out.print("Enter your choice: ");
-
-            switch (scanner.nextInt()) {
+            int choice = -1;
+            try {
+                choice = Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e) {
+                System.out.println("Bạn đã nhập sai định dạng, vui lòng nhập lại");
+            }
+            switch (choice) {
                 case 1:
                     displayEmployeeMenu();
                     break;
@@ -53,7 +58,13 @@ public class FuramaController {
             System.out.println("4. Return main menu");
             System.out.print("Enter your choice: ");
             Scanner scanner = new Scanner(System.in);
-            switch (scanner.nextInt()) {
+            int choice = -1;
+            try {
+                choice = Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e) {
+                System.out.println("Bạn đã nhập sai định dạng, vui lòng nhập lại");
+            }
+            switch (choice) {
                 case 1:
                     employeeService.display();
                     break;
@@ -82,7 +93,13 @@ public class FuramaController {
             System.out.println("4. Return main menu");
             System.out.print("Nhập lựa chọn: ");
             Scanner scanner = new Scanner(System.in);
-            switch (scanner.nextInt()) {
+            int choice = -1;
+            try {
+                choice = Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e) {
+                System.out.println("Bạn đã nhập sai định dạng, vui lòng nhập lại");
+            }
+            switch (choice) {
                 case 1:
                     customerService.display();
                     break;
@@ -111,7 +128,13 @@ public class FuramaController {
             System.out.println("4. Return main menu");
             System.out.print("Nhập lựa chọn: ");
             Scanner scanner = new Scanner(System.in);
-            switch (scanner.nextInt()) {
+            int choice = -1;
+            try {
+                choice = Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e) {
+                System.out.println("Bạn đã nhập sai định dạng, vui lòng nhập lại");
+            }
+            switch (choice) {
                 case 1:
                     facilityService.display();
                     break;
@@ -143,7 +166,13 @@ public class FuramaController {
             System.out.println("6. Return main menu");
             System.out.print("Nhập lựa chọn: ");
             Scanner scanner = new Scanner(System.in);
-            switch (scanner.nextInt()){
+            int choice = -1;
+            try {
+                choice = Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e) {
+                System.out.println("Bạn đã nhập sai định dạng, vui lòng nhập lại");
+            }
+            switch (choice) {
                 case 1:
                     bookingService.addBooking();
                     break;
@@ -156,17 +185,43 @@ public class FuramaController {
                 case 4:
                     contractService.displayListContract();
                     break;
-                default: break;
+                case 6:
+                    check = false;
+                    break;
+                default:
+                    break;
             }
         }
     }
 
     public static void displayPromotion() {
+        PromotionServiceImpl promotionService = new PromotionServiceImpl();
         boolean check = true;
         while (check) {
             System.out.println("1. Display list customer use service");
             System.out.println("2. Display list customer get voucher");
             System.out.println("3. Return main menu");
+            System.out.print("Nhập lựa chọn: ");
+            Scanner scanner = new Scanner(System.in);
+            int choice = -1;
+            try {
+                choice = Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e) {
+                System.out.println("Bạn đã nhập sai định dạng, vui lòng nhập lại");
+            }
+            switch (choice) {
+                case 1:
+                    promotionService.displayCustomerUserService();
+                    break;
+                case 2:
+                    promotionService.displayCustomerGetVoucher();
+                    break;
+                case 3:
+                    check = false;
+                    break;
+                default:
+                    break;
+            }
         }
     }
 

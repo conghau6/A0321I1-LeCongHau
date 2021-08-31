@@ -1,6 +1,6 @@
 package CaseStudy.service;
 
-public interface BookingService extends Service{
+public interface BookingService{
     void addBooking();
     void displayListBooking();
 }

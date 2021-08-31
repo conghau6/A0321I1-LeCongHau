@@ -31,20 +31,6 @@ public class BookingServiceImpl implements BookingService {
     public Set<Booking> sendBooking() {
         return bookingSet;
     }
-    @Override
-    public void display() {
-
-    }
-
-    @Override
-    public void edit() {
-
-    }
-
-    @Override
-    public void addNew() {
-
-    }
 
     @Override
     public void addBooking() {
