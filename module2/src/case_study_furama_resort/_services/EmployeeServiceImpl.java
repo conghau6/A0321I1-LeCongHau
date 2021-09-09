@@ -16,7 +16,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public void themMoi() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("+++Thêm nhân viên mới+++");
+        System.out.println("+++Them nhân viên mới+++");
         System.out.print("Nhập mã nhân viên: ");
         int ma = Integer.parseInt(scanner.nextLine());
         System.out.print("Nhập tên nhân viên: ");

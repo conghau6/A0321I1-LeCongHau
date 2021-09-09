@@ -1,0 +1,8 @@
+ràng buộc thông dụng trong csdl
+- NOT NULL: không cho phép giá trị null
+- UNIQUE: mỗi giá trị là duy nhất
+- PRIMARY KEY: khoá chính (không null và alf unique)
+- FOREIGN KEY: khoá ngoại (tham chiếu sang bảng khác)
+- CHECK: kiểm tra dựa vào 1 điều kiện
+- DEFAULT: quy định giá trị mặc định cho trường (nếu không có giá trị nhập vào)
+- INDEX: giúp tăng tốc độ truy vấn dữ liệu

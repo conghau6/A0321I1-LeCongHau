@@ -5,12 +5,20 @@ import CaseStudy.models.House;
 import CaseStudy.models.Room;
 import CaseStudy.models.Villa;
 import CaseStudy.service.FacilityService;
+import CaseStudy.utils.RegexData;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 public class FacilityServiceImpl implements FacilityService {
+
+    public static final String REGEX_STR = "^[A-Z][a-z]+$]";
+    public static final String REGEX_ID_VILLA = "(SVVL)[-][\\d]{4}";
+    public static final String REGEX_SO_NGUOI = "^[1-9]|([1][0-9])$";
+    Pattern pattern = Pattern.compile(REGEX_SO_NGUOI);
+    public static final String REGEX_DT_HOBOI = "^([3-9]\\d)|([1-9]\\d{2,})$";
 
     private static Map<Facility, Integer> facilityIntegerMap = new LinkedHashMap<>();
     private static Scanner scanner = new Scanner(System.in);
@@ -59,10 +67,8 @@ public class FacilityServiceImpl implements FacilityService {
 
     public void addNewVilla() {
         System.out.println("==Add new Villa==");
-        System.out.print("Nhập id: ");
-        int id = Integer.parseInt(scanner.nextLine());
-        System.out.print("Nhập tên dịch vụ: ");
-        String tenDv = scanner.nextLine();
+        String id = inputId();
+        String tenDv = nhapTenDv();
         System.out.print("Nhập dt sũ dụng: ");
         double dt = Double.parseDouble(scanner.nextLine());
         System.out.print("Nhập phí thuê: ");
@@ -86,10 +92,20 @@ public class FacilityServiceImpl implements FacilityService {
         System.out.println("Đã thêm thành công villa!");
     }
 
+    private String inputId() {
+        System.out.print("Nhập id, mã dịch vụ: ");
+        return RegexData.regexStr(scanner.nextLine(),REGEX_ID_VILLA,"Bạn đã nhấp sai định dạng (SVVL-XXXX)\n Nhâp id, mã dv: ");
+    }
+
+    private String nhapTenDv() {
+        System.out.print("Nhập tên dịch vụ: ");
+        return RegexData.regexStr(scanner.nextLine(),REGEX_STR,"Bạn đã nhập sai định dạng");
+    }
+
     public void addNewHouse() {
         System.out.println("==Add new House==");
         System.out.print("Nhập id: ");
-        int id = Integer.parseInt(scanner.nextLine());
+        String id = scanner.nextLine();
         System.out.print("Nhập tên dịch vụ: ");
         String tenDv = scanner.nextLine();
         System.out.print("Nhập dt sũ dụng: ");
@@ -116,7 +132,7 @@ public class FacilityServiceImpl implements FacilityService {
     public void addNewRoom() {
         System.out.println("==Add new Room==");
         System.out.print("Nhập id: ");
-        int id = Integer.parseInt(scanner.nextLine());
+        String id = scanner.nextLine();
         System.out.print("Nhập tên dịch vụ: ");
         String tenDv = scanner.nextLine();
         System.out.print("Nhập dt sũ dụng: ");

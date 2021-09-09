@@ -25,7 +25,7 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public void themMoi() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("+++Thêm khách hàng+++");
+        System.out.println("+++Them khách hàng+++");
         System.out.print("Nhập mã khách hàng: ");
         int ma = Integer.parseInt(scanner.nextLine());
         System.out.print("Nhập tên khách hàng: ");

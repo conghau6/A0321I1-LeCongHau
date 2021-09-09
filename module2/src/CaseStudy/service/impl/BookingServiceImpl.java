@@ -22,24 +22,14 @@ public class BookingServiceImpl implements BookingService {
         customerList.add(new Customer(3,"hau,", "31/10/2003", "nam", "939392222", "0367588892",
                 "hau2@gmail.com", "diamond", "qn"));
 
-        facilityIntegerMap.put(new Villa(1,"villa1",100,300,10,"ngay",
+        facilityIntegerMap.put(new Villa("SVVL-0066","villa1",100,300,10,"ngay",
                 "Vip",300.2,2), 0);
-        facilityIntegerMap.put(new Villa(2,"villa2",154,330,40,"thang",
+        facilityIntegerMap.put(new Villa("SVVL-0707","villa2",154,330,40,"thang",
                 "Vip",30.2,10), 0);
     }
-    @Override
-    public void display() {
 
-    }
-
-    @Override
-    public void edit() {
-
-    }
-
-    @Override
-    public void addNew() {
-
+    public Set<Booking> sendBooking() {
+        return bookingSet;
     }
 
     @Override
@@ -57,6 +47,7 @@ public class BookingServiceImpl implements BookingService {
         Booking booking = new Booking(id,ngayBd,ngayKt,customer,facility);
 
         bookingSet.add(booking);
+        facilityIntegerMap.put(facility, facilityIntegerMap.get(facility) + 1);
         System.out.println("Đã booking thành công!");
     }
 
@@ -102,11 +93,11 @@ public class BookingServiceImpl implements BookingService {
 
         System.out.print("Nhập id dịch vụ : ");
         boolean check = true;
-        int id = Integer.parseInt(scanner.nextLine());
+        String id = scanner.nextLine();
 
         while (check) {
             for(Map.Entry<Facility, Integer> entry : facilityIntegerMap.entrySet()) {
-                if(id==entry.getKey().getId()){
+                if(id.equals(entry.getKey().getId())){
                     check = false;
                     return entry.getKey();
                 }
@@ -114,7 +105,7 @@ public class BookingServiceImpl implements BookingService {
 
             if(check) {
                 System.out.println("Vui lòng nhập lại dịch vụ");
-                id = scanner.nextInt();
+                id = scanner.nextLine();
             }
         }
 

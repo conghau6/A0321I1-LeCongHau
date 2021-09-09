@@ -2,16 +2,19 @@ package CaseStudy.service.impl;
 
 import CaseStudy.models.Employee;
 import CaseStudy.service.EmployeeService;
+import CaseStudy.utils.ReadAndWrite;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class EmployeeServiceImpl implements EmployeeService {
-    public static ArrayList<Employee> employeeList = new ArrayList<>();
+    public static List<Employee> employeeList = new ArrayList<>();
     public static Scanner scanner = new Scanner(System.in);
 
     @Override
     public void display() {
+        employeeList = (List<Employee>) ReadAndWrite.read("./src/CaseStudy/data/employee.csv");
         for (Employee employee : employeeList) {
             System.out.println(employee);
         }
@@ -92,7 +95,7 @@ public class EmployeeServiceImpl implements EmployeeService {
                     do {
                         System.out.print("Nhập trình độ (trung cấp/cao đẳng/đại học): ");
                         trinhDo = scanner.nextLine();
-                    } while (!patternLevel.matcher(trinhDo).matches());
+                    } while (!validateTrinhDo.matcher(trinhDo).matches());
                     employeeList.get(index).setTrinhDo(trinhDo);
                     break;
                 case 8:
@@ -116,7 +119,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public void addNew() {
-        System.out.println("==Add new facility==");
+        System.out.println("==Add new employee==");
         boolean check = true;
         int id = -1;
         do {
@@ -156,7 +159,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         do {
             System.out.print("Nhập trình đọ (trung cấp/cao đẳng/đại học): ");
             trinhDo = scanner.nextLine();
-        } while (!patternLevel.matcher(trinhDo).matches());
+        } while (!validateTrinhDo.matcher(trinhDo).matches());
         String viTri;
         do {
             System.out.print("Nhập vị trí (lễ tân/phục vụ/chuyên viên/giám sát/quản lý/giám đốc): ");
@@ -165,6 +168,8 @@ public class EmployeeServiceImpl implements EmployeeService {
         System.out.print("Nhập tiền lương: ");
         double luong = Double.parseDouble(scanner.nextLine());
         employeeList.add(new Employee(id, name, ngaySinh, gt, cmnd, sdt, email, trinhDo, viTri, luong));
+
+        ReadAndWrite.write(employeeList,"./src/CaseStudy/data/employee.csv");
         System.out.println("Đã thêm thành công Employee!");
     }
 

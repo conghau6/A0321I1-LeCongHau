@@ -62,6 +62,12 @@ public class SanPham implements Serializable {
 
     @Override
     public String toString() {
-        return maSp + "-" + tenSp + "-" + hangSx + "-" + gia + "-" + moTa;
+        return "SanPham{" +
+                "maSp=" + maSp +
+                ", tenSp='" + tenSp + '\'' +
+                ", hangSx='" + hangSx + '\'' +
+                ", gia=" + gia +
+                ", moTa='" + moTa + '\'' +
+                '}';
     }
 }

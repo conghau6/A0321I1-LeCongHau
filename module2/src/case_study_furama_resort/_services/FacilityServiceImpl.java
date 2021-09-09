@@ -30,9 +30,9 @@ public class FacilityServiceImpl implements FacilityService {
     @Override
     public void themMoi() {
         System.out.println("++THÊM MỚI FACILITY++");
-        System.out.println("1. Thêm mới Villa");
-        System.out.println("2. Thêm mới House");
-        System.out.println("3. Thêm mới Room");
+        System.out.println("1. Them mới Villa");
+        System.out.println("2. Them mới House");
+        System.out.println("3. Them mới Room");
         System.out.println("4. Back to menu");
         System.out.print("Nhập lựa chọn: ");
         Scanner scanner = new Scanner(System.in);
