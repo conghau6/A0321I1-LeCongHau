@@ -1,5 +1,0 @@
-https://levunguyen.com/database/2020/05/01/su-dung-cu-phap-trong-database/
-https://levunguyen.com/database/2020/05/02/cac-kieu-du-lieu-trong-database/
-https://levunguyen.com/database/2020/05/03/cac-loai-toan-tu-trong-database/
-https://levunguyen.com/database/2020/05/07/cac-cau-lenh-sql-dml-trong-database/
-https://levunguyen.com/database/2020/05/04/cac-cau-lenh-cau-truc-ddl-trong-database/
