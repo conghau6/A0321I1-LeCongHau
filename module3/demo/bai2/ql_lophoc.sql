@@ -41,3 +41,4 @@ foreign key(id_teacher) references teacher(id_teacher),
 foreign key(id_class) references class(id_class)
 -- vừa là khoá chính vừa là khoá ngoại
 );
+drop database ql_lophoc;
