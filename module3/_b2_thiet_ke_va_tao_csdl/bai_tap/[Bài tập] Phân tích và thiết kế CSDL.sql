@@ -1,6 +1,5 @@
 create database ql_oto;
 use ql_oto;
-drop database ql_oto;
 create table productlines (
 	productLine varchar(50) not null,
     textDescription text not null,
