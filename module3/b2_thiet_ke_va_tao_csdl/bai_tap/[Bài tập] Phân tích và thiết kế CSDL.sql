@@ -19,19 +19,19 @@ create table offices (
 );
 create table employees (
 	employeeNumber int not null,
-    officeCode varchar(10) not null,
+    officeCode varchar(10),
     lastName varchar(50) not null,
     firstName varchar(50) not null,
     email varchar(100) not null,
     jobTitle varchar(50) not null,
-    reportTo int not null,
+    reportTo int,
     primary key(employeeNumber),
     foreign key(officeCode) references offices(officeCode),
     foreign key(reportTo) references employees(employeeNumber)
 );
 create table customers (
 	customerNumber int not null,
-    salesRepEmployeeNumber int not null,
+    salesRepEmployeeNumber int,
     customerName varchar(50) not null,
     contactLastName varchar(50) not null,
     contactFirstName varchar(50) not null,
@@ -48,7 +48,7 @@ create table customers (
 );
 create table orders(
 	orderNumber int not null,
-    customerNumber int not null,
+    customerNumber int,
     orderDate date not null,
     requiredDate date not null,
     shippedDate date,
@@ -60,7 +60,7 @@ create table orders(
     foreign key(customerNumber) references customers (customerNumber)
 );
 create table payments (
-	customerNumber int not null,
+	customerNumber int,
     checkNumber varchar(50) not null,
     paymentDate date not null,
     amount float(2) not null,
@@ -69,7 +69,7 @@ create table payments (
 );
 create table products (
 	productCode varchar(15) not null,
-    productLine varchar(50) not null,
+    productLine varchar(50),
     productName varchar(70) not null,
     productScale varchar(10) not null,
     productVendor varchar(50) not null,
@@ -81,8 +81,8 @@ create table products (
     foreign key(productLine) references productlines(productLine)
 );
 create table orderDetails (
-	orderNumber int not null,
-    productCode varchar(15) not null,
+	orderNumber int,
+    productCode varchar(15),
     primary key(ordernumber, productcode),
     foreign key(ordernumber) references orders(ordernumber),
     foreign key(productCode) references products(productCode)

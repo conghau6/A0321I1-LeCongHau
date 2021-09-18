@@ -198,7 +198,7 @@ inner join BoPhan on NhanVien.IDBoPhan = BoPhan.IDBoPhan
 where ((HoTen like 'H%') or (HoTen like 'K%') or (HoTen like 'T%')) and length(HoTen) <= 15;
  
 -- 3.	Hiển thị thông tin của tất cả khách hàng có độ tuổi từ 18 đến 50 tuổi và có địa chỉ ở “Đà Nẵng” hoặc “Quảng Trị”.
-select NhanVien.* from NhanVien where ((year(now()) - year(NgaySinh)) between 18 and 50) and DiaChi in ('Đà Nẵng','Quảng Trị');
+select NhanVien.* from NhanVien where curdate()-NgaySinh>=(18*30*365) and curdate()-NgaySinh>=(50*30*365) and DiaChi in ('Đà Nẵng','Quảng Trị');
 
 -- 4.	Đếm xem tương ứng với mỗi khách hàng đã từng đặt phòng bao nhiêu lần.
 -- Kết quả hiển thị được sắp xếp tăng dần theo số lần đặt phòng của khách hàng 
@@ -222,3 +222,10 @@ left join kieuthue on dichvu.IDKieuThue = kieuthue.IDKieuThue
 left join hopdongchitiet on hopdong.IDHopDong = hopdongchitiet.IDHopDong
 left join loaikhach on khachhang.IDLoaiKhach =  loaikhach.IDLoaiKhach;
 
+-- 6.	Hiển thị IDDichVu, TenDichVu, DienTich, ChiPhiThue, TenLoaiDichVu của tất cả các loại Dịch vụ chưa từng được Khách hàng thực hiện đặt từ quý 1 của năm 2019 (Quý 1 là tháng 1, 2, 3).
+select dichvu.IDDichVu, TenDichVu, DienTich, ChiPhiThue, loaidichvu.TenLoaiDichVu from dichvu
+left join hopdong on dichvu.IDDichVu = hopdong.IDHopDong
+left join loaidichvu on dichvu.IDLoaiDichVu = loaidichvu.IDLoaiDichVu
+where not exists (select hopdong.IDDichVu from hopdong);
+
+-- 
