@@ -173,14 +173,23 @@ insert into KhachHang values
 (7,4,'Huỳnh Thị Thu Trang','200-10-10','511144535','086667767','trang@gmail.com','Quảng Trị'),
 (8,3,'Cao Văn Tú','2002-10-10','565642225','088789997','tu@gmail.com','Huế');
 insert into HopDong values
-(1,1,2,7,'2020-10-10','2021-3-3',500,1200),
-(2,6,3,1,'2020-10-11','2021-3-4',400,1600),
-(3,7,4,2,'2020-10-12','2021-3-5',500,1300),
-(4,8,5,3,'2020-10-13','2021-3-6',600,1500),
-(5,9,6,4,'2020-10-14','2021-3-7',800,1700),
+(1,1,2,7,'2018-10-10','2019-3-3',500,1200),
+(2,6,3,1,'2018-10-11','2019-3-4',400,1600),
+(3,7,4,2,'2018-10-12','2019-3-5',500,1300),
+(4,8,5,3,'2018-10-13','2019-3-6',600,1500),
+(5,9,6,4,'2020-10-14','2022-3-7',800,1700),
 (6,3,7,6,'2020-10-15','2021-3-8',700,2000),
 (7,2,8,5,'2020-10-16','2021-3-9',400,1100),
-(8,5,1,2,'2020-10-17','2021-3-10',100,1400);
+(8,5,1,2,'2020-10-17','2021-3-10',14500,140560);
+insert into HopDong values
+(9,1,1,2,'2018-10-17','2019-3-10',1005,14003),
+(10,2,1,2,'2018-10-17','2019-3-10',10430,14030),
+(11,3,1,2,'2018-10-17','2019-3-10',1030,14040),
+(12,4,1,2,'2018-10-17','2019-3-10',1060,14050),
+(13,1,1,2,'2018-10-17','2019-3-10',1060,14040),
+(14,2,1,2,'2018-10-17','2019-3-10',1008,14050),
+(15,7,1,2,'2018-10-17','2019-3-10',1005,14040),
+(16,4,1,2,'2018-10-17','2019-3-10',1003,140540);
 insert into HopDongChiTiet values
 (1,8,5,3),
 (2,7,5,2),
@@ -223,9 +232,68 @@ left join hopdongchitiet on hopdong.IDHopDong = hopdongchitiet.IDHopDong
 left join loaikhach on khachhang.IDLoaiKhach =  loaikhach.IDLoaiKhach;
 
 -- 6.	Hiển thị IDDichVu, TenDichVu, DienTich, ChiPhiThue, TenLoaiDichVu của tất cả các loại Dịch vụ chưa từng được Khách hàng thực hiện đặt từ quý 1 của năm 2019 (Quý 1 là tháng 1, 2, 3).
-select dichvu.IDDichVu, TenDichVu, DienTich, ChiPhiThue, loaidichvu.TenLoaiDichVu from dichvu
-left join hopdong on dichvu.IDDichVu = hopdong.IDHopDong
-left join loaidichvu on dichvu.IDLoaiDichVu = loaidichvu.IDLoaiDichVu
-where not exists (select hopdong.IDDichVu from hopdong);
+select dichvu.IDLoaiDichVu, dichVu.TenDichVu, dichvu.DienTich, dichvu.ChiPhiThue, loaidichvu.TenLoaiDichVu from dichvu
+inner join loaidichvu on dichvu.IDLoaiDichVu = loaidichvu.IDLoaiDichVu
+where not exists (select hopdong.IDDichVu from hopdong where (hopdong.NgayLamHopDong between '2019-01-01' and '2019-03-31')
+and hopdong.IDDichVu = dichvu.IDDichVu);
+-- Yêu cầu 7
+select dichvu.IDDichVu, dichvu.TenDichVu, dichvu.DienTich, dichvu.SoNguoiToiDa , dichvu.ChiPhiThue, loaidichvu.TenLoaiDichVu from dichvu
+inner join loaidichvu on dichvu.IDLoaiDichVu = loaidichvu.IDLoaiDichVu
+where exists (select hopdong.IDHopDong from hopdong where year(hopdong.NgayLamHopDong) = '2018' and hopdong.IDDichVu = dichvu.IDDichVu)
+and not exists (select hopdong.IDHopDong from hopdong where year(hopdong.NgayLamHopDong) = '2019' and hopdong.IDDichVu = dichvu.IDDichVu);
+-- yêu cầu 8
+-- cách 1
+select distinct khachhang.HoTen from khachhang;
+-- cách 2
+select khachhang.HoTen from khachhang group by khachhang.HoTen;
+-- cách 3
+select khachhang.HoTen from khachhang
+union select khachhang.HoTen from khachhang;
 
--- 
+-- yêu cầu 9
+select temp.month, count(month(hopdong.NgayLamHopDong)) as soKhachHangDangKy, sum(hopdong.TongTien) as TongTien from
+(select 1 as month
+union select 2 as month
+union select 3 as month
+union select 4 as month
+union select 5 as month
+union select 6 as month
+union select 7 as month
+union select 8 as month
+union select 9 as month
+union select 10 as month
+union select 11 as month
+union select 12 as month) as temp
+left join hopdong on month(hopdong.NgayLamHopDong) = temp.month
+left join khachhang on khachhang.IDKhachHang = hopdong.IDKhachHang
+where year(hopdong.NgayLamHopDong) = '2019' or year(hopdong.NgayLamHopDong) is null or month(hopdong.NgayLamHopDong) is null
+group by temp.month
+order by temp.month;
+
+-- yêu cầu 10
+select hopdong.IDHopDong, hopdong.NgayLamHopDong, hopdong.NgayKetThuc, hopdong.TongTien, hopdong.TienDatCoc, count(hopdongchitiet.IDDichVuDiKem) as soLuongDVDikem from hopdong
+inner join hopdongchitiet on hopdong.IDHopDong = hopdongchitiet.IDHopDong group by hopdong.IDHopDong;
+
+-- yêu cầu 13
+select dichvudikem.TenDichVuDiKem, count(TenDichVuDiKem) as 'so_lan_sd' from hopdongchitiet
+join dichvudikem on hopdongchitiet.IDDichVuDiKem = dichvudikem.IDDichVuDiKem
+group by TenDichVuDiKem
+order by count(so_lan_sd) desc;
+
+-- yêu cầu 14
+select hopdong.IDHopDong, loaidichvu.TenLoaiDichVu, dichvudikem.TenDichVuDiKem,
+count(TenLoaiDichVu) as 'So_lan_sd' from hopdong
+inner join dichvu on hopdong.IDDichVu = dichvu.IDDichVu
+inner join loaidichvu on dichvu.IDLoaiDichVu = loaidichvu.IDLoaiDichVu
+inner join hopdongchitiet on hopdong.IDHopDong = hopdongchitiet.IDHopDong
+inner join dichvudikem on hopdongchitiet.IDDichVuDiKem = dichvudikem.IDDichVuDiKem
+group by TenLoaiDichVu having count(TenLoaiDichVu) = 1;
+
+-- yêu cầu 15
+select nhanvien.IDNhanVien, nhanvien.HoTen, trinhdo.TrinhDo, bophan.TenBoPhan,
+nhanvien.SDT, nhanvien.DiaChi, hopdong.IDHopDong, hopdong.NgayLamHopDong, count(IDHopDong) from nhanvien
+left join bophan on nhanvien.IDBoPhan = bophan.IDBoPhan
+left join trinhdo on nhanvien.IDTrinhDo = trinhdo.IDTrinhDo
+left join hopdong on nhanvien.IDNhanVien = hopdong.IDNhanVien
+where hopdong.NgayLamHopDong between '2018-01-01' and '2019-12-31'
+group by nhanvien.IDNhanvien;
