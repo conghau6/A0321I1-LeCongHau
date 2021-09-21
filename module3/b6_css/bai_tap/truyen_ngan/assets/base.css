@@ -1,0 +1,31 @@
+*{
+    box-sizing: inherit;
+    padding: 0;
+    margin: 0;
+}
+
+.app {
+    overflow: hidden;
+}
+
+html {
+    font-size: 100%;
+    line-height: 1rem;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    --primary-color: #FF6122;
+    --primary-color-hover: #40b3b6;
+    --gray-color: #555555;
+    --white-color: #fff;
+    --black-color: #333;
+    --text-color: #000;
+    --boder-color: #dbdbdb;
+ }

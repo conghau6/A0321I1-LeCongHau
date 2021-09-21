@@ -295,5 +295,10 @@ nhanvien.SDT, nhanvien.DiaChi, hopdong.IDHopDong, hopdong.NgayLamHopDong, count(
 left join bophan on nhanvien.IDBoPhan = bophan.IDBoPhan
 left join trinhdo on nhanvien.IDTrinhDo = trinhdo.IDTrinhDo
 left join hopdong on nhanvien.IDNhanVien = hopdong.IDNhanVien
-where hopdong.NgayLamHopDong between '2018-01-01' and '2019-12-31'
-group by nhanvien.IDNhanvien;
+where (hopdong.NgayLamHopDong between '2018-01-01' and '2019-12-31')
+group by nhanvien.IDNhanvien having count(IDHopDong) < 3;
+
+-- yêu cầu 16
+-- delete from nhanvien where exists(
+select nhanvien.IDNhanVien, nhanvien.HoTen, hopdong.NgayLamHopDong from nhanvien
+left join hopdong on nhanvien.IDNhanVien = hopdong.IDNhanVien where hopdong.NgayLamHopDong between '2017-01-01' and '2019-12-31';
