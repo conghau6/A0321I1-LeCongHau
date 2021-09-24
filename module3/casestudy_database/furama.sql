@@ -299,6 +299,13 @@ where (hopdong.NgayLamHopDong between '2018-01-01' and '2019-12-31')
 group by nhanvien.IDNhanvien having count(IDHopDong) < 3;
 
 -- yêu cầu 16
--- delete from nhanvien where exists(
-select nhanvien.IDNhanVien, nhanvien.HoTen, hopdong.NgayLamHopDong from nhanvien
-left join hopdong on nhanvien.IDNhanVien = hopdong.IDNhanVien where hopdong.NgayLamHopDong between '2017-01-01' and '2019-12-31';
+delete from nhanvien where not exists(
+select year(hopdong.NgayLamHopDong) from hopdong
+left join nhanvien on nhanvien.IDNhanVien = hopdong.IDNhanVien
+where year(hopdong.NgayLamHopDong) not in (2019, 2018, 2017));
+
+alter table HopDong add constraint foreign key(IDNhanVien) references NhanVien(IDNhanVien) on update cascade on delete cascade;
+SET SQL_SAFE_UPDATES = 0;
+delete nhanvien from nhanvien
+nhanvien inner join hopdong on hopdong.IDNhanVien = nhanvien.IDNhanVien
+where year(hopdong.NgayLamHopDong) not in (2019, 2018, 2017);

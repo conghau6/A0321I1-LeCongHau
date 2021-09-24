@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div class="app">
+        <div id="head">
+            <span>head</span>
+        </div>
+        <div id="head-link">
+            <span>head-link</span>
+        </div>
+        <div id="left">
+            <span>left</span>
+        </div>
+        <div id="content">
+            <span>content</span>
+        </div>
+        <div id="right">
+            <span>right</span>
+        </div>
+        <div id="footer">
+            <span>footer</span>
+        </div>
+    </div>
+</body>
+<style>
+    *{
+        box-sizing: inherit;
+        padding: 0;
+        margin: 0;
+    }
+    html {
+        font-size: 100%;
+        line-height: 1rem;
+        font-family: Arial;
+        box-sizing: border-box;
+    }
+    body {
+        padding: 0;
+        margin: 0;
+    }
+    #head, #head-link, #left, #content, #right, #footer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #eeeeee;
+        border: 1px solid #cccccc;
+    }
+    #head {
+        height: 100px;
+    }
+    span {
+        color: #FB1F03;
+        font-size: 18px;
+        font-weight: 600;
+        display: block;
+    }
+    #head-link {
+        margin-top: 5px;
+        margin-bottom: 5px;
+        height: 30px;
+    }
+    #left {
+        width: 19%;
+        float: left;
+        height: 300px;
+    }
+    #content {
+        width: 60%;
+        display: inline-flex;
+        margin:0 1%;
+        height: 300px;
+    }
+    #right {
+        width: 19%;
+        float: right;
+        height: 300px;
+    }
+    #footer {
+        margin-top: 5px;
+    }
+</style>
+</html>
