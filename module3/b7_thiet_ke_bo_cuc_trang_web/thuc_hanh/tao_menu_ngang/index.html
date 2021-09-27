@@ -2,10 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Tạo menu dọc</title>
+    <title>Title</title>
 </head>
 <body>
-<h3>ACCP i10</h3>
 <div id="menu">
     <ul>
         <li><a href="#">Sem 1</a>
@@ -28,9 +27,9 @@
         </li>
         <li><a href="#">Sem 3</a></li>
         <li><a href="#">Sem 4</a></li>
+
     </ul>
 </div>
-</body>
 <style>
     *{
         box-sizing: inherit;
@@ -47,35 +46,50 @@
         padding: 0;
         margin: 0;
     }
-    #menu, #menu ul, #menu li{
+    #menu {
+        height: 30px;
+        padding: 0;
+        margin: 0;
+        background-color: #000000;
+        border: 1px solid #CDCDCD;
+    }
+    #menu ul, #menu li{
         padding:0;
         margin:0;
-    }
-    #menu li{
-        list-style: none;
-        position: relative;
+    }#menu li {
+         position: relative;
+         float: left;
+         list-style: none;
+         margin: 0;
+         padding: 0;
+     }
+    #menu li a{
         width:100px;
         height: 30px;
-        padding:0 20px;
-        background-color: black;
-        line-height: 30px;
-        cursor:pointer;
-    }
-    #menu li a{
+        display: block;
         text-decoration:none;
+        text-align: center;
+        line-height: 30px;
+        background-color: black;
         color: white;
     }
-    #menu li:hover{
-        background-color:red;
+    #menu ul ul li a{
+        width: 200px;
+        text-align: left;
+        padding-left: 10px;
+    }
+    #menu li a:hover{
+        background-color: red;
     }
     #menu ul ul{
         position: absolute;
-        top:0;
-        left: 100%;
-        visibility:hidden;
+        top: 30px;
+        left: 15px;
+        visibility: hidden;
     }
     #menu ul li:hover ul{
-        visibility:visible;
+        visibility: visible;
     }
 </style>
+</body>
 </html>
