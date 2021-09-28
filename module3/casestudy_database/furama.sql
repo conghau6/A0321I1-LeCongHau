@@ -28,9 +28,9 @@ SDT varchar(45),
 Email varchar(45),
 DiaChi varchar(45),
 primary key(IDNhanVien),
-foreign key(IDViTri) references ViTri(IDViTri),
-foreign key(IDTrinhDo) references TrinhDo(IDTrinhDo),
-foreign key(IDBoPhan) references BoPhan(IDBoPhan)
+foreign key(IDViTri) references ViTri(IDViTri) on update cascade on delete cascade,
+foreign key(IDTrinhDo) references TrinhDo(IDTrinhDo) on update cascade on delete cascade,
+foreign key(IDBoPhan) references BoPhan(IDBoPhan) on update cascade on delete cascade
 );
 create table DichVuDiKem(
 IDDichVuDiKem int,
@@ -55,7 +55,7 @@ SDT varchar(45),
 Email varchar(45),
 DiaChi varchar(45),
 primary key(IDKhachHang),
-foreign key(IDLoaiKhach) references LoaiKhach(IDLoaiKhach)
+foreign key(IDLoaiKhach) references LoaiKhach(IDLoaiKhach) on update cascade on delete cascade
 );
 create table KieuThue(
 IDKieuThue int,
@@ -79,8 +79,8 @@ IDKieuThue int,
 IDLoaiDichVu int,
 TrangThai varchar(45),
 primary key(IDDichVu),
-foreign key(IDKieuThue) references KieuThue(IDKieuThue),
-foreign key(IDLoaiDichVu) references LoaiDichVu(IDLoaiDichVu)
+foreign key(IDKieuThue) references KieuThue(IDKieuThue) on update cascade on delete cascade,
+foreign key(IDLoaiDichVu) references LoaiDichVu(IDLoaiDichVu) on update cascade on delete cascade
 );
 create table HopDong(
 IDHopDong int,
@@ -92,9 +92,9 @@ NgayKetThuc date,
 TienDatCoc int,
 TongTien int,
 primary key(IDHopDong),
-foreign key(IDNhanVien) references NhanVien(IDNhanVien),
-foreign key(IDKhachHang) references KhachHang(IDKhachHang),
-foreign key(IDDichVu) references DichVu(IDDichVu)
+foreign key(IDNhanVien) references NhanVien(IDNhanVien) on update cascade on delete cascade,
+foreign key(IDKhachHang) references KhachHang(IDKhachHang) on update cascade on delete cascade,
+foreign key(IDDichVu) references DichVu(IDDichVu) on update cascade on delete cascade
 );
 create table HopDongChiTiet(
 IDHopDongChiTiet int,
@@ -102,8 +102,8 @@ IDHopDong int,
 IDDichVuDiKem int,
 SoLuong int,
 primary key(IDHopDongChiTiet),
-foreign key(IDDichVuDiKem) references DichVuDiKem(IDDichVuDiKem),
-foreign key(IDHopDong) references HopDong(IDHopDong)
+foreign key(IDDichVuDiKem) references DichVuDiKem(IDDichVuDiKem) on update cascade on delete cascade,
+foreign key(IDHopDong) references HopDong(IDHopDong) on update cascade on delete cascade
 );
 
 -- 1.	Thêm mới thông tin cho tất cả các bảng có trong CSDL để có thể thõa mãn các yêu cầu bên dưới. 
@@ -173,24 +173,23 @@ insert into KhachHang values
 (7,4,'Huỳnh Thị Thu Trang','200-10-10','511144535','086667767','trang@gmail.com','Quảng Trị'),
 (8,3,'Cao Văn Tú','2002-10-10','565642225','088789997','tu@gmail.com','Huế');
 insert into HopDong values
-(1,1,2,7,'2018-10-10','2019-3-3',500,1200),
-(2,6,3,1,'2018-10-11','2019-3-4',400,1600),
-(3,7,4,2,'2018-10-12','2019-3-5',500,1300),
-(4,8,5,3,'2018-10-13','2019-3-6',600,1500),
-(5,9,6,4,'2020-10-14','2022-3-7',800,1700),
-(6,3,7,6,'2020-10-15','2021-3-8',700,2000),
-(7,2,8,5,'2020-10-16','2021-3-9',400,1100),
-(8,5,1,2,'2020-10-17','2021-3-10',14500,140560);
-insert into HopDong values
+(1,1,2,7,'2020-10-10','2021-3-3',500,12744440),
+(2,6,3,1,'2020-10-11','2021-3-4',400,16222700),
+(3,7,4,2,'2020-10-12','2021-3-5',500,5551300),
+(4,8,5,3,'2020-10-13','2021-3-6',600,96866500),
+(5,9,6,4,'2020-10-14','2021-3-7',800,18776600),
+(6,3,7,6,'2020-10-15','2021-3-8',700,7850007),
+(7,2,8,5,'2020-10-16','2021-3-9',400,110087),
+(8,5,1,2,'2020-10-17','2021-3-10',14500,1408560),
 (9,1,1,2,'2018-10-17','2019-3-10',1005,14003),
 (10,2,1,2,'2018-10-17','2019-3-10',10430,14030),
-(11,3,1,2,'2018-10-17','2019-3-10',1030,14040),
-(12,4,1,2,'2018-10-17','2019-3-10',1060,14050),
+(11,3,1,2,'2018-10-17','2019-3-10',1030,1444040),
+(12,4,1,2,'2018-10-17','2019-3-10',1060,1408850),
 (13,1,1,2,'2018-10-17','2019-3-10',1060,14040),
 (14,2,1,2,'2018-10-17','2019-3-10',1008,14050),
-(15,7,1,2,'2018-10-17','2019-3-10',1005,14040),
+(15,7,1,2,'2018-10-17','2019-3-10',1005,1499040),
 (16,4,1,2,'2018-10-17','2019-3-10',1003,140540);
-insert into HopDongChiTiet values
+insert into hopdongchitiet values
 (1,8,5,3),
 (2,7,5,2),
 (3,6,3,4),
@@ -299,13 +298,27 @@ where (hopdong.NgayLamHopDong between '2018-01-01' and '2019-12-31')
 group by nhanvien.IDNhanvien having count(IDHopDong) < 3;
 
 -- yêu cầu 16
-delete from nhanvien where not exists(
-select year(hopdong.NgayLamHopDong) from hopdong
-left join nhanvien on nhanvien.IDNhanVien = hopdong.IDNhanVien
-where year(hopdong.NgayLamHopDong) not in (2019, 2018, 2017));
+-- delete from nhanvien where not exists(
+-- select year(hopdong.NgayLamHopDong) from hopdong
+-- left join nhanvien on nhanvien.IDNhanVien = hopdong.IDNhanVien
+-- where year(hopdong.NgayLamHopDong) not in (2019, 2018, 2017));
 
-alter table HopDong add constraint foreign key(IDNhanVien) references NhanVien(IDNhanVien) on update cascade on delete cascade;
 SET SQL_SAFE_UPDATES = 0;
-delete nhanvien from nhanvien
-nhanvien inner join hopdong on hopdong.IDNhanVien = nhanvien.IDNhanVien
+delete nhanvien from nhanvien 
+inner join hopdong on hopdong.IDNhanVien = nhanvien.IDNhanVien
 where year(hopdong.NgayLamHopDong) not in (2019, 2018, 2017);
+
+-- yêu cầu 17
+update khachhang
+inner join loaikhach on khachhang.IDLoaiKhach = loaikhach.IDLoaiKhach
+inner join
+(select khachhang.IDKhachHang, khachhang.HoTen, NgayLamHopDong, loaikhach.TenLoaiKhach, sum(tongtien) as tt from hopdong
+inner join khachhang on khachhang.IDKhachHang = hopdong.IDKhachHang
+inner join loaikhach on khachhang.IDLoaiKhach = loaikhach.IDLoaiKhach
+where year(hopdong.NgayLamHopDong) = 2020 group by khachhang.HoTen 
+having tt > 10000000 and loaikhach.TenLoaiKhach = 'Platinium') as temp
+on temp(khachhang.IDKhachHang) = loaikhach.IDKhachHang
+set loaikhach.IDLoaiKhach = 1;
+
+
+drop database furama;
