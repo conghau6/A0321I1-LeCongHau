@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            margin:0 auto;
+            font-family: Arial, Tahoma;
+        }
+
+        #s-body{
+            float: left;
+        }
+
+        #head, #head-link, #s-body, #footer{
+            width: 100%;
+            margin-bottom:5px;
+            clear: both;
+        }
+
+        /* Tất cả các màn hình có độ phân giải thấp nhất là 1001px */
+        @media all and (min-width: 1001px){
+            body{
+                background-color: red;
+            }
+        }
+
+        /* Màn hình có độ phân giải tối đa 1000px */
+        @media screen and (max-width: 1000px) {
+            body{
+                background-color: green;
+            }
+        }
+    </style>
+</head>
+<body>
+<div id="main">
+    <div id="head">
+    </div>
+    <div id="head-link">
+    </div>
+    <div id="s-body">
+        <div id="left">
+        </div>
+        <div id="content">
+        </div>
+        <div id="right">
+        </div>
+    </div>
+    <div id="footer">
+    </div>
+</div>
+</body>
+</html>
