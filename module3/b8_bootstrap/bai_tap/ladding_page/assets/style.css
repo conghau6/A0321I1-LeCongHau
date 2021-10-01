@@ -29,14 +29,16 @@ a.nav-link {
     font-size: 28px;
 }
 .more-selection a,
-.product-item .name-product  {
+.product-item .name-product,
+.slider a  {
     font-weight: 700;
     margin: 0 3px;
     color: #0067b8;
     text-decoration: none;
 }
 .more-selection a:hover,
-.product-item .name-product:hover  {
+.product-item .name-product:hover,
+.slider a:hover {
     border-bottom: 2px solid;
 }
 .more-selection h3 {
@@ -108,4 +110,19 @@ a.nav-link {
 }
 .product-item .name-product {
     font-size: 15px;
+}
+.slider {
+    margin-top: 20px;
+}
+.slider a:not(:first-child) {
+    margin-left: 30px;
+}
+.slider .carousel-control-prev-icon,
+.slider .carousel-control-next-icon {
+    display: block;
+    background-color: #6f6868;
+    border-radius: 50%;
+}
+.slider .carousel-control-next, .slider .carousel-control-prev {
+    width: 10%;
 }
