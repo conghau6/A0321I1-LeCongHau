@@ -23,6 +23,8 @@ public class SumServlet extends HttpServlet{
 //        out.println("<h2 style='color: red'>" + c + "</h2>");
 //        out.println("</body>");
 //        out.println("</html>");
+
+        // cách 3
         req.setAttribute("resultFormServlet", c);
         req.getRequestDispatcher("result_final.jsp").forward(req, resp);
     }

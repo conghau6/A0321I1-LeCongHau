@@ -11,6 +11,7 @@
     <title>Title</title>
 </head>
 <body>
+<%--Cách 2--%>
 <%
     String a = request.getParameter("number1");
     String b = request.getParameter("number2");

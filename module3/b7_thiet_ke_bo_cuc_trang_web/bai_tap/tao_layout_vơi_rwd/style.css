@@ -87,6 +87,25 @@ html {
     align-items: center;
     justify-content: center;
 }
+
+.right {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.ads {
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+    height: 80px;
+    background-color: #F5F5F5;
+    border: 1px solid #ccc;
+}
+
 .footer span {
     display: block;
     color: #cccccc;

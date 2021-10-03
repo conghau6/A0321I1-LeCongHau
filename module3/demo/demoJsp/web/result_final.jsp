@@ -11,6 +11,7 @@
     <title>Title</title>
 </head>
 <body>
+<%--Cách 3--%>
 <h2 style="color: #8dff2c;">${resultFormServlet}</h2>
 <h2 style="color: blue">
     <%=request.getAttribute("resultFormServlet")%>
