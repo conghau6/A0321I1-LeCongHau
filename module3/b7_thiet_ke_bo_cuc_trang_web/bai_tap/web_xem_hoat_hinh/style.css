@@ -1,0 +1,19 @@
+header {
+    padding: 20px;
+    background-color: #eee;
+}
+header span {
+    background-color: #ff0c00;
+}
+.category {
+    margin-top: 10px;
+    background-color: #eee;
+    padding: 10px 0;
+    text-align: center;
+}
+.content {
+    margin-top: 20px;
+}
+.content .row:not(:first-child) {
+    margin-top: 30px;
+}
