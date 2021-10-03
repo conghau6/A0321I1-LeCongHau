@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đọc Truyện Online</title>
+    <link rel="stylesheet" href="./assets/grid.css">
+    <link rel="stylesheet" href="./assets/style.css">
+    <link rel="stylesheet" href="./assets/base.css">
+    <link rel="stylesheet" href="./assets/responsive.css">
+    <link rel="icon" href="./assets/img/iconweb.png" type="image/x-icon" />
+    
+    <!-- Icon -->
+    <link rel="stylesheet" href="./assets/font/fontawesome-free-5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="./assets/font/themify-icons/themify-icons.css">
+
+    <!-- Font roboto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Font saticfy -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app">
+        <nav class="header">
+            <div class="header__logo">
+                <a href="" class="home"><img src="./assets/img/logo.png" alt="Logo" class="header__logo-img"></a>
+            </div>
+            <div class="header__wrap">
+                <div class="header__menu-book">
+                    <i class="header__menu-book-icon fas fa-book"></i>
+                    <span>Danh sách</span>
+                    <i class="ti-angle-down"></i>
+
+                    <ul class="header__book-list">
+                        <li class="header__book-item"><a href="" class="header__book-link">Đam Mỹ Hài</a></li>
+                        <li class="header__book-item"><a href="" class="header__book-link">Đam Mỹ Hay</a></li>
+                        <li class="header__book-item"><a href="" class="header__book-link">Kiếm Hiệp Hay</a></li>
+                        <li class="header__book-item"><a href="" class="header__book-link">Ngôn Tình Hài</a></li>
+                        <li class="header__book-item"><a href="" class="header__book-link">Ngôn Tình Hay</a></li>
+                        <li class="header__book-item"><a href="" class="header__book-link">Ngôn Tình Ngược</a></li>
+                        <li class="header__book-item"><a href="" class="header__book-link">Ngôn Tình Sắc</a></li>
+                        <li class="header__book-item"><a href="" class="header__book-link">Tiên Hiệp Hay</a></li>
+                        <li class="header__book-item"><a href="" class="header__book-link">Truyện Full</a></li>
+                        <li class="header__book-item"><a href="" class="header__book-link">Truyện Hot</a></li>
+                        <li class="header__book-item"><a href="" class="header__book-link">Truyện Mới Cập Nhật</a></li>
+                        <li class="header__book-item"><a href="" class="header__book-link">Truyện Teen Hay</a></li>
+                    </ul>
+                </div>
+                <div class="header__menu-category">
+                    <i class="header__menu-category-icon fas fa-list-ul"></i>
+                    <span>Thể loại</span>
+                    <i class="ti-angle-down"></i>
+                    
+                    <ul class="header__category-list">
+                        <li class="header__category-item"><a href="" class="header__category-link">Hài Hước</a></li>
+                        <li class="header__category-item"><a href="" class="header__category-link">Cổ Đại</a></li>
+                        <li class="header__category-item"><a href="" class="header__category-link">Kiếm Hiệp</a></li>
+                        <li class="header__category-item"><a href="" class="header__category-link">Lịch Sữ</a></li>
+                        <li class="header__category-item"><a href="" class="header__category-link">Đam Mỹ</a></li>
+                        <li class="header__category-item"><a href="" class="header__category-link">Kinh Dị</a></li>
+                        <li class="header__category-item"><a href="" class="header__category-link">Ngôn Tình</a></li>
+                        <li class="header__category-item"><a href="" class="header__category-link">Quân Sự</a></li>
+                        <li class="header__category-item"><a href="" class="header__category-link">Trinh Thám</a></li>
+                        <li class="header__category-item"><a href="" class="header__category-link">Thám Hiểm</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="header__search">
+                <div class="header__search-avance">
+                    <button class="header__search-adv-btn">Lọc Truyện</button>
+                </div>
+                <div class="header__search-mobile">
+                    <i class="mobile-search-icon fas fa-search"></i>
+                </div>
+                <div class="header__search-nomal">
+                    <div class="header__search-input-wrap">
+                        <input type="text" class="header__search-input" placeholder="Nhập tên Truyện hoặc Tác giả...">
+                        <button class="header__search-input-btn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="filter">
+            <div class="filter__hot-book">
+                <span class="filter__hot-book-span">Truyện hot</span>
+                <i class="right-arrow-icon ti-angle-right"></i>
+            </div>
+            <div class="filter__avance">
+                <select name="" id="" class="filter__select">
+                    <option value="1" selected>Tất Cả</option>
+                    <option value="2">Tuyện teen hay</option>
+                    <option value="3">Ngôn Tình Ngược</option>
+                    <option value="4">Ngôn Tình Hài</option>
+                    <option value="5">Đam Mỹ Hài</option>
+                    <option value="6">Đam Mỹ Hay</option>
+                    <option value="7">Đam Mỹ H Vấn</option>
+                    <option value="8">Truyện Full</option>
+                    <option value="9">Tiên Hiệp Hay</option>
+                </select>
+            </div>
+        </div>
+        <div class="hot-book">
+            <div class="row book-row">
+                <div class="item col l-2 m-4 c-4">
+                    <a href="./assets/pages/choc-tuc-vo-yeu.html" class="hot-book-link book-1">
+                        <img src="./assets/img/1.png" alt="" class="hot-book-img hot-book-1-img">
+                        <h5 class="hot-book__book1-title">Chọc Tức Vợ Yêu - Mua Một Tặng Một</h5>
+                        <span class="full-span">FULL</span>
+                    </a>
+                    <div class="rate">
+                        <i class="rate-icon fas fa-star"></i>
+                        <span class="quantity-span">9.5/10</span>
+                    </div>
+                </div>
+                <div class="item col l-2 m-4 c-4">
+                    <a href="./assets/pages/gio-am-khong-bang-anh.html" class="hot-book-link book-2">
+                        <img src="./assets/img/2.png" alt="" class="hot-book-img hot-book-2-img">
+                        <h5 class="hot-book__book1-title">Gió Ấm Không Bằng Anh Thâm Tình</h5>
+                        <span class="full-span">FULL</span>
+                    </a>
+                    <div class="rate">
+                        <i class="rate-icon fas fa-star"></i>
+                        <span class="quantity-span">9.5/10</span>
+                    </div>
+                </div>
+                <div class="item col l-2 m-4 c-4">
+                    <a href="./assets/pages/bos-hung-du-ong-xa-key-hon-di.html" class="hot-book-link book-3">
+                        <img src="./assets/img/3.png" alt="" class="hot-book-img hot-book-3-img">
+                        <h5 class="hot-book__book1-title">Boss Hung Dữ - Ông Xã Kết Hôn Đi</h5>
+                        <span class="full-span">FULL</span>
+                    </a>
+                    <div class="rate">
+                        <i class="rate-icon fas fa-star"></i>
+                        <span class="quantity-span">8.7/10</span>
+                    </div>
+                </div>
+                <div class="item col l-2 m-4 c-4">
+                    <a href="./assets/pages/nang-dau-cuc-pham.html" class="hot-book-link book-4">
+                        <img src="./assets/img/4.png" alt="" class="hot-book-img hot-book-4-img">
+                        <h5 class="hot-book__book1-title">Nàng Dâu Cực Phẩm</h5>
+                    </a>
+                    <div class="rate">
+                        <i class="rate-icon fas fa-star"></i>
+                        <span class="quantity-span">8.8/10</span>
+                    </div>
+                </div>
+                <div class="item col l-2 m-4 c-4">
+                    <a href="./assets/pages/nang-dau-cuc-pham.html" class="hot-book-link book-5">
+                        <img src="./assets/img/5.png" alt="" class="hot-book-img hot-book-5-img">
+                        <h5 class="hot-book__book1-title">Boss Là Nữ Phụ</h5>
+                        <span class="full-span">FULL</span>
+                    </a>
+                    <div class="rate">
+                        <i class="rate-icon fas fa-star"></i>
+                        <span class="quantity-span">9.2/10</span>
+                    </div>
+                </div>
+                <div class="item col l-2 m-4 c-4">
+                    <a href="./assets/pages/nang-dau-cuc-pham.html" class="hot-book-link book-6">
+                        <img src="./assets/img/6.png" alt="" class="hot-book-img hot-book-6-img">
+                        <h5 class="hot-book__book1-title">Yêu Sâu Nặng: Đế Thiếu Âm Thầm Cưng Chiều Vợ</h5>
+                        <span class="full-span">FULL</span>
+                    </a>
+                    <div class="rate">
+                        <i class="rate-icon fas fa-star"></i>
+                        <span class="quantity-span">7.5/10</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row book-row">
+                <div class="item col l-2 m-4 c-4">
+                    <a href="./assets/pages/nang-dau-cuc-pham.html" class="hot-book-link book-7">
+                        <img src="./assets/img/7.png" alt="" class="hot-book-img hot-book-7-img">
+                        <h5 class="hot-book__book1-title">Một Thai Hai Bảo: Giám Đốc Hàng Tỉ Yêu Vợ Tận Xương</h5>
+                    </a>
+                    <div class="rate">
+                        <i class="rate-icon fas fa-star"></i>
+                        <span class="quantity-span">7.5/10</span>
+                    </div>
+                </div>
+                <div class="item col l-2 m-4 c-4">
+                    <a href="./assets/pages/nang-dau-cuc-pham.html" class="hot-book-link book-8">
+                        <img src="./assets/img/8.png" alt="" class="hot-book-img hot-book-8-img">
+                        <h5 class="hot-book__book1-title">Tân Hôn Không Tình Yêu, Thế Tội Vợ Trước</h5>
+                        <span class="full-span">FULL</span>
+                    </a>
+                    <div class="rate">
+                        <i class="rate-icon fas fa-star"></i>
+                        <span class="quantity-span">7.5/10</span>
+                    </div>
+                </div>
+                <div class="item col l-2 m-4 c-4">
+                    <a href="./assets/pages/nang-dau-cuc-pham.html" class="hot-book-link book-9">
+                        <img src="./assets/img/9.png" alt="" class="hot-book-img hot-book-9-img">
+                        <h5 class="hot-book__book1-title">Độc Tôn Tam Giới</h5>
+                        <span class="full-span">FULL</span>
+                    </a>
+                    <div class="rate">
+                        <i class="rate-icon fas fa-star"></i>
+                        <span class="quantity-span">7.5/10</span>
+                    </div>
+                </div>
+                <div class="item col l-2 m-4 c-4">
+                    <a href="./assets/pages/nang-dau-cuc-pham.html" class="hot-book-link book-10">
+                        <img src="./assets/img/10.png" alt="" class="hot-book-img hot-book-10-img">
+                        <h5 class="hot-book__book1-title">Boss Hung Dữ 2 - Cả Đời Chỉ Vì Em</h5>
+                        <span class="full-span">FULL</span>
+                    </a>
+                    <div class="rate">
+                        <i class="rate-icon fas fa-star"></i>
+                        <span class="quantity-span">9.1/10</span>
+                    </div>
+                </div>
+                <div class="item col l-2 m-4 c-4">
+                    <a href="./assets/pages/nang-dau-cuc-pham.html" class="hot-book-link book-11">
+                        <img src="./assets/img/11.png" alt="" class="hot-book-img hot-book-11-img">
+                        <h5 class="hot-book__book1-title">Cô Vợ Thay Thế</h5>
+                    </a>
+                    <div class="rate">
+                        <i class="rate-icon fas fa-star"></i>
+                        <span class="quantity-span">6.8/10</span>
+                    </div>
+                </div>
+                <div class="item col l-2 m-4 c-4">
+                    <a href="./assets/pages/nang-dau-cuc-pham.html" class="hot-book-link book-12">
+                        <img src="./assets/img/12.png" alt="" class="hot-book-img hot-book-12-img">
+                        <h5 class="hot-book__book1-title">Quỷ Đế Cuồng Thê: Đại Tiểu Thư Ăn Chơi Trác Táng</h5>
+                        <span class="full-span">FULL</span>
+                    </a>
+                    <div class="rate">
+                        <i class="rate-icon fas fa-star"></i>
+                        <span class="quantity-span">8.5/10</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hot-book-see-more">
+                <button class="hot-book-see-more-btn">
+                    Xem Thêm
+                </button>
+            </div>
+        </div>
+        <div class="update-hot-book">
+            <div class="row">
+                <div class="update-hot-book__list col l-9 m-12 c-12">
+                   <div class="update-hot-book__heading">
+                    <div class="filter__hot-book">
+                        <span class="filter__hot-book-span">Truyện mới cập nhật</span>
+                        <i class="right-arrow-icon ti-angle-right"></i>
+                    </div>
+                    <div class="filter__avance">
+                        <select name="" id="" class="filter__select">
+                            <option value="1" selected>Tất Cả</option>
+                            <option value="2">Tuyện teen hay</option>
+                            <option value="3">Ngôn Tình Ngược</option>
+                            <option value="4">Ngôn Tình Hài</option>
+                            <option value="5">Đam Mỹ Hài</option>
+                            <option value="6">Đam Mỹ Hay</option>
+                            <option value="7">Đam Mỹ H Vấn</option>
+                            <option value="8">Truyện Full</option>
+                            <option value="9">Tiên Hiệp Hay</option>
+                        </select>
+                    </div>
+                   </div>
+                   <div class="update-hot-book__body">
+                        <div class="new-book">
+                            <h5 class="name">
+                                <a href="" class="name-book">Nghịch Thiên Thần Châm Quỷ Y Độc Vương Phi</a>
+                            </h5>
+                            <span class="cat">Dị Năng, Xuyên Không</span>
+                            <a href="" class="chap">C-160</a>
+                            <div href="" class="time">9 Phút trước</div>
+                        </div>
+                        <div class="new-book">
+                            <h5 class="name">
+                                <a href="" class="name-book">Ký Chủ Của Ta Là Ác Ma</a>
+                            </h5>
+                            <span class="cat">	Ngôn Tình, Truyện Khác</span>
+                            <a href="" class="chap">C-38</a>
+                            <div href="" class="time">13 Phút trước</div>
+                        </div>
+                        <div class="new-book">
+                            <h5 class="name">
+                                <a href="" class="name-book">Cùng Bạn Trai Cũ Thành Cp Quốc Dân</a>
+                            </h5>
+                            <span class="cat">Ngôn Tình, Đô Thị</span>
+                            <a href="" class="chap">C-18</a>
+                            <div href="" class="time">13 Phút trước</div>
+                        </div>
+                        <div class="new-book">
+                            <h5 class="name">
+                                <a href="" class="name-book">Cận Thân Cuồng Tế</a>
+                            </h5>
+                            <span class="cat">Ngôn Tình, Huyền Huyễn</span>
+                            <a href="" class="chap">C-20</a>
+                            <div href="" class="time">13 Phút trước</div>
+                        </div>
+                        <div class="new-book">
+                            <h5 class="name">
+                                <a href="" class="name-book">Thiếu Gia Bị Ruồng Bỏ</a>
+                            </h5>
+                            <span class="cat">Ngôn Tình, Đô Thị</span>
+                            <a href="" class="chap">C-18</a>
+                            <div href="" class="time">13 Phút trước</div>
+                        </div>
+                        <div class="new-book">
+                            <h5 class="name">
+                                <a href="" class="name-book">Phong Trần Trở Thành Người Tình Bí Ẩn</a>
+                            </h5>
+                            <span class="cat">Ngôn Tình, Truyện Khác</span>
+                            <a href="" class="chap">C-16</a>
+                            <div href="" class="time">14 Phút trước</div>
+                        </div>
+                        <div class="new-book">
+                            <h5 class="name">
+                                <a href="" class="name-book">Quỷ Thai Tháng Mười</a>
+                            </h5>
+                            <span class="cat">Linh Dị</span>
+                            <a href="" class="chap">C-20</a>
+                            <div href="" class="time">14 Phút trước</div>
+                        </div>
+                        <div class="new-book">
+                            <h5 class="name">
+                                <a href="" class="name-book">Vương Gia Uy Ông Trùm Mafia Thương Chiều Vợ Yêu FULL</a>
+                            </h5>
+                            <span class="cat">Ngôn Tình</span>
+                            <a href="" class="chap">C-105</a>
+                            <div href="" class="time">14 Phút trước</div>
+                        </div>
+                        <div class="new-book">
+                            <h5 class="name">
+                                <a href="" class="name-book">Đoản Văn Đam Mỹ Ngọt Sủng FULLL</a>
+                            </h5>
+                            <span class="cat">Đam Mỹ, Truyện Sủng</span>
+                            <a href="" class="chap">C-5</a>
+                            <div href="" class="time">15 Phút trước</div>
+                        </div>
+                        <div class="new-book">
+                            <h5 class="name">
+                                <a href="" class="name-book">Cô Vợ Nhỏ Yêu Kiều Mạnh Mẽ Của Mặc Tổng</a>
+                            </h5>
+                            <span class="cat">Truyện Nữ Cường, Ngôn Tình</span>
+                            <a href="" class="chap">C-7</a>
+                            <div href="" class="time">15 Phút trước</div>
+                        </div>
+                        <div class="new-book">
+                            <h5 class="name">
+                                <a href="" class="name-book">Cùng Quân Ước Hẹn Trăm Năm</a>
+                            </h5>
+                            <span class="cat">Xuyên Không, Ngôn Tình</span>
+                            <a href="" class="chap">C-6</a>
+                            <div href="" class="time">15 Phút trước</div>
+                        </div>
+                        <div class="new-book">
+                            <h5 class="name">
+                                <a href="" class="name-book">Ta Ở Thập Niên Văn Làm Pháo Hôi</a>
+                            </h5>
+                            <span class="cat">Xuyên Không, Đam Mỹ</span>
+                            <a href="" class="chap">C-15</a>
+                            <div href="" class="time">15 Phút trước</div>
+                        </div>
+                   </div>
+                </div>
+                <div class="update-hot-book__about col l-3 m-12 c-12">
+                    <div class="book__bookmark">
+                        <h3 class="book__bookmark-heading">
+                            Truyện đánh dấu
+                        </h3>
+                        <p class="click-more">
+                            Nhấn để xem...
+                        </p>
+                    </div>
+
+                    <div class="book__reading">
+                        <h3 class="book__reading-heading">
+                            Truyện đang đọc
+                        </h3>
+                        <p class="click-more">
+                            Nhấn để xem...
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="finish">
+            <div class="finish__heading">
+                <div class="">
+                    <span class="finish-span">Truyện đã hoàn thành</span>
+                    <i class="right-arrow-icon ti-angle-right"></i>
+                </div>
+                <div class="filter__avance">
+                    <select name="" id="" class="filter__select">
+                        <option value="1" selected>Tên Hiệp</option>
+                        <option value="2">Kiếm Hiệp</option>
+                        <option value="3">Ngôn Tình</option>
+                        <option value="4">Đô Thị</option>
+                        <option value="5">Quang Trường</option>
+                        <option value="6">Võng Du</option>
+                        <option value="7">Di Giới</option>
+                        <option value="8">Dị Năng</option>
+                        <option value="9">Quân Sự</option>
+                        <option value="10">Xuyên Không</option>
+                        <option value="11">Trọng Sinh</option>
+                        <option value="12">Trinh Thám</option>
+                        <option value="13">Thám Hiểm</option>
+                        <option value="14">Linh Dị</option>
+                        <option value="14">Bách Hợp</option>
+                        <option value="14">Cổ Đại</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="finish__body">
+                <div class="row">
+                    <div class="finish__book col l-3 m-6 c-6">
+                        <div class="finish__book-wrap">
+                            <a href="./assets/pages/nang-dau-cuc-pham.html" class="finish__book-heading">
+                                <img src="./assets/img/finish1.png" alt="" class="finish__book-img">
+                                <span class="full-span">FULL</span>
+                            </a>
+                            <div class="finish__book-content">
+                                <span class="finish__book-section-number">
+                                    96 chương
+                                </span>
+                                <a href="./assets/pages/nang-dau-cuc-pham.html" class="finish__book-title">
+                                    Nguyện Yêu Em Cả Đời FULL
+                                </a>
+                                <div class="rate">
+                                    <i class="rate-icon fas fa-star"></i>
+                                    <span class="quantity-span">7.8/10</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="finish__book col l-3 m-6 c-6">
+                        <div class="finish__book-wrap">
+                            <a href="./assets/pages/nang-dau-cuc-pham.html" class="finish__book-heading">
+                                <img src="./assets/img/finish2.png" alt="" class="finish__book-img">
+                                <span class="full-span">FULL</span>
+                            </a>
+                            <div class="finish__book-content">
+                                <span class="finish__book-section-number">
+                                    105 chương
+                                </span>
+                                <a href="./assets/pages/nang-dau-cuc-pham.html" class="finish__book-title">
+                                    Ông Trùm Mafia Thương Chiều Vợ Yêu FULL
+                                </a>
+                                <div class="rate">
+                                    <i class="rate-icon fas fa-star"></i>
+                                    <span class="quantity-span">7.3/10</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="finish__book col l-3 m-6 c-6">
+                        <div class="finish__book-wrap">
+                            <a href="./assets/pages/nang-dau-cuc-pham.html" class="finish__book-heading">
+                                <img src="./assets/img/finish3.png" alt="" class="finish__book-img">
+                                <span class="full-span">FULL</span>
+                            </a>
+                            <div class="finish__book-content">
+                                <span class="finish__book-section-number">
+                                    5 chương
+                                </span>
+                                <a href="./assets/pages/nang-dau-cuc-pham.html" class="finish__book-title">
+                                    Đoản Văn Đam Mỹ Ngọt Sủng FULL
+                                </a>
+                                <div class="rate">
+                                    <i class="rate-icon fas fa-star"></i>
+                                    <span class="quantity-span">7.8/10</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="finish__book col l-3 m-6 c-6">
+                        <div class="finish__book-wrap">
+                            <a href="./assets/pages/nang-dau-cuc-pham.html" class="finish__book-heading">
+                                <img src="./assets/img/finish4.png" alt="" class="finish__book-img">
+                                <span class="full-span">FULL</span>
+                            </a>
+                            <div class="finish__book-content">
+                                <span class="finish__book-section-number">
+                                    59 chương
+                                </span>
+                                <a href="./assets/pages/nang-dau-cuc-pham.html" class="finish__book-title">
+                                    Abo Hôn Nhân Thứ Hai FULL
+                                </a>
+                                <div class="rate">
+                                    <i class="rate-icon fas fa-star"></i>
+                                    <span class="quantity-span">7.7/10</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="finish__book col l-3 m-6 c-6">
+                        <div class="finish__book-wrap">
+                            <a href="./assets/pages/nang-dau-cuc-pham.html" class="finish__book-heading">
+                                <img src="./assets/img/finish5.png" alt="" class="finish__book-img">
+                                <span class="full-span">FULL</span>
+                            </a>
+                            <div class="finish__book-content">
+                                <span class="finish__book-section-number">
+                                    13 chương
+                                </span>
+                                <a href="./assets/pages/nang-dau-cuc-pham.html" class="finish__book-title">
+                                    Tiểu Mỹ Nhân Và Chồng Cũ Của Cậu Ấy FULL
+                                </a>
+                                <div class="rate">
+                                    <i class="rate-icon fas fa-star"></i>
+                                    <span class="quantity-span">7.5/10</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="finish__book col l-3 m-6 c-6">
+                        <div class="finish__book-wrap">
+                            <a href="./assets/pages/nang-dau-cuc-pham.html" class="finish__book-heading">
+                                <img src="./assets/img/finish6.png" alt="" class="finish__book-img">
+                                <span class="full-span">FULL</span>
+                            </a>
+                            <div class="finish__book-content">
+                                <span class="finish__book-section-number">
+                                    10 chương
+                                </span>
+                                <a href="./assets/pages/nang-dau-cuc-pham.html" class="finish__book-title">
+                                    Tiểu Thỏ Tinh Có Một Ý Tưởng Lớn Mật FULL
+                                </a>
+                                <div class="rate">
+                                    <i class="rate-icon fas fa-star"></i>
+                                    <span class="quantity-span">7.8/10</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="finish__book col l-3 m-6 c-6">
+                        <div class="finish__book-wrap">
+                            <a href="./assets/pages/nang-dau-cuc-pham.html" class="finish__book-heading">
+                                <img src="./assets/img/finish7.png" alt="" class="finish__book-img">
+                                <span class="full-span">FULL</span>
+                            </a>
+                            <div class="finish__book-content">
+                                <span class="finish__book-section-number">
+                                    20 chương
+                                </span>
+                                <a href="./assets/pages/nang-dau-cuc-pham.html" class="finish__book-title">
+                                    Thích Bộ Dạng Không Thể Tự Chăm Sóc Bản Thân Của Em FULL
+                                </a>
+                                <div class="rate">
+                                    <i class="rate-icon fas fa-star"></i>
+                                    <span class="quantity-span">7.2/10</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="finish__book col l-3 m-6 c-6">
+                        <div class="finish__book-wrap">
+                            <a href="./assets/pages/nang-dau-cuc-pham.html" class="finish__book-heading">
+                                <img src="./assets/img/finish8.png" alt="" class="finish__book-img">
+                                <span class="full-span">FULL</span>
+                            </a>
+                            <div class="finish__book-content">
+                                <span class="finish__book-section-number">
+                                    11 chương
+                                </span>
+                                <a href="./assets/pages/nang-dau-cuc-pham.html" class="finish__book-title">
+                                    Robot Papa Và Robot Cha FULL
+                                </a>
+                                <div class="rate">
+                                    <i class="rate-icon fas fa-star"></i>
+                                    <span class="quantity-span">7.9/10</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="finish__book col l-3 m-6 c-6">
+                        <div class="finish__book-wrap">
+                            <a href="./assets/pages/nang-dau-cuc-pham.html" class="finish__book-heading">
+                                <img src="./assets/img/finish9.png" alt="" class="finish__book-img">
+                                <span class="full-span">FULL</span>
+                            </a>
+                            <div class="finish__book-content">
+                                <span class="finish__book-section-number">
+                                    74 chương
+                                </span>
+                                <a href="./assets/pages/nang-dau-cuc-pham.html" class="finish__book-title">
+                                    Ta Dưỡng Thành Một Tiểu Zombie Bá Đạo FULL
+                                </a>
+                                <div class="rate">
+                                    <i class="rate-icon fas fa-star"></i>
+                                    <span class="quantity-span">7.4/10</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="finish__book col l-3 m-6 c-6">
+                        <div class="finish__book-wrap">
+                            <a href="./assets/pages/nang-dau-cuc-pham.html" class="finish__book-heading">
+                                <img src="./assets/img/finish10.png" alt="" class="finish__book-img">
+                                <span class="full-span">FULL</span>
+                            </a>
+                            <div class="finish__book-content">
+                                <span class="finish__book-section-number">
+                                    5 chương
+                                </span>
+                                <a href="./assets/pages/nang-dau-cuc-pham.html" class="finish__book-title">
+                                    Mê Đắm FULL
+                                </a>
+                                <div class="rate">
+                                    <i class="rate-icon fas fa-star"></i>
+                                    <span class="quantity-span">7.7/10</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="finish__book col l-3 m-6 c-6">
+                        <div class="finish__book-wrap">
+                            <a href="./assets/pages/nang-dau-cuc-pham.html" class="finish__book-heading">
+                                <img src="./assets/img/finish11.png" alt="" class="finish__book-img">
+                                <span class="full-span">FULL</span>
+                            </a>
+                            <div class="finish__book-content">
+                                <span class="finish__book-section-number">
+                                    53 chương
+                                </span>
+                                <a href="./assets/pages/nang-dau-cuc-pham.html" class="finish__book-title">
+                                    Vì Em Mà Đắm Say FULL
+                                </a>
+                                <div class="rate">
+                                    <i class="rate-icon fas fa-star"></i>
+                                    <span class="quantity-span">7.8/10</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="finish__book col l-3 m-6 c-6">
+                        <div class="finish__book-wrap">
+                            <a href="./assets/pages/nang-dau-cuc-pham.html" class="finish__book-heading">
+                                <img src="./assets/img/finish12.png" alt="" class="finish__book-img">
+                                <span class="full-span">FULL</span>
+                            </a>
+                            <div class="finish__book-content">
+                                <span class="finish__book-section-number">
+                                    10 chương
+                                </span>
+                                <a href="./assets/pages/nang-dau-cuc-pham.html" class="finish__book-title">
+                                    Tôi Không Muốn Diễn Vai Nữ Phụ Này Nữa FULL
+                                </a>
+                                <div class="rate">
+                                    <i class="rate-icon fas fa-star"></i>
+                                    <span class="quantity-span">7.7/10</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <foot class="footer">
+           <span>Lê Công Hậu</span>
+        </foot>
+    </div>
+</body>
+</html>

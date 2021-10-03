@@ -1,0 +1,75 @@
+/* Mobile: width < 740px */
+@media only screen and (max-width: 739px){
+    .app {
+        width: auto;
+        padding: 0 10px;
+    }
+    .mobile-search-icon {
+        display: block !important;
+        margin-right: 10px;
+    }
+    .header__search-adv-btn {
+        margin-right: 20px;
+    }
+    .body {
+        display: block;
+    }
+    .header__menu-book, .header__menu-category {
+        display: none;
+    }
+    .header__search-input-wrap {
+        display: none;
+    }
+    .new-book .cat {
+        display: none;
+    }
+    .new-book .time {
+        display: none;
+    }
+    .new-book .chap {
+        flex: 0.2;
+    }
+    .finish__book-title {
+        margin-top: 10px;
+        font-size: 12px;
+    }
+    .finish__book-content {
+        padding: 0;
+    }
+    .finish__book-section-number {
+        font-size: 10px;
+    }
+    .finish__book-content {
+        margin-left: 5px;
+    }
+    .path {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+    
+}
+/* Tablet: width >= 740px and width < 1024px */
+@media only screen and (min-width: 740px) and (max-width: 1023px){
+    .app {
+        width: auto;
+        padding: 0 10px;
+        overflow-x: hidden;
+    }
+    .mobile-search-icon {
+        margin: 0 30px;
+        display: block !important;
+    }
+    .header__menu-book, .header__menu-category {
+        display: none;
+    }
+    .header__search-input-wrap {
+        display: none;
+    }
+}
+/* PC: width >= 1024px nhỏ hơn 1239px (màn hình nhỏ) */
+@media only screen and (min-width: 1024px) and (max-width: 1239px){
+
+}
+/* màn hình PC từ 1113px trở lên */
+@media only screen and (min-width:1113px) {
+}
