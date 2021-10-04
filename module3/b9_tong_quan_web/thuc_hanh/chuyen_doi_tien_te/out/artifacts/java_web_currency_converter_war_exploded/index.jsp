@@ -17,7 +17,7 @@
     <input type="text" name="rate" placeholder="RATE" value="22000"></form><br/>
     <lable>USD: </lable><br/>
     <input type="text" name="usd" placeholder="USD" value="0"></body></html><br/>
-    <input type="submit" name="submit" id="submit">
+    <input type="submit" id="submit">
   </form>
   </body>
 </html>
