@@ -9,10 +9,15 @@ import java.io.PrintWriter;
 @WebServlet(name = "ConverterServlet", urlPatterns = "/convert")
 public class ConverterServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        PrintWriter writer = response.getWriter();
-        writer.println("<html>");
-        writer.println("<h1>Hello</h1>");
-        writer.println("</html>");
+        double rate = Double.parseDouble(request.getParameter("rate"));
+        double usd = Double.parseDouble(request.getParameter("usd"));
+
+        double vnd = rate * usd;
+
+        request.setAttribute("rate", rate);
+        request.setAttribute("usd",usd);
+        request.setAttribute("vnd", vnd);
+        request.getRequestDispatcher("result.jsp").forward(request,response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

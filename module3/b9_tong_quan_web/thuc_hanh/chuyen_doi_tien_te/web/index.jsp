@@ -13,10 +13,10 @@
   <body>
   <h2>Currency Convert</h2>
   <form method="post" action="/convert">
-    <lable>Rate: </lable></form><br/>
-    <input type="text" name="rate" placeholder="RATE" value="22000"></form><br/>
+    <lable>Rate: </lable><br/>
+    <input type="number" name="rate" placeholder="RATE" value="22000"><br/>
     <lable>USD: </lable><br/>
-    <input type="text" name="usd" placeholder="USD" value="0"></body></html><br/>
+    <input type="number" name="usd" placeholder="USD" value="0"><br/>
     <input type="submit" name="submit" id="submit">
   </form>
   </body>

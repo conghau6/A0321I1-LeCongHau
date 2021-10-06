@@ -286,9 +286,9 @@ inner join dichvu on hopdong.IDDichVu = dichvu.IDDichVu
 inner join loaidichvu on dichvu.IDLoaiDichVu = loaidichvu.IDLoaiDichVu
 inner join hopdongchitiet on hopdong.IDHopDong = hopdongchitiet.IDHopDong
 inner join dichvudikem on hopdongchitiet.IDDichVuDiKem = dichvudikem.IDDichVuDiKem
-group by TenLoaiDichVu having count(TenLoaiDichVu) = 1;
+group by TenLoaiDichVu having count(So_lan_Sd) = 1;
 
--- yêu cầu 15
+-- yêu cầu 15A
 select nhanvien.IDNhanVien, nhanvien.HoTen, trinhdo.TrinhDo, bophan.TenBoPhan,
 nhanvien.SDT, nhanvien.DiaChi, hopdong.IDHopDong, hopdong.NgayLamHopDong, count(IDHopDong) from nhanvien
 left join bophan on nhanvien.IDBoPhan = bophan.IDBoPhan
@@ -319,6 +319,17 @@ where year(hopdong.NgayLamHopDong) = 2020 group by khachhang.HoTen
 having tt > 10000000 and loaikhach.TenLoaiKhach = 'Platinium') as temp
 on temp(khachhang.IDKhachHang) = loaikhach.IDKhachHang
 set loaikhach.IDLoaiKhach = 1;
+
+-- yêu cầu 18
+-- yêu cầu 19
+create temporary table temp
+(select dichvudikem.IDDichVuDiKem from dichvudikem
+inner join hopdongchitiet on dichvudikem.IDDichVuDiKem = hopdongchitiet.IDDichVuDiKem
+group by IDDichVuDiKem
+having count(hopdongchitiet.IDHopDongChiTiet) > 10);
+update dichvudikem
+set dichvudikem.gia = dichvudikem.gia*2
+where dichvudikem.IDDichVuDiKem in (select * from temp);
 
 
 drop database furama;

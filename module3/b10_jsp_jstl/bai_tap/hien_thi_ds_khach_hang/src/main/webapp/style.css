@@ -1,0 +1,33 @@
+html {
+    box-sizing: border-box;
+    font-size: 16px;
+    font-family: Arial;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+table {
+    width: 50%;
+    margin: 30px auto 0 auto;
+    border-collapse: collapse;
+}
+th, td {
+    border-bottom: 1px solid black;
+    text-align: left;
+}
+table {
+    box-shadow: #2ee9ff 0px 7px 29px 0px;
+}
+td {
+    height: 100px;
+}
+th, td {
+    padding: 0 10px;
+}
+img {
+    height: 80px;
+    width: 80px;
+}
+
