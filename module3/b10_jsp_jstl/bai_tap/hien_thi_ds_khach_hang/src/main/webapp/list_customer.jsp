@@ -15,9 +15,6 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-<%
-    List<Customer> customerList = new ArrayList<>();
-%>
 <table>
     <caption>Danh sách khách hàng</caption>
     <tr>
@@ -32,7 +29,7 @@
         <td>${customer.dateOfBirth}</td>
         <td>${customer.diaChi}</td>
         <td>
-            <img src="${customer.urlImage}" alt="ảnh">
+            <img src="<c:url value="${customer.urlImage}"/>" alt="ảnh">
         </td>
     </tr>
     </c:forEach>
