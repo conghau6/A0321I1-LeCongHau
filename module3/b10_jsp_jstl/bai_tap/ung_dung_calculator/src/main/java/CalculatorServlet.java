@@ -4,14 +4,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.InputMismatchException;
 
-@WebServlet(name = "CalculatorServlet", urlPatterns = "/calculate")
+@WebServlet(name = "CalculatorServlet", urlPatterns ={"", "/calculate"})
 public class CalculatorServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         double firstNum = Integer.parseInt(request.getParameter("firstNumber"));
         double secondNum = Integer.parseInt(request.getParameter("secondNumber"));
         String operator = request.getParameter("operator");
+        String err = "";
         double result = 0;
         try {
             switch (operator) {
@@ -30,15 +31,19 @@ public class CalculatorServlet extends HttpServlet {
                 default:
                     break;
             }
+        } catch (ArithmeticException e) {
+            err  ="Không chia cho 0";
+        } catch (InputMismatchException e){
+            err = "Nhập sai định dạng";
         } catch (Exception e) {
-            PrintWriter writer = response.getWriter();
-            writer.println("Không chia cho số 0");
+            err = "Đã có lỗi xảy ra";
         }
 
         request.setAttribute("firstNumber", firstNum);
         request.setAttribute("secondNumber", secondNum);
         request.setAttribute("result", result);
         request.setAttribute("operator",operator);
+        request.setAttribute("err",err);
         request.getRequestDispatcher("result.jsp").forward(request,response);
     }
 

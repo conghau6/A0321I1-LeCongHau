@@ -10,7 +10,38 @@
 <html>
   <head>
     <title>$Title$</title>
-    <link rel="stylesheet" href="./style.css">
+<%--    Font popins--%>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <style>
+      html {
+        font-size: 16px;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: inherit;
+      }
+      span {
+        display: inline-block;
+        width: 30%;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        width: 600px;
+        border: 1px solid #000000;
+      }
+      form div {
+        padding: 5px;
+      }
+      form div:last-child input {
+        margin-left: 31%;
+      }
+    </style>
   </head>
   <body>
   <h1>Simple Calculator</h1>
@@ -30,6 +61,8 @@
     </div>
     <div>
       <span>Second operand: </span> <input type="text" name="secondNumber">
+    </div>
+    <div>
       <input type="submit" id="submit" value="Calculate">
     </div>
   </form>
