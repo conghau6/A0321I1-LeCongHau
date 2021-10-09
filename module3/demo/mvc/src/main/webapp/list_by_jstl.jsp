@@ -13,6 +13,7 @@
 </head>
 <body>
 <h2>List student by JSTL</h2>
+<a href="/student?action=add">Add student</a>
 <table>
     <tr>
         <th>NO</th>
@@ -42,7 +43,7 @@
                 </c:choose>
             </td>
             <td><a href="/student?action=update&id=${student.id}">Edit</a> </td>
-            <td><a href="/student?action=delete&id=${student.id}">Edit</a> </td>
+            <td><a href="/student?action=delete&id=${student.id}">Delete</a> </td>
         </tr>
     </c:forEach>
 </table>
