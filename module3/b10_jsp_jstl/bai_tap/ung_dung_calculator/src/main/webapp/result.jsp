@@ -14,7 +14,9 @@
 <body>
 <h1>Result:</h1>
 <c:if test="${err.equals('')}">
-    <c:out value="${err}"></c:out>
+    <span>
+        <c:out value="${err}"></c:out>
+    </span>
 </c:if>
 <c:if test="${!err.equals('')}">
     <span><c:out value="${firstNumber}"></c:out></span>
