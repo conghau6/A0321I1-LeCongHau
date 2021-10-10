@@ -44,9 +44,13 @@ public class CustomerServlet extends HttpServlet {
                 request.getRequestDispatcher("create.jsp").forward(request,response);
                 break;
             default:
-                List<Customer> customerList = this.customerService.findAll();
-                request.setAttribute("customerListServlet", customerList);
-                request.getRequestDispatcher("list.jsp").forward(request,response);
+                goCustomerList(request,response);
+                break;
         }
+    }
+
+    private void goCustomerList(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setAttribute("customerListServlet", customerService.findAll());
+        request.getRequestDispatcher("list.jsp").forward(request,response);
     }
 }

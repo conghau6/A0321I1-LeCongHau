@@ -13,12 +13,12 @@
 </head>
 <body>
 <h1>Result:</h1>
-<c:if test="${err.equals('')}">
+<c:if test='${err!=""}'>
     <span>
         <c:out value="${err}"></c:out>
     </span>
 </c:if>
-<c:if test="${!err.equals('')}">
+<c:if test='${err==""}'>
     <span><c:out value="${firstNumber}"></c:out></span>
     <span><c:out value="${operator}"></c:out></span>
     <span><c:out value="${secondNumber}"></c:out></span>

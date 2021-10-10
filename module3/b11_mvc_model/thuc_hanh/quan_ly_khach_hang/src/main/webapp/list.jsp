@@ -16,6 +16,7 @@
 <p>
     <a href="/customer?action=create">Create new customer</a>
 </p>
+<p>${message}</p>
 <table border="1">
     <tr>
         <td>No</td>
