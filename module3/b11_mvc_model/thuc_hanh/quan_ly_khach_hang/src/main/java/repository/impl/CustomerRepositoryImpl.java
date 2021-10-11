@@ -45,12 +45,7 @@ public class CustomerRepositoryImpl implements CustomerRepository {
     }
 
     @Override
-    public void addCustomer(Integer id, String name, String email, String address) {
-        for(Customer customer : customerList) {
-            if(customer.getId().equals(id)){
-                return;
-            }
-        }
+    public void addCustomer(Integer id, String name, String email, String address){
         customerList.add(new Customer(id,name,email,address));
     }
 

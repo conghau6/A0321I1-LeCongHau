@@ -1,6 +1,6 @@
-package model;
+package controler;
 
-import controler.Customer;
+import model.Customer;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

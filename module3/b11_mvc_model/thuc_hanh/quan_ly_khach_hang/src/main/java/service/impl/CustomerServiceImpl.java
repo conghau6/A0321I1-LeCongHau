@@ -27,7 +27,9 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public void addCustomer(Integer id, String name, String email, String address) {
+    public void addCustomer(Integer id, String name, String email, String address) throws Exception {
+        if(id==null||name==""||email==""||address=="") return;
+        if(customerService.findById(id) != null) throw new Exception("ID đã tồn tại");
         this.customerService.addCustomer(id,name,email,address);
     }
 

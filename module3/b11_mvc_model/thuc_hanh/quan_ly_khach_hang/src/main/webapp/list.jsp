@@ -10,13 +10,28 @@
 <html>
 <head>
     <title>Customer List</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        html {
+            font-family: 'DM Sans', sans-serif;
+        }
+    </style>
 </head>
 <body>
 <h1>Customer</h1>
 <p>
     <a href="/customer?action=create">Create new customer</a>
 </p>
-<p>${message}</p>
+<p>
+    <c:if test='${err!=null}'>
+        ${err}
+    </c:if>
+    <c:if test='${err==null}'>
+        ${message}
+    </c:if>
+</p>
 <table border="1">
     <tr>
         <td>No</td>
@@ -35,7 +50,7 @@
             <td><c:out value="${customer.email}"></c:out></td>
             <td><c:out value="${customer.address}"></c:out></td>
             <td><a href="/customer?action=update&id=${customer.id}">Update</a></td>
-            <td><a href="/customer?action=deleted&id=${customer.id}">Delete</a></td>
+            <td><a href="/customer?action=delete&id=${customer.id}">Delete</a></td>
         </tr>
     </c:forEach>
 </table>
