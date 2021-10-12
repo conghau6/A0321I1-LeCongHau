@@ -309,16 +309,24 @@ inner join hopdong on hopdong.IDNhanVien = nhanvien.IDNhanVien
 where year(hopdong.NgayLamHopDong) not in (2019, 2018, 2017);
 
 -- yêu cầu 17
-update khachhang
-inner join loaikhach on khachhang.IDLoaiKhach = loaikhach.IDLoaiKhach
-inner join
-(select khachhang.IDKhachHang, khachhang.HoTen, NgayLamHopDong, loaikhach.TenLoaiKhach, sum(tongtien) as tt from hopdong
+create temporary table temp 
+(select khachhang.IDKhachHang, khachhang.HoTen, NgayLamHopDong, khachhang.IDLoaiKhach, loaikhach.TenLoaiKhach, sum(tongtien) as tt from hopdong
 inner join khachhang on khachhang.IDKhachHang = hopdong.IDKhachHang
 inner join loaikhach on khachhang.IDLoaiKhach = loaikhach.IDLoaiKhach
 where year(hopdong.NgayLamHopDong) = 2020 group by khachhang.HoTen 
-having tt > 10000000 and loaikhach.TenLoaiKhach = 'Platinium') as temp
-on temp(khachhang.IDKhachHang) = loaikhach.IDKhachHang
-set loaikhach.IDLoaiKhach = 1;
+having tt > 10000000 and loaikhach.TenLoaiKhach = 'Platinium');
+update khachhang
+set IDLoaiKhach = 1
+where khachhang.IDKhachHang in (select temp.IDKhachHang from temp);
+-- inner join loaikhach on khachhang.IDLoaiKhach = loaikhach.IDLoaiKhach
+-- inner join
+-- (select khachhang.IDKhachHang, khachhang.HoTen, NgayLamHopDong, khachhang.IDLoaiKhach, loaikhach.TenLoaiKhach, sum(tongtien) as tt from hopdong
+-- inner join khachhang on khachhang.IDKhachHang = hopdong.IDKhachHang
+-- inner join loaikhach on khachhang.IDLoaiKhach = loaikhach.IDLoaiKhach
+-- where year(hopdong.NgayLamHopDong) = 2020 group by khachhang.HoTen 
+-- having tt > 10000000 and loaikhach.TenLoaiKhach = 'Platinium') as temp
+-- on temp(khachhang.IDKhachHang) = loaikhach.IDKhachHang
+-- set loaikhach.IDLoaiKhach = 1;
 
 -- yêu cầu 18
 -- yêu cầu 19
