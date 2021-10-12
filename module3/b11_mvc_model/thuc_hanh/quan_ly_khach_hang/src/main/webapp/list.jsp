@@ -46,7 +46,7 @@
         <tr>
             <td>${loop.count}</td>
             <td><c:out value="${customer.id}"></c:out></td>
-            <td><c:out value="${customer.name}"></c:out></td>
+            <td><a href="/customer?action=view&id=${customer.id}"><c:out value="${customer.name}"></c:out></a></td>
             <td><c:out value="${customer.email}"></c:out></td>
             <td><c:out value="${customer.address}"></c:out></td>
             <td><a href="/customer?action=update&id=${customer.id}">Update</a></td>

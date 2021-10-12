@@ -118,10 +118,20 @@ public class CustomerServlet extends HttpServlet {
             case "delete":
                 goDelete(request,response);
                 break;
+            case "view":
+                doView(request,response);
+                break;
             default:
                 goListCustomer(request,response);
                 break;
         }
+    }
+
+    private void doView(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        Integer id = Integer.valueOf(request.getParameter("id"));
+        Customer customer = customerService.findById(id);
+        request.setAttribute("customer", customer);
+        request.getRequestDispatcher("view.jsp").forward(request,response);
     }
 
     private void goDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
