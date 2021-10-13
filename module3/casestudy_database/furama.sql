@@ -329,6 +329,9 @@ where khachhang.IDKhachHang in (select temp.IDKhachHang from temp);
 -- set loaikhach.IDLoaiKhach = 1;
 
 -- yêu cầu 18
+SET SQL_SAFE_UPDATES = 0;
+delete from khachhang
+where khachhang.IDKhachHang in (select hopdong.IDKhachHang from hopdong where year(hopdong.NgayTaoHopDong)<"2016");
 -- yêu cầu 19
 create temporary table temp
 (select dichvudikem.IDDichVuDiKem from dichvudikem
