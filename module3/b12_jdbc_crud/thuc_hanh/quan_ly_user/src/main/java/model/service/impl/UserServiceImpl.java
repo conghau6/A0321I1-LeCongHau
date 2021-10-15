@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class UserServiceImpl implements UserService {
-    UserRepositories userRepositories = new UserRepositoriesImpl();
+    UserRepositoriesImpl userRepositories = new UserRepositoriesImpl();
     @Override
     public void addNewUser(User user) {
         userRepositories.addNewUser(user);
@@ -33,5 +33,9 @@ public class UserServiceImpl implements UserService {
     @Override
     public boolean updateUser(User user) {
         return userRepositories.updateUser(user);
+    }
+
+    public List<User> sort(){
+        return userRepositories.sort();
     }
 }

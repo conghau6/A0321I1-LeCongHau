@@ -15,4 +15,5 @@ public interface UserRepositories {
     public boolean deleteUser(int id);
 
     public boolean updateUser(User user);
+
 }

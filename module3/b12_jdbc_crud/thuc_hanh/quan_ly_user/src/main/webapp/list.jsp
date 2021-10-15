@@ -23,6 +23,16 @@
 <p>
     <a href="/users?action=create">Add new user</a>
 </p>
+<p>
+    <a href="/users?action=sort">Sort</a>
+</p>
+<p>
+<form method="get">
+    <input type="hidden" name="action" value="search">
+    <input type="text" placeholder="country" name="country">
+    <input type="submit" value="Search">
+</form>
+</p>
 <table>
 <tr>
     <th>ID</th>

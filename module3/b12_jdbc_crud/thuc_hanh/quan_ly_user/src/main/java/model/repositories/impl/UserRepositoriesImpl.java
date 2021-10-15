@@ -15,6 +15,25 @@ public class UserRepositoriesImpl implements UserRepositories {
     private static final String SELECT_ALL_USERS = "select * from users;";
     private static final String DELETE_USERS_SQL = "delete from users where id=?;";
     private static final String UPDATE_USERS_SQL = "update users set name = ?, email = ?, country = ? where id = ?;";
+    private static final String SELECT_ALL_USERS_SORT = "select * from users order by name";
+
+    public List<User> sort(){
+        List<User> users = new ArrayList<>();
+        try (PreparedStatement preparedStatement = this.baseRepositories.getConnection().prepareStatement(SELECT_ALL_USERS_SORT);){
+            System.out.println(preparedStatement);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String name = rs.getString("name");
+                String email = rs.getString("email");
+                String country = rs.getString("country");
+                users.add(new User(id,name,email,country));
+            }
+        } catch (SQLException e) {
+            printSQLException(e);
+        }
+        return users;
+    }
 
     @Override
     public void addNewUser(User user) {

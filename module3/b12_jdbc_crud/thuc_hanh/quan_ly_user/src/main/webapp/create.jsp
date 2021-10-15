@@ -13,7 +13,7 @@
 <body>
 <form method="post" action="/users">
     <input type="hidden" name="action" value="create">
-    <input type="text" placeholder="id" name="id">
+    <input type="hidden" placeholder="id" name="id">
     <p>Name</p>
     <input type="text" placeholder="name" name="name">
     <p>Email</p>

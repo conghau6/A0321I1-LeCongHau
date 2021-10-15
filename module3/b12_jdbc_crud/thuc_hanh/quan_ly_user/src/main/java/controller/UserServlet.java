@@ -10,12 +10,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet(name = "UserServlet", urlPatterns = {"","/list","/users"})
 public class UserServlet extends HttpServlet {
-    private UserService userService = new UserServiceImpl();
+    private UserServiceImpl userService = new UserServiceImpl();
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
         switch (action){
@@ -29,12 +29,11 @@ public class UserServlet extends HttpServlet {
     }
 
     private void create(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        int id = Integer.parseInt(request.getParameter("id"));
         String name = request.getParameter("name");
         String email = request.getParameter("email");
         String country = request.getParameter("country");
 
-        User user = new User(id,name,email,country);
+        User user = new User(name,email,country);
         userService.addNewUser(user);
         showListUsers(request,response);
     }
@@ -60,10 +59,16 @@ public class UserServlet extends HttpServlet {
                 showUpdateForm(request,response);
                 break;
             case "delete":
-                showDeleteForm(request,response);
+                delete(request,response);
                 break;
             case "create":
                 showCreateForm(request,response);
+                break;
+            case "sort":
+                goSort(request,response);
+                break;
+            case "search":
+                goSearch(request,response);
                 break;
             default:
                 showListUsers(request,response);
@@ -71,13 +76,33 @@ public class UserServlet extends HttpServlet {
         }
     }
 
+    private void goSearch(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String country = request.getParameter("country");
+        List<User> userListSearch = new ArrayList<>();
+        for(User user : userService.findAllUsers()){
+            if(user.getCountry().equals(country)){
+                userListSearch.add(user);
+            }
+        }
+        request.setAttribute("listUser", userListSearch);
+        request.getRequestDispatcher("list.jsp").forward(request,response);
+    }
+
+    private void goSort(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        List<User> userList = userService.sort();
+        System.out.println(userList.size());
+        request.setAttribute("listUser", userList);
+        request.getRequestDispatcher("list.jsp").forward(request,response);
+    }
+
     private void showCreateForm(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.sendRedirect("create.jsp");
     }
 
-    private void showDeleteForm(HttpServletRequest request, HttpServletResponse response) {
+    private void delete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         userService.deleteUser(id);
+        showListUsers(request,response);
     }
 
     private void showUpdateForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
