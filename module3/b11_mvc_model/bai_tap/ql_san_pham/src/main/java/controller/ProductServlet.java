@@ -90,6 +90,7 @@ public class ProductServlet extends HttpServlet {
                 break;
             case "delete":
                 goDelete(request,response);
+                break;
             case "view":
                 goView(request,response);
                 break;
