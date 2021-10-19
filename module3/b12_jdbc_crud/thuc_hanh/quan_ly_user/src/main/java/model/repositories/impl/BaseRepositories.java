@@ -12,7 +12,9 @@ public class BaseRepositories {
 
     public BaseRepositories() {
         try{
+            // Đăng ký driver
             Class.forName("com.mysql.jdbc.Driver");
+            // mở 1 kết nối
             this.connection = DriverManager.getConnection(jdbcURL,jdbcUsername, jdbcPassword);
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
