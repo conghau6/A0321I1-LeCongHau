@@ -10,6 +10,17 @@ import java.util.List;
 
 public class UserServiceImpl implements UserService {
     UserRepositoriesImpl userRepositories = new UserRepositoriesImpl();
+
+    @Override
+    public void addNewUserTransaction(User user, int[] permisions) {
+        userRepositories.addNewUserTransaction(user,permisions);
+    }
+
+    @Override
+    public void insertUpdateWithoutTransaction() {
+        userRepositories.insertUpdateWithoutTransaction();
+    }
+
     @Override
     public void addNewUser(User user) {
         userRepositories.addNewUser(user);

@@ -70,10 +70,26 @@ public class UserServlet extends HttpServlet {
             case "search":
                 goSearch(request,response);
                 break;
+            case "permision":
+                addUserPermision(request,response);
+                break;
+            case "test-without-tran":
+                testWithoutTran(request, response);
+                break;
             default:
                 showListUsers(request,response);
                 break;
         }
+    }
+
+    private void testWithoutTran(HttpServletRequest request, HttpServletResponse response) {
+        userService.insertUpdateWithoutTransaction();
+    }
+
+    private void addUserPermision(HttpServletRequest request, HttpServletResponse response) {
+        User user = new User("hauzz","hauzz@gmail.com","vn");
+        int[] permision = {1,2,4};
+        userService.addNewUserTransaction(user,permision);
     }
 
     private void goSearch(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -7,6 +7,8 @@ import java.util.List;
 
 public interface UserRepositories {
     public void addNewUserTransaction(User user, int[] permisions);
+    public void insertUpdateWithoutTransaction();
+    public void addNewUser(User user);
 
     public User findById(int id);
 
