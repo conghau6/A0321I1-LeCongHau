@@ -142,6 +142,17 @@ create table contract_detail(
     foreign key(attach_service_id) references attach_service(attach_service_id) on update cascade on delete cascade
 );
 
+delimiter $$
+create procedure select_all_customer()
+begin
+	select customer.customer_id, customer_type.customer_type_name, customer.customer_name,customer.customer_birthday,
+    customer.customer_gender, customer.customer_id_card, customer.customer_phone, customer.customer_email,
+    customer.customer_email, customer.customer_address
+    from customer inner join customer_type
+    on customer.customer_type_id = customer_type.customer_type_id;
+end $$
+delimiter $$
+
 insert into `position` values 
 (1, "Lế tân"),
 (2, "Phục vụ"),
@@ -234,4 +245,23 @@ insert into service_type values
 (2,"Room"),
 (3,"House");
 insert into service values
-(1,"Villa 1",100,100000,5,"")
+(1,"Villa 1",100,1000,5,3,1,"VIP I","none",200,10),
+(2,"Villa 2",100,1000,7,4,1,"VIP III","none",200,10),
+(3,"House 1",100,1000,5,2,3,"VIP II","none",200,10),
+(4,"House 2",100,1000,5,2,3,"VIP I","none",200,10),
+(5,"Room 1",100,1000,5,1,2,"VIP III","none",200,10),
+(6,"Room 2",100,1000,5,3,2,"VIP I","none",200,10),
+(7,"Room 3",100,1000,5,2,2,"VIP I","none",200,10);
+insert into contract values
+(1,"2018-2-4","2018-2-5",1400000,"2000000",4,3,5),
+(2,"2018-3-4","2019-3-4",12000000,"30000000",3,4,2),
+(3,"2018-2-10","2018-3-10",1400000,"1400000",5,5,6),
+(4,"2018-2-9","2018-3-9",1400000,"4500000",4,9,1),
+(5,"2018-9-21","2018-10-21",1500000,"3400000",10,11,2),
+(6,"2018-4-22","2018-5-22",1200000,"22000000",11,14,2),
+(7,"2018-2-5","2019-2-5",14400000,"5300000",4,1,1),
+(8,"2018-2-22","2018-2-23",174000,"2000000",2,3,4),
+(9,"2018-8-10","2018-9-10",140000,"2000000",6,3,7),
+(10,"2018-12-3","2019-12-3",1200000,"12000000",3,7,5),
+(11,"2018-1-31","2018-2-1",1600000,"62000000",7,7,6),
+(12,"2018-6-30","2019-6-30",1400000,"32000000",5,5,3);

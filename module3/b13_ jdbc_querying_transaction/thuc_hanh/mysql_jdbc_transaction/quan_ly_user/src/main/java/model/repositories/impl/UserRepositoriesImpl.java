@@ -25,7 +25,7 @@ public class UserRepositoriesImpl implements UserRepositories {
             ");";
     private static final String SQL_TABLE_DROP = "drop table if exists employee";
     private static final String SQL_UPDATE = "update employee set salary=? where name=?";
-    private static final String SQL_INSERT = "insert into employee(name,salary,create_date) values(?,?,?);";
+    private static final String SQL_INSERT = "insert into employee(name,salary,created_day) values(?,?,?);";
 
     public List<User> sort(){
         Connection connection = DBConnection.getConnection();
