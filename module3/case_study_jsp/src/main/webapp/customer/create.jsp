@@ -66,60 +66,15 @@
             Thêm mới khách hàng <i class="fas fa-user-plus"></i>
         </a>
     </p>
-    <div class="container-fluid list-container">
-        <table id="list" class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Mã Khách Hàng</th>
-                    <th>Loại Khách Hàng</th>
-                    <th>Tên Khách Hàng</th>
-                    <th>Ngày Sinh</th>
-                    <th>Giới Tính</th>
-                    <th>ID Card</th>
-                    <th>Điện Thoại</th>
-                    <th>Email</th>
-                    <th>Địa Chỉ</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
-                </tr>
-            </thead>
-            <tbody>
-                <c:forEach var="customer" items="${customerList}">
-                    <tr>
-                        <td>${customer.customerId}</td>
-                        <td>${customer.customerTypeName}</td>
-                        <td>${customer.customerName}</td>
-                        <td>${customer.customerBirthday}</td>
-                        <td>
-                            <c:if test="${customer.customerGender == 1}">
-                                Nam
-                            </c:if>
-                            <c:if test="${customer.customerGender == 0}">
-                                Nữ
-                            </c:if>
-                        </td>
-                        <td>${customer.customerIdCard}</td>
-                        <td>${customer.customerPhone}</td>
-                        <td>${customer.customerEmail}</td>
-                        <td>${customer.customerAddress}</td>
-                        <td>
-                            <button type="button" class="btn btn-primary">
-                                <a href="/customer?action=edit&id=${customer.customerId}">
-                                    Edit
-                                </a>
-                            </button>
-                        </td>
-                        <td>
-                            <button type="button" class="btn btn-danger">
-                                <a href="/customer?action=delete&id=${customer.customerId}">
-                                    Delete
-                                </a>
-                            </button>
-                        </td>
-                    </tr>
-                </c:forEach>
-            </tbody>
-        </table>
+    <div class="container">
+        <form action="">
+            <div class="customer-details">
+                <div class="input-box">
+                    <span class="details">Mã Khách Hàng</span>
+                    <input type="text" required>
+                </div>
+            </div>
+        </form>
     </div>
 </div>
 <script src="/assert/jquery/jquery-3.5.1.min.js"></script>

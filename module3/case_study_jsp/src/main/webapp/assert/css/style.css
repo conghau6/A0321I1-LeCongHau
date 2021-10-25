@@ -24,9 +24,6 @@
     background-color: #cb9999;
     border-radius: 10px;
 }
-#list a {
-    color: #fff !important;
-}
 .list-container {
     overflow-x: scroll;
 }
@@ -38,4 +35,23 @@
 }
 .quick-menu i {
     padding: 0 4px;
+}
+
+.table td, .table th {
+    padding: 5px;
+    vertical-align: middle;
+}
+
+table {
+    font-size: 15px;
+}
+
+.edit {
+    font-size: 20px;
+    color: #0037ff;
+}
+
+.delete {
+    font-size: 20px;
+    color: #ff0000;
 }

@@ -64,8 +64,8 @@
             Thêm mới khách hàng <i class="fas fa-user-plus"></i>
         </a>
     </p>
-    <div class="container-fluid list-container">
-        <table id="list" class="table table-striped">
+    <div class="container list-container">
+        <table id="list" class="table">
             <thead>
                 <tr>
                     <th>Mã Khách Hàng</th>
@@ -101,18 +101,14 @@
                         <td>${customer.customerEmail}</td>
                         <td>${customer.customerAddress}</td>
                         <td>
-                            <button type="button" class="btn btn-primary">
-                                <a href="/customer?action=edit&id=${customer.customerId}">
-                                    Edit
-                                </a>
-                            </button>
+                            <a class="edit" href="/customer?action=edit&id=${customer.customerId}">
+                                <i class="far fa-edit"></i>
+                            </a>
                         </td>
                         <td>
-                            <button type="button" class="btn btn-danger">
-                                <a href="/customer?action=delete&id=${customer.customerId}">
-                                    Delete
-                                </a>
-                            </button>
+                            <a class="delete" href="/customer?action=delete&id=${customer.customerId}">
+                                <i class="far fa-trash-alt"></i>
+                            </a>
                         </td>
                     </tr>
                 </c:forEach>
