@@ -19,6 +19,131 @@
     <link rel="stylesheet" href="/assert/datatables/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="/assert/css/base.css">
     <link rel="stylesheet" href="/assert/css/style.css">
+    <style>
+        body {
+            padding: 10px;
+            background: linear-gradient(
+                    51deg, #ddecf6,#a076b1);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 700px;
+            background: #fff;
+            padding: 25px 30px;
+            border-radius: 5px;
+        }
+
+        .container .title {
+            font-size: 25px;
+            font-weight: 500;
+            position: relative;
+        }
+
+        .container .title::before {
+            content: "";
+            left: 0;
+            bottom: 0;
+            position: absolute;
+            height: 3px;
+            width: 30px;
+            background: linear-gradient(135deg, #71b7e6,#9b59b6);
+        }
+
+        .container form .user-details {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 20px 0 12px 0;
+        }
+
+        form .user-details .input-box {
+            margin-bottom: 15px;
+            width: calc(100% / 2 - 20px);
+        }
+
+        .user-details .input-box .details {
+            display: block;
+            font-weight: 500;
+        }
+
+        .user-details .input-box input,
+        .user-details .input-box select{
+            height: 45px;
+            width: 100%;
+            outline: none;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            padding-left: 15px;
+            font-size: 16px;
+            border-bottom-width: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .user-details .input-box input:focus,
+        .user-details .input-box input:valid,
+        .user-details .input-box select:focus{
+            border-color: #9b59b6;
+        }
+
+        form .gender-details .gender-title {
+            font-size: 20px;
+            font-weight: 500;
+        }
+
+        form .gender-details .category {
+            display: inline-block;
+            margin: 0 10px;
+        }
+
+        .gender-details .category input {
+            transform: scale(1.2);
+        }
+
+        .gender-details label {
+            font-size: 20px;
+            font-weight: 500;
+        }
+
+        form .button {
+            height: 45px;
+        }
+
+        form .button input {
+            height: 100%;
+            width: 100%;
+            outline: none;
+            color: #fff;
+            background: linear-gradient(135deg, #71b7e6,#9b59b6);
+            border: none;
+            font-size: 18px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            border-radius: 5px;
+        }
+
+        form .button input:hover {
+            background: linear-gradient(135deg,#9b59b6, #71b7e6);
+            cursor: pointer;
+        }
+
+        @media screen and (max-width: 584px) {
+            .container {
+                max-width: 100%;
+            }
+            form .user-details .input-box {
+                margin-bottom: 15px;
+                width: 100%;
+            }
+            .container form .user-details{
+                max-height: 300px;
+                overflow-y: scroll;
+            }
+            .user-details::-webkit-scrollbar{
+                width: 0;
+            }
+        }
+    </style>
 </head>
 <body>
 <div class="app">
@@ -67,12 +192,60 @@
         </a>
     </p>
     <div class="container">
-        <form action="">
-            <div class="customer-details">
+        <div class="title">Thêm Khách Hàng</div>
+        <form action="/customer" method="post">
+            <input type="hidden" name="action" value="create">
+            <div class="user-details">
                 <div class="input-box">
                     <span class="details">Mã Khách Hàng</span>
-                    <input type="text" required>
+                    <input type="text" required name="customerId">
                 </div>
+                <div class="input-box">
+                    <span class="details">Loại Khách Hàng</span>
+                    <select name="customerTypeId">
+                        <c:forEach items="${listCustomerType}" var="customerType">
+                            <option value="${customerType.customerTypeId}">${customerType.customerTypeName}</option>
+                        </c:forEach>
+                    </select>
+                </div>
+                <div class="input-box">
+                    <span class="details">Tên Khách Hàng</span>
+                    <input type="text" required name="customerName">
+                </div>
+                <div class="input-box">
+                    <span class="details">Ngày Sinh</span>
+                    <input type="date" required name="customerBirthday">
+                </div>
+                <div class="input-box">
+                    <span class="details">ID Card</span>
+                    <input type="text" required name="customerIdCard">
+                </div>
+                <div class="input-box">
+                    <span class="details">Điện Thoại</span>
+                    <input type="text" required name="customerPhone">
+                </div>
+                <div class="input-box">
+                    <span class="details">Email</span>
+                    <input type="email" required name="customerEmail">
+                </div>
+                <div class="input-box">
+                    <span class="details">Địa Chỉ</span>
+                    <input type="text" required name="customerAddress">
+                </div>
+                <div class="gender-details">
+                    <div class="gender-title">Giới Tính</div>
+                    <div class="category">
+                        <input type="radio" name="customerGender" id="male" value="1">
+                        <label for="male">Nam</label>
+                    </div>
+                    <div class="category">
+                        <input type="radio" name="customerGender" id="female" value="0">
+                        <label for="female">Nữ</label>
+                    </div>
+                </div>
+            </div>
+            <div class="button">
+                <input type="submit" value="Thêm mới">
             </div>
         </form>
     </div>

@@ -7,6 +7,11 @@ public class CustomerType {
     public CustomerType() {
     }
 
+    public CustomerType(int customerTypeId, String customerTypeName) {
+        this.customerTypeId = customerTypeId;
+        this.customerTypeName = customerTypeName;
+    }
+
     public int getCustomerTypeId() {
         return customerTypeId;
     }

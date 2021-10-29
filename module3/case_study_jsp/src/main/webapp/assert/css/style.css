@@ -6,7 +6,9 @@
     z-index: 1;
 }
 .navbar {
-    background-image: linear-gradient(-90deg,#d38312,#a83279) !important;
+    background-image: linear-gradient(
+            -90deg,#a47db6,#a83279) !important;
+
 }
 .nav-link {
     color: var(--white-color) !important;
