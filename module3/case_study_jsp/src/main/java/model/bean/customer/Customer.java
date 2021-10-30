@@ -1,11 +1,13 @@
 package model.bean.customer;
 
+import java.util.Date;
+
 public class Customer {
     int customerId;
     int customerTypeId;
     String customerTypeName;
     String customerName;
-    String customerBirthday;
+    java.sql.Date customerBirthday;
     int customerGender;
     String customerIdCard;
     String customerPhone;
@@ -15,7 +17,7 @@ public class Customer {
     public Customer() {
     }
 
-    public Customer(int customerId, int customerTypeId, String customerName, String customerBirthday, int customerGender, String customerIdCard, String customerPhone, String customerEmail, String customerAddress) {
+    public Customer(int customerId, int customerTypeId, String customerName, java.sql.Date customerBirthday, int customerGender, String customerIdCard, String customerPhone, String customerEmail, String customerAddress) {
         this.customerId = customerId;
         this.customerTypeId = customerTypeId;
         this.customerName = customerName;
@@ -27,7 +29,7 @@ public class Customer {
         this.customerAddress = customerAddress;
     }
 
-    public Customer(int customerId, int customerTypeId, String customerTypeName, String customerName, String customerBirthday, int customerGender, String customerIdCard, String customerPhone, String customerEmail, String customerAddress) {
+    public Customer(int customerId, int customerTypeId, String customerTypeName, String customerName, java.sql.Date customerBirthday, int customerGender, String customerIdCard, String customerPhone, String customerEmail, String customerAddress) {
         this.customerId = customerId;
         this.customerTypeId = customerTypeId;
         this.customerTypeName = customerTypeName;
@@ -72,11 +74,11 @@ public class Customer {
         this.customerName = customerName;
     }
 
-    public String getCustomerBirthday() {
+    public Date getCustomerBirthday() {
         return customerBirthday;
     }
 
-    public void setCustomerBirthday(String customerBirthday) {
+    public void setCustomerBirthday(java.sql.Date customerBirthday) {
         this.customerBirthday = customerBirthday;
     }
 

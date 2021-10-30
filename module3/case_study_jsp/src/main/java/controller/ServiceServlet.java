@@ -23,7 +23,37 @@ public class ServiceServlet extends HttpServlet {
     private ServiceTypeService serviceTypeService = new ServiceTypeServiceImpl();
     private RentTypeService rentTypeService = new RentTypeServiceImpl();
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String action = request.getParameter("action");
+        switch (action){
+            case "create":
+                createService(request,response);
+                break;
+        }
+    }
 
+    private void createService(HttpServletRequest request, HttpServletResponse response) {
+        int serviceId = Integer.parseInt(request.getParameter("serviceId"));
+        String serviceName = request.getParameter("serviceName");
+        int serviceArea = Integer.parseInt(request.getParameter("serviceArea"));
+        double serviceCost = Double.parseDouble(request.getParameter("serviceCost"));
+        int serviceMaxPeople = Integer.parseInt(request.getParameter("serviceMaxPeople"));
+        int rentTypeId = Integer.parseInt(request.getParameter("rentTypeId"));
+        int serviceTypeId = Integer.parseInt(request.getParameter("serviceTypeId"));
+        String standardRoom = request.getParameter("standardRoom");
+        String desc = request.getParameter("desc");
+        double poolArea = Double.parseDouble(request.getParameter("poolArea"));
+        int numberOfFloor = Integer.parseInt(request.getParameter("numberOfFloor"));
+
+        Service service = new Service(serviceId,serviceName,serviceArea,serviceCost,serviceMaxPeople,rentTypeId,serviceTypeId,
+                standardRoom,desc,poolArea,numberOfFloor);
+        serviceService.save(service);
+        try {
+            showListService(request,response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -31,10 +61,24 @@ public class ServiceServlet extends HttpServlet {
         if(action==null) action="";
         switch (action){
             case "create":
+                showFormCreate(request,response);
                 break;
             default:
                 showListService(request,response);
                 break;
+        }
+    }
+
+    private void showFormCreate(HttpServletRequest request, HttpServletResponse response) {
+        request.setAttribute("serviceTypeList",serviceTypeService.findAll());
+        request.setAttribute("rentTypeList",rentTypeService.findAll());
+        request.setAttribute("standardRoomList",serviceService.findAllStandardRoom());
+        try {
+            request.getRequestDispatcher("/service/create.jsp").forward(request,response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 

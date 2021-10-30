@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.Date;
 import java.util.List;
 
 @WebServlet(name = "CustomerServlet", urlPatterns = "/customer")
@@ -34,7 +35,7 @@ public class CustomerServlet extends HttpServlet {
         int customerId = Integer.parseInt(request.getParameter("customerId"));
         String customerName = request.getParameter("customerName");
         int customerTypeId = Integer.parseInt(request.getParameter("customerTypeId"));
-        String customerBirthday = request.getParameter("customerBirthday");
+        java.sql.Date customerBirthday = Date.valueOf(request.getParameter("customerBirthday"));
         String customerIdCard = request.getParameter("customerIdCard");
         String customerPhone = request.getParameter("customerPhone");
         String customerEmail = request.getParameter("customerEmail");
@@ -47,11 +48,11 @@ public class CustomerServlet extends HttpServlet {
         showListCustomer(request,response);
     }
 
-    private void saveCustomer(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    private void saveCustomer(HttpServletRequest request, HttpServletResponse response) {
         int customerId = Integer.parseInt(request.getParameter("customerId"));
         String customerName = request.getParameter("customerName");
         int customerTypeId = Integer.parseInt(request.getParameter("customerTypeId"));
-        String customerBirthday = request.getParameter("customerBirthday");
+        java.sql.Date customerBirthday = java.sql.Date.valueOf(request.getParameter("customerBirthday"));
         String customerIdCard = request.getParameter("customerIdCard");
         String customerPhone = request.getParameter("customerPhone");
         String customerEmail = request.getParameter("customerEmail");
@@ -64,18 +65,36 @@ public class CustomerServlet extends HttpServlet {
         showListCustomer(request,response);
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) {
         String action = request.getParameter("action");
         if(action ==null) action="";
         switch (action){
             case "create":
-                showFormCreate(request,response);
+                try {
+                    showFormCreate(request,response);
+                } catch (ServletException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 break;
             case "edit":
-                showFormUpdate(request,response);
+                try {
+                    showFormUpdate(request,response);
+                } catch (ServletException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 break;
             case "delete":
-                deleteCustomer(request,response);
+                try {
+                    deleteCustomer(request,response);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (ServletException e) {
+                    e.printStackTrace();
+                }
                 break;
             default:
                 showListCustomer(request,response);
@@ -101,9 +120,15 @@ public class CustomerServlet extends HttpServlet {
         request.getRequestDispatcher("/customer/create.jsp").forward(request,response);
     }
 
-    private void showListCustomer(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    private void showListCustomer(HttpServletRequest request, HttpServletResponse response) {
         List<Customer> list = customerService.findAll();
         request.setAttribute("customerList",list);
-        request.getRequestDispatcher("/customer/list.jsp").forward(request,response);
+        try {
+            request.getRequestDispatcher("/customer/list.jsp").forward(request,response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

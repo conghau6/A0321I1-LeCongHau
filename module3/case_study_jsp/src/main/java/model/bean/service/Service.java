@@ -3,7 +3,7 @@ package model.bean.service;
 public class Service {
     int serviceId;
     String serviceName;
-    double serviceArea;
+    int serviceArea;
     double serviceCost;
     int serviceMaxPeople;
     int rentTypeId;
@@ -18,7 +18,7 @@ public class Service {
     public Service() {
     }
 
-    public Service(int serviceId, String serviceName, double serviceArea, double serviceCost, int serviceMaxPeople, int rentTypeId, int serviceTypeId, String standardRoom, String descriptionOtherConvenient, double poolArea, int numberOfFloors) {
+    public Service(int serviceId, String serviceName, int serviceArea, double serviceCost, int serviceMaxPeople, int rentTypeId, int serviceTypeId, String standardRoom, String descriptionOtherConvenient, double poolArea, int numberOfFloors) {
         this.serviceId = serviceId;
         this.serviceName = serviceName;
         this.serviceArea = serviceArea;
@@ -32,7 +32,7 @@ public class Service {
         this.numberOfFloors = numberOfFloors;
     }
 
-    public Service(int serviceId, String serviceName, double serviceArea, double serviceCost, int serviceMaxPeople, String rentTypeName, String serviceTypeName, String standardRoom, String descriptionOtherConvenient, double poolArea, int numberOfFloors) {
+    public Service(int serviceId, String serviceName, int serviceArea, double serviceCost, int serviceMaxPeople, String rentTypeName, String serviceTypeName, String standardRoom, String descriptionOtherConvenient, double poolArea, int numberOfFloors) {
         this.serviceId = serviceId;
         this.serviceName = serviceName;
         this.serviceArea = serviceArea;
@@ -62,11 +62,11 @@ public class Service {
         this.serviceName = serviceName;
     }
 
-    public double getServiceArea() {
+    public int getServiceArea() {
         return serviceArea;
     }
 
-    public void setServiceArea(double serviceArea) {
+    public void setServiceArea(int serviceArea) {
         this.serviceArea = serviceArea;
     }
 

@@ -15,8 +15,13 @@ public class ServiceServiceImpl implements ServiceService {
     }
 
     @Override
-    public void save(Service service) {
+    public List<String> findAllStandardRoom() {
+        return serviceRepositories.findAllStandardRoom();
+    }
 
+    @Override
+    public void save(Service service) {
+        serviceRepositories.save(service);
     }
 
     @Override

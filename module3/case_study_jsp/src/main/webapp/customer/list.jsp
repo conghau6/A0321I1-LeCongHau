@@ -101,12 +101,12 @@
                         <td>${customer.customerEmail}</td>
                         <td>${customer.customerAddress}</td>
                         <td>
-                            <a class="edit" href="/customer?action=edit&id=${customer.customerId}">
+                            <a class="edit" id="edit" href="/customer?action=edit&id=${customer.customerId}">
                                 <i class="far fa-edit"></i>
                             </a>
                         </td>
                         <td>
-                            <a class="delete" href="/customer?action=delete&id=${customer.customerId}">
+                            <a class="delete" id="delete" onclick="_delete(${customer.customerId});" href="#">
                                 <i class="far fa-trash-alt"></i>
                             </a>
                         </td>
@@ -130,6 +130,13 @@
             "pageLength": 10
         })
     })
+    function _delete(id) {
+        let choose = confirm("Bạn có muốn xoá ?")
+        if(choose) {
+            location.replace("http://localhost:8080/customer?action=delete&id="+id)
+        }
+        else return
+    }
 </script>
 </body>
 </html>

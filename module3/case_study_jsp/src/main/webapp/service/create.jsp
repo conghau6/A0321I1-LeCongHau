@@ -19,6 +19,131 @@
     <link rel="stylesheet" href="/assert/datatables/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="/assert/css/base.css">
     <link rel="stylesheet" href="/assert/css/style.css">
+    <style>
+        body {
+            padding: 10px;
+            background: linear-gradient(
+                    51deg, #ddecf6,#a076b1);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 700px;
+            background: #fff;
+            padding: 25px 30px;
+            border-radius: 5px;
+        }
+
+        .container .title {
+            font-size: 25px;
+            font-weight: 500;
+            position: relative;
+        }
+
+        .container .title::before {
+            content: "";
+            left: 0;
+            bottom: 0;
+            position: absolute;
+            height: 3px;
+            width: 30px;
+            background: linear-gradient(135deg, #71b7e6,#9b59b6);
+        }
+
+        .container form .user-details {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 20px 0 12px 0;
+        }
+
+        form .user-details .input-box {
+            margin-bottom: 15px;
+            width: calc(100% / 2 - 20px);
+        }
+
+        .user-details .input-box .details {
+            display: block;
+            font-weight: 500;
+        }
+
+        .user-details .input-box input,
+        .user-details .input-box select{
+            height: 45px;
+            width: 100%;
+            outline: none;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            padding-left: 15px;
+            font-size: 16px;
+            border-bottom-width: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .user-details .input-box input:focus,
+        .user-details .input-box input:valid,
+        .user-details .input-box select:focus{
+            border-color: #9b59b6;
+        }
+
+        form .gender-details .gender-title {
+            font-size: 20px;
+            font-weight: 500;
+        }
+
+        form .gender-details .category {
+            display: inline-block;
+            margin: 0 10px;
+        }
+
+        .gender-details .category input {
+            transform: scale(1.2);
+        }
+
+        .gender-details label {
+            font-size: 20px;
+            font-weight: 500;
+        }
+
+        form .button {
+            height: 45px;
+        }
+
+        form .button input {
+            height: 100%;
+            width: 100%;
+            outline: none;
+            color: #fff;
+            background: linear-gradient(135deg, #71b7e6,#9b59b6);
+            border: none;
+            font-size: 18px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            border-radius: 5px;
+        }
+
+        form .button input:hover {
+            background: linear-gradient(135deg,#9b59b6, #71b7e6);
+            cursor: pointer;
+        }
+
+        @media screen and (max-width: 584px) {
+            .container {
+                max-width: 100%;
+            }
+            form .user-details .input-box {
+                margin-bottom: 15px;
+                width: 100%;
+            }
+            .container form .user-details{
+                max-height: 300px;
+                overflow-y: scroll;
+            }
+            .user-details::-webkit-scrollbar{
+                width: 0;
+            }
+        }
+    </style>
 </head>
 <body>
 <div class="app">
@@ -39,11 +164,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">Employee</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/customer">Customer</a>
-                    </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="/service">Service</a>
+                        <a class="nav-link" href="#">Customer</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Service</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Contract</a>
@@ -57,60 +182,82 @@
         </nav>
     </div>
     <p class="quick-menu">
-        <a href="/service">Quản lý dịch vụ</a>
+        <a href="/customer">Quản lý khách hàng</a>
+        <i class="fas fa-chevron-right"></i>
+        <a href="/customer?action=create">Thêm mới dịch vụ</a>
     </p>
     <p class="">
-        <a class="add-new" href="/service?action=create">
+        <a class="add-new" href="/customer?action=create">
             Thêm mới dịch vụ <i class="fas fa-user-plus"></i>
         </a>
     </p>
-    <div class="container list-container">
-        <table id="list" class="table">
-            <thead>
-            <tr>
-                <th>Service Id</th>
-                <th>Service Name</th>
-                <th>Service Area</th>
-                <th>Service Cost</th>
-                <th>Service Max People</th>
-                <th>Rent Type</th>
-                <th>Service Type</th>
-                <th>Standard Room</th>
-                <th>Description</th>
-                <th>Pool Area</th>
-                <th>Num Of Floor</th>
-                <th>Update</th>
-                <th>Delete</th>
-            </tr>
-            </thead>
-            <tbody>
-            <c:forEach var="service" items="${serviceList}">
-                <tr>
-                    <td>${service.serviceId}</td>
-                    <td>${service.serviceName}</td>
-                    <td>${service.serviceArea}</td>
-                    <td>${service.serviceCost}</td>
-                    <td>${service.serviceMaxPeople}</td>
-                    <td>${service.rentTypeName}</td>
-                    <td>${service.serviceTypeName}</td>
-                    <td>${service.standardRoom}</td>
-                    <td>${service.descriptionOtherConvenient}</td>
-                    <td>${service.poolArea}</td>
-                    <td>${service.numberOfFloors}</td>
-                    <td>
-                        <a class="edit" href="/service?action=edit&id=${service.serviceId}">
-                            <i class="far fa-edit"></i>
-                        </a>
-                    </td>
-                    <td>
-                        <a class="delete" href="/service?action=delete&id=${service.serviceId}">
-                            <i class="far fa-trash-alt"></i>
-                        </a>
-                    </td>
-                </tr>
-            </c:forEach>
-            </tbody>
-        </table>
+    <div class="container">
+        <div class="title">Thêm Dịch Vụ</div>
+        <form action="/service" method="post">
+            <input type="hidden" name="action" value="create">
+            <div class="user-details">
+                <div class="input-box">
+                    <span class="details">Mã dịch vụ</span>
+                    <input type="text" required name="serviceId">
+                </div>
+                <div class="input-box">
+                    <span class="details">Tên dịch vụ</span>
+                    <input type="text" required name="serviceName">
+                </div>
+                <div class="input-box">
+                    <span class="details">Diện tích</span>
+                    <input type="text" required name="serviceArea">
+                </div>
+                <div class="input-box">
+                    <span class="details">Phí dịch vụ</span>
+                    <input type="text" required name="serviceCost">
+                </div>
+                <div class="input-box">
+                    <span class="details">Số người tố đa</span>
+                    <input type="text" required name="serviceMaxPeople">
+                </div>
+                <div class="input-box">
+                    <span class="details">Loại dịch vụ</span>
+                    <select name="serviceTypeId">
+                        <c:forEach items="${serviceTypeList}" var="serviceType">
+                            <option value="${serviceType.serviceTypeId}">${serviceType.serviceTypeName}</option>
+                        </c:forEach>
+                    </select>
+                </div>
+                <div class="input-box">
+                    <span class="details">Kiểu thuê</span>
+                    <select name="rentTypeId">
+                        <c:forEach items="${rentTypeList}" var="rentType">
+                            <option value="${rentType.rentTypeId}">${rentType.rentTypeName}</option>
+                        </c:forEach>
+                    </select>
+                </div>
+                <div class="input-box">
+                    <span class="details">Tiêu chuẩn phòng</span>
+                    <select name="standardRoom">
+                        <c:forEach items="${standardRoomList}" var="standardRoom">
+                            <option value="${standardRoom}">${standardRoom}</option>
+                        </c:forEach>
+                    </select>
+                </div>
+                <div class="input-box">
+                    <span class="details">Mô tả</span>
+                    <input type="text" required name="desc">
+                </div>
+
+                <div class="input-box">
+                    <span class="details">Diện tích hồ bơi</span>
+                    <input type="text" required name="poolArea">
+                </div>
+                <div class="input-box">
+                    <span class="details">Số tầng</span>
+                    <input type="number" required name="numberOfFloor">
+                </div>
+            </div>
+            <div class="button">
+                <input type="submit" value="Thêm mới">
+            </div>
+        </form>
     </div>
 </div>
 <script src="/assert/jquery/jquery-3.5.1.min.js"></script>

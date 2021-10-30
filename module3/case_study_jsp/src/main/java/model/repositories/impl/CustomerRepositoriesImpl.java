@@ -30,7 +30,7 @@ public class CustomerRepositoriesImpl implements CustomerRepositories {
                     int customerTypeId = resultSet.getInt("customer_type_id");
                     String customerTypeName = resultSet.getString("customer_type_name");
                     String customerName = resultSet.getString("customer_name");
-                    String customerBirthday = resultSet.getString("customer_birthday");
+                    Date customerBirthday = resultSet.getDate("customer_birthday");
                     int customerGender = resultSet.getInt("customer_gender");
                     String customerIdCard = resultSet.getString("customer_id_card");
                     String customerPhone = resultSet.getString("customer_phone");
@@ -63,7 +63,7 @@ public class CustomerRepositoriesImpl implements CustomerRepositories {
                 preparedStatement.setInt(1,customer.getCustomerId());
                 preparedStatement.setInt(2,customer.getCustomerTypeId());
                 preparedStatement.setString(3,customer.getCustomerName());
-                preparedStatement.setString(4,customer.getCustomerBirthday());
+                preparedStatement.setDate(4, (java.sql.Date) customer.getCustomerBirthday());
                 preparedStatement.setInt(5,customer.getCustomerGender());
                 preparedStatement.setString(6,customer.getCustomerIdCard());
                 preparedStatement.setString(7,customer.getCustomerPhone());
@@ -112,7 +112,7 @@ public class CustomerRepositoriesImpl implements CustomerRepositories {
                 PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_CUSTOMER);
                 preparedStatement.setInt(1,customer.getCustomerTypeId());
                 preparedStatement.setString(2,customer.getCustomerName());
-                preparedStatement.setString(3,customer.getCustomerBirthday());
+                preparedStatement.setDate(3, (java.sql.Date) customer.getCustomerBirthday());
                 preparedStatement.setInt(4,customer.getCustomerGender());
                 preparedStatement.setString(5,customer.getCustomerIdCard());
                 preparedStatement.setString(6,customer.getCustomerPhone());
