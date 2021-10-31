@@ -68,17 +68,17 @@
         <table id="list" class="table">
             <thead>
             <tr>
-                <th>Service Id</th>
-                <th>Service Name</th>
-                <th>Service Area</th>
-                <th>Service Cost</th>
-                <th>Service Max People</th>
-                <th>Rent Type</th>
-                <th>Service Type</th>
-                <th>Standard Room</th>
-                <th>Description</th>
-                <th>Pool Area</th>
-                <th>Num Of Floor</th>
+                <th>Id</th>
+                <th>Tên dv</th>
+                <th>Diện tích</th>
+                <th>Phí thuê</th>
+                <th>Số người tối đa</th>
+                <th>Kiểu thuê</th>
+                <th>Loại dv</th>
+                <th>Tiêu chuẩn phòng</th>
+                <th>Mô tả</th>
+                <th>Diện tích hồ bơi</th>
+                <th>Số tầng</th>
                 <th>Update</th>
                 <th>Delete</th>
             </tr>

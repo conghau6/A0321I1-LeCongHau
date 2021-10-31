@@ -36,13 +36,13 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item active">
                         <a class="nav-link" href="#">Employee</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/customer">Customer</a>
                     </li>
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a class="nav-link" href="/service">Service</a>
                     </li>
                     <li class="nav-item">
@@ -57,53 +57,57 @@
         </nav>
     </div>
     <p class="quick-menu">
-        <a href="/service">Quản lý dịch vụ</a>
+        <a href="/employee">Quản lý nhân viên</a>
     </p>
     <p class="">
-        <a class="add-new" href="/service?action=create">
-            Thêm mới dịch vụ <i class="fas fa-user-plus"></i>
+        <a class="add-new" href="/employee?action=create">
+            Thêm mới nhân viên <i class="fas fa-user-plus"></i>
         </a>
     </p>
     <div class="container list-container">
         <table id="list" class="table">
             <thead>
             <tr>
-                <th>Service Id</th>
-                <th>Service Name</th>
-                <th>Service Area</th>
-                <th>Service Cost</th>
-                <th>Service Max People</th>
-                <th>Rent Type</th>
-                <th>Service Type</th>
-                <th>Standard Room</th>
-                <th>Description</th>
-                <th>Pool Area</th>
-                <th>Num Of Floor</th>
+                <th>Id</th>
+                <th>Tên</th>
+                <th>Ngày sinh</th>
+                <th>CMND</th>
+                <th>Lương</th>
+                <th>Điện thoại</th>
+                <th>Email</th>
+                <th>Địa chỉ</th>
+                <th>Vị trí</th>
+                <th>Bằng cấp</th>
+                <th>Bộ phân</th>
+                <th>Username</th>
+                <th>Password</th>
                 <th>Update</th>
                 <th>Delete</th>
             </tr>
             </thead>
             <tbody>
-            <c:forEach var="service" items="${serviceList}">
+            <c:forEach var="employee" items="${employeeList}">
                 <tr>
-                    <td>${service.serviceId}</td>
-                    <td>${service.serviceName}</td>
-                    <td>${service.serviceArea}</td>
-                    <td>${service.serviceCost}</td>
-                    <td>${service.serviceMaxPeople}</td>
-                    <td>${service.rentTypeName}</td>
-                    <td>${service.serviceTypeName}</td>
-                    <td>${service.standardRoom}</td>
-                    <td>${service.descriptionOtherConvenient}</td>
-                    <td>${service.poolArea}</td>
-                    <td>${service.numberOfFloors}</td>
+                    <td>${employee.employeeId}</td>
+                    <td>${employee.employeeName}</td>
+                    <td>${employee.employeeBirthday}</td>
+                    <td>${employee.employeeIdCard}</td>
+                    <td>${employee.employeeSalary}</td>
+                    <td>${employee.employeePhone}</td>
+                    <td>${employee.employeeEmail}</td>
+                    <td>${employee.employeeAddress}</td>
+                    <td>${employee.positionName}</td>
+                    <td>${employee.educationDegreeName}</td>
+                    <td>${employee.divisionName}</td>
+                    <td>${employee.username}</td>
+                    <td>${employee.password}</td>
                     <td>
-                        <a class="edit" href="/service?action=edit&id=${service.serviceId}">
+                        <a class="edit" href="/employee?action=edit&id=${employee.employeeId}">
                             <i class="far fa-edit"></i>
                         </a>
                     </td>
                     <td>
-                        <a class="delete" href="/service?action=delete&id=${service.serviceId}">
+                        <a class="delete" href="/employee?action=delete&id=${employee.employeeId}">
                             <i class="far fa-trash-alt"></i>
                         </a>
                     </td>

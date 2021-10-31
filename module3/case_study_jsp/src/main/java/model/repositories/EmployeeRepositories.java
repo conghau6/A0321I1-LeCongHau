@@ -12,7 +12,8 @@ public interface EmployeeRepositories {
     List<Position> findAllPosition();
     List<EducationDegree> findAllEducationDegree();
     List<Division> findAllDivision();
-    void add(Employee employee);
+    Employee findById(int id);
+    void create(Employee employee);
     void edit(Employee employee);
     void delete(int id);
 }
