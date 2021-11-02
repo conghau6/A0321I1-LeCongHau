@@ -107,7 +107,7 @@
                         </a>
                     </td>
                     <td>
-                        <a class="delete" href="/employee?action=delete&id=${employee.employeeId}">
+                        <a class="delete" id="delete" onclick="_delete(${employee.employeeId});" href="#">
                             <i class="far fa-trash-alt"></i>
                         </a>
                     </td>
@@ -131,6 +131,13 @@
             "pageLength": 10
         })
     })
+    function _delete(id) {
+        let choose = confirm("Bạn có muốn xoá ?")
+        if(choose) {
+            location.replace("http://localhost:8080/employee?action=delete&id="+id)
+        }
+        else return
+    }
 </script>
 </body>
 </html>

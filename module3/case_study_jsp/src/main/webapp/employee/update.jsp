@@ -193,7 +193,7 @@
     </p>
     <div class="container">
         <div class="title">Sửa thông tin nhân viên</div>
-        <form action="/customer" method="post">
+        <form action="/employee" method="post">
             <input type="hidden" name="action" value="edit">
             <div class="user-details">
                 <div class="input-box">
@@ -225,6 +225,10 @@
                     <input type="text" required name="employeeAddress" value="${employee.employeeAddress}">
                 </div>
                 <div class="input-box">
+                    <span class="details">Lương</span>
+                    <input type="text" required name="employeeSalary" value="${employee.employeeSalary}">
+                </div>
+                <div class="input-box">
                     <span class="details">Vị Trí</span>
                     <select name="positionId">
                         <c:forEach items="${positionList}" var="position">
@@ -238,6 +242,44 @@
                             </c:choose>
                         </c:forEach>
                     </select>
+                </div>
+                <div class="input-box">
+                    <span class="details">Bằng Cấp</span>
+                    <select name="educationDegreeId">
+                        <c:forEach items="${degreeList}" var="degree">
+                            <c:choose>
+                                <c:when test="${degree.educationDegreeId == employee.educationDegreeId}">
+                                    <option selected value="${employee.educationDegreeId}">${employee.educationDegreeName}</option>
+                                </c:when>
+                                <c:otherwise>
+                                    <option value="${degree.educationDegreeId}">${degree.educationDegreeName}</option>
+                                </c:otherwise>
+                            </c:choose>
+                        </c:forEach>
+                    </select>
+                </div>
+                <div class="input-box">
+                    <span class="details">Bộ phận</span>
+                    <select name="divisionId">
+                        <c:forEach items="${divisionList}" var="division">
+                            <c:choose>
+                                <c:when test="${division.divisionId == employee.divisionId}">
+                                    <option selected value="${employee.divisionId}">${employee.divisionName}</option>
+                                </c:when>
+                                <c:otherwise>
+                                    <option value="${division.divisionId}">${division.divisionName}</option>
+                                </c:otherwise>
+                            </c:choose>
+                        </c:forEach>
+                    </select>
+                </div>
+                <div class="input-box">
+                    <span class="details">Username</span>
+                    <input type="text" required name="username" value="${employee.username}">
+                </div>
+                <div class="input-box">
+                    <span class="details">Password</span>
+                    <input type="text" required name="password" value="${employee.password}">
                 </div>
             </div>
             <div class="button">

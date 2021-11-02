@@ -26,6 +26,25 @@ public class EmployeeRepositoriesImpl implements EmployeeRepositories {
             "inner join division on division.division_id = employee.division_id\n" +
             "inner join user on user.username = employee.username " +
             "where employee.employee_id = ?;";
+    public static final String UPDATE_EMPLOYEE = "update employee inner join position on position.position_id = employee.position_id\n" +
+            "inner join education_degree on education_degree.education_degree_id = employee.education_degree_id\n" +
+            "inner join division on division.division_id = employee.division_id\n" +
+            "inner join user on user.username = employee.username\n" +
+            "set employee.employee_name = ?,\n" +
+            "employee.employee_birthday = ?,\n" +
+            "employee.employee_id_card = ?,\n" +
+            "employee.employee_salary = ?,\n" +
+            "employee.employee_phone = ?,\n" +
+            "employee.employee_email = ?,\n" +
+            "employee.employee_address = ?,\n" +
+            "employee.position_id = ?,\n" +
+            "employee.education_degree_id = ?,\n" +
+            "employee.division_id = ?,\n" +
+            "`user`.username = ?,\n" +
+            "`user`.password = ? \n" +
+            "where employee.employee_id = ?;";
+    public static final String DELETE_EMPLOYEE = "delete from employee where employee_id = ?;";
+    public static final String DELETE_USER = "delete from user where username = ?;";
     @Override
     public List<Employee> findAll() {
         List<Employee> employeeList = new ArrayList<>();
@@ -218,11 +237,58 @@ public class EmployeeRepositoriesImpl implements EmployeeRepositories {
 
     @Override
     public void edit(Employee employee) {
-
+        Connection connection = DBConnection.getConnection();
+        if(connection!=null){
+            try {
+                connection.setAutoCommit(false);
+                PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_EMPLOYEE);
+                preparedStatement.setString(1,employee.getEmployeeName());
+                preparedStatement.setDate(2,employee.getEmployeeBirthday());
+                preparedStatement.setString(3,employee.getEmployeeIdCard());
+                preparedStatement.setDouble(4,employee.getEmployeeSalary());
+                preparedStatement.setString(5,employee.getEmployeePhone());
+                preparedStatement.setString(6,employee.getEmployeeEmail());
+                preparedStatement.setString(7,employee.getEmployeeAddress());
+                preparedStatement.setInt(8,employee.getPositionId());
+                preparedStatement.setInt(9,employee.getEducationDegreeId());
+                preparedStatement.setInt(10,employee.getDivisionId());
+                preparedStatement.setString(11,employee.getUsername());
+                preparedStatement.setString(12,employee.getPassword());
+                preparedStatement.setInt(13,employee.getEmployeeId());
+                preparedStatement.executeUpdate();
+                connection.commit();
+            } catch (SQLException throwables) {
+                try {
+                    connection.rollback();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                throwables.printStackTrace();
+            }
+        }
     }
 
     @Override
     public void delete(int id) {
-
+        Connection connection = DBConnection.getConnection();
+        if(connection!=null){
+            try {
+                connection.setAutoCommit(false);
+                Employee employee = findById(id);
+                PreparedStatement preparedStatement = connection.prepareStatement(DELETE_EMPLOYEE);
+                PreparedStatement preparedStatement1 = connection.prepareStatement(DELETE_USER);
+                preparedStatement.setInt(1,id);
+                preparedStatement1.setString(1,employee.getUsername());
+                preparedStatement.executeUpdate();
+                connection.commit();
+            } catch (SQLException throwables) {
+                try {
+                    connection.rollback();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                throwables.printStackTrace();
+            }
+        }
     }
 }

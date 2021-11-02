@@ -44,11 +44,11 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public void edit(Employee employee) {
-
+        employeeRepositories.edit(employee);
     }
 
     @Override
     public void delete(int id) {
-
+        employeeRepositories.delete(id);
     }
 }
