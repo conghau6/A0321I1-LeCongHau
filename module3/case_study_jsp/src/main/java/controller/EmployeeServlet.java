@@ -6,9 +6,7 @@ import model.service.impl.EmployeeServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.*;
 import java.io.IOException;
 import java.sql.Date;
 
@@ -78,6 +76,24 @@ public class EmployeeServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        Cookie[] cookies = request.getCookies();
+
+        if(cookies!=null){
+            Cookie cookie = null;
+            for(int i=0; i<cookies.length; i++){
+                cookie = cookies[i];
+                if("co_username".equals(cookie.getName()) && "admin".equals(cookie.getValue())){
+                    session.setAttribute("session_login",cookie.getValue());
+                    break;
+                }
+            }
+        }
+
+        if(session.getAttribute("session_login") == null){
+            response.sendRedirect("/login");
+            return;
+        }
         String action = request.getParameter("action");
         if(action==null) action = "";
         switch (action){

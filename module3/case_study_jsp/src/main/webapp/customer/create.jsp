@@ -198,48 +198,65 @@
             <div class="user-details">
                 <div class="input-box">
                     <span class="details">Mã Khách Hàng</span>
-                    <input type="text" required name="customerId">
+                    <input type="text" required name="customerId" value="${customer.customerId}">
+                    <c:if test="${errName != null}">
+                        <p style="color: red">${errName}</p>
+                    </c:if>
                 </div>
                 <div class="input-box">
                     <span class="details">Loại Khách Hàng</span>
                     <select name="customerTypeId">
                         <c:forEach items="${listCustomerType}" var="customerType">
-                            <option value="${customerType.customerTypeId}">${customerType.customerTypeName}</option>
+                            <c:choose>
+                                <c:when test="${customerType.customerTypeId == customer.customerTypeId}">
+                                    <option selected value="${customerType.customerTypeId}">${customerType.customerTypeName}</option>
+                                </c:when>
+                                <c:otherwise>
+                                    <option value="${customerType.customerTypeId}">${customerType.customerTypeName}</option>
+                                </c:otherwise>
+                            </c:choose>
                         </c:forEach>
                     </select>
                 </div>
                 <div class="input-box">
                     <span class="details">Tên Khách Hàng</span>
-                    <input type="text" required name="customerName">
+                    <input type="text" required name="customerName" value="${customer.customerName}">
                 </div>
                 <div class="input-box">
                     <span class="details">Ngày Sinh</span>
-                    <input type="date" required name="customerBirthday">
+                    <input type="date" required name="customerBirthday" value="${customer.customerBirthday}">
                 </div>
                 <div class="input-box">
                     <span class="details">ID Card</span>
-                    <input type="text" required name="customerIdCard">
+                    <input type="text" required name="customerIdCard" value="${customer.customerIdCard}">
+                    <c:if test="${errIdCard != null}">
+                        <p style="color: red">${errIdCard}</p>
+                    </c:if>
                 </div>
                 <div class="input-box">
                     <span class="details">Điện Thoại</span>
-                    <input type="text" required name="customerPhone">
+                    <input type="text" required name="customerPhone" value="${customer.customerPhone}">
+                    <c:if test="${errPhone != null}">
+                        <p style="color: red">${errPhone}</p>
+                    </c:if>
                 </div>
                 <div class="input-box">
                     <span class="details">Email</span>
-                    <input type="email" required name="customerEmail">
+                    <input type="email" required name="customerEmail" value="${customer.customerEmail}">
+                    <c:if test="${errEmail != null}">
+                        <p style="color: red">${errEmail}</p>
+                    </c:if>
                 </div>
                 <div class="input-box">
                     <span class="details">Địa Chỉ</span>
-                    <input type="text" required name="customerAddress">
+                    <input type="text" required name="customerAddress" value="${customer.customerAddress}">
                 </div>
                 <div class="gender-details">
                     <div class="gender-title">Giới Tính</div>
                     <div class="category">
-                        <input type="radio" name="customerGender" id="male" value="1">
+                        <input type="radio" ${customer.customerGender == 1?'checked':''} name="customerGender" value="1" id="male">
                         <label for="male">Nam</label>
-                    </div>
-                    <div class="category">
-                        <input type="radio" name="customerGender" id="female" value="0">
+                        <input type="radio" ${customer.customerGender == 0?'checked':''} name="customerGender"  value="0" id="female">
                         <label for="female">Nữ</label>
                     </div>
                 </div>

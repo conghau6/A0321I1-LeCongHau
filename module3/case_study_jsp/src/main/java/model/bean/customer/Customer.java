@@ -3,7 +3,7 @@ package model.bean.customer;
 import java.util.Date;
 
 public class Customer {
-    int customerId;
+    String customerId;
     int customerTypeId;
     String customerTypeName;
     String customerName;
@@ -17,7 +17,7 @@ public class Customer {
     public Customer() {
     }
 
-    public Customer(int customerId, int customerTypeId, String customerName, java.sql.Date customerBirthday, int customerGender, String customerIdCard, String customerPhone, String customerEmail, String customerAddress) {
+    public Customer(String customerId, int customerTypeId, String customerName, java.sql.Date customerBirthday, int customerGender, String customerIdCard, String customerPhone, String customerEmail, String customerAddress) {
         this.customerId = customerId;
         this.customerTypeId = customerTypeId;
         this.customerName = customerName;
@@ -29,7 +29,7 @@ public class Customer {
         this.customerAddress = customerAddress;
     }
 
-    public Customer(int customerId, int customerTypeId, String customerTypeName, String customerName, java.sql.Date customerBirthday, int customerGender, String customerIdCard, String customerPhone, String customerEmail, String customerAddress) {
+    public Customer(String customerId, int customerTypeId, String customerTypeName, String customerName, java.sql.Date customerBirthday, int customerGender, String customerIdCard, String customerPhone, String customerEmail, String customerAddress) {
         this.customerId = customerId;
         this.customerTypeId = customerTypeId;
         this.customerTypeName = customerTypeName;
@@ -42,11 +42,11 @@ public class Customer {
         this.customerAddress = customerAddress;
     }
 
-    public int getCustomerId() {
+    public String getCustomerId() {
         return customerId;
     }
 
-    public void setCustomerId(int customerId) {
+    public void setCustomerId(String customerId) {
         this.customerId = customerId;
     }
 

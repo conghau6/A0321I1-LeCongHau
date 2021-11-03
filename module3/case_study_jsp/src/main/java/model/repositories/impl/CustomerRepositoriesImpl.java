@@ -26,7 +26,7 @@ public class CustomerRepositoriesImpl implements CustomerRepositories {
                 PreparedStatement preparedStatement = connection.prepareCall(SELECT_ALL_CUSTOMER);
                 ResultSet resultSet = preparedStatement.executeQuery();
                 while (resultSet.next()){
-                    int customerId = resultSet.getInt("customer_id");
+                    String customerId = resultSet.getString("customer_id");
                     int customerTypeId = resultSet.getInt("customer_type_id");
                     String customerTypeName = resultSet.getString("customer_type_name");
                     String customerName = resultSet.getString("customer_name");
@@ -60,7 +60,7 @@ public class CustomerRepositoriesImpl implements CustomerRepositories {
             try {
                 connection.setAutoCommit(false);
                 PreparedStatement preparedStatement = connection.prepareStatement(INSERT_CUSTOMER);
-                preparedStatement.setInt(1,customer.getCustomerId());
+                preparedStatement.setString(1,customer.getCustomerId());
                 preparedStatement.setInt(2,customer.getCustomerTypeId());
                 preparedStatement.setString(3,customer.getCustomerName());
                 preparedStatement.setDate(4, (java.sql.Date) customer.getCustomerBirthday());
@@ -83,13 +83,13 @@ public class CustomerRepositoriesImpl implements CustomerRepositories {
     }
 
     @Override
-    public void delete(int id) {
+    public void delete(String id) {
         Connection connection = DBConnection.getConnection();
         if(connection!=null){
             try {
                 connection.setAutoCommit(false);
                 PreparedStatement preparedStatement = connection.prepareStatement(DELETE_CUSTOMER);
-                preparedStatement.setInt(1,id);
+                preparedStatement.setString(1,id);
                 preparedStatement.executeUpdate();
                 connection.commit();
             } catch (SQLException throwables) {
@@ -118,7 +118,7 @@ public class CustomerRepositoriesImpl implements CustomerRepositories {
                 preparedStatement.setString(6,customer.getCustomerPhone());
                 preparedStatement.setString(7,customer.getCustomerEmail());
                 preparedStatement.setString(8,customer.getCustomerAddress());
-                preparedStatement.setInt(9,customer.getCustomerId());
+                preparedStatement.setString(9,customer.getCustomerId());
                 preparedStatement.executeUpdate();
                 connection.commit();
             } catch (SQLException throwables) {
@@ -133,9 +133,9 @@ public class CustomerRepositoriesImpl implements CustomerRepositories {
     }
 
     @Override
-    public Customer findById(int id) {
+    public Customer findById(String id) {
         for(Customer customer : findAll()){
-            if(customer.getCustomerId() == id){
+            if(customer.getCustomerId().equals(id)){
                 return customer;
             }
         }

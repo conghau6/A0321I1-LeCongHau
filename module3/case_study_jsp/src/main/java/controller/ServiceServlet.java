@@ -32,7 +32,7 @@ public class ServiceServlet extends HttpServlet {
     }
 
     private void createService(HttpServletRequest request, HttpServletResponse response) {
-        int serviceId = Integer.parseInt(request.getParameter("serviceId"));
+        String serviceId = request.getParameter("serviceId");
         String serviceName = request.getParameter("serviceName");
         int serviceArea = Integer.parseInt(request.getParameter("serviceArea"));
         double serviceCost = Double.parseDouble(request.getParameter("serviceCost"));

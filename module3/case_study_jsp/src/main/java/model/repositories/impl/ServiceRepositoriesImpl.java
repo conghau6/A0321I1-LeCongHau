@@ -26,7 +26,7 @@ public class ServiceRepositoriesImpl implements ServiceRepositories {
                 ResultSet resultSet = preparedStatement.executeQuery();
 
                 while (resultSet.next()){
-                    int serviceId = resultSet.getInt("service_id");
+                    String serviceId = resultSet.getString("service_id");
                     String serviceName = resultSet.getString("service_name");
                     int serviceArea = resultSet.getInt("service_area");
                     double serviceCost = resultSet.getDouble("service_cost");
@@ -65,7 +65,7 @@ public class ServiceRepositoriesImpl implements ServiceRepositories {
             if (connection != null){
                 connection.setAutoCommit(false);
                 PreparedStatement preparedStatement = connection.prepareStatement(INSERT_SERVICE);
-                preparedStatement.setInt(1,service.getServiceId());
+                preparedStatement.setString(1,service.getServiceId());
                 preparedStatement.setString(2,service.getServiceName());
                 preparedStatement.setInt(3, service.getServiceArea());
                 preparedStatement.setDouble(4,service.getServiceCost());
@@ -90,7 +90,7 @@ public class ServiceRepositoriesImpl implements ServiceRepositories {
     }
 
     @Override
-    public void delete(int id) {
+    public void delete(String id) {
 
     }
 
@@ -100,7 +100,7 @@ public class ServiceRepositoriesImpl implements ServiceRepositories {
     }
 
     @Override
-    public Service findById(int id) {
+    public Service findById(String id) {
         return null;
     }
 }

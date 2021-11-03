@@ -67,7 +67,7 @@ create table user_role(
 );
 
 create table service(
-	service_id int,
+	service_id varchar(45),
     service_name varchar(45),
     service_area int,
     service_cost double,
@@ -104,7 +104,7 @@ create table employee(
 );
 
 create table customer(
-	customer_id int,
+	customer_id varchar(45),
     customer_type_id int,
     customer_name varchar(45),
     customer_birthday date,
@@ -124,8 +124,8 @@ create table contract(
     contract_deposit double,
     contract_total_money double,
     employee_id int,
-    customer_id int,
-    service_id int,
+    customer_id varchar(45),
+    service_id varchar(45),
     primary key(contract_id),
     foreign key(employee_id) references employee(employee_id) on update cascade on delete cascade,
     foreign key(customer_id) references customer(customer_id) on update cascade on delete cascade,
@@ -284,3 +284,4 @@ insert into contract_detail values
 (10,8,3,2),
 (11,9,3,3),
 (12,11,5,2);
+

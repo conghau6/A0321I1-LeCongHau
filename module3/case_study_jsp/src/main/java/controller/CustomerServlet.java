@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.Date;
 import java.util.List;
+import java.util.Map;
 
 @WebServlet(name = "CustomerServlet", urlPatterns = "/customer")
 public class CustomerServlet extends HttpServlet {
@@ -32,7 +33,7 @@ public class CustomerServlet extends HttpServlet {
     }
 
     private void updateCustomer(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        int customerId = Integer.parseInt(request.getParameter("customerId"));
+        String customerId = request.getParameter("customerId");
         String customerName = request.getParameter("customerName");
         int customerTypeId = Integer.parseInt(request.getParameter("customerTypeId"));
         java.sql.Date customerBirthday = Date.valueOf(request.getParameter("customerBirthday"));
@@ -44,12 +45,28 @@ public class CustomerServlet extends HttpServlet {
 
         Customer customer = new Customer(customerId,customerTypeId,customerName,customerBirthday,customerGender,
                 customerIdCard,customerPhone,customerEmail,customerAddress);
-        customerService.update(customer);
-        showListCustomer(request,response);
+        Map<String,String> mapMessage = customerService.update(customer);
+        if(!mapMessage.isEmpty()){
+            request.setAttribute("errName",mapMessage.get("customerIdErr"));
+            request.setAttribute("errPhone",mapMessage.get("customerPhoneErr"));
+            request.setAttribute("errEmail", mapMessage.get("customerEmailErr"));
+            request.setAttribute("errIdCard", mapMessage.get("customerIdCardErr"));
+            request.setAttribute("customer",customer);
+            try {
+                showFormCreate(request,response);
+            } catch (ServletException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        } else {
+            showListCustomer(request,response);
+        }
     }
 
     private void saveCustomer(HttpServletRequest request, HttpServletResponse response) {
-        int customerId = Integer.parseInt(request.getParameter("customerId"));
+        String customerId = request.getParameter("customerId");
         String customerName = request.getParameter("customerName");
         int customerTypeId = Integer.parseInt(request.getParameter("customerTypeId"));
         java.sql.Date customerBirthday = java.sql.Date.valueOf(request.getParameter("customerBirthday"));
@@ -61,8 +78,24 @@ public class CustomerServlet extends HttpServlet {
 
         Customer customer = new Customer(customerId,customerTypeId,customerName,customerBirthday,customerGender,
                 customerIdCard,customerPhone,customerEmail,customerAddress);
-        customerService.save(customer);
-        showListCustomer(request,response);
+        Map<String,String> mapMessage = customerService.save(customer);
+        if(!mapMessage.isEmpty()){
+            request.setAttribute("errName",mapMessage.get("customerIdErr"));
+            request.setAttribute("errPhone",mapMessage.get("customerPhoneErr"));
+            request.setAttribute("errEmail", mapMessage.get("customerEmailErr"));
+            request.setAttribute("errIdCard", mapMessage.get("customerIdCardErr"));
+            request.setAttribute("customer",customer);
+            try {
+                showFormCreate(request,response);
+            } catch (ServletException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        } else {
+            showListCustomer(request,response);
+        }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) {
@@ -103,13 +136,13 @@ public class CustomerServlet extends HttpServlet {
     }
 
     private void deleteCustomer(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        int id = Integer.parseInt(request.getParameter("id"));
+        String id = request.getParameter("id");
         customerService.delete(id);
         showListCustomer(request,response);
     }
 
     private void showFormUpdate(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
+        String id = request.getParameter("id");
         request.setAttribute("customer", customerService.findById(id));
         request.setAttribute("listCustomerType", customerTypeService.findAll());
         request.getRequestDispatcher("/customer/update.jsp").forward(request,response);
