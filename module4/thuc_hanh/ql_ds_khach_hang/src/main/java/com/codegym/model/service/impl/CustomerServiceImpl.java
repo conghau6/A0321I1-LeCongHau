@@ -15,7 +15,7 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public Customer findById(int id) {
+    public Customer findById(String id) {
         return customerRepositories.findById(id);
     }
 
@@ -30,12 +30,12 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public void delete(int id) {
+    public void delete(String id) {
         customerRepositories.delete(id);
     }
 
     @Override
-    public int findIndex(Customer customer) {
-        return 0;
+    public int findId(String id) {
+        return customerRepositories.findId(id);
     }
 }

@@ -10,11 +10,11 @@ public class CustomerRepositoriesImpl implements CustomerRepositories {
     private static List<Customer> customerList;
     static {
         customerList = new ArrayList<>();
-        customerList.add(new Customer("Nguyễn Văn A","nva@gmail.com","Đà nẵng"));
-        customerList.add(new Customer("Nguyễn Văn B","nvb@gmail.com","Quảng Nam"));
-        customerList.add(new Customer("Nguyễn Văn C","nvc@gmail.com","Huế"));
-        customerList.add(new Customer("Nguyễn Văn D","nvd@gmail.com","Đà nẵng"));
-        customerList.add(new Customer("Nguyễn Văn E","nve@gmail.com","Đà nẵng"));
+        customerList.add(new Customer("0","Nguyễn Văn A","nva@gmail.com","Đà nẵng"));
+        customerList.add(new Customer("1","Nguyễn Văn B","nvb@gmail.com","Quảng Nam"));
+        customerList.add(new Customer("2","Nguyễn Văn C","nvc@gmail.com","Huế"));
+        customerList.add(new Customer("3","Nguyễn Văn D","nvd@gmail.com","Đà nẵng"));
+        customerList.add(new Customer("4","Nguyễn Văn E","nve@gmail.com","Đà nẵng"));
     }
     @Override
     public List<Customer> findAll() {
@@ -35,7 +35,10 @@ public class CustomerRepositoriesImpl implements CustomerRepositories {
     @Override
     public void update(Customer customer) {
         String id = customer.getId();
-
+        int index = findId(id);
+        customerList.get(index).setName(customer.getName());
+        customerList.get(index).setEmail(customer.getEmail());
+        customerList.get(index).setAddress(customer.getAddress());
     }
 
     @Override
