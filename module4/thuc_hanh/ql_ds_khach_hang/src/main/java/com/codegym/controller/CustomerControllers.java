@@ -28,10 +28,9 @@ public class CustomerControllers {
     }
 
     @PostMapping(value = "/update")
-    public String updateCustomer(@RequestParam String id, String name, String email, String address, Model model){
+    public String updateCustomer(@RequestParam String id, String name, String email, String address){
         Customer customer = new Customer(id,name,email,address);
         customerService.update(customer);
-        model.addAttribute("customerList",customerService.findAll());
-        return showList(model);
+        return "redirect:/customer/list";
     }
 }
