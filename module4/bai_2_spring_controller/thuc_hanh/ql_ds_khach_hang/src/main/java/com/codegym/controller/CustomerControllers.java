@@ -24,9 +24,9 @@ public class CustomerControllers {
 
     @GetMapping(value = "/info/{id}")
     public ModelAndView showInfo(@PathVariable String id){
-        ModelAndView modelAndView = new ModelAndView("customers/info");
         Customer customer = customerService.findById(id);
-        modelAndView.addObject("customer", customer);
+        ModelAndView modelAndView = new ModelAndView("customers/info","customer",customer);
+//        modelAndView.addObject("customer", customer);
         return modelAndView;
     }
 

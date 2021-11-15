@@ -4,9 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class CalculatorController {
@@ -16,9 +14,8 @@ public class CalculatorController {
     }
 
     @PostMapping("/calculate")
-    public ModelAndView calculator(@RequestParam("firstNumber") String firstNumber, @RequestParam("secondNumber") String secondNumber,
-                                   @RequestParam("operation") String operation){
-        ModelAndView modelAndView = new ModelAndView("home");
+    public String calculator(@RequestParam("firstNumber") String firstNumber, @RequestParam("secondNumber") String secondNumber,
+                                   @RequestParam("operation") String operation, Model model){
         int number1 = Integer.parseInt(firstNumber);
         int number2 = Integer.parseInt(secondNumber);
         int result = 0;
@@ -36,7 +33,7 @@ public class CalculatorController {
                 result = number1 / number2;
                 break;
         }
-        modelAndView.addObject("result",result);
-        return modelAndView;
+        model.addAttribute("result",result);
+        return "home";
     }
 }
