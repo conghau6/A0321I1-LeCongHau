@@ -8,7 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/product")
+@RequestMapping({"/","/product"})
 public class ProductController {
     @Autowired
     ProductRepositories productRepositories;
