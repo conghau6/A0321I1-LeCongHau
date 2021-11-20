@@ -5,26 +5,33 @@
     <title>Edit product</title>
 </head>
 <body>
-<h1 th:replace="~{index.html :: h1}"></h1>
+<h1 th:replace="~{header.html :: h1('edit')}"></h1>
 <p>
     <a th:href="@{/product}">Back to list</a>
 </p>
-<table border="1" th:object="${product}">
+<form action="#" th:action="@{/product/edit}" th:object="${product}" method="post">
+<table border="1">
     <tr>
         <td>ID</td>
-        <td th:field="*{id}"></td>
+        <td><input type="text" th:field="*{id}"></td>
     </tr>
     <tr>
         <td>Name product</td>
-        <td th:field="*{nameProduct}"></td>
+        <td><input type="text" th:field="*{nameProduct}"></td>
     </tr>
     <tr>
         <td>Price</td>
-        <td th:field="*{price}></td>
+        <td><input type="text" th:field="*{price}"></td>
     </tr>
     <tr>
         <td>Desc</td>
+        <td><input type="text" th:field="*{desc}"></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td><input type="submit" value="Submit"></td>
     </tr>
 </table>
+</form>
 </body>
 </html>
