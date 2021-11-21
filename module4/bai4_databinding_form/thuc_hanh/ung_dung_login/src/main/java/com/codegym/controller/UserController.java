@@ -17,7 +17,7 @@ public class UserController {
         ModelAndView modelAndView = new ModelAndView("home","login", new Login());
         return modelAndView;
     }
-    @PostMapping
+    @PostMapping("/login")
     public ModelAndView login(@ModelAttribute("login") Login login){
         User user = userRepositories.checklogin(login);
         if(user==null){
