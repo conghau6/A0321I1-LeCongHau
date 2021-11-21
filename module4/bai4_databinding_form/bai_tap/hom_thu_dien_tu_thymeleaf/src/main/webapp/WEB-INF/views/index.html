@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Email config</title>
+</head>
+<body>
+<h2>Setting</h2>
+<form action="#" th:object="${EmailConfig}">
+<table>
+    <tr>
+        <td>Languages</td>
+        <td>
+            <select th:name="*{language}" >
+                <option th:each="lang : ${languages}" th:value="${lang}" th:text="${lang}"
+                        th:selected="${(${lang} eq *{language})}"></option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>Page size</td>
+        <td>
+            <span>Show </span>
+                <select th:name="*{pageSize}">
+                    <option th:each="size : ${sizes}" th:value="${size}" th:text="${size}"
+                            th:selected="(${size} == *{pageSize})"></option>
+                </select>
+            <span> emails per page</span>
+        </td>
+    </tr>
+    <tr>
+        <td>Spams filter</td>
+        <td>
+            <input type="checkbox" th:name="*{isSpamFilter()}" th:checked="*{isSpamFilter()}">
+        </td>
+    </tr>
+    <tr>
+        <td>Signature</td>
+        <td>
+            <textarea th:name="*{signature}" th:value="*{getSignature()}" th:text="*{getSignature()}" cols="30" rows="10"></textarea>
+        </td>
+    </tr>
+</table>
+</form>
+</body>
+</html>
