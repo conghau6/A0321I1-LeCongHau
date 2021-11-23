@@ -6,14 +6,14 @@
 </head>
 <body>
 <h2>Setting</h2>
-<form action="#" th:object="${EmailConfig}">
+<form action="#" th:action="@{/save}" th:object="${emailConfig}" method="post">
 <table>
     <tr>
         <td>Languages</td>
         <td>
-            <select th:name="*{language}" >
-                <option th:each="lang : ${languages}" th:value="${lang}" th:text="${lang}"
-                        th:selected="${(${lang} eq *{language})}"></option>
+            <select th:field="*{language}" >
+                <option th:each="lang : ${listLanguages}" th:value="${lang}" th:text="${lang}"
+                        th:selected="(${lang} eq *{language})"></option>
             </select>
         </td>
     </tr>
@@ -21,9 +21,9 @@
         <td>Page size</td>
         <td>
             <span>Show </span>
-                <select th:name="*{pageSize}">
-                    <option th:each="size : ${sizes}" th:value="${size}" th:text="${size}"
-                            th:selected="(${size} == *{pageSize})"></option>
+                <select th:field="*{pageSize}">
+                    <option th:each="pageSize : ${listPageSize}" th:value="${pageSize}" th:text="${pageSize}"
+                            th:selected="(${pageSize} == *{pageSize})"></option>
                 </select>
             <span> emails per page</span>
         </td>
@@ -31,16 +31,17 @@
     <tr>
         <td>Spams filter</td>
         <td>
-            <input type="checkbox" th:name="*{isSpamFilter()}" th:checked="*{isSpamFilter()}">
+            <input type="checkbox" th:field="*{spamFilter}" th:checked="*{isSpamFilter()}">
         </td>
     </tr>
     <tr>
         <td>Signature</td>
         <td>
-            <textarea th:name="*{signature}" th:value="*{getSignature()}" th:text="*{getSignature()}" cols="30" rows="10"></textarea>
+            <textarea th:field="*{signature}" th:value="*{getSignature()}" th:text="*{getSignature()}" cols="30" rows="10"></textarea>
         </td>
     </tr>
 </table>
+    <button type="submit">Save</button>
 </form>
 </body>
 </html>
