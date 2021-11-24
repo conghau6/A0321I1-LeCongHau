@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create</title>
+</head>
+<body>
+<p>
+    <a th:href="@{/}">Back to list</a>
+</p>
+<form action="#" th:action="@{/create}" th:object="${blog}" method="post">
+    <table>
+        <tr>
+            <td>
+                <textarea cols="100" rows="20" th:field="*{content}"></textarea>
+            </td>
+        </tr>
+    </table>
+    <button type="submit">Tạo</button>
+</form>
+</body>
+</html>
