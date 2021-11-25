@@ -22,7 +22,7 @@ public class BlogRepositoriesImpl implements BlogRepositories {
 
     @Override
     public List<Blog> getList() {
-        return entityManager.createQuery("select b from Blog b").getResultList();
+        return entityManager.createQuery("select b from Blog b",Blog.class).getResultList();
     }
 
      /*
@@ -32,7 +32,7 @@ public class BlogRepositoriesImpl implements BlogRepositories {
 
     @Override
     public List<Blog> getListWithPaging(int pageNumber, int pageRecords) {
-        return entityManager.createQuery("select b from Blog b")
+        return entityManager.createQuery("select b from Blog b",Blog.class)
                 .setFirstResult((pageNumber - 1) * pageRecords)
                 .setMaxResults(pageRecords)
                 .getResultList();
