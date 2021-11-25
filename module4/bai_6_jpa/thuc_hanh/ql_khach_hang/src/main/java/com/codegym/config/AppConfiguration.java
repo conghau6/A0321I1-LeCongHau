@@ -52,7 +52,7 @@ public class AppConfiguration extends WebMvcConfigurerAdapter implements Applica
     public SpringResourceTemplateResolver templateResolver() {
         SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();
         templateResolver.setApplicationContext(applicationContext);
-        templateResolver.setPrefix("/views/");
+        templateResolver.setPrefix("WEB-INF/views/");
         templateResolver.setSuffix(".html");
         templateResolver.setTemplateMode(TemplateMode.HTML);
         templateResolver.setCharacterEncoding("UTF-8");
