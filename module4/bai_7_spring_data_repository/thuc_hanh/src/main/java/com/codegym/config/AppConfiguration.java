@@ -2,7 +2,9 @@ package com.codegym.config;
 
 import com.codegym.repositories.CustomerRepositories;
 import com.codegym.service.CustomerService;
+import com.codegym.service.ProvinceService;
 import com.codegym.service.impl.CustomerServiceImpl;
+import com.codegym.service.impl.ProvinceServiceImpl;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
@@ -51,7 +53,7 @@ public class AppConfiguration extends WebMvcConfigurerAdapter implements Applica
     public SpringResourceTemplateResolver templateResolver() {
         SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();
         templateResolver.setApplicationContext(applicationContext);
-        templateResolver.setPrefix("WEB-INF/views/");
+        templateResolver.setPrefix("/WEB-INF/views/");
         templateResolver.setSuffix(".html");
         templateResolver.setTemplateMode(TemplateMode.HTML);
         templateResolver.setCharacterEncoding("UTF-8");
@@ -140,6 +142,11 @@ public class AppConfiguration extends WebMvcConfigurerAdapter implements Applica
     @Bean
     public CustomerService customerService(){
         return new CustomerServiceImpl();
+    }
+
+    @Bean
+    public ProvinceService provinceService() {
+        return new ProvinceServiceImpl();
     }
 
 }

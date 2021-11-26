@@ -30,11 +30,11 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public void remove(Long id) {
-
+        customerRepositories.delete(findById(id));
     }
 
     @Override
     public Iterable<Customer> findAllByProvince(Province province) {
-        return null;
+        return customerRepositories.findAllByProvince(province);
     }
 }
