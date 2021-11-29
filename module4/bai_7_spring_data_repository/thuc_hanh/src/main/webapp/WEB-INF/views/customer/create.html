@@ -7,7 +7,7 @@
 <body>
 <h1>Create customer</h1>
 <p>
-    <a href="/customer/">Back to list</a>
+    <a th:href="@{/customer/}">Back to list</a>
 </p>
 <th:block th:if="${message}">
     <p th:text="${message}"></p>

@@ -1,5 +1,6 @@
 package com.codegym.controller;
 
+import com.codegym.model.Customer;
 import com.codegym.model.Province;
 import com.codegym.service.ProvinceService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,13 +9,13 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("province/")
+@RequestMapping("/province")
 public class ProvinceController {
 
     @Autowired
     ProvinceService provinceService;
 
-    @GetMapping("/")
+    @GetMapping("")
     public ModelAndView listProvince(){
         return new ModelAndView("province/index","listProvince",provinceService.findAll());
     }
@@ -45,5 +46,16 @@ public class ProvinceController {
         modelAndView.addObject("province",province);
         modelAndView.addObject("message","Sửa thành công!");
         return modelAndView;
+    }
+
+    @GetMapping("/delete/{id}")
+    public ModelAndView deleteCustomer(@PathVariable("id") Long id){
+        return new ModelAndView("province/delete","province",provinceService.findById(id));
+    }
+
+    @PostMapping("/delete")
+    public String deleteCustomer(@ModelAttribute("province") Customer customer){
+        provinceService.remove(customer.getId());
+        return "redirect:/province/";
     }
 }

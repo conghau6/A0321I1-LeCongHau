@@ -7,7 +7,7 @@
 <body>
 <h1>Edit customer</h1>
 <p>
-    <a href="/">Back to list</a>
+    <a th:href="@{/customer}">Back to list</a>
 </p>
 <th:block th:if="${message}">
     <p th:text="${message}"></p>
@@ -25,6 +25,14 @@
             <td>Last name</td>
             <td>
                 <input type="text" th:field="*{lastName}">
+            </td>
+        </tr>
+        <tr>
+            <td>Province</td>
+            <td>
+                <select th:field="*{province.id}">
+                    <option th:each="p : ${provinces}" th:value="${p.id}" th:text="${p.name}" th:selected="(${p.name} eq *{province.name})"></option>
+                </select>
             </td>
         </tr>
         <tr>
