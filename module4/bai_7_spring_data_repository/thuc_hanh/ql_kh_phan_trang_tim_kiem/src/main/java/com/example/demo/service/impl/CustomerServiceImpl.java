@@ -46,4 +46,9 @@ public class CustomerServiceImpl implements CustomerService {
     public List<Customer> findAllByProvince(Province province) {
         return customerRepositories.findAllByProvince(province);
     }
+
+    @Override
+    public Page<Customer> findAllByLastName(String lastName, Pageable p) {
+        return customerRepositories.findAllByLastName(lastName,p);
+    }
 }

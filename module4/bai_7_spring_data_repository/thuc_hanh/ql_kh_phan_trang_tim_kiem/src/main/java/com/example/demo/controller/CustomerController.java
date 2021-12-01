@@ -8,10 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping({"/customer"})
@@ -23,8 +25,14 @@ public class CustomerController {
     private ProvinceService provinceService;
 
     @GetMapping("")
-    public ModelAndView listCustomers(@PageableDefault(size = 3) Pageable pageable){
-        return new ModelAndView("customer/index", "listCustomer",customerService.findAll(pageable));
+    public String listCustomers(Model model, @PageableDefault(size = 3) Pageable pageable,
+                                      Optional<String> key_search){
+        if(key_search.isPresent()){
+            model.addAttribute("listCustomer",customerService.findAllByLastName(key_search.get(),pageable));
+        } else {
+            model.addAttribute("listCustomer", customerService.findAll(pageable));
+        }
+        return "customer/index";
     }
 
     @ModelAttribute("provinces")

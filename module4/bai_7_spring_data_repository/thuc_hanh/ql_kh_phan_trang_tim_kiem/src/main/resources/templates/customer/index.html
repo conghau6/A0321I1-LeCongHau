@@ -7,6 +7,10 @@
 <body>
 <a th:href="@{/customer/create}">Create new customer</a>
 <h1>Customers</h1>
+<form action="#" th:action="@{/customer}">
+    <input type="text" name="key_search" placeholder="last name">
+    <button type="submit">Tìm kiếm</button>
+</form>
 <table border="1">
     <tr>
         <th>First name</th>
@@ -27,5 +31,8 @@
         </td>
     </tr>
 </table>
+<a th:href="@{'/customer/'(page=${listCustomer.number - 1})}" th:if="${listCustomer.hasPrevious()}">Previous</a>
+<span th:text="${listCustomer.number + '/' + listCustomer.totalPages}"></span>
+<a th:href="@{'/customer/'(page=${listCustomer.number + 1})}" th:if="${listCustomer.hasNext()}">Next</a>
 </body>
 </html>
