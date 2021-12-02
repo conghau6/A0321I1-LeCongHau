@@ -4,6 +4,7 @@ import com.example.demo.model.Customer;
 import com.example.demo.model.Province;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
@@ -21,4 +22,6 @@ public interface CustomerService {
     List<Customer> findAllByProvince(Province province);
 
     Page<Customer> findAllByLastName(String lastName, Pageable p);
+
+    Page<Customer> customQuery(String firstName, Pageable p);
 }

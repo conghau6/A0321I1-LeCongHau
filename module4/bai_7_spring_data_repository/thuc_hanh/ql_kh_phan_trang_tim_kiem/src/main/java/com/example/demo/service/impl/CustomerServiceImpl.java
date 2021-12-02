@@ -51,4 +51,9 @@ public class CustomerServiceImpl implements CustomerService {
     public Page<Customer> findAllByLastName(String lastName, Pageable p) {
         return customerRepositories.findAllByLastName(lastName,p);
     }
+
+    @Override
+    public Page<Customer> customQuery(String firstName, Pageable p) {
+        return customerRepositories.customQuery(firstName,p);
+    }
 }

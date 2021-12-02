@@ -6,6 +6,7 @@ import com.example.demo.service.CustomerService;
 import com.example.demo.service.ProvinceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,7 +27,14 @@ public class CustomerController {
 
     @GetMapping("")
     public String listCustomers(Model model, @PageableDefault(size = 3) Pageable pageable,
-                                      Optional<String> key_search){
+                                Optional<String> key_search,
+                                Optional<String> sort){
+        Sort orders = null;
+        if(sort.equals("ASC")){
+            orders = Sort.by("last_name").ascending();
+        } else if (sort.equals("DESC")) {
+            orders = Sort.by("last_name").descending();
+        }
         if(key_search.isPresent()){
             model.addAttribute("listCustomer",customerService.findAllByLastName(key_search.get(),pageable));
         } else {
