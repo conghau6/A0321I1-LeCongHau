@@ -10,6 +10,7 @@ public class ApplicationConfig {
     @Bean
     public MessageSource messageSource() {
         ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
+        messageSource.setDefaultEncoding("UTF-8");
         messageSource.setBasenames("ValidationMessages");
         return messageSource;
     }
