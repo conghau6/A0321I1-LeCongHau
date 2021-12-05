@@ -7,5 +7,6 @@ import org.springframework.data.domain.Pageable;
 public interface SongService {
     Page<Song> findAll(Pageable pageable);
     void saveSong(Song song);
-    void deleteSong(int id);
+    void deleteSong(Integer id);
+    Song findById(Integer id);
 }

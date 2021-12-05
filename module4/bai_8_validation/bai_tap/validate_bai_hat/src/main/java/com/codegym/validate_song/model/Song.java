@@ -8,40 +8,38 @@ import javax.validation.constraints.*;
 public class Song {
 
     @Id
-    @NotNull
-    @NotEmpty
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
-    @NotBlank
+    @NotBlank(message = "Tên bài hát không được để trống")
     @Size(min = 0, max = 800, message = "Không vượt qua 800 ký tự")
-    @Pattern(regexp = "^[^\\;\\,\\.\\=\\-\\+]+$")
+    @Pattern(regexp = "^[^\\;\\,\\.\\=\\-\\+]+$", message = "Dữ liệu không hợp lệ")
     private String nameSong;
 
-    @NotBlank
+    @NotBlank(message = "Tên nghệ sĩ không được để trống")
     @Size(min = 0, max = 300, message = "Không vượt qua 300 ký tự")
-    @Pattern(regexp = "^[^\\;\\,\\.\\=\\-\\+]+$")
+    @Pattern(regexp = "^[^\\;\\,\\.\\=\\-\\+]+$", message = "Dữ liệu không hợp lệ")
     private String nameSinger;
 
-    @NotBlank
+    @NotBlank(message = "Tên thể loại không được để trống")
     @Size(min = 0, max = 1000, message = "Không vượt qua 1000 ký tự")
-    @Pattern(regexp = "^[^\\;\\.\\=\\-\\+]+$")
+    @Pattern(regexp = "^[^\\;\\.\\=\\-\\+]+$", message = "Dữ liệu không hợp lệ")
     private String category;
 
     public Song() {
     }
 
-    public Song(@NotBlank @Size(min = 0, max = 800, message = "Không vượt qua 800 ký tự") @Pattern(regexp = "^[^\\;\\,\\.\\=\\-\\+]+$") String nameSong, @NotBlank @Size(min = 0, max = 300, message = "Không vượt qua 300 ký tự") @Pattern(regexp = "^[^\\;\\,\\.\\=\\-\\+]+$") String nameSinger, @NotBlank @Size(min = 0, max = 1000, message = "Không vượt qua 1000 ký tự") @Pattern(regexp = "^[^\\;\\.\\=\\-\\+]+$") String category) {
+    public Song(@NotBlank(message = "Tên bài hát không được để trống") @Size(min = 0, max = 800, message = "Không vượt qua 800 ký tự") @Pattern(regexp = "^[^\\;\\,\\.\\=\\-\\+]+$", message = "Dữ liệu không hợp lệ") String nameSong, @NotBlank(message = "Tên nghệ sĩ không được để trống") @Size(min = 0, max = 300, message = "Không vượt qua 300 ký tự") @Pattern(regexp = "^[^\\;\\,\\.\\=\\-\\+]+$", message = "Dữ liệu không hợp lệ") String nameSinger, @NotBlank(message = "Tên thể loại không được để trống") @Size(min = 0, max = 1000, message = "Không vượt qua 1000 ký tự") @Pattern(regexp = "^[^\\;\\.\\=\\-\\+]+$", message = "Dữ liệu không hợp lệ") String category) {
         this.nameSong = nameSong;
         this.nameSinger = nameSinger;
         this.category = category;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
