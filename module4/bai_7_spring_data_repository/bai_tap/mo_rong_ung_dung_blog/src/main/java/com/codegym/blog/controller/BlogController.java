@@ -38,10 +38,10 @@ public class BlogController {
     public String showListBlog(Model model, @PageableDefault(size = 2) Pageable pageable,
                               Optional<String> search, Optional<String> sort){
         if(sort.isPresent()) {
-            if (sort.equals("ASC")) {
-                model.addAttribute("blogList", blogService.findAll((Pageable) Sort.by(Sort.Direction.ASC,"date_create")));
-            } else if (sort.equals("DESC")) {
-                model.addAttribute("blogList", blogService.findAll((Pageable) Sort.by(Sort.Direction.DESC,"date_create")));
+            if (sort.get().equals("ASC")) {
+                model.addAttribute("blogList", blogService.findAll(PageRequest.of(pageable.getPageSize(), 2, Sort.by(Sort.Direction.ASC, "date"))));
+            } else if (sort.get().equals("DESC")) {
+                model.addAttribute("blogList", blogService.findAll(PageRequest.of(pageable.getPageSize(), 2, Sort.by(Sort.Direction.DESC, "date"))));
             }
         } else if (search.isPresent()) {
             model.addAttribute("blogList", blogService.searchByCharacter(search.get(), pageable));
