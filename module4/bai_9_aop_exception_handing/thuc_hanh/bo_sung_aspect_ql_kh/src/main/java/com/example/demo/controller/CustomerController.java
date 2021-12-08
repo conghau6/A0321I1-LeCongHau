@@ -66,7 +66,11 @@ public class CustomerController {
 
     @GetMapping("/edit/{id}")
     public ModelAndView editCustomer(@PathVariable("id") Long id){
-        return new ModelAndView("customer/edit","customer",customerService.findById(id));
+        try {
+            return new ModelAndView("customer/edit","customer",customerService.findById(id));
+        } catch (Exception exception) {
+            return new ModelAndView("redirect:/customer/");
+        }
     }
 
     @PostMapping("/edit")
@@ -80,7 +84,11 @@ public class CustomerController {
 
     @GetMapping("/delete/{id}")
     public ModelAndView deleteCustomer(@PathVariable("id") Long id){
-        return new ModelAndView("customer/delete","customer",customerService.findById(id));
+        try {
+            return new ModelAndView("customer/delete","customer",customerService.findById(id));
+        } catch (Exception exception) {
+            return new ModelAndView("redirect:/customer/");
+        }
     }
 
     @PostMapping("/delete")
