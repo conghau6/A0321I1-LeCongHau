@@ -19,7 +19,7 @@ public class LogCustomer {
     @Pointcut("execution(* com.example.demo.service.impl.CustomerServiceImpl.*(..))")
     public void customerService(){}
 
-    @AfterThrowing(pointcut = "execution(public * com.example.demo.service..*.*(..))",throwing = "e")
+    @AfterThrowing(pointcut = "execution(public * com.example.demo.service..*.*(..))",throwing = "e") //adviso
     public void log(JoinPoint joinPoint,Exception e){
         String className = joinPoint.getTarget().getClass().getSimpleName();
         String method = joinPoint.getSignature().getName();
