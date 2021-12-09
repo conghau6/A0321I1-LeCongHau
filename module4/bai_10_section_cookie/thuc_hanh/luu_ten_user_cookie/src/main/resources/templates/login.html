@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Login</h2>
+<form action="#" th:action="@{/}" th:object="${user}" method="post">
+    <table>
+        <tr>
+            <td>Username</td>
+            <td><input type="text" th:field="*{email}" th:value="${cookieValue.value}" placeholder="email"></td>
+        </tr>
+        <tr>
+            <td>Username</td>
+            <td><input type="text" th:field="*{password}" placeholder="password"></td>
+        </tr>
+        <tr>
+            <td>
+                <button type="submit">Đăng nhập</button>
+            </td>
+        </tr>
+    </table>
+</form>
+<br>
+<span th:text="${message}"></span>
+<span th:text="${user.email}"></span>
+</body>
+</html>
