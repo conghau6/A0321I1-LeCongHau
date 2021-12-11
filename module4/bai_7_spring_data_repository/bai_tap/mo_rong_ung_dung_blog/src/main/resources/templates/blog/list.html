@@ -15,6 +15,14 @@
         <p>
             <a th:href="@{/blog/create}">Thêm mới bài viết</a>
         </p>
+        <form action="">
+            <select th:name="category_filter" onchange="this.form.submit()">
+                <option value="" selected>Category</option>
+                <th:block th:each="cat : ${listCategory}">
+                    <option th:value="${cat.id}" th:text="${cat.nameCategory}"></option>
+                </th:block>
+            </select>
+        </form>
         <div class="blogs" th:each="bog : ${blogList}">
             <h5>Thể loại: <span th:text="${bog.category.nameCategory}"></span></h5>
             <h5 th:text="${bog.header}"></h5>

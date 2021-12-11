@@ -36,7 +36,8 @@ public class BlogController {
 
     @GetMapping("")
     public String showListBlog(Model model, @PageableDefault(size = 2) Pageable pageable,
-                              Optional<String> search, Optional<String> sort){
+                              Optional<String> search, Optional<String> sort,
+                               Optional<Integer> category_filter){
         if(sort.isPresent()) {
             if (sort.get().equals("ASC")) {
                 model.addAttribute("blogList", blogService.findAll(PageRequest.of(pageable.getPageSize(), 2, Sort.by(Sort.Direction.ASC, "date"))));
@@ -46,6 +47,9 @@ public class BlogController {
         } else if (search.isPresent()) {
             model.addAttribute("blogList", blogService.searchByCharacter(search.get(), pageable));
         } else {
+            if(category_filter.isPresent()) {
+                model.addAttribute("blogList", blogService.findBlogByCategory_Id(category_filter.get(), pageable));
+            } else
             model.addAttribute("blogList", blogService.findAll(pageable));
         }
         return "blog/list";

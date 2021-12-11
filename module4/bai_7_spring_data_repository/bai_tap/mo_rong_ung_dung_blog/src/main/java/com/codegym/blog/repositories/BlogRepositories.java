@@ -8,6 +8,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 public interface BlogRepositories extends JpaRepository<Blog, Integer> {
-    @Query(value = "select * from blog where content like %:c%", nativeQuery = true)
+    @Query(value = "select * from blog where header like %:c%", nativeQuery = true)
     Page<Blog> searchByCharacter(@Param("c") String c, Pageable p);
+
+    Page<Blog> findBlogByCategory_Id(Integer id, Pageable p);
 }

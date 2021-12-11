@@ -49,4 +49,9 @@ public class BlogServiceImpl implements BlogService {
     public Page<Blog> searchByCharacter(String c, Pageable p) {
         return blogRepositories.searchByCharacter(c,p);
     }
+
+    @Override
+    public Page<Blog> findBlogByCategory_Id(Integer id, Pageable pageable) {
+        return blogRepositories.findBlogByCategory_Id(id, pageable);
+    }
 }

@@ -14,4 +14,5 @@ public interface BlogService {
     void remove(Integer id);
     void remove(Blog blog);
     Page<Blog> searchByCharacter(String c, Pageable p);
+    Page<Blog> findBlogByCategory_Id(Integer id, Pageable p);
 }

@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @Controller
-@SessionAttributes("user")
+
 public class UserController {
 
     /*add user in model attribute*/
@@ -36,7 +36,7 @@ public class UserController {
 
 
             Cookie cookie = new Cookie("setUser", setUser);
-            cookie.setMaxAge(24 * 60 * 60);
+            cookie.setMaxAge(3);
             response.addCookie(cookie);
 
 
