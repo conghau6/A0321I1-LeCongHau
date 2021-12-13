@@ -70,4 +70,4 @@ create procedure delete_user(in id int(11))
 begin
 delete from users where users.id = id;
 end $$
-delimiter $$
+delimiter $$customerscustomers

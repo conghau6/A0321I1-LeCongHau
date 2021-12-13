@@ -17,9 +17,8 @@
         </p>
         <form action="">
             <select th:name="category_filter" onchange="this.form.submit()">
-                <option value="" selected>Category</option>
                 <th:block th:each="cat : ${listCategory}">
-                    <option th:value="${cat.id}" th:text="${cat.nameCategory}"></option>
+                    <option th:selected="${cat.id == category_filter}" th:value="${cat.id}" th:text="${cat.nameCategory}"></option>
                 </th:block>
             </select>
         </form>

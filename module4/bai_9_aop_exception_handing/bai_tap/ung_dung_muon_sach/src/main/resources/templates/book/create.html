@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head">
+<body>
+<div class="main">
+    <div th:replace="fragments/menubar"></div>
+    <div class="container">
+        <form action="" th:object="${book}">
+            <table>
+                <tr>
+                    <td>Title</td>
+                    <td><input type="text" th:field="*{id}"></td>
+                </tr>
+                <tr>
+                    <td>Author</td>
+                    <td><input type="text" th:field="*{author}"></td>
+                </tr>
+                <tr>
+                    <td>Quantity</td>
+                    <td><input type="text" th:field="*{quantity}"></td>
+                </tr>
+                <tr>
+                    <td>Year composed</td>
+                    <td><input type="text" th:field="*{year_composed}"></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+</body>
+</html>

@@ -48,6 +48,7 @@ public class BlogController {
             model.addAttribute("blogList", blogService.searchByCharacter(search.get(), pageable));
         } else {
             if(category_filter.isPresent()) {
+                model.addAttribute("category_filter", category_filter.get());
                 model.addAttribute("blogList", blogService.findBlogByCategory_Id(category_filter.get(), pageable));
             } else
             model.addAttribute("blogList", blogService.findAll(pageable));
