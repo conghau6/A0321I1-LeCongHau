@@ -21,7 +21,7 @@ public class Book {
     @Column(name = "year_composed")
     @NotNull
     @Min(1)
-    private String year_composed;
+    private String year;
 
     @Column(name = "author")
     @NotBlank
@@ -36,6 +36,13 @@ public class Book {
     Set<Code> codeSet = new LinkedHashSet<>();
 
     public Book() {
+    }
+
+    public Book(@NotBlank String title, @NotNull @Min(1) String year, @NotBlank String author, @NotNull @Min(0) Integer quantity) {
+        this.title = title;
+        this.year = year;
+        this.author = author;
+        this.quantity = quantity;
     }
 
     public void generateCode(Code code){
@@ -66,12 +73,12 @@ public class Book {
         this.title = title;
     }
 
-    public String getYear_composed() {
-        return year_composed;
+    public String getYear() {
+        return year;
     }
 
-    public void setYear_composed(String year_composed) {
-        this.year_composed = year_composed;
+    public void setYear(String year_composed) {
+        this.year = year_composed;
     }
 
     public String getAuthor() {

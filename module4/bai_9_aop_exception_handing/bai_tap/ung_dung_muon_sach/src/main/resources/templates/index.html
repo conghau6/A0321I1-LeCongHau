@@ -6,7 +6,7 @@
     <div th:replace="fragments/menubar"></div>
     <div class="container">
         <h1>Book</h1>
-        <table>
+        <table border="1" class="table-list">
             <tr>
                 <th>ID</th>
                 <th>Title</th>
@@ -21,16 +21,16 @@
                 <td th:text="${book.id}"></td>
                 <td th:text="${book.title}"></td>
                 <td th:text="${book.author}"></td>
-                <td th:text="${book.year_composed}"></td>
+                <td th:text="${book.year}"></td>
                 <td th:text="${book.quantity}"></td>
                 <td>
-                    <a href="">Borrow</a>
+                    <a th:href="@{/borrow/__${book.id}__}">Mượn</a>
                 </td>
                 <td>
-                    <a href="">Return</a>
+                    <a th:href="@{/return/__${book.id}__}">Trả</a>
                 </td>
                 <td>
-                    <a href="">Delete</a>
+                    <a th:href="@{/delete/__${book.id}__}">Xoá</a>
                 </td>
             </tr>
         </table>

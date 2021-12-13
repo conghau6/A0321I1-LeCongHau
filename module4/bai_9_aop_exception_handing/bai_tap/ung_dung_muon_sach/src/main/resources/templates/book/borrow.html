@@ -5,26 +5,31 @@
 <div class="main">
     <div th:replace="fragments/menubar"></div>
     <div class="container">
-        <form th:action="@{/book/create}" method="post" th:object="${book}">
+        <form th:action="@{/borrow}" method="post" th:object="${book}">
             <table>
+                <input type="hidden" th:field="*{id}">
                 <tr>
                     <td>Title</td>
-                    <td><input type="text" th:field="*{title}"></td>
+                    <td><input type="text" readonly th:field="*{title}"></td>
                 </tr>
                 <tr>
                     <td>Author</td>
-                    <td><input type="text" th:field="*{author}"></td>
+                    <td><input type="text" readonly th:field="*{author}"></td>
                 </tr>
                 <tr>
                     <td>Quantity</td>
-                    <td><input type="text" th:field="*{quantity}"></td>
+                    <td><input type="text" readonly th:field="*{quantity}"></td>
                 </tr>
                 <tr>
                     <td>Year composed</td>
                     <td><input type="text" th:field="*{year}"></td>
                 </tr>
                 <tr>
-                    <td><button type="submit">Add book</button></td>
+                    <td>Code borrow</td>
+                    <td><input type="text" th:name="usedCode" th:value="${availableCode.code}"></td>
+                </tr>
+                <tr>
+                    <td><button type="submit">Borrow</button></td>
                 </tr>
             </table>
         </form>

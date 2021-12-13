@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head">
+<body>
+<div class="main">
+    <div th:replace="fragments/menubar"></div>
+    <div class="container">
+        <h1>Book</h1>
+        <table border="1" class="table-list">
+            <tr>
+                <th>ID</th>
+                <th>CodeBorrow</th>
+                <th>Book</th>
+                <th>Status</th>
+                <th>Return</th>
+                <th>Delete</th>
+            </tr>
+            <tr th:each="code : ${listCodeBorrow}">
+                <td th:text="${code.id}"></td>
+                <td th:text="${code.code}"></td>
+                <td th:text="${code.book.title}"></td>
+                <td th:text="${code.status.status}"></td>
+                <td>
+                    <a href="">Return</a>
+                </td>
+                <td>
+                    <a th:href="@{/borrow/delete/__${code.id}__}">Delete</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>

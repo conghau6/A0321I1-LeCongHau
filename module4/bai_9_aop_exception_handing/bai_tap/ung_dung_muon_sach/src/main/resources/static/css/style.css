@@ -7,8 +7,8 @@
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     text-decoration: none;
-    outline: none;
-    border: none;
+    /*outline: none;*/
+    /*border: none;*/
     text-transform: capitalize;
     /*-webkit-transition: all .1s linear;*/
     /*transition: all .1s linear;*/
@@ -28,11 +28,14 @@ html {
 .menu-bar {
     font-size: 1.8rem;
     width: 250px;
-    border: 1px solid #222222;
+    border-right: 1px solid #222222;
 }
 
 .container {
     font-size: 1.6rem;
     flex: 1;
-    border: 1px solid #222222;
+}
+
+.table-list {
+    text-align: center;
 }
