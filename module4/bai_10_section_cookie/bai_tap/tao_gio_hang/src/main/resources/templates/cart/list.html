@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="fragments/head">
+<body>
+<div class="cart">
+    <div>
+        <a th:href="@{/products}"><button>Mua thêm</button></a>
+        <ul th:replace="fragments/navbar"></ul>
+<!--        <form th:action="@{/cart/buy}" method="post">-->
+        <ul class="cart-list">
+            <li>
+                <h3 th:text="${'Giở hàng (' + size + ')'}"></h3>
+            </li>
+            <th:block th:each="cart : ${carts}">
+                <li class="cart-item">
+                    <div class="image">
+                        <img th:src="${cart.getValue().getProduct().getUrlImage()}" alt="">
+                    </div>
+
+                    <div class="cart-info">
+                        <h3 th:text="${cart.getValue().getProduct().getNameProduct()}"></h3>
+                        <table>
+                            <tr>
+                                <td><span>Mã SP:</span></td>
+                                <td th:text="${cart.getValue().getProduct().getIdProduct()}"></td>
+                            </tr>
+                            <tr>
+                                <td><span>Giá:</span></td>
+                                <td th:text="${cart.getValue().getProduct().getNewPrice() + 'đ'}"></td>
+                            </tr>
+                            <tr>
+                                <td><span>Số lượng:</span></td>
+                                <td>
+                                    <a th:href="@{/cart/remove-from-cart/__${cart.getValue().product.idProduct}__}"><button>-</button></a>
+                                    <input type="number" th:value="${cart.getValue().getQuantity()}" id="totalPrice" onchange="totalPrice()">
+                                    <a th:href="@{/cart/add-to-cart/__${cart.getValue().product.getIdProduct()}__}"><button>+</button></a>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="cart-action">
+                        <a th:href="@{/cart/delete/__${cart.getKey()}__}" style="display: inline-block">
+                            <i class="far fa-trash-alt"></i>
+                        </a>
+                    </div>
+                </li>
+            </th:block>
+        </ul>
+        <h3 th:text="${'Tổng tiền: ' + totalPrice + ' đ'}"></h3>
+        <form th:action="@{/cart/buy}" method="post">
+            <button type="submit">Thanh toán tất cả</button>
+        </form>
+<!--        </form>-->
+    </div>
+</div>
+<script>
+    document.getElementsByClassName("menu-item")[0].classList.add("active")
+    function totalPrice() {
+        var price = parseFloat(document.querySelector("#totalPrice").value);
+        console.log(price);
+    }
+</script>
+</body>
+</html>

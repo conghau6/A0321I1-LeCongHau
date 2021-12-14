@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product</title>
+    <style>
+        .list-product {
+            display: flex;
+        }
+        .item {
+            display: block;
+            text-decoration: none;
+            border: 1px solid #222222;
+            width: 200px;
+            height: 300px;
+            cursor: pointer;
+            color: #222222;
+        }
+        .img-wrap {
+            height: 80%;
+            border-bottom: 1px solid #222222;
+        }
+        .description {
+            height: 20%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .description div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .description h4 {
+            text-align: center;
+            padding: 0;
+            margin: 0;
+        }
+        .new-price {
+            color: red;
+        }
+        .img-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .img-wrap img {
+            width: 100%;
+        }
+        .old-price {
+            display: inline-block;
+            margin-right: 4px;
+        }
+        .new-price {
+            display: inline-block;
+            margin-left: 4px;
+        }
+        .view-cart {
+            display: inline-block;
+            margin-bottom: 16px;
+        }
+        button {
+            font-size: 16px;
+        }
+        .list-product {
+            display: flex;
+            justify-content: space-around;
+        }
+    </style>
+</head>
+<body>
+<h3>Danh sách sản phẩm</h3>
+<a class="view-cart" th:href="@{/cart/}"><button>Xem giỏ hàng</button></a>
+<div class="list-product">
+    <th:block th:each="product : ${listProduct}">
+        <a th:href="@{/products/view/__${product.getIdProduct()}__}" class="item">
+            <div class="img-wrap">
+                <div class="">
+                    <img th:src="${product.getUrlImage()}" alt="">
+                </div>
+            </div>
+
+            <div class="description">
+                <h4 th:text="${product.getNameProduct()}"></h4>
+                <div>
+                    <del th:text="${product.getOldPrice().toString() + ' đ'}" class="old-price"></del>
+                    <span7 th:text="${product.getNewPrice().toString() + ' đ'}" class="new-price"></span7>
+                </div>
+            </div>
+        </a>
+    </th:block>
+</div>
+</body>
+</html>

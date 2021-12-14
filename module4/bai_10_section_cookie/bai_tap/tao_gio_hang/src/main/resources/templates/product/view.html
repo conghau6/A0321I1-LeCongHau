@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View</title>
+    <style>
+        .product {
+            width: 300px;
+            text-align: center;
+        }
+        .image img {
+            width: 100%;
+        }
+        button {
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div class="product" th:object="${product}">
+        <div class="image">
+            <img th:src="${product.getUrlImage()}" alt="">
+        </div>
+        <h4 th:text="${'Mã SP: ' + product.getIdProduct() }"></h4>
+        <strike th:text="${'Giá củ: ' + product.getOldPrice()}" style="display: block"></strike>
+        <span th:text="${'Giá mới:' + product.getNewPrice()}" style="display: block;color: red"></span>
+        <a th:href="@{/cart/add-to-cart/__${product.getIdProduct()}__}"><button>Thêm vào giỏ hàng</button></a>
+    </div>
+    <div class="description">
+
+    </div>
+</div>
+</body>
+</html>

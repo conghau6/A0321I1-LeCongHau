@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="fragments/head">
+<body>
+<div class="cart">
+    <div>
+        <a th:href="@{/products}"><button>Mua thêm</button></a>
+        <ul th:replace="fragments/navbar"></ul>
+        <th:block th:each="cart : ${carts}">
+            <li class="cart-item">
+                <div class="image">
+                    <img th:src="${cart.getProduct().getUrlImage()}" alt="">
+                </div>
+
+                <div class="cart-info">
+                    <h3 th:text="${cart.getProduct().getNameProduct()}"></h3>
+                    <table>
+                        <tr>
+                            <td><span>Mã SP:</span></td>
+                            <td th:text="${cart.getProduct().getIdProduct()}"></td>
+                        </tr>
+                        <tr>
+                            <td><span>Giá:</span></td>
+                            <td th:text="${cart.getProduct().getNewPrice() + 'đ'}"></td>
+                        </tr>
+                        <tr>
+                            <td><span>Số lượng:</span></td>
+                            <td th:text="${cart.getQuantity()}"></td>
+                        </tr>
+                        <tr>
+                            <td><span>Thành tiền:</span></td>
+                            <td th:text="${cart.getQuantity() * cart.product.getNewPrice() + 'đ'}"></td>
+                        </tr>
+                    </table>
+                </div>
+            </li>
+        </th:block>
+    </div>
+</div>
+<script>
+    document.getElementsByClassName("menu-item")[2].classList.add("active")
+</script>
+</body>
+</html>

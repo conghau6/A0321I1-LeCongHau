@@ -1,0 +1,74 @@
+<head>
+    <meta charset="UTF-8">
+    <title>Carts</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        html {
+            box-sizing: border-box;
+        }
+        *{
+            box-sizing: inherit;
+        }
+        ul {
+            padding: 0;
+            list-style: none;
+        }
+        .cart{
+            width: 500px;
+        }
+        .menu-bar {
+            width: 100%;
+            display: flex;
+            padding: 0;
+        }
+        .menu-item {
+            flex: 1;
+            display: flex;
+        }
+        .menu-item-link {
+            text-decoration: none;
+            cursor: pointer;
+            display: block;
+            width: 100%;
+            padding: 10px 0;
+            color: #000000;
+        }
+        .menu-item.active {
+            background-color: rosybrown;
+        }
+        .menu-item.active a {
+            color: #ffffff;
+        }
+        .cart-item {
+            display: flex;
+            border: 2px solid #cccccc;
+            background-color: #eaeaea;
+        }
+        .image {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        img {
+            width: 100px;
+            height: 100px;
+        }
+        input {
+            width: 64px;
+            text-align: center;
+        }
+        button {
+            font-size: 16px;
+        }
+        .cart-action {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .cart-action i {
+            font-size: 34px;
+            color: #da5454;
+        }
+    </style>
+</head>
