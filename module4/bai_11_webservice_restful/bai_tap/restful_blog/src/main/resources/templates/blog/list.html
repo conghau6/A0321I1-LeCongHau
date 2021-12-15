@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<center>
+    <div style="width: 60%">
+        <h2>Danh sách các bài viết</h2>
+        <form action="">
+            <input type="text" name="search" placeholder="Tìm bài viết">
+            <button type="submit">Tìm kiếm</button>
+        </form>
+        <p>
+            <a th:href="@{/blog/create}">Thêm mới bài viết</a>
+        </p>
+        <form action="">
+            <select th:name="category_filter" onchange="this.form.submit()">
+                <th:block th:each="cat : ${listCategory}">
+                    <option th:selected="${cat.id == category_filter}" th:value="${cat.id}" th:text="${cat.nameCategory}"></option>
+                </th:block>
+            </select>
+        </form>
+        <div class="blogs" th:each="bog : ${blogList}">
+            <h5>Thể loại: <span th:text="${bog.category.nameCategory}"></span></h5>
+            <h5 th:text="${bog.header}"></h5>
+            <p th:text="${bog.content}"></p>
+            <p>
+                Ngày tạo <span th:text="${bog.date}"></span>
+            </p>
+            <hr>
+        </div>
+        <a th:href="@{'/blog/'(page=${blogList.number - 1})}" th:if="${blogList.hasPrevious()}">Previous</a>
+        <span th:text="${blogList.number+1 + '/' + blogList.totalPages}"></span>
+        <a th:href="@{'/blog/'(page=${blogList.number + 1})}" th:if="${blogList.hasNext()}">Next</a>
+    </div>
+</center>
+</body>
+</body>
+</html>
