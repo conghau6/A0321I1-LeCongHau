@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <h1>All Smartphones</h1>
+    <a th:href="@{/phones/create}">Create</a>
+    <div id="sPhoneFromResponse"></div>
+    <table>
+        <thead>
+        <tr>
+            <th>Producer</th>
+            <th>Model</th>
+            <th>Price</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr th:each="phone : ${allPhones}">
+                <td th:text="${phone.producer}"></td>
+                <td th:text="${phone.model}"></td>
+                <td th:text="${phone.price}"></td>
+                <td>
+                    <a th:href="@{/phones/edit/__${phone.id}__}">Edit</a>
+                    <a th:href="@{/phones/delete/__${phone.id}__}">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+<script src="/js/jquery.js"></script>
+<script type="text/javascript">
+    var link = document.links;
+    for(let i=0; i<link.length; i++){
+        link[i].onclick = function (e) {
+            e.preventDefault();
+        }
+    }
+    $(document).ready(function () {
+        var deleteLink = $("a:contains('Delete')");
+        $(deleteLink).click(function (event) {
+            $.ajax({
+                url: $(event.target).attr("href"),
+                type: "POST",
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("Accept","application/json");
+                    xhr.setRequestHeader("Content-type","application/json");
+                },
+                success: function (smartphone) {
+                    var result = "";
+                    var rowDelete = $(event.target).closest("tr");
+                    rowDelete.remove();
+                    result += `
+                        <span class="success">
+                            Smartphone was deleted: [${smartphone.producer} : ${smartphone.model} : ${smartphone.price} ]
+                        </span>
+                    `;
+                    $("#sPhoneFromResponse").html(result);
+                }
+            })
+            event.preventDefault();
+        })
+    })
+</script>
+</html>
