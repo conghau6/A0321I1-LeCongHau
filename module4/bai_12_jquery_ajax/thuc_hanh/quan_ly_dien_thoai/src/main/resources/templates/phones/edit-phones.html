@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <h1>Create new smart phone</h1>
+    <div id="sPhoneFromResponse"></div>
+</div>
+<form action="" th:object="${sPhone}" id="newSmartPhone">
+    <table>
+        <tbody>
+        <tr>
+            <td>Producer:</td>
+            <td>
+                <select name="" id="producer" th:field="*{producer}">
+                    <option value="NOKIA">NOKIA</option>
+                    <option value="IPHONE">iPhone</option>
+                    <option value="HTC">HTC</option>
+                    <option value="SAMSUNG">SAMSUNG</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Model:</td>
+            <td><input type="text" th:field="*{model}"></td>
+        </tr>
+        <tr>
+            <td>Price:</td>
+            <td><input type="text" th:field="*{price}"></td>
+        </tr>
+        <tr>
+            <td><button type="submit">Edit</button></td>
+            <td></td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+<a th:href="@{/phones/}">List</a>
+</body>
+<script src="/js/jquery.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#newSmartPhone').submit(function (event) {
+            var producer = $('#producer').val();
+            var model = $('#model').val();
+            var price = $('#price').val();
+            var json = {"producer":producer, "model" : model, "price": price};
+            $.ajax({
+                url: $("#editSmartphoneForm").attr("action"),
+                type : "POST",
+                data : JSON.stringify(json),
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("Accept", "application/json");
+                    xhr.setRequestHeader("Content-Type", "application/json");
+                },
+                success: function (smartphone) {
+                    var result = "";
+                    result += `
+                        <span class="success">
+                            Smartphone was updated: [${smartphone.producer} : ${smartphone.model} : ${smartphone.price} ]
+                        </span>
+                    `;
+                    $("#sPhoneFromResponse").html(result);
+                }
+            });
+            event.preventDefault();
+        })
+    })
+</script>
+</html>

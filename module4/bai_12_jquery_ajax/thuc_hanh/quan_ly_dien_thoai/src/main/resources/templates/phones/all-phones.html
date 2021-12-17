@@ -37,6 +37,7 @@
     var link = document.links;
     for(let i=0; i<link.length; i++){
         link[i].onclick = function (e) {
+            if(e.target.href.contains('Delete'))
             e.preventDefault();
         }
     }

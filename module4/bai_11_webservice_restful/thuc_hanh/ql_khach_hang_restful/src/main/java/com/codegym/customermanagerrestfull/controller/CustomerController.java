@@ -58,11 +58,11 @@ public class CustomerController {
             return new ResponseEntity<Customer>(HttpStatus.NOT_FOUND);
         }
 
-        currentCustomer.setId(customer.getId());
-        currentCustomer.setFirstName(customer.getFirstName());
-        currentCustomer.setLastName(customer.getLastName());
+//        currentCustomer.setId(customer.getId());
+//        currentCustomer.setFirstName(customer.getFirstName());
+//        currentCustomer.setLastName(customer.getLastName());
 
-        customerService.save(currentCustomer);
+        customerService.save(customer);
         return new ResponseEntity<Customer>(currentCustomer, HttpStatus.OK);
     }
 

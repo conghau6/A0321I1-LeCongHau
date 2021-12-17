@@ -47,4 +47,17 @@ public class SmartPhoneController {
         return smartPhoneService.remove(id);
     }
 
+    @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
+    public ModelAndView editSmartPhonePage(@PathVariable("id") Integer id){
+        return new ModelAndView("phones/edit-phones","sPhone",smartPhoneService.findById(id));
+    }
+
+    @RequestMapping(value = "/edit/{id}", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE
+            ,consumes = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public SmartPhone editSmartPhone(@PathVariable("id") Integer id, @RequestBody SmartPhone smartPhone){
+        smartPhone.setId(id);
+        return smartPhoneService.save(smartPhone);
+    }
+
 }
