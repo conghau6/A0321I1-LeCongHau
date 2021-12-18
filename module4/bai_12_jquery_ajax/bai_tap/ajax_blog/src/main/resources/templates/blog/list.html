@@ -36,14 +36,16 @@
             </div>
         </div>
         <span id="pagination">
-            <a th:href="@{'/blog/'(page=${blogList.number - 1})}" th:if="${blogList.hasPrevious()}">Previous</a>
-            <span th:text="${blogList.number+1 + '/' + blogList.totalPages}"></span>
-            <a th:href="@{'/blog/'(page=${blogList.number + 1})}" th:if="${blogList.hasNext()}">Next</a>
+            <button onclick="load()">Tải thêm</button>
+<!--            <a th:href="@{'/blog/'(page=${blogList.number - 1})}" th:if="${blogList.hasPrevious()}">Previous</a>-->
+<!--            <span th:text="${blogList.number+1 + '/' + blogList.totalPages}"></span>-->
+<!--            <a th:href="@{'/blog/'(page=${blogList.number + 1})}" th:if="${blogList.hasNext()}">Next</a>-->
         </span>
     </div>
 </center>
 <script src="/js/jquery.js"></script>
 <script src="/js/search.js"></script>
+<script src="/js/load.js"></script>
 </body>
 </body>
 </html>
