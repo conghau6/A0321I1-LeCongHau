@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragment/head"></head>
+<body>
+<header th:replace="fragment/header"></header>
+<nav th:replace="fragment/sidebar"></nav>
+<main>
+    <div class="table-wrap">
+        <h3>Customers</h3>
+        <table>
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Birthday</th>
+                    <th>Gender</th>
+                    <th>Id Card</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Type</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <th:block th:each="c : ${customerList}">
+                    <tr>
+                        <td th:text="${c.customerId}"></td>
+                        <td>
+                            <a href="" th:text="${c.customerName}">Lê Công Hậu</a>
+                        </td>
+                        <td th:text="${c.customerBirthday}"></td>
+                        <td th:text="${c.customerGender}">Nam</td>
+                        <td th:text="${c.customerIdCard}">099494993</td>
+                        <td th:text="${c.customerPhone}">099494996</td>
+                        <td th:text="${c.customerEmail}">hau@gmail.com</td>
+                        <td th:text="${c.customerAddress}">Quảng Nam</td>
+                        <td th:text="${c.customerType.customerTypeName}">Bạch kim</td>
+                        <td>
+                            <a href="">
+                                <i class='bx bx-pencil table__icon edit-icon'></i>
+                            </a>
+                            <a href="">
+                                <i class='bx bx-trash table__icon delete-icon'></i>
+                            </a>
+                        </td>
+                    </tr>
+                </th:block>
+                </tbody>
+            </table>
+        <div class="table-pagination">
+            <a th:href="@{'/customers/'(page=${customerList.number - 1})}" th:if="${customerList.hasPrevious()}"><i class='bx bx-chevron-left'></i></a>
+            <a th:href="@{'/customers/'(page=${customerList.number - 1})}" th:text="${customerList.number}" th:if="${customerList.number > 0}"></a>
+            <span class="active" th:text="${customerList.number + 1}"></span>
+            <a th:href="@{'/customers/'(page=${customerList.number + 1})}" th:text="${customerList.number + 2}" th:if="${customerList.number + 2 < customerList.totalPages}"></a>
+            <a th:href="@{'/customers/'(page=${customerList.number + 1})}" th:if="${customerList.hasNext()}"><i class='bx bx-chevron-right'></i></a>
+        </div>
+    </div>
+</main>
+</body>
+<script th:replace="fragment/js"></script>
+</html>

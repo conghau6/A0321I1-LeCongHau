@@ -175,13 +175,15 @@ img {
     text-transform: uppercase;
     letter-spacing: 0.1rem;
     color: var(--text-color-light);
+    padding: 12px 0;
 }
 
 .nav__link {
     display: flex;
     align-items: center;
     color: var(--text-color);
-    padding: 12px 0;
+    padding: 12px 8px;
+    border-radius: 10px;
 }
 
 .nav__link:hover {
@@ -206,7 +208,7 @@ img {
 /* Dropdown */
 .nav__dropdown {
     overflow: hidden;
-    max-height: 40px;
+    max-height: 45px;
     transition: 0s ease;
 }
 
@@ -252,8 +254,9 @@ img {
 }
 
 /* active link */
-.active {
-    color: var(--first-color);
+.nav__items .active {
+    color: var(--first-color-light);
+    background-color: var(--first-color);
 }
 
 .nav__modal {
@@ -338,7 +341,7 @@ img {
 
     .nav{
         left: 0;
-        padding: 1.2rem 1.5rem 3rem;
+        padding: 0 1.5rem;
         width: var(--nav-with);
     }
 
