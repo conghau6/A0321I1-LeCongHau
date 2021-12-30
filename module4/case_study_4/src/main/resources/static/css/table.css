@@ -25,6 +25,10 @@
 
 .table-wrap{
     position: relative;
+    overflow-x: scroll;
+}
+.table-wrap::-webkit-scrollbar {
+    display: none;
 }
 
 table {
@@ -103,4 +107,45 @@ table .edit-icon {
         display: inline-flex;
         padding: 0 8px;
     }
+}
+
+/* table action */
+.table__action-wrap {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.table__action button {
+    display: inline-flex;
+    align-items: center;
+    justify-content:center;
+    outline: none;
+    border: none;
+    padding: 4px 16px;
+    width: 128px;
+    border-radius: 5px;
+    border: 1px solid var(--first-color);
+    background-color: var(--first-color-light);
+}
+
+.table__action button.button-add {
+    color: var(--clr-link);
+}
+
+.table__action button.button-remove {
+    color: var(--clr-unpaid-font);
+}
+
+.table__action a {
+    display: inline-block;
+}
+
+.table__action a:first-child {
+    margin-right: 4px;
+}
+
+.table__action a:last-child {
+    margin-left: 4px;
 }

@@ -6,7 +6,15 @@
 <nav th:replace="fragment/sidebar"></nav>
 <main>
     <div class="table-wrap">
-        <h3>Customers</h3>
+        <div class="table__action-wrap">
+            <div class="table__name">
+                <h3>Customers</h3>
+            </div>
+            <div class="table__action">
+                <a href=""><button class="button-add"><i class='bx bx-plus add-icon'></i><span>Add new</span></button></a>
+                <a href=""><button class="button-remove"><i class='bx bx-trash-alt trash-icon'></i><span>Delete</span></button></a>
+            </div>
+        </div>
         <table>
                 <thead>
                 <tr>
