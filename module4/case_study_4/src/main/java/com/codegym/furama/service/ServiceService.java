@@ -1,8 +1,10 @@
 package com.codegym.furama.service;
 
-import com.codegym.furama.model.RentType;
-import com.codegym.furama.model.ServiceType;
-import com.codegym.furama.repositories.IServiceRepositories;
+import com.codegym.furama.entity.RentType;
+import com.codegym.furama.entity.ServiceType;
+import com.codegym.furama.repositories.service.IRentTypeRepositories;
+import com.codegym.furama.repositories.service.IServiceRepositories;
+import com.codegym.furama.repositories.service.IServiceTypeRepositories;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -16,28 +18,34 @@ public class ServiceService implements IServiceService {
     @Autowired
     IServiceRepositories serviceRepositories;
 
+    @Autowired
+    IServiceTypeRepositories serviceTypeRepositories;
+
+    @Autowired
+    IRentTypeRepositories rentTypeRepositories;
+
     @Override
-    public List<com.codegym.furama.model.Service> findAll() {
+    public List<com.codegym.furama.entity.Service> findAll() {
         return serviceRepositories.findAll();
     }
 
     @Override
-    public Page<com.codegym.furama.model.Service> findAll(Pageable pageable) {
+    public Page<com.codegym.furama.entity.Service> findAll(Pageable pageable) {
         return serviceRepositories.findAll(pageable);
     }
 
     @Override
-    public com.codegym.furama.model.Service save(com.codegym.furama.model.Service service) {
+    public com.codegym.furama.entity.Service save(com.codegym.furama.entity.Service service) {
         return serviceRepositories.save(service);
     }
 
     @Override
-    public List<ServiceType> getServiceTypes() {
-        return serviceRepositories.getServiceTypes();
+    public List<RentType> findAllRentType() {
+        return rentTypeRepositories.findAll();
     }
 
     @Override
-    public List<RentType> getRentTypes() {
-        return serviceRepositories.getRentTypes();
+    public List<ServiceType> findAllServiceType() {
+        return serviceTypeRepositories.findAll();
     }
 }

@@ -1,6 +1,6 @@
-package com.codegym.furama.repositories;
+package com.codegym.furama.repositories.customer;
 
-import com.codegym.furama.model.Customer;
+import com.codegym.furama.entity.Customer;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

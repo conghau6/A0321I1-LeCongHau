@@ -1,8 +1,8 @@
 package com.codegym.furama.controller;
 
-import com.codegym.furama.model.RentType;
-import com.codegym.furama.model.Service;
-import com.codegym.furama.model.ServiceType;
+import com.codegym.furama.entity.RentType;
+import com.codegym.furama.entity.Service;
+import com.codegym.furama.entity.ServiceType;
 import com.codegym.furama.service.IServiceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,12 +23,12 @@ public class ServiceController {
 
     @ModelAttribute("serviceTypes")
     public List<ServiceType> serviceTypes(){
-        return serviceService.getServiceTypes();
+        return serviceService.findAllServiceType();
     }
 
     @ModelAttribute("rentTypes")
     public List<RentType> rentTypes(){
-        return serviceService.getRentTypes();
+        return serviceService.findAllRentType();
     }
 
     @GetMapping("")

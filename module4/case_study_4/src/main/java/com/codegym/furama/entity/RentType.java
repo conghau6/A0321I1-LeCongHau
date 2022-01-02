@@ -1,4 +1,4 @@
-package com.codegym.furama.model;
+package com.codegym.furama.entity;
 
 import javax.persistence.*;
 import java.util.Set;

@@ -1,10 +1,9 @@
 package com.codegym.furama.controller;
 
-import com.codegym.furama.model.Customer;
-import com.codegym.furama.model.CustomerType;
-import com.codegym.furama.repositories.ICustomerType;
+import com.codegym.furama.entity.Customer;
+import com.codegym.furama.entity.CustomerType;
+import com.codegym.furama.repositories.customer.ICustomerType;
 import com.codegym.furama.service.CustomerService;
-import com.codegym.furama.service.ICustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;

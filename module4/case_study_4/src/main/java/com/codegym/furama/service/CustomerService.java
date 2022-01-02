@@ -1,7 +1,7 @@
 package com.codegym.furama.service;
 
-import com.codegym.furama.model.Customer;
-import com.codegym.furama.repositories.ICustomerRepositories;
+import com.codegym.furama.entity.Customer;
+import com.codegym.furama.repositories.customer.ICustomerRepositories;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
