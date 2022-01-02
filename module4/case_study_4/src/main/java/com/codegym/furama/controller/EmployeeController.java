@@ -1,7 +1,9 @@
 package com.codegym.furama.controller;
 
 import com.codegym.furama.entity.*;
+import com.codegym.furama.repositories.employee.IUserRepositories;
 import com.codegym.furama.service.IEmployeeService;
+import com.codegym.furama.ultil.EmployeeCreate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -18,6 +20,9 @@ import java.util.Optional;
 public class EmployeeController {
     @Autowired
     IEmployeeService employeeService;
+
+    @Autowired
+    IUserRepositories userRepositories;
 
     @ModelAttribute("url")
     public String url(){
@@ -50,12 +55,17 @@ public class EmployeeController {
 
     @GetMapping("/create")
     public ModelAndView showFormCreate(){
-        return new ModelAndView("employee/create","employee",new Customer());
+        return new ModelAndView("employee/create","employeeCreate",new EmployeeCreate());
     }
 
     @PostMapping("/create")
-    public String create(@ModelAttribute("employee") Employee employee){
+    public String create(@ModelAttribute("employeeCreate") EmployeeCreate e){
+        Employee employee = new Employee(e.getEmployeeName(), e.getEmployeeBirthday(), e.getEmployeeIdCard(),e.getEmployeeSalary(), e.getEmployeePhone(), e.getEmployeeEmail(),
+                e.getEmployeeAddress() ,new Position(e.getPositionId()),new EducationDegree(e.getDegreeId()), new Division(e.getDivisionId()), new User(e.getUsername()));
+        User user = new User(e.getUsername(), e.getPassword());
+        userRepositories.save(user);
         employeeService.save(employee);
+
         return "redirect:/employees/";
     }
 

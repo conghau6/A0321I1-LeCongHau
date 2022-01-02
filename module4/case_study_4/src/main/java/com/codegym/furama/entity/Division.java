@@ -18,6 +18,10 @@ public class Division {
     public Division() {
     }
 
+    public Division(Integer divisionId) {
+        this.divisionId = divisionId;
+    }
+
     public Division(String divisionName) {
         this.divisionName = divisionName;
     }

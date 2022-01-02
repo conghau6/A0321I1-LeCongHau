@@ -18,6 +18,10 @@ public class EducationDegree {
     public EducationDegree() {
     }
 
+    public EducationDegree(Integer educationDegreeId) {
+        this.educationDegreeId = educationDegreeId;
+    }
+
     public EducationDegree(String educationDegreeName) {
         this.educationDegreeName = educationDegreeName;
     }

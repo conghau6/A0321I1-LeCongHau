@@ -18,6 +18,10 @@ public class Position {
     public Position() {
     }
 
+    public Position(Integer positionId) {
+        this.positionId = positionId;
+    }
+
     public Position(String positionName) {
         this.positionName = positionName;
     }
