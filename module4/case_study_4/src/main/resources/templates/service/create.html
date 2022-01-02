@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragment/head"></head>
+<body>
+<header th:replace="fragment/header"></header>
+<nav th:replace="fragment/sidebar"></nav>
+<main>
+    <h3>Add new Service</h3>
+    <form th:action="@{/customers/create}" class="form" method="post" th:object="${service}">
+        <div class="input-box">
+            <span>Service name</span>
+            <input type="text" th:field="*{serviceName}">
+        </div>
+        <div class="input-box">
+            <span>Area</span>
+            <input type="text" th:field="*{serviceArea}">
+        </div>
+        <div class="input-box">
+            <span>Cost</span>
+            <input type="text" th:field="*{serviceCost}">
+        </div>
+        <div class="input-box">
+            <span>Max people</span>
+            <input type="text" th:field="*{serviceMaxPeople}">
+        </div>
+        <div class="input-box">
+            <span>Rent type</span>
+            <select th:field="*{rentType}">
+                <th:block th:each="r : ${rentTypes}">
+                    <option th:value="${r.rentTypeId}" th:text="${r.rentTypeName}"></option>
+                </th:block>
+            </select>
+        </div>
+        <div class="input-box">
+            <span>Service type</span>
+            <select th:field="*{serviceType}">
+                <th:block th:each="s : ${serviceTypes}">
+                    <option th:value="${s.serviceTypeId}" th:text="${s.serviceTypeName}"></option>
+                </th:block>
+            </select>
+        </div>
+        <div class="input-box">
+            <span>Standard Room</span>
+            <input type="text" th:field="*{standardRoom}">
+        </div>
+        <div class="input-box">
+            <span>Description</span>
+            <input type="text" th:field="*{descriptionOtherConvenient}">
+        </div>
+        <div class="input-box">
+            <span>Pool area</span>
+            <input type="text" th:field="*{poolArea}">
+        </div>
+        <div class="input-box">
+            <span>Number floor</span>
+            <input type="text" th:field="*{numberOfFloor}">
+        </div>
+        <div class="input-box form-action">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+</main>
+</body>
+<script th:replace="fragment/js"></script>
+<script th:replace="~{customer/list::active-link}"></script>
+</html>

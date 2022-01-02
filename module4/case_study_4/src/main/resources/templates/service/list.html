@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragment/head"></head>
+<body>
+<header th:replace="fragment/header"></header>
+<nav th:replace="fragment/sidebar"></nav>
+<main>
+    <div class="table-wrap">
+        <div class="table__action-wrap">
+            <div class="table__name">
+                <h3>Service</h3>
+            </div>
+            <div class="table__action">
+                <a th:href="@{/service/create}"><button class="button-add"><i class='bx bx-plus add-icon'></i><span>Add new</span></button></a>
+                <a th:href="@{/service/delete}"><button class="button-remove"><i class='bx bx-trash-alt trash-icon'></i><span>Delete</span></button></a>
+            </div>
+        </div>
+        <table>
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Service name</th>
+                <th>Area</th>
+                <th>Cost</th>
+                <th>Max people</th>
+                <th>Rent type</th>
+                <th>Service type</th>
+                <th>Standard room</th>
+                <th>Description</th>
+                <th>Pool area</th>
+            </tr>
+            </thead>
+            <tbody>
+            <th:block th:each="s : ${serviceList}">
+                <tr>
+                    <td th:text="${s.serviceId}"></td>
+                    <td>
+                        <a href="" th:text="${s.serviceName}">Lê Công Hậu</a>
+                    </td>
+                    <td th:text="${s.serviceArea}"></td>
+                    <td th:text="${s.serviceCost}"></td>
+                    <td th:text="${s.serviceMaxPeople}"></td>
+                    <td th:text="${s.rentType.rentTypeName}"></td>
+                    <td th:text="${s.serviceType.serviceTypeName}"></td>
+                    <td th:text="${s.standardRoom}"></td>
+                    <td th:text="${s.descriptionOtherConvenient}"></td>
+                    <td th:text="${s.poolArea}"></td>
+                </tr>
+            </th:block>
+            </tbody>
+        </table>
+    </div>
+</main>
+</body>
+<script th:replace="fragment/js"></script>
+<script th:fragment="active-link">document.getElementsByClassName('nav__link')[3].classList.add('active');</script>
+<script>
+    function deleteCustomer(id,name) {
+        document.getElementById('nameCustomer').innerText = id;
+        document.getElementById('idCustomer').innerText = name;
+        var urlDelete = `/customers/delete/${id}`;
+        document.getElementById('link-delete').href = urlDelete;
+        console.log(id + " " + name)
+    }
+</script>
+</html>

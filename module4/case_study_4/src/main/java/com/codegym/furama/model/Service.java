@@ -7,6 +7,7 @@ public class Service {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer serviceId;
+    private String serviceName;
     private Integer serviceArea;
     private Double serviceCost;
     private Integer serviceMaxPeople;
@@ -32,6 +33,14 @@ public class Service {
 
     public void setServiceId(Integer serviceId) {
         this.serviceId = serviceId;
+    }
+
+    public String getServiceName() {
+        return serviceName;
+    }
+
+    public void setServiceName(String serviceName) {
+        this.serviceName = serviceName;
     }
 
     public Integer getServiceArea() {

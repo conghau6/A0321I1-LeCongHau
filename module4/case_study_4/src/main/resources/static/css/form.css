@@ -1,0 +1,48 @@
+main form {
+    padding: 20px 50px;
+    width: 600px;
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 10px;
+    box-shadow: 0 1px 16px #ced4e0;
+}
+
+main form .input-box span {
+    display: block;
+}
+
+main form .input-box input,
+main form .input-box select {
+    border: 1px solid var(--first-color);
+    border-radius: 8px;
+    outline: none;
+    padding: 8px;
+    width: 90%;
+    font-size: 1rem;
+}
+
+main form .input-box {
+    width: 50%;
+    padding: 10px;
+    flex-direction: column;
+}
+
+main form .form-action {
+    width: 100%;
+}
+
+@media screen and (max-width: 767px) {
+    main form {
+        width: 400px;
+        flex-direction: column;
+    }
+
+    main form .input-box {
+        width: 100%;
+    }
+
+    main form .input-box input,
+    main form .input-box select {
+        width: 100%;
+    }
+}

@@ -16,4 +16,6 @@ public interface ICustomerService {
     void save(Customer customer);
 
     void remove(Integer id);
+
+    Page<Customer> findCustomerByCustomerName(String customerName, Pageable pageable);
 }
