@@ -6,7 +6,8 @@
 <nav th:replace="fragment/sidebar"></nav>
 <main>
     <h3>Edit new customer</h3>
-    <form th:action="@{/employees/create}" class="form" method="post" th:object="${employeeCreate}">
+    <form th:action="@{/employees/edit}" class="form" method="post" th:object="${employeeCreate}">
+        <input type="hidden" th:field="*{employeeId}">
         <div class="input-box">
             <span>Name</span>
             <input type="text" th:field="*{employeeName}">
@@ -61,14 +62,14 @@
         </div>
         <div class="input-box">
             <span>Username</span>
-            <input type="text" th:field="*{username}">
+            <input type="text" th:readonly="*{username!=null}" th:field="*{username}">
         </div>
         <div class="input-box">
             <span>Password</span>
             <input type="text" th:field="*{password}">
         </div>
         <div class="input-box form-action">
-            <button type="submit" class="btn btn-primary">Create</button>
+            <button type="submit" class="btn btn-primary">Edit</button>
         </div>
     </form>
 </main>

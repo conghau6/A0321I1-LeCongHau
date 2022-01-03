@@ -1,6 +1,11 @@
 package com.codegym.furama.entity;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 import java.util.Set;
 
 @Entity
@@ -8,12 +13,27 @@ public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer customerId;
+
+    @NotBlank(message = "not blank")
     private String customerName;
+
+    @DateTimeFormat(pattern = "dd/mm/yyyy")
     private String customerBirthday;
+
+    @NotBlank(message = "not blank")
     private String customerGender;
+
+    @Pattern(regexp = "([0-9]{9})|([0-9]{12})", message = "12 numbers of 9 numbers")
     private String customerIdCard;
+
+    @Pattern(regexp = "^((090|091|\\(84\\)\\+(90|91))\\d{6}$)", message = "phone invalid")
     private String customerPhone;
+
+    @Email(message = "email invalid")
+    @NotBlank(message = "not blank")
     private String customerEmail;
+
+    @NotBlank(message = "not blank")
     private String customerAddress;
 
     @ManyToOne

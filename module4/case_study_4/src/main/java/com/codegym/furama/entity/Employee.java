@@ -1,6 +1,10 @@
 package com.codegym.furama.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 import java.util.Set;
 
 @Entity
@@ -8,13 +12,27 @@ public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer employeeId;
+
+    @NotBlank(message = "not blank")
     private String employeeName;
     private String employeeBirthday;
+
+    @Pattern(regexp = "^([0-9]{9})|([0-9]{12})", message = "12 numbers of 9 numbers")
     private String employeeIdCard;
+
+    @Min(value = 0, message = "salary > 0")
     private Double employeeSalary;
+
+    @Pattern(regexp = "^((090|091|\\(84\\)\\+(90|91))\\d{6}$)", message = "phone invalid")
     private String employeePhone;
+
+    @Email(message = "email invalid")
+    @NotBlank(message = "not blank")
     private String employeeEmail;
+
+    @NotBlank(message = "not blank")
     private String employeeAddress;
+
     @ManyToOne
     @JoinColumn (name = "positon_id")
     private Position position;
@@ -27,9 +45,9 @@ public class Employee {
     @JoinColumn(name = "division_id")
     private Division division;
 
-    @OneToOne
-    @JoinColumn(name = "username")
-    private User username;
+    @OneToOne(cascade = CascadeType.REMOVE)
+    @JoinColumn(name = "username", referencedColumnName = "username")
+    private User user;
 
     @OneToMany(mappedBy = "employee",cascade = CascadeType.ALL)
     private Set<Contract> contract;
@@ -37,7 +55,8 @@ public class Employee {
     public Employee() {
     }
 
-    public Employee(String employeeName, String employeeBirthday, String employeeIdCard, Double employeeSalary, String employeePhone, String employeeEmail, String employeeAddress, Position position, EducationDegree educationDegree, Division division, User username) {
+    public Employee(Integer employeeId, String employeeName, String employeeBirthday, String employeeIdCard, Double employeeSalary, String employeePhone, String employeeEmail, String employeeAddress, Position position, EducationDegree educationDegree, Division division, User user) {
+        this.employeeId = employeeId;
         this.employeeName = employeeName;
         this.employeeBirthday = employeeBirthday;
         this.employeeIdCard = employeeIdCard;
@@ -48,7 +67,21 @@ public class Employee {
         this.position = position;
         this.educationDegree = educationDegree;
         this.division = division;
-        this.username = username;
+        this.user = user;
+    }
+
+    public Employee(String employeeName, String employeeBirthday, String employeeIdCard, Double employeeSalary, String employeePhone, String employeeEmail, String employeeAddress, Position position, EducationDegree educationDegree, Division division, User user) {
+        this.employeeName = employeeName;
+        this.employeeBirthday = employeeBirthday;
+        this.employeeIdCard = employeeIdCard;
+        this.employeeSalary = employeeSalary;
+        this.employeePhone = employeePhone;
+        this.employeeEmail = employeeEmail;
+        this.employeeAddress = employeeAddress;
+        this.position = position;
+        this.educationDegree = educationDegree;
+        this.division = division;
+        this.user = user;
     }
 
     public Integer getEmployeeId() {
@@ -139,12 +172,12 @@ public class Employee {
         this.division = divisionId;
     }
 
-    public User getUsername() {
-        return username;
+    public User getUser() {
+        return user;
     }
 
-    public void setUsername(User username) {
-        this.username = username;
+    public void setUser(User username) {
+        this.user = username;
     }
 
     public Set<Contract> getContract() {

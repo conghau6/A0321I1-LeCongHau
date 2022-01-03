@@ -9,6 +9,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -59,11 +61,13 @@ public class EmployeeController {
     }
 
     @PostMapping("/create")
-    public String create(@ModelAttribute("employeeCreate") EmployeeCreate e){
+    public String create(@Validated @ModelAttribute("employeeCreate") EmployeeCreate e, BindingResult bindingResult){
+        if(bindingResult.hasFieldErrors()) {
+            return "employee/create";
+        }
         Employee employee = new Employee(e.getEmployeeName(), e.getEmployeeBirthday(), e.getEmployeeIdCard(),e.getEmployeeSalary(), e.getEmployeePhone(), e.getEmployeeEmail(),
                 e.getEmployeeAddress() ,new Position(e.getPositionId()),new EducationDegree(e.getDegreeId()), new Division(e.getDivisionId()), new User(e.getUsername()));
-        User user = new User(e.getUsername(), e.getPassword());
-        userRepositories.save(user);
+        employee.getUser().setPassword(e.getPassword());
         employeeService.save(employee);
 
         return "redirect:/employees/";
@@ -72,14 +76,21 @@ public class EmployeeController {
     @GetMapping("/edit/{id}")
     public String showFormEdit(@PathVariable("id") Integer id, Model model){
         Employee employee = employeeService.findById(id);
-        model.addAttribute("employee", employee);
+        EmployeeCreate employeeCreate = new EmployeeCreate(employee);
+        model.addAttribute("employeeCreate", employeeCreate);
         return "employee/edit";
     }
 
     @PostMapping("/edit")
-    public String edit(@ModelAttribute("employee") Employee employee){
+    public String edit(@ModelAttribute("employeeCreate") EmployeeCreate e){
+        Employee employee = new Employee(e.getEmployeeId(), e.getEmployeeName(), e.getEmployeeBirthday(), e.getEmployeeIdCard(),e.getEmployeeSalary(), e.getEmployeePhone(), e.getEmployeeEmail(),
+                e.getEmployeeAddress() ,new Position(e.getPositionId()),new EducationDegree(e.getDegreeId()), new Division(e.getDivisionId()), new User(e.getUsername()));
+        User user = new User(e.getUsername(), e.getPassword());
+
+        userRepositories.save(user);
         employeeService.save(employee);
-        return "employee/edit";
+
+        return "redirect:/employees/";
     }
 
     @GetMapping("/delete/{id}")

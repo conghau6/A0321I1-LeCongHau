@@ -31,6 +31,10 @@ main form .form-action {
     width: 100%;
 }
 
+main form .input-box small {
+    display: inline-block;
+    color: red;
+}
 @media screen and (max-width: 767px) {
     main form {
         width: 400px;

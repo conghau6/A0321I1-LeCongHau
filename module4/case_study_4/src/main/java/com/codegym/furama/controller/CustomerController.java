@@ -4,11 +4,14 @@ import com.codegym.furama.entity.Customer;
 import com.codegym.furama.entity.CustomerType;
 import com.codegym.furama.repositories.customer.ICustomerType;
 import com.codegym.furama.service.CustomerService;
+import com.codegym.furama.validator.DateFormatter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -50,7 +53,11 @@ public class CustomerController {
     }
 
     @PostMapping("/create")
-    public String create(@ModelAttribute("customer") Customer customer){
+    public String create(@Validated @ModelAttribute("customer") Customer customer, BindingResult bindingResult, Model model){
+        if(bindingResult.hasFieldErrors()){
+            model.addAttribute("customer", customer);
+            return "customer/create";
+        }
        customerService.save(customer);
        return "redirect:/customers/";
     }

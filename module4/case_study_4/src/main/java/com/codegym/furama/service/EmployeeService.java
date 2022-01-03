@@ -1,19 +1,15 @@
 package com.codegym.furama.service;
 
-import com.codegym.furama.entity.Division;
-import com.codegym.furama.entity.EducationDegree;
-import com.codegym.furama.entity.Employee;
-import com.codegym.furama.entity.Position;
-import com.codegym.furama.repositories.employee.IDivisionRepositories;
-import com.codegym.furama.repositories.employee.IEducationDegreeRepositories;
-import com.codegym.furama.repositories.employee.IEmployeeRepositories;
-import com.codegym.furama.repositories.employee.IPositionRepositories;
+import com.codegym.furama.entity.*;
+import com.codegym.furama.repositories.employee.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class EmployeeService implements IEmployeeService {
@@ -29,6 +25,12 @@ public class EmployeeService implements IEmployeeService {
 
     @Autowired
     IPositionRepositories positionRepositories;
+
+    @Autowired
+    IUserRepositories userRepositories;
+
+    @Autowired
+    IRoleRepositories roleRepositories;
 
     @Override
     public List<Employee> findAll() {
@@ -47,6 +49,15 @@ public class EmployeeService implements IEmployeeService {
 
     @Override
     public void save(Employee employee) {
+        User user = new User(employee.getUser().getUsername(), employee.getUser().getPassword());
+        int roleId = employee.getPosition().getPositionId();
+        if(roleId == 5){
+            Role roleManager = new Role("ROLE_MANAGER");
+            Set<Role> roleSet = new HashSet<>();
+            roleSet.add(roleManager);
+            user.setRoles(roleSet);
+            userRepositories.save(user);
+        }
         employeeRepositories.save(employee);
     }
 

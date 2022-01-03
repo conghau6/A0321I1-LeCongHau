@@ -1,5 +1,8 @@
 package com.codegym.furama.ultil;
 
+import com.codegym.furama.entity.Employee;
+import com.codegym.furama.entity.User;
+
 public class EmployeeCreate {
     private Integer employeeId;
     private String employeeName;
@@ -14,6 +17,8 @@ public class EmployeeCreate {
     private Integer divisionId;
     private String username;
     private String password;
+
+    private Employee employee;
 
     public EmployeeCreate() {
     }
@@ -32,6 +37,37 @@ public class EmployeeCreate {
         this.divisionId = divisionId;
         this.username = username;
         this.password = password;
+    }
+
+    public EmployeeCreate(String employeeName, String employeeBirthday, String employeeIdCard, Double employeeSalary, String employeePhone, String employeeEmail, String employeeAddress, Integer positionId, Integer degreeId, Integer divisionId, String username, String password) {
+        this.employeeName = employeeName;
+        this.employeeBirthday = employeeBirthday;
+        this.employeeIdCard = employeeIdCard;
+        this.employeeSalary = employeeSalary;
+        this.employeePhone = employeePhone;
+        this.employeeEmail = employeeEmail;
+        this.employeeAddress = employeeAddress;
+        this.positionId = positionId;
+        this.degreeId = degreeId;
+        this.divisionId = divisionId;
+        this.username = username;
+        this.password = password;
+    }
+
+    public EmployeeCreate(Employee e){
+        this.employeeId = e.getEmployeeId();
+        this.employeeName = e.getEmployeeName();
+        this.employeeBirthday = e.getEmployeeBirthday();
+        this.employeeIdCard = e.getEmployeeIdCard();
+        this.employeeSalary = e.getEmployeeSalary();
+        this.employeePhone = e.getEmployeePhone();
+        this.employeeEmail = e.getEmployeeEmail();
+        this.employeeAddress = e.getEmployeeAddress();
+        this.positionId = e.getPosition().getPositionId();
+        this.degreeId = e.getEducationDegree().getEducationDegreeId();
+        this.divisionId = e.getDivision().getDivisionId();
+        this.username = e.getUser().getUsername();
+        this.password = e.getUser().getPassword();
     }
 
     public Integer getEmployeeId() {
@@ -137,4 +173,13 @@ public class EmployeeCreate {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
+
 }

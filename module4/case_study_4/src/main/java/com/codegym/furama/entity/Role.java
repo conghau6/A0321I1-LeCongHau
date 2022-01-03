@@ -10,11 +10,12 @@ public class Role {
     private Integer roleId;
     private String roleName;
 
-    @ManyToMany(mappedBy = "roles")
+    @ManyToMany(mappedBy = "roles",cascade = CascadeType.ALL)
     private Set<User> users;
 
     public Role() {
     }
+
 
     public Role(String roleName) {
         this.roleName = roleName;

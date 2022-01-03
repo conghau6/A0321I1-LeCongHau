@@ -10,6 +10,7 @@
     <div class="input-box">
         <span>Name</span>
         <input type="text" th:field="*{employeeName}">
+        <small th:if="${#fields.hasErrors('employeeName')}" th:errors="*{employeeName}"></small>
     </div>
     <div class="input-box">
         <span>Birthday</span>
@@ -18,22 +19,27 @@
     <div class="input-box">
         <span>Idcard</span>
         <input type="text" th:field="*{employeeIdCard}">
+        <small th:if="${#fields.hasErrors('employeeIdCard')}" th:errors="*{employeeIdCard}"></small>
     </div>
     <div class="input-box">
         <span>Salary</span>
         <input type="text" th:field="*{employeeSalary}">
+        <small th:if="${#fields.hasErrors('employeeSalary')}" th:errors="*{employeeSalary}"></small>
     </div>
     <div class="input-box">
         <span>Phone</span>
         <input type="text" th:field="*{employeePhone}">
+        <small th:if="${#fields.hasErrors('employeePhone')}" th:errors="*{employeePhone}"></small>
     </div>
     <div class="input-box">
         <span>Email</span>
         <input type="text" th:field="*{employeeEmail}">
+        <small th:if="${#fields.hasErrors('employeeEmail')}" th:errors="*{employeeEmail}"></small>
     </div>
     <div class="input-box">
         <span>Address</span>
         <input type="text" th:field="*{employeeAddress}">
+        <small th:if="${#fields.hasErrors('employeeAddress')}" th:errors="*{employeeAddress}"></small>
     </div>
     <div class="input-box">
         <span>Position</span>

@@ -2,6 +2,7 @@ package com.codegym.furama.service;
 
 import com.codegym.furama.entity.Customer;
 import com.codegym.furama.repositories.customer.ICustomerRepositories;
+import com.codegym.furama.validator.DateFormatter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -31,6 +32,7 @@ public class CustomerService implements ICustomerService {
 
     @Override
     public void save(Customer customer) {
+//        customer.setCustomerBirthday(DateFormatter.dateFormat(customer.getCustomerBirthday()));
         customerRepositories.save(customer);
     }
 

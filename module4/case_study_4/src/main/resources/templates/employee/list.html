@@ -29,6 +29,7 @@
                     <th>Position</th>
                     <th>Degree</th>
                     <th>Division</th>
+                    <th>Username</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -48,8 +49,9 @@
                         <td th:text="${e.position.positionName}">Bạch kim</td>
                         <td th:text="${e.educationDegree.educationDegreeName}">Bạch kim</td>
                         <td th:text="${e.division.divisionName}">Bạch kim</td>
+                        <td th:text="${e.user.username}"></td>
                         <td>
-                            <a th:href="@{/customers/edit/__${e.employeeId}__}">
+                            <a th:href="@{/employees/edit/__${e.employeeId}__}">
                                 <i class='bx bx-pencil table__icon edit-icon'></i>
                             </a>
                             <span th:onclick="'javascript:deleteEmployee(\''+${e.employeeId}+'\');'" data-toggle="modal" data-target="#exampleModal">
