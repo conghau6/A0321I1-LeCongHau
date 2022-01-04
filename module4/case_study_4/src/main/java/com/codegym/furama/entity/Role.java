@@ -1,6 +1,7 @@
 package com.codegym.furama.entity;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -16,6 +17,10 @@ public class Role {
     public Role() {
     }
 
+    public Role(Integer roleId, String roleName) {
+        this.roleId = roleId;
+        this.roleName = roleName;
+    }
 
     public Role(String roleName) {
         this.roleName = roleName;

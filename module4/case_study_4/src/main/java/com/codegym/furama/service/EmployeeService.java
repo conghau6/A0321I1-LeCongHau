@@ -5,6 +5,7 @@ import com.codegym.furama.repositories.employee.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
@@ -50,14 +51,30 @@ public class EmployeeService implements IEmployeeService {
     @Override
     public void save(Employee employee) {
         User user = new User(employee.getUser().getUsername(), employee.getUser().getPassword());
-        int roleId = employee.getPosition().getPositionId();
-        if(roleId == 5){
+        // mã hoá mật khẩu
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        user.setPassword(encoder.encode(user.getPassword()));
+        int positionId = employee.getPosition().getPositionId();
+        Set<Role> roleSet = new HashSet<>();
+        // lưu tài khoản employee kèm role
+        if(positionId == 5){
             Role roleManager = new Role("ROLE_MANAGER");
-            Set<Role> roleSet = new HashSet<>();
             roleSet.add(roleManager);
             user.setRoles(roleSet);
-            userRepositories.save(user);
+        } if(positionId==6) {
+            Role roleManager = new Role("ROLE_CEO");
+            roleSet.add(roleManager);
+            user.setRoles(roleSet);
+        } else {
+            Role roleManager = new Role("ROLE_EMPLOYEE");
+            roleSet.add(roleManager);
+            user.setRoles(roleSet);
         }
+        // cập nhật lại user đã mã hoá mật khẩu vào employee
+        employee.setUser(user);
+        // lưu thông tin user
+        userRepositories.save(user);
+        // lưu thông tin employee
         employeeRepositories.save(employee);
     }
 

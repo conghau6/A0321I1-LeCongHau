@@ -85,9 +85,7 @@ public class EmployeeController {
     public String edit(@ModelAttribute("employeeCreate") EmployeeCreate e){
         Employee employee = new Employee(e.getEmployeeId(), e.getEmployeeName(), e.getEmployeeBirthday(), e.getEmployeeIdCard(),e.getEmployeeSalary(), e.getEmployeePhone(), e.getEmployeeEmail(),
                 e.getEmployeeAddress() ,new Position(e.getPositionId()),new EducationDegree(e.getDegreeId()), new Division(e.getDivisionId()), new User(e.getUsername()));
-        User user = new User(e.getUsername(), e.getPassword());
-
-        userRepositories.save(user);
+        employee.getUser().setPassword(e.getPassword());
         employeeService.save(employee);
 
         return "redirect:/employees/";
