@@ -57,23 +57,21 @@ public class EmployeeService implements IEmployeeService {
         int positionId = employee.getPosition().getPositionId();
         Set<Role> roleSet = new HashSet<>();
         // lưu tài khoản employee kèm role
-        if(positionId == 5){
-            Role roleManager = new Role("ROLE_MANAGER");
+        if(positionId == 5){ // Quản lý
+            Role roleManager = roleRepositories.findById(2).orElse(null);
             roleSet.add(roleManager);
             user.setRoles(roleSet);
-        } if(positionId==6) {
-            Role roleManager = new Role("ROLE_CEO");
+        } else if(positionId==6) { // Giám đốc
+            Role roleManager = roleRepositories.findById(3).orElse(null);
             roleSet.add(roleManager);
             user.setRoles(roleSet);
-        } else {
-            Role roleManager = new Role("ROLE_EMPLOYEE");
+        } else { // Nhân viên ình thường
+            Role roleManager = roleRepositories.findById(1).orElse(null);
             roleSet.add(roleManager);
             user.setRoles(roleSet);
         }
         // cập nhật lại user đã mã hoá mật khẩu vào employee
         employee.setUser(user);
-        // lưu thông tin user
-        userRepositories.save(user);
         // lưu thông tin employee
         employeeRepositories.save(employee);
     }

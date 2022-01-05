@@ -4,9 +4,11 @@ import com.codegym.furama.entity.*;
 import com.codegym.furama.repositories.employee.IUserRepositories;
 import com.codegym.furama.service.IEmployeeService;
 import com.codegym.furama.ultil.EmployeeCreate;
+import com.codegym.furama.ultil.WebUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -14,6 +16,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.security.Principal;
 import java.util.List;
 import java.util.Optional;
 
@@ -32,8 +35,12 @@ public class EmployeeController {
     }
 
     @GetMapping("")
-    public ModelAndView showIndex(@PageableDefault(size = 10) Pageable pageable,
+    public ModelAndView showIndex(Principal principal, Model model, @PageableDefault(size = 10) Pageable pageable,
                                   Optional<String> search){
+        org.springframework.security.core.userdetails.User loginedUserInfo = (org.springframework.security.core.userdetails.User) ((Authentication) principal).getPrincipal();
+        String userInfo = WebUtils.toString(loginedUserInfo);
+        String nameUser = userRepositories.findByUsername(loginedUserInfo.getUsername()).getEmployee().getEmployeeName();
+        model.addAttribute("nameUser", nameUser);
         if(search.isPresent()){
             return new ModelAndView("employee/list","employeeList",employeeService.findCustomerByEmployeeName(search.get(), pageable));
         }

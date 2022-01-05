@@ -70,7 +70,7 @@
             </div>
         </div>
 
-        <a href="#" class="nav__link nav__logout">
+        <a th:if="${#request.userPrincipal != null}" th:href="@{/logout}" class="nav__link nav__logout">
             <i class='bx bx-log-out nav__icon'></i>
             <span class="nav__name">Logout</span>
         </a>
