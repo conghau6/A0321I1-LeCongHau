@@ -7,7 +7,7 @@
 <nav th:replace="fragment/sidebar"></nav>
 <main>
 <h3>Add new customer</h3>
-<form th:action="@{/employees/create}" class="form" method="post" th:object="${employeeCreate}">
+<form th:action="@{/employees/create}" class="form" method="post" th:object="${employee}">
     <div class="input-box">
         <span>Name</span>
         <input type="text" th:field="*{employeeName}">
@@ -44,7 +44,7 @@
     </div>
     <div class="input-box">
         <span>Position</span>
-        <select th:field="*{positionId}">
+        <select th:field="*{position}">
             <th:block th:each="p : ${positions}">
                 <option th:value="${p.positionId}" th:text="${p.positionName}"></option>
             </th:block>
@@ -52,7 +52,7 @@
     </div>
     <div class="input-box">
         <span>Degree</span>
-        <select th:field="*{degreeId}">
+        <select th:field="*{educationDegree}">
             <th:block th:each="d : ${degrees}">
                 <option th:value="${d.educationDegreeId}" th:text="${d.educationDegreeName}"></option>
             </th:block>
@@ -60,7 +60,7 @@
     </div>
     <div class="input-box">
         <span>Division</span>
-        <select th:field="*{divisionId}">
+        <select th:field="*{division}">
             <th:block th:each="d : ${divisions}">
                 <option th:value="${d.divisionId}" th:text="${d.divisionName}"></option>
             </th:block>
@@ -68,11 +68,7 @@
     </div>
     <div class="input-box">
         <span>Username</span>
-        <input type="text" th:field="*{username}">
-    </div>
-    <div class="input-box">
-        <span>Password</span>
-        <input type="text" th:field="*{password}">
+        <input type="text" th:field="*{user.username}">
     </div>
     <div class="input-box form-action">
         <button type="submit" class="btn btn-primary">Create</button>

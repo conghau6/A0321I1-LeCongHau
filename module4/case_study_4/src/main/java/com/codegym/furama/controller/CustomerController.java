@@ -3,11 +3,14 @@ package com.codegym.furama.controller;
 import com.codegym.furama.entity.Customer;
 import com.codegym.furama.entity.CustomerType;
 import com.codegym.furama.repositories.customer.ICustomerType;
+import com.codegym.furama.repositories.employee.IUserRepositories;
 import com.codegym.furama.service.CustomerService;
+import com.codegym.furama.ultil.WebUtils;
 import com.codegym.furama.validator.DateFormatter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -15,6 +18,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.security.Principal;
 import java.util.List;
 import java.util.Optional;
 
@@ -26,11 +30,23 @@ public class CustomerController {
     CustomerService customerService;
 
     @Autowired
+    IUserRepositories userRepositories;
+
+    @Autowired
     ICustomerType customerType;
 
     @ModelAttribute("url")
     public String url(){
         return "/customers";
+    }
+
+    @ModelAttribute("nameUser")
+    public String nameUser(Principal principal){
+        if(principal == null) return null;
+        org.springframework.security.core.userdetails.User loginedUserInfo = (org.springframework.security.core.userdetails.User) ((Authentication) principal).getPrincipal();
+        String userInfo = WebUtils.toString(loginedUserInfo);
+        String nameUser = userRepositories.findByUsername(loginedUserInfo.getUsername()).getEmployee().getEmployeeName();
+        return nameUser;
     }
 
     @GetMapping("")

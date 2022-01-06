@@ -34,13 +34,19 @@ public class EmployeeController {
         return "/employees";
     }
 
-    @GetMapping("")
-    public ModelAndView showIndex(Principal principal, Model model, @PageableDefault(size = 10) Pageable pageable,
-                                  Optional<String> search){
+    @ModelAttribute("nameUser")
+    public String nameUser(Principal principal){
+        if(principal == null) return null;
         org.springframework.security.core.userdetails.User loginedUserInfo = (org.springframework.security.core.userdetails.User) ((Authentication) principal).getPrincipal();
         String userInfo = WebUtils.toString(loginedUserInfo);
         String nameUser = userRepositories.findByUsername(loginedUserInfo.getUsername()).getEmployee().getEmployeeName();
-        model.addAttribute("nameUser", nameUser);
+        return nameUser;
+    }
+
+
+    @GetMapping("")
+    public ModelAndView showIndex(Model model, @PageableDefault(size = 10) Pageable pageable,
+                                  Optional<String> search){
         if(search.isPresent()){
             return new ModelAndView("employee/list","employeeList",employeeService.findCustomerByEmployeeName(search.get(), pageable));
         }
@@ -64,17 +70,14 @@ public class EmployeeController {
 
     @GetMapping("/create")
     public ModelAndView showFormCreate(){
-        return new ModelAndView("employee/create","employeeCreate",new EmployeeCreate());
+        return new ModelAndView("employee/create","employee",new Employee());
     }
 
     @PostMapping("/create")
-    public String create(@Validated @ModelAttribute("employeeCreate") EmployeeCreate e, BindingResult bindingResult){
+    public String create(@Validated @ModelAttribute("employee") Employee employee, BindingResult bindingResult){
         if(bindingResult.hasFieldErrors()) {
             return "employee/create";
         }
-        Employee employee = new Employee(e.getEmployeeName(), e.getEmployeeBirthday(), e.getEmployeeIdCard(),e.getEmployeeSalary(), e.getEmployeePhone(), e.getEmployeeEmail(),
-                e.getEmployeeAddress() ,new Position(e.getPositionId()),new EducationDegree(e.getDegreeId()), new Division(e.getDivisionId()), new User(e.getUsername()));
-        employee.getUser().setPassword(e.getPassword());
         employeeService.save(employee);
 
         return "redirect:/employees/";

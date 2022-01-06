@@ -48,8 +48,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         // nếu chưa login sẽ chuyển hướng tới trang login
         http.authorizeRequests()
                 .antMatchers("/login").permitAll()
-                .antMatchers("/**").access("hasAnyRole('ROLE_EMPLOYEE','ROLE_CEO','ROLE_EMPLOYEE')")
-                .antMatchers("/employees/**").access("hasAnyRole('ROLE_EMPLOYEE','ROLE_CEO')");
+                .antMatchers("/employees").access("hasAnyRole('ROLE_MANAGER','ROLE_CEO')")
+                .antMatchers("/employees/**").access("hasAnyRole('ROLE_MANAGER','ROLE_CEO')");
 
         // submit url của trang login
         http.authorizeRequests().and().formLogin()

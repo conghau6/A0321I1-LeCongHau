@@ -50,7 +50,7 @@ public class EmployeeService implements IEmployeeService {
 
     @Override
     public void save(Employee employee) {
-        User user = new User(employee.getUser().getUsername(), employee.getUser().getPassword());
+        User user = new User(employee.getUser().getUsername(), "123123");
         // mã hoá mật khẩu
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         user.setPassword(encoder.encode(user.getPassword()));
