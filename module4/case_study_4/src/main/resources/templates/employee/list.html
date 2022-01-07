@@ -55,7 +55,7 @@
                             <a th:href="@{/employees/edit/__${e.employeeId}__}">
                                 <i class='bx bx-pencil table__icon edit-icon'></i>
                             </a>
-                            <span th:onclick="'javascript:deleteEmployee(\''+${e.employeeId}+'\');'" data-toggle="modal" data-target="#exampleModal">
+                            <span th:data-id="${e.employeeId}" th:data-name="${e.employeeName}" onclick="deleteEmployee(this)" data-toggle="modal" data-target="#exampleModal">
                                 <i class='bx bx-trash table__icon delete-icon'></i>
                             </span>
                         </td>
@@ -96,7 +96,9 @@
 <script th:replace="fragment/js"></script>
 <script th:fragment="active-link">document.getElementsByClassName('nav__link')[2].classList.add('active');</script>
 <script>
-    function deleteEmployee(id,name) {
+    function deleteEmployee(x) {
+        var id = x.dataset.id;
+        var name = x.dataset.name;
         document.getElementById('nameEmployee').innerText = id;
         document.getElementById('idEmployee').innerText = name;
         var urlDelete = `/employees/delete/${id}`;
