@@ -1,0 +1,49 @@
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+
+<script>
+    // Show navbar
+    // Show navbar
+    const showMenu = (headerToggle, navbarId, modalId) => {
+        const toggleBtn = document.getElementById(headerToggle),
+            nav = document.getElementById(navbarId)
+        modal = document.getElementById(modalId)
+
+        // Validate that variables exits
+        if(headerToggle && navbarId){
+            toggleBtn.addEventListener('click',()=>{
+                //add class
+                nav.classList.add('show-menu')
+                //add modal
+                modal.classList.add('nav__show-modal')
+                // change icon
+                // toggleBtn.classList.toggle('bx-x')
+            })
+
+            modal.addEventListener('click',()=>{
+                modal.classList.remove('nav__show-modal')
+                nav.classList.remove('show-menu')
+            })
+        }
+    }
+    showMenu('header-toggle','navbar','nav__modal')
+
+
+    // link active
+    const linkColor = document.querySelectorAll('.nav__link')
+
+    function colorLink(){
+        linkColor.forEach(l => l.classList.remove('active'))
+        this.classList.add('active')
+    }
+
+    linkColor.forEach(l=>l.addEventListener('click',colorLink))
+
+    // show submenu
+    const collsape = document.querySelectorAll('.nav__dropdown > .nav__link');
+    function showSubMenu(){
+        (this.parentNode.style.maxHeight == '45px') ? (this.parentNode.style.maxHeight = '100rem') : (this.parentNode.style.maxHeight = '45px');
+    }
+
+    collsape.forEach(l=>l.addEventListener('click',showSubMenu))
+</script>

@@ -1,0 +1,109 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="fragment/head"></head>
+<body>
+<header th:replace="fragment/header"></header>
+<nav th:replace="fragment/sidebar"></nav>
+<main>
+    <div class="table-wrap">
+        <div class="table__action-wrap">
+            <div class="table__name">
+                <h3>Employees</h3>
+            </div>
+            <div class="table__action">
+                <a th:href="@{/employees/create}"><button class="button-add"><i class='bx bx-plus add-icon'></i><span>Add new</span></button></a>
+                <a th:href="@{/employees/delete}"><button class="button-remove"><i class='bx bx-trash-alt trash-icon'></i><span>Delete</span></button></a>
+            </div>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Birthday</th>
+                    <th>Id Card</th>
+                    <th>Salary</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Position</th>
+                    <th>Degree</th>
+                    <th>Division</th>
+                    <th>Username</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <th:block th:each="e : ${employeeList}">
+                    <tr>
+                        <td th:text="${e.employeeId}"></td>
+                        <td>
+                            <a href="" th:text="${e.employeeName}">Lê Công Hậu</a>
+                        </td>
+                        <td th:text="${e.employeeBirthday}"></td>
+                        <td th:text="${e.employeeIdCard}">099494993</td>
+                        <td th:text="${e.employeeSalary}">099494993</td>
+                        <td th:text="${e.employeePhone}">099494996</td>
+                        <td th:text="${e.employeeEmail}">hau@gmail.com</td>
+                        <td th:text="${e.employeeAddress}">Quảng Nam</td>
+                        <td th:text="${e.position.positionName}">Bạch kim</td>
+                        <td th:text="${e.educationDegree.educationDegreeName}">Bạch kim</td>
+                        <td th:text="${e.division.divisionName}">Bạch kim</td>
+                        <td th:text="${e.user.username}"></td>
+                        <td>
+                            <a th:href="@{/employees/edit/__${e.employeeId}__}">
+                                <i class='bx bx-pencil table__icon edit-icon'></i>
+                            </a>
+                            <span th:data-id="${e.employeeId}" th:data-name="${e.employeeName}" onclick="deleteEmployee(this)" data-toggle="modal" data-target="#exampleModal">
+                                <i class='bx bx-trash table__icon delete-icon'></i>
+                            </span>
+                        </td>
+                    </tr>
+                </th:block>
+            </tbody>
+        </table>
+        <div class="table-pagination">
+            <a th:href="@{'/customers/'(page=${employeeList.number - 1})}" th:if="${employeeList.hasPrevious()}"><i class='bx bx-chevron-left'></i></a>
+            <a th:href="@{'/customers/'(page=${employeeList.number - 1})}" th:text="${employeeList.number}" th:if="${employeeList.number > 0}"></a>
+            <span class="active" th:text="${employeeList.number + 1}"></span>
+            <a th:href="@{'/customers/'(page=${employeeList.number + 1})}" th:text="${employeeList.number + 2}" th:if="${employeeList.number + 2 < employeeList.totalPages}"></a>
+            <a th:href="@{'/customers/'(page=${employeeList.number + 1})}" th:if="${employeeList.hasNext()}"><i class='bx bx-chevron-right'></i></a>
+        </div>
+    </div>
+</main>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Delete this employee</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <span>Delete <span id="nameEmployee"></span> <span id="idEmployee"></span></span>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary"><a id="link-delete" href=""  class="text-light">Delete</a></button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script th:replace="fragment/js"></script>
+<script th:fragment="active-link">document.getElementsByClassName('nav__link')[2].classList.add('active');</script>
+<script>
+    function deleteEmployee(x) {
+        var id = x.dataset.id;
+        var name = x.dataset.name;
+        document.getElementById('nameEmployee').innerText = id;
+        document.getElementById('idEmployee').innerText = name;
+        var urlDelete = `/employees/delete/${id}`;
+        document.getElementById('link-delete').href = urlDelete;
+        console.log(id + " " + name)
+    }
+</script>
+</html>

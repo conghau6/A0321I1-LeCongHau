@@ -1,0 +1,150 @@
+:root {
+    /*   color variables */
+    --clr-primary: #81d4fa;
+    --clr-primary-light: #e1f5fe;
+    --clr-primary-dark: #4fc3f7;
+    --clr-gray100: #f9fbff;
+    --clr-gray150: #f4f6fb;
+    --clr-gray200: #eef1f6;
+    --clr-gray300: #e1e5ee;
+    --clr-gray400: #767b91;
+    --clr-gray500: #4f546c;
+    --clr-gray600: #2a324b;
+    --clr-gray700: #161d34;
+    --clr-pending: #fff0c2;
+    --clr-pending-font: #a68b00;
+    --clr-unpaid: #ffcdd2;
+    --clr-unpaid-font: #c62828;
+    --clr-paid: #c8e6c9;
+    --clr-paid-font: #388e3c;
+    --clr-link: #2962ff;
+
+    /*   border radius */
+    --radius: 0.2rem;
+}
+
+.table-wrap{
+    position: relative;
+    overflow-x: scroll;
+}
+.table-wrap::-webkit-scrollbar {
+    display: none;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0 5px 10px var(--clr-gray300);
+    background-color: white;
+    text-align: left;
+    overflow: hidden;
+    font-size: var(--small-font-size);
+}
+
+thead {
+    box-shadow: 0 5px 10px var(--clr-gray300);
+}
+
+th {
+    padding: 0.8rem 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    font-size: 0.7rem;
+    font-weight: 900;
+}
+
+td {
+    padding: 0.8rem 0.8rem;
+}
+
+table a {
+    text-decoration: none;
+    color: var(--clr-link);
+}
+
+tr:nth-child(even) {
+    background-color: var(--clr-gray150);
+}
+
+table .table__icon {
+    font-weight: var(--font-semi-bold);
+    font-size: 1.3rem;
+    padding: 0;
+}
+
+table .delete-icon {
+    color: var(--clr-unpaid-font);
+}
+
+table .edit-icon {
+    color: var(--clr-paid-font);
+}
+
+.table-wrap .table-pagination {
+    position: absolute;
+    right: 0;
+    bottom: -2rem;
+}
+
+.table-wrap .table-pagination {
+    display: flex;
+    align-items: center;
+}
+
+.table-wrap .table-pagination > *{
+    display: inline-flex;
+    padding: 0 4px;
+    color: var(--clr-link);
+}
+
+.table-pagination .active {
+    color: var(--clr-unpaid-font);
+    font-weight: var(--font-semi-bold);
+}
+
+@media screen and (max-width: 767px) {
+    .table-wrap .table-pagination > *{
+        display: inline-flex;
+        padding: 0 8px;
+    }
+}
+
+/* table action */
+.table__action-wrap {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.table__action button {
+    display: inline-flex;
+    align-items: center;
+    justify-content:center;
+    outline: none;
+    border: none;
+    width: 128px;
+    border-radius: 5px;
+    border: 1px solid var(--first-color);
+    background-color: var(--first-color-light);
+}
+
+.table__action button.button-add {
+    color: var(--clr-link);
+}
+
+.table__action button.button-remove {
+    color: var(--clr-unpaid-font);
+}
+
+.table__action a {
+    display: inline-block;
+}
+
+.table__action a:first-child {
+    margin-right: 4px;
+}
+
+.table__action a:last-child {
+    margin-left: 4px;
+}

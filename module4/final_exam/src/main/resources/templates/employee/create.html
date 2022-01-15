@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="fragment/head"></head>
+<body>
+<header th:replace="fragment/header"></header>
+<nav th:replace="fragment/sidebar"></nav>
+<main>
+<h3>Add new customer</h3>
+<form th:action="@{/employees/create}" class="form" method="post" th:object="${employee}">
+    <div class="input-box">
+        <span>Name</span>
+        <input type="text" th:field="*{employeeName}">
+        <small th:if="${#fields.hasErrors('employeeName')}" th:errors="*{employeeName}"></small>
+    </div>
+    <div class="input-box">
+        <span>Birthday</span>
+        <input type="text" th:field="*{employeeBirthday}">
+    </div>
+    <div class="input-box">
+        <span>Idcard</span>
+        <input type="text" th:field="*{employeeIdCard}">
+        <small th:if="${#fields.hasErrors('employeeIdCard')}" th:errors="*{employeeIdCard}"></small>
+    </div>
+    <div class="input-box">
+        <span>Salary</span>
+        <input type="text" th:field="*{employeeSalary}">
+        <small th:if="${#fields.hasErrors('employeeSalary')}" th:errors="*{employeeSalary}"></small>
+    </div>
+    <div class="input-box">
+        <span>Phone</span>
+        <input type="text" th:field="*{employeePhone}">
+        <small th:if="${#fields.hasErrors('employeePhone')}" th:errors="*{employeePhone}"></small>
+    </div>
+    <div class="input-box">
+        <span>Email</span>
+        <input type="text" th:field="*{employeeEmail}">
+        <small th:if="${#fields.hasErrors('employeeEmail')}" th:errors="*{employeeEmail}"></small>
+    </div>
+    <div class="input-box">
+        <span>Address</span>
+        <input type="text" th:field="*{employeeAddress}">
+        <small th:if="${#fields.hasErrors('employeeAddress')}" th:errors="*{employeeAddress}"></small>
+    </div>
+    <div class="input-box">
+        <span>Position</span>
+        <select th:field="*{position}">
+            <th:block th:each="p : ${positions}">
+                <option th:value="${p.positionId}" th:text="${p.positionName}"></option>
+            </th:block>
+        </select>
+    </div>
+    <div class="input-box">
+        <span>Degree</span>
+        <select th:field="*{educationDegree}">
+            <th:block th:each="d : ${degrees}">
+                <option th:value="${d.educationDegreeId}" th:text="${d.educationDegreeName}"></option>
+            </th:block>
+        </select>
+    </div>
+    <div class="input-box">
+        <span>Division</span>
+        <select th:field="*{division}">
+            <th:block th:each="d : ${divisions}">
+                <option th:value="${d.divisionId}" th:text="${d.divisionName}"></option>
+            </th:block>
+        </select>
+    </div>
+    <div class="input-box">
+        <span>Username</span>
+        <input type="text" th:field="*{user.username}">
+    </div>
+    <div class="input-box form-action">
+        <button type="submit" class="btn btn-primary">Create</button>
+    </div>
+</form>
+</main>
+</body>
+<script th:replace="fragment/js"></script>
+<script th:replace="~{employee/list::active-link}"></script>
+</html>

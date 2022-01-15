@@ -1,0 +1,110 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="fragment/head"></head>
+<body>
+<header th:replace="fragment/header"></header>
+<nav th:replace="fragment/sidebar"></nav>
+<main>
+    <h3>Quản lý khuyến mãi</h3>
+    <p>Tìm kiếm</p>
+    <form>
+            <div class="input-box">
+                <span>Mức khuyến mãi</span>
+                <input type="text" name="discount">
+            </div>
+            <div class="input-box">
+                <span>Thời gian bắt đầu</span>
+                <input type="text" name="start_date">
+            </div>
+            <div class="input-box">
+                <span>Thời gian kết thúc</span>
+                <input type="text" name="end_date">
+            </div>
+            <div class="input-box form-action">
+                <button type="submit" class="btn btn-primary">Tìm</button>
+                <a th:href="@{/list}">
+                    <button type="button" class="btn btn-danger">Huỷ</button>
+                </a>
+            </div>
+    </form>
+    <div class="table-wrap">
+        <div class="table__action-wrap">
+            <div class="table__name">
+
+            </div>
+            <div class="table__action">
+                <a th:href="@{/create}"><button class="button-add"><i class='bx bx-plus add-icon'></i><span>Thêm mới</span></button></a>
+            </div>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Tiêu đề</th>
+                    <th>Thời gian bắt đầu</th>
+                    <th>Thời gian kết thúc</th>
+                    <th>Mức giảm giá</th>
+                    <th>Chi tiết</th>
+                    <th>Sủa</th>
+                    <th>Xoá</th>
+                </tr>
+            </thead>
+            <tbody>
+                <th:block th:each="p : ${listPromotion}">
+                    <tr>
+                        <td th:text="${p.title}"></td>
+                        <td th:text="${p.startDate}"></td>
+                        <td th:text="${p.endDate}"></td>
+                        <td th:text="${p.discount}"></td>
+                        <td th:text="${p.detail}"></td>
+                        <td>
+                            <a th:href="@{/edit/__${p.id}__}">
+                                <i class='bx bx-pencil table__icon edit-icon'></i>
+                            </a>
+                        </td>
+                        <td>
+                            <span th:data-id="${p.id}" th:data-title="${p.title}" onclick="deletePromotion(this)" data-toggle="modal" data-target="#exampleModal">
+                                <i class='bx bx-trash table__icon delete-icon'></i>
+                            </span>
+                        </td>
+                    </tr>
+                </th:block>
+            </tbody>
+        </table>
+    </div>
+</main>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Xoá khuyến mãi này</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <span>Xoá "<span id="title"></span>" ( Mã KM: <span id="id"></span>)</span>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Huỷ</button>
+                <button type="button" class="btn btn-primary"><a id="link-delete" href=""  class="text-light">Xoá</a></button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script th:replace="fragment/js"></script>
+<script th:fragment="active-link">document.getElementsByClassName('nav__link')[2].classList.add('active');</script>
+<script>
+    function deletePromotion(x) {
+        var id = x.dataset.id;
+        var title = x.dataset.title;
+        document.getElementById('id').innerText = id;
+        document.getElementById('title').innerText = title;
+        var urlDelete = `/delete/${id}`;
+        document.getElementById('link-delete').href = urlDelete;
+        console.log(id + " " + name)
+    }
+</script>
+</html>

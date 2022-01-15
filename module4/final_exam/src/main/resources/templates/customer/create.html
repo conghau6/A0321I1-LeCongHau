@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="fragment/head"></head>
+<body>
+<header th:replace="fragment/header"></header>
+<nav th:replace="fragment/sidebar"></nav>
+<main>
+<h3>Add new customer</h3>
+<form th:action="@{/customers/create}" class="form" method="post" th:object="${customer}">
+    <div class="input-box">
+        <span>Name</span>
+        <input type="text" th:field="*{customerName}">
+        <small th:if="${#fields.hasErrors('customerName')}" th:errors="*{customerName}"></small>
+    </div>
+    <div class="input-box">
+        <span>Birthday</span>
+        <input type="date" id="datepicker" th:field="*{customerBirthday}">
+    </div>
+    <div class="input-box">
+        <span>Gender</span>
+        <input type="text" th:field="*{customerGender}">
+        <small th:if="${#fields.hasErrors('customerGender')}" th:errors="*{customerGender}"></small>
+    </div>
+    <div class="input-box">
+        <span>Idcard</span>
+        <input type="text" th:field="*{customerIdCard}">
+        <small th:if="${#fields.hasErrors('customerIdCard')}" th:errors="*{customerIdCard}"></small>
+    </div>
+    <div class="input-box">
+        <span>Phone</span>
+        <input type="text" th:field="*{customerPhone}">
+        <small th:if="${#fields.hasErrors('customerPhone')}" th:errors="*{customerPhone}"></small>
+    </div>
+    <div class="input-box">
+        <span>Email</span>
+        <input type="text" th:field="*{customerEmail}">
+        <small th:if="${#fields.hasErrors('customerEmail')}" th:errors="*{customerEmail}"></small>
+    </div>
+    <div class="input-box">
+        <span>Address</span>
+        <input type="text" th:field="*{customerAddress}">
+        <small th:if="${#fields.hasErrors('customerAddress')}" th:errors="*{customerAddress}"></small>
+    </div>
+    <div class="input-box">
+        <span>Type</span>
+        <select name="" id="" th:field="*{customerType}">
+            <th:block th:each="t : ${customerTypeList}">
+                <option th:value="${t.customerTypeId}" th:text="${t.customerTypeName}"></option>
+            </th:block>
+        </select>
+    </div>
+    <div class="input-box form-action">
+        <button type="submit" class="btn btn-primary"  onclick="showSuccessToast();">Submit</button>
+    </div>
+</form>
+</main>
+</body>
+<script th:replace="fragment/js"></script>
+<script th:replace="~{customer/list::active-link}"></script>
+</html>

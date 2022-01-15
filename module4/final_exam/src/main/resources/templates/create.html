@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="fragment/head"></head>
+<body>
+<header th:replace="fragment/header"></header>
+<nav th:replace="fragment/sidebar"></nav>
+<main>
+<h3>Thêm khuyến mãi</h3>
+<form th:action="@{/create}" class="form" method="post" th:object="${promotion}">
+    <div class="input-box">
+        <span>Tiêu đề</span>
+        <input type="text" th:field="*{title}">
+        <small th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></small>
+    </div>
+    <div class="input-box">
+        <span>Thời gian bắt đầu</span>
+        <input type="date" id="datepicker" th:field="*{startDate}">
+        <small th:if="${#fields.hasErrors('startDate')}" th:errors="*{startDate}"></small>
+    </div>
+    <div class="input-box">
+        <span>Thời gian kết thúc</span>
+        <input type="date" th:field="*{endDate}">
+        <small th:if="${#fields.hasErrors('endDate')}" th:errors="*{endDate}"></small>
+    </div>
+    <div class="input-box">
+        <span>Mức giảm giá</span>
+        <input type="text" th:field="*{discount}">
+        <small th:if="${#fields.hasErrors('discount')}" th:errors="*{discount}"></small>
+    </div>
+    <div class="input-box">
+        <span>Chi tiết</span>
+        <textarea cols="46" rows="8" th:field="*{detail}"></textarea>
+        <small th:if="${#fields.hasErrors('detail')}" th:errors="*{detail}"></small>
+    </div>
+    <div class="input-box form-action">
+        <button type="submit" class="btn btn-primary">Thêm</button>
+        <a th:href="@{/list}"><button type="button" class="btn btn-danger">Quay lại</button></a>
+    </div>
+</form>
+</main>
+</body>
+<script th:replace="fragment/js"></script>
+<script th:replace="~{customer/list::active-link}"></script>
+</html>

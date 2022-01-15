@@ -1,0 +1,81 @@
+<div class="nav" id="navbar">
+    <nav class="nav__container">
+        <div>
+            <a href="#" class="nav__link nav__logo">
+                <i class='bx bx-leaf nav__icon' ></i>
+                <span class="nav__logo-name">Final Exam</span>
+            </a>
+
+            <div class="nav__list">
+                <div class="nav__items">
+                    <h3 class="nav__subtitle">Dashboard</h3>
+
+                    <div class="nav__dropdown">
+                        <a href="#" class="nav__link">
+                            <i class='bx bx-user nav__icon'></i>
+                            <span class="nav__name">Promotion</span>
+                            <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
+                        </a>
+
+                        <div class="nav__dropdown-collapse">
+                            <div class="nav__dropdown-content">
+                                <a href="#" class="nav__dropdown-item">Add new customer</a>
+                                <a href="#" class="nav__dropdown-item">Delete customer</a>
+                                <a href="#" class="nav__dropdown-item">Edit customer</a>
+                                <a href="#" class="nav__dropdown-item">List customer</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a th:href="@{/employees/}" class="nav__link">
+                        <i class='bx bx-user-check nav__icon'></i>
+                        <span class="nav__name">Promotion</span>
+                    </a>
+
+                    <a th:href="@{/service/}" class="nav__link">
+                        <i class='bx bx-building-house nav__icon'></i>
+                        <span class="nav__name">Other</span>
+                    </a>
+                </div>
+
+                <div class="nav__items">
+                    <h3 class="nav__subtitle">Menu</h3>
+
+                    <div class="nav__dropdown">
+                        <a href="#" class="nav__link">
+                            <i class='bx bx-bell nav__icon'></i>
+                            <span class="nav__name">Notification</span>
+                            <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
+                        </a>
+
+                        <div class="nav__dropdown-collapse">
+                            <div class="nav__dropdown-content">
+                                <a href="#" class="nav__dropdown-item">Block</a>
+                                <a href="#" class="nav__dropdown-item">Silen</a>
+                                <a href="#" class="nav__dropdown-item">Publish</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#" class="nav__link">
+                        <i class='bx bx-compass nav__icon'></i>
+                        <span class="nav__name">Explore</span>
+                    </a>
+
+                    <a href="#" class="nav__link">
+                        <i class='bx bx-bookmark nav__icon'></i>
+                        <span class="nav__name">Saved</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <a th:if="${#request.userPrincipal != null}" th:href="@{/logout}" class="nav__link nav__logout">
+            <i class='bx bx-log-out nav__icon'></i>
+            <span class="nav__name">Logout</span>
+        </a>
+    </nav>
+</div>
+<!-- nav modal -->
+<div class="nav__modal" id="nav__modal"></div>
+<!-- content -->
