@@ -1,0 +1,15 @@
+{
+  "name": "@webassemblyjs/helper-fsm",
+  "version": "1.5.13",
+  "description": "FSM implementation",
+  "main": "lib/index.js",
+  "author": "Mauro Bringolf",
+  "license": "ISC",
+  "publishConfig": {
+    "access": "public"
+  }
+
+,"_resolved": "https://registry.npmjs.org/@webassemblyjs/helper-fsm/-/helper-fsm-1.5.13.tgz"
+,"_integrity": "sha512-hSIKzbXjVMRvy3Jzhgu+vDd/aswJ+UMEnLRCkZDdknZO3Z9e6rp1DAs0tdLItjCFqkz9+0BeOPK/mk3eYvVzZg=="
+,"_from": "@webassemblyjs/helper-fsm@1.5.13"
+}

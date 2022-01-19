@@ -1,0 +1,8 @@
+<p>font-size-editor works!</p>
+<div>
+  <label>Enter font size (px):</label>
+  <input type="number" [value]="fontSize" (change)="onChange($event.target.value)">
+  <p class="output" [style.fontSize.px]="fontSize">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi cumque nostrum quibusdam. Inventore quibusdam debitis, tempore error voluptatem explicabo ipsum?
+  </p>
+</div>

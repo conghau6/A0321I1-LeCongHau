@@ -47,13 +47,6 @@ nav img {
     font-size: 18px;
 }
 
-.introduction {
-    background-image: url("./img/office_2.png");
-    background-size: cover;
-    background-attachment: fixed;
-    height: 490px;
-}
-
 .introduction h3 {
     font-weight: 700;
 }
@@ -71,10 +64,21 @@ nav img {
     font-weight: 600;
 }
 
-.benefit {
+.benefit, .recruitment {
     background-color: #EEEEEE;
 }
 
 .benefit .row i {
     font-size: 36px;
+}
+
+@media (max-width: 575px) {
+    nav img {
+        width: 190px;
+        height: auto;
+    }
+}
+
+.col-half-offset{
+    margin-left:4.166666667%
 }

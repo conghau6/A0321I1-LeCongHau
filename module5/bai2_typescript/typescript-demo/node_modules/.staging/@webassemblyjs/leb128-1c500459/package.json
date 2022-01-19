@@ -1,0 +1,20 @@
+{
+  "name": "@webassemblyjs/leb128",
+  "version": "1.5.13",
+  "description": "LEB128 decoder and encoder",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "long": "4.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+
+,"_resolved": "https://registry.npmjs.org/@webassemblyjs/leb128/-/leb128-1.5.13.tgz"
+,"_integrity": "sha512-0NRMxrL+GG3eISGZBmLBLAVjphbN8Si15s7jzThaw1UE9e5BY1oH49/+MA1xBzxpf1OW5sf9OrPDOclk9wj2yg=="
+,"_from": "@webassemblyjs/leb128@1.5.13"
+}
