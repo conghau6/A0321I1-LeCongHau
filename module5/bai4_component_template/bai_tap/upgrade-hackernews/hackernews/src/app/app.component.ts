@@ -7,22 +7,23 @@ import {Article} from "../model/article";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'hackernews';
-
+  message: string = '';
+  clickMe(){
+    this.message = '';
+  }
   article = {
-    title: 'The Evolution of Async JavaScript: From Callbacks, to Promises, to Async/Await',
-    url: 'https://medium.freecodecamp.org/the-evolution-of-async-javascript-from-callbacks-to-promises-to-async-await-e73b047f2f40'
-  };
+    title: '',
+    url: ''
+  } as Article;
 
   articleList:Article[] = [
-    {title: "Lê Công Hậu", url: "fb.com/conghau6"},
-    {title: "Lê Công Hậu1", url: "fb.com/conghau6"},
-    {title: "Lê Công Hậu2", url: "fb.com/conghau6"},
-    {title: "Lê Công Hậu3", url: "fb.com/conghau6"},
+    {title: "Google", url: "google.com"},
+    {title: "Facebook", url: "facebook.com"},
+    {title: "Tiktok", url: "tiktok.com"}
   ];
 
   addArticle(title, url):void {
-    console.log(title,url);
+    console.log(title.value,url.value);
     this.article.title = title.value;
     this.article.url = url.value;
     this.articleList.push(this.article);

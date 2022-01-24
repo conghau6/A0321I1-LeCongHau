@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HackernewsComponent } from './hackernews/hackernews.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ListArticleComponent } from './list-article/list-article.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -14,10 +15,11 @@ import { ListArticleComponent } from './list-article/list-article.component';
     NavbarComponent,
     ListArticleComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
