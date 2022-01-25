@@ -3,6 +3,7 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$/.." vcs="Git" />
     <mapping directory="$PROJECT_DIR$/bai2_typescript/bai_tap/search-git-project" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/bai2_typescript/bai_tap/test" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/bai2_typescript/typescript-demo" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/demo" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/demo2" vcs="Git" />
