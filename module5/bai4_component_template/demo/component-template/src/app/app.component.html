@@ -1,0 +1,42 @@
+<h1>Student list</h1>
+
+<table class="table" border="1">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Gender</th>
+      <th>Point</th>
+      <th>Result</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of studentList; let i = index">
+      <td>{{i+1}}</td>
+      <td [ngClass]="item.gender == 2 ? 'txt-color, txt-font-weight' : '' " >{{item.name}}</td>
+      <td [ngSwitch]="item.gender">
+        <span *ngSwitchCase="0">Female</span>
+        <span *ngSwitchCase="1">Male</span>
+        <span *ngSwitchCase="2">Unknown</span>
+      </td>
+      <td [ngStyle]="{
+        'color': item.point == 0 ? 'red' : '',
+        'font-weight': item.point == 100 ? 'bold' : ''
+      }">{{item.point}}</td>
+      <td>
+        <span *ngIf="item.point >= 75; else elseBlock">Pass</span>
+        <ng-template #elseBlock>
+          <span>Fail</span>
+        </ng-template>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div *ngIf="isDisplay">
+  <app-lifecycle-hook></app-lifecycle-hook>
+</div>
+
+<button type="button" (click)="onToggle()">Toogle</button>
+
+<app-angular-pies></app-angular-pies>

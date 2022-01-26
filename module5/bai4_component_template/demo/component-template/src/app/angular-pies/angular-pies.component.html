@@ -1,0 +1,61 @@
+<p>angular-pies works!</p>
+<table class="table">
+  <thead>
+  <tr>
+    <th>#</th>
+    <th>Data input</th>
+    <th>Pipes</th>
+    <th>Output</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>{{dataInput}}</td>
+      <td>Uppercase</td>
+      <td>{{dataInput | uppercase}}</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>{{dataInput}}</td>
+      <td>lowercase</td>
+      <td>{{dataInput | lowercase}}</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>{{dataInput}}</td>
+      <td>Titlecase</td>
+      <td>{{dataInput | titlecase}}</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>{{dataInput}}</td>
+      <td>Slice</td>
+      <td>{{dataInput | slice:0:7}}</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>{{inputNumber}}</td>
+      <td>Number</td>
+      <td>{{inputNumber | number: '5.3-5'}}</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>{{money}}</td>
+      <td>Currency</td>
+      <td>{{money | currency : 'VND' : true: '1.2-3'}}</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>{{inputNumber}}</td>
+      <td>Percent</td>
+      <td>{{inputNumber | percent}}</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>{{today}}</td>
+      <td>Date</td>
+      <td>{{today | date: 'd/M/yyyy' }}</td>
+    </tr>
+  </tbody>
+</table>
