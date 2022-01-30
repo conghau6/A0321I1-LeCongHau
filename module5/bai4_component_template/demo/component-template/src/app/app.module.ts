@@ -4,12 +4,16 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';import { LifecycleHookComponent } from './lifecycle-hook/lifecycle-hook.component';
 import { AngularPiesComponent } from './angular-pies/angular-pies.component';
+import { StudentCreateComponent } from './student-create/student-create.component';
+import { StudentDetailComponent } from './student-detail/student-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LifecycleHookComponent,
-    AngularPiesComponent
+    AngularPiesComponent,
+    StudentCreateComponent,
+    StudentDetailComponent
   ],
   imports: [
     BrowserModule,

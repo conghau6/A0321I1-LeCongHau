@@ -10,6 +10,8 @@ export class AppComponent {
   title = 'component-template';
   isDisplay:boolean = true;
 
+  student: Student | undefined;
+
   studentList:Student[] = [
     {name:"Nguyen Van A", gender: 0, point: 100},
     {name:"Nguyen Van B", gender: 1, point: 80},
@@ -20,4 +22,11 @@ export class AppComponent {
   onToggle() {
     this.isDisplay = !this.isDisplay;
   }
-}
+
+  showDetail(item: Student){
+    this.student = item;
+  }
+
+  getNewStudent(value: Student){
+    this.studentList.unshift(value);
+  }}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./mdboostrap5/css/mdb.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+</head>
+<body>
+    <div id="app" class="app vh-100 d-flex align-items-center justify-content-center">
+            <div id="wrap" class="w-75 px-lg-5">
+                <form>
+                    <!-- Url input -->
+                    <div class="form-outline mb-4">
+                        <input type="text" id="courseUrl" class="form-control" />
+                        <label class="form-label" for="courseUrl">Link lớp học</label>
+                    </div>
+
+                    <!-- Submit button -->
+                    <button type="button" onclick="check()" class="btn btn-primary btn-block">Check</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    var courseUrl =  document.querySelector('#courseUrl').value;
+    function check() {
+        console.log(courseUrl);
+    }
+
+    $('#wrap').prepend(`<div class="container d-flex flex-column align-items-center justify-content-center">
+            <div class="border rounded-circle border-3 border-danger p-4 my-4">
+                <div class="d-flex align-items-center justify-content-center text-danger" style="width: 150px; height: 150px">
+                    <span class="text-danger" style="font-size: 30px">Hết chổ</span>
+                </div>
+            </div>
+            <div class="my-2">
+                <span>Đang chạy, không tắt trình duyệt...</span>
+            </div>`);
+
+
+
+    fetch(window.location.href)
+        .then(res => res.text())
+        .then(data => data.split(`<td class="td-title no-rightborder">`)[11])
+        .then(data => data.split(`<td colspan="2" class="no-leftborder">`)[1].split(`</div>`)[0].replace(`<span>`,``).replace(/\s/g, ''))
+        .then(data => {
+            let check = data.includes(`<divstyle="color:Red;">`);
+            if (check) {
+                return data.replace(`<divstyle="color:Red;">`, ``)
+            }
+            return data.replace(`</span></td></tr><tr>`, ``)
+            }
+        )
+        .then(data => console.log(data))
+</script>
+<script src="./mdboostrap5/js/mdb.min.js"></script>
+</html>
