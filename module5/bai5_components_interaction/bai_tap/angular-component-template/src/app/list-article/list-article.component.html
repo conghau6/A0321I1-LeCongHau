@@ -1,0 +1,14 @@
+<table class="table table-striped table-hover">
+  <thead>
+  <tr>
+    <th>Title</th>
+    <th>Url</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let item of articleList; ">
+    <td>{{item.title}}</td>
+    <td>{{item.url}}</td>
+  </tr>
+  </tbody>
+</table>

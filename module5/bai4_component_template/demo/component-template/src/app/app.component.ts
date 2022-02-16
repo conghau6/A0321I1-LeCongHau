@@ -1,23 +1,25 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Student} from "../model/Student";
+import {StudentService} from "./student.service";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'component-template';
   isDisplay:boolean = true;
 
   student: Student | undefined;
+  studentList:Student[] | undefined;
 
-  studentList:Student[] = [
-    {name:"Nguyen Van A", gender: 0, point: 100},
-    {name:"Nguyen Van B", gender: 1, point: 80},
-    {name:"Nguyen Van C", gender: 2, point: 50},
-    {name:"Nguyen Van D", gender: 0, point: 0},
-  ];
+  constructor(private _studentService:StudentService) {
+  }
+
+  ngOnInit():void{
+    this.studentList = this._studentService.studentList;
+  }
 
   onToggle() {
     this.isDisplay = !this.isDisplay;
@@ -28,5 +30,5 @@ export class AppComponent {
   }
 
   getNewStudent(value: Student){
-    this.studentList.unshift(value);
+    this._studentService.save(value);
   }}

@@ -1,0 +1,22 @@
+<div class="card border-success">
+  <h3 class="card-header bg-success">Template driven form</h3>
+  <div class="card-body">
+    <h4 class="card-title">Student create</h4>
+
+    <form #studentForm="ngForm" (ngSubmit)="onSubmitForm(studentForm)">
+      <div class="form-group">
+        <label>Name: </label>
+        <input type="text" class="form-group" name="txtName" [(ngModel)]="student.name">
+      </div>
+      <div class="form-group">
+        <label>Gender: </label>
+        <input type="number" class="form-group" name="txtGender" [(ngModel)]="student.gender">
+      </div>
+      <div class="form-group">
+        <label>Point: </label>
+        <input type="number" class="form-group" name="txtPoint" [(ngModel)]="student.point">
+      </div>
+      <button type="submit" class="btn bg-primary">Create</button>
+    </form>
+  </div>
+</div>

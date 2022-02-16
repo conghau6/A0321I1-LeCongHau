@@ -6,6 +6,10 @@ import { AppComponent } from './app.component';import { LifecycleHookComponent }
 import { AngularPiesComponent } from './angular-pies/angular-pies.component';
 import { StudentCreateComponent } from './student-create/student-create.component';
 import { StudentDetailComponent } from './student-detail/student-detail.component';
+import { TemplateDrivenFormComponent } from './template-driven-form/template-driven-form.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
+import { StudentListComponent } from './student-list/student-list.component';
 
 @NgModule({
   declarations: [
@@ -13,11 +17,16 @@ import { StudentDetailComponent } from './student-detail/student-detail.componen
     LifecycleHookComponent,
     AngularPiesComponent,
     StudentCreateComponent,
-    StudentDetailComponent
+    StudentDetailComponent,
+    TemplateDrivenFormComponent,
+    ReactiveFormComponent,
+    StudentListComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

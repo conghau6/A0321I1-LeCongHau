@@ -58,7 +58,7 @@ end $$
 delimiter $$
 
 delimiter $$
-create procedure update_user(in id int(11), in name varchar(50), in email varchar(50), in country varchar(50))
+create procedure update_user(in id int(11), inpromotion name varchar(50), in email varchar(50), in country varchar(50))
 begin
 update users set users.name = name, users.email = email, users.country = country
 where users.id = id;

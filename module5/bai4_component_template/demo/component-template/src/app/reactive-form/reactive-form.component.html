@@ -1,0 +1,26 @@
+<div class="card border-success">
+  <h3 class="card-header bg-success">Reactive form</h3>
+  <div class="card-body">
+    <h4 class="card-title">Student create</h4>
+
+    <form [formGroup]="rfStudent" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label>Name: </label>
+        <input type="text" class="form-group" name="txtName" formControlName="studentName">
+        <span *ngIf="rfStudent.controls.studentName.touched && rfStudent.controls.studentName.errors?.required"
+        style="color: red">Require Input</span>
+        <span *ngIf="rfStudent.controls.studentName.touched && rfStudent.controls.studentName.errors?.minlength"
+        style="color: red">Min length</span>
+      </div>
+      <div class="form-group">
+        <label>Gender: </label>
+        <input type="number" class="form-group" name="txtGender" formControlName="studentGender">
+      </div>
+      <div class="form-group">
+        <label>Point: </label>
+        <input type="number" class="form-group" name="txtPoint" formControlName="studentPoint">
+      </div>
+      <button type="submit" class="btn bg-primary" [disabled]="rfStudent.invalid">Create</button>
+    </form>
+  </div>
+</div>
