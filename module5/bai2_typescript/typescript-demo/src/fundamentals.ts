@@ -87,8 +87,8 @@ function main() {
     // do something to retrieve post
     return {
       id: postId,
-      title: 'Post Title',
-      body: 'Post Body',
+      title: 'IPost Title',
+      body: 'IPost Body',
       extra: 'data'
     } as IPost;
   }
