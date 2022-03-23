@@ -1,0 +1,64 @@
+<h3 class="text-center">Sửa Thông Tin Xe</h3>
+<form class="w-75 mx-auto" [formGroup]="formEdit" (ngSubmit)="edit()">
+  <input type="hidden" class="form-control" formControlName="id">
+  <div class="form-group">
+    <p>Biển số xe</p>
+    <input type="text" class="form-control" formControlName="bienSo" disabled>
+  </div>
+  <div class="form-group">
+    <p>Tên nhà xe</p>
+    <input type="text" class="form-control" formControlName="tenNhaXe">
+    <p *ngIf="formEdit.controls.tenNhaXe.touched
+&& formEdit.controls.tenNhaXe.errors?.required" class="text-danger">Vui lòng nhập tên nhà xe</p>
+  </div>
+  <div class="form-group">
+    <p>Điểm đi</p>
+    <select [compareWith]="compareFn" class="form-control" formControlName="diemDi">
+      <ng-container *ngFor="let diaDiem of listDiaDiem">
+        <option [ngValue]="diaDiem">{{diaDiem.tenDiaDiem}}</option>
+      </ng-container>
+    </select>
+  </div>
+  <div class="form-group">
+    <p>Điểm đến</p>
+    <select [compareWith]="compareFn" class="form-control" formControlName="diemDen">
+      <ng-container *ngFor="let diaDiem of listDiaDiem">
+        <option [ngValue]="diaDiem">{{diaDiem.tenDiaDiem}}</option>
+      </ng-container>
+    </select>
+  </div>
+  <div class="form-group">
+    <p>Số điện thoại</p>
+    <input type="text" class="form-control" formControlName="soDienThoai">
+    <p *ngIf="formEdit.controls.soDienThoai.touched
+&& formEdit.controls.soDienThoai.errors?.required" class="text-danger">Vui lòng nhập số điện thoại</p>
+
+    <p *ngIf="formEdit.controls.soDienThoai.touched
+&& formEdit.controls.soDienThoai.errors?.pattern" class="text-danger">Nhập sai định dạng sdt</p>
+  </div>
+  <div class="form-group">
+    <p>Email</p>
+    <input type="text" class="form-control" formControlName="email">
+    <p *ngIf="formEdit.controls.email.touched
+&& formEdit.controls.email.errors?.required" class="text-danger">Vui lòng nhập email</p>
+
+    <p *ngIf="formEdit.controls.email.touched
+&& formEdit.controls.email.errors?.email" class="text-danger">Sai định dạng email</p>
+  </div>
+  <div class="form-group">
+    <p>Giờ đi</p>
+    <input type="time" class="form-control" formControlName="gioDi">
+    <p *ngIf="formEdit.controls.gioDi.touched
+&& formEdit.controls.gioDi.errors?.required" class="text-danger">Vui lòng nhập giờ đi</p>
+  </div>
+  <div class="form-group">
+    <p>Giờ đến</p>
+    <input type="time" class="form-control" formControlName="gioDen">
+    <p *ngIf="formEdit.controls.gioDen.touched
+&& formEdit.controls.gioDen.errors?.required" class="text-danger">Vui lòng nhập giờ đến</p>
+  </div>
+  <div class="row d-flex justify-content-center mt-3">
+    <button type="submit" class="w-auto btn btn-secondary mx-3" (click)="back()">Quay về</button>
+    <button type="submit" class="w-auto btn btn-success" [disabled]="formEdit.invalid">Sửa</button>
+  </div>
+</form>

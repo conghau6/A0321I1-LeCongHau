@@ -1,0 +1,80 @@
+{
+  "educationDegree": [
+    {
+      "id": 1,
+      "nameDegree": "Đại Học"
+    },
+    {
+      "id": 2,
+      "nameDegree": "Cao Đẳng"
+    },
+    {
+      "id": 3,
+      "nameDegree": "Trung Cấp"
+    }
+  ],
+  "employee": [
+    {
+      "id": 2,
+      "fullName": "Trần Văn Trung",
+      "position": "Nhân Viên",
+      "educationDegree": {
+        "id": 1,
+        "nameDegree": "Đại Học"
+      },
+      "division": "Kinh Doanh",
+      "dateOfBirth": "15/09/1994",
+      "idCard": "1020144",
+      "salary": "8",
+      "email": "trantrung@gmmail.com",
+      "phone": "088837262",
+      "address": "Thanh Khê - Đà Nẵng"
+    },
+    {
+      "id": 3,
+      "fullName": "Trần Văn Tuấn",
+      "position": "Nhân Viên",
+      "educationDegree": {
+        "id": 1,
+        "nameDegree": "Đại Học"
+      },
+      "division": "Kinh Doanh",
+      "dateOfBirth": "15/09/1994",
+      "idCard": "1020144",
+      "salary": "8",
+      "email": "trantuan@gmmail.com",
+      "phone": "099988565",
+      "address": "Thanh Khê - Đà Nẵng"
+    },
+    {
+      "fullName": "Hậu",
+      "position": "Nhân Viên",
+      "educationDegree": {
+        "id": 1,
+        "nameDegree": "Đại Học"
+      },
+      "division": "Giám Đốc",
+      "dateOfBirth": "2022-02-18",
+      "idCard": "2068858585",
+      "salary": "100000000",
+      "email": "hau123@gmail.com",
+      "phone": "099898987",
+      "address": "Quảng Nam",
+      "id": 4
+    }
+  ],
+  "customer": [
+    {
+      "id": 1,
+      "fullName": "Lê Công Hậu",
+      "email": "hau@gmail.com",
+      "phone": "0988444187"
+    },
+    {
+      "id": 2,
+      "fullName": "Nguyễn Công Hậu",
+      "email": "hau2@gmail.com",
+      "phone": "0988664187"
+    }
+  ]
+}

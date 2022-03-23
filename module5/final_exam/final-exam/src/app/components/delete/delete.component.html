@@ -1,0 +1,7 @@
+<div mat-dialog-content>
+  Bạn muốn xoá xe có biển số {{bienSo}} ?
+</div>
+<div>
+  <input  class="btn btn-danger m-3" type="button" value="Delete" (click)="delete()" [mat-dialog-close]="true">
+  <input class="btn btn-secondary m-3" type="button" value="Cancel"  [mat-dialog-close]="false">
+</div>

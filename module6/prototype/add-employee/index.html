@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="asset/bootstrap-4.6.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="asset/fontawesome-5.15.4/css/all.min.css">
+    <style>
+        .form-add-new-employee {
+            background: #2193b0;  /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #6dd5ed, #2193b0);  /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #a7dfed, #9dcfdb); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        }
+        .add-account-heading {
+            background-color: #365b81;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form class="mt-4 pt-2 mb-5 form-add-new-employee px-2 text-secondary font-weight-bold rounded">
+            <h2 class="bg-info rounded text-light text-center py-2">Thêm mới nhân viên văn phòng</h2>
+            <div class="row">
+                <div class="col col-lg-6 col-12">
+                    <div class="form-group row">
+                        <label class=" col-sm-4" for="input-0">Mã nhân viên</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="input-0" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class=" col-sm-4" for="input-1">Tên nhân viên</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="input-1" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class=" col-sm-4" for="input-2">CMND</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="input-2" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class=" col-sm-4" for="input-3">Email</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="input-3" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class=" col-sm-4" for="input-4">Số điện thoại</label>
+                        <div class="col-sm-8">
+                            <input type="text" id="input-4" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class=" col-sm-4" for="input-5">Ngày sinh</label>
+                        <div class="col-sm-8">
+                            <input type="date" class="form-control" id="input-5" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="exampleFormControlSelect1" class="control-label col-sm-4">Giới tính</label>
+                        <div class="col-sm-8">
+                            <select class="form-control" id="exampleFormControlSelect1">
+                                <option selected>Nam</option>
+                                <option>Nữ</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class=" col-sm-4" for="input-10">Ngày vào làm</label>
+                        <div class="col-sm-8">
+                            <input type="date" class="form-control" id="input-10" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class=" col-sm-4" for="input-6">Cấp bậc lương</label>
+                        <div class="col-sm-8">
+                            <input type="text" maxlength="5" class="form-control" id="input-6" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-6 col-12">
+                    <h4 class="add-account-heading text-light text-center py-2 rounded">Thêm tài khoản</h4>
+                    <div class="form-group row">
+                        <label class=" col-sm-4" for="input-7">Tên tài khoản(<span class="text-danger">*</span>)</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="input-7" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class=" col-sm-4" for="input-8">Mật khẩu(<span class="text-danger">*</span>)</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="input-8" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class=" col-sm-4" for="input-9">Nhập lại mật khẩu(<span class="text-danger">*</span>)</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="input-9" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col col-4">
+                            <button class="btn btn-outline-secondary w-100 text-dark">Trở lại <i class="fas fa-step-backward"></i></button>
+                        </div>
+                        <div class="col col-4">
+                            <button class="btn btn-secondary w-100">Nhập lại <i class="fas fa-redo-alt"></i></button>
+                        </div>
+                        <div class="col col-4">
+                            <button class="btn btn-primary w-100">Lưu <i class="fas fa-save"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+        </form>
+    </div>  
+</body>
+<script src="asset/bootstrap-4.6.1/js/jquery-3.6.0.min.js"></script>
+<script src="asset/bootstrap-4.6.1/js/bootstrap.min.js"></script>
+</html>

@@ -40,6 +40,17 @@ export class TodoComponent implements OnInit {
       title: this.inputControl.value,
       completed: false,
     };
+    this.todoService.createTodo(todo).subscribe(next => {
+      this.todoList.unshift(next);
+      this.inputControl.setValue('');
+    });
+  }
+
+  deleteTodo(i){
+    const todo = this.todoList[i];
+    this.todoService.deleteTodo(todo.id).subscribe(()=>{
+      this.todoList = this.todoList.filter(t=>t.id !== todo.id);
+    })
   }
 
 }

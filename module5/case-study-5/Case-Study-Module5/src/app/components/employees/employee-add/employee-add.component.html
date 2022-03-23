@@ -1,0 +1,67 @@
+<h3 class="text-center">Thêm Mới Nhân Viên</h3>
+<form class="w-75 mx-auto" [formGroup]="formAddNewEmployee" (ngSubmit)="addEmployee()">
+  <div class="form-group">
+    <p>Họ Và Tên</p>
+    <input type="text" class="form-control" formControlName="fullName">
+    <p *ngIf="formAddNewEmployee.controls.fullName.touched
+&& formAddNewEmployee.controls.fullName.errors?.required" class="text-danger">Vui lòng nhập họ tên</p>
+    <p *ngIf="formAddNewEmployee.controls.fullName.touched
+&& formAddNewEmployee.controls.fullName.errors?.minlength" class="text-danger">Tối thiểu 6 ký tự</p>
+  </div>
+  <div class="form-group">
+    <p>Bộ Phận</p>
+    <input type="text" class="form-control" formControlName="position">
+    <p *ngIf="false" class="text-danger">Vui lòng nhập bộ phận</p>
+  </div>
+  <div class="form-group">
+    <p>Bằng Cấp</p>
+    <select class="form-control" formControlName="educationDegree">
+      <ng-container *ngFor="let degree of listDegree">
+        <option [ngValue]="degree">{{degree.nameDegree}}</option>
+      </ng-container>
+    </select>
+    <p *ngIf="false" class="text-danger">Vui lòng nhập bằng cấp</p>
+  </div>
+  <div class="form-group">
+    <p>Vị Trí</p>
+    <input type="text" class="form-control" formControlName="division">
+    <p *ngIf="false" class="text-danger">Vui lòng nhập vị trí</p>
+  </div>
+  <div class="form-group">
+    <p>Ngày Sinh</p>
+    <input type="date" class="form-control" formControlName="dateOfBirth">
+    <p *ngIf="false" class="text-danger">Vui lòng nhập ngày sinh</p>
+  </div>
+  <div class="form-group">
+    <p>ID Card</p>
+    <input type="text" class="form-control" formControlName="idCard">
+    <p *ngIf="false" class="text-danger">ID Card</p>
+  </div>
+  <div class="form-group">
+    <p>Lương</p>
+    <input type="text" class="form-control" formControlName="salary">
+    <p *ngIf="false" class="text-danger">Vui lòng nhập lương</p>
+  </div>
+  <div class="form-group">
+    <p>Email</p>
+    <input type="text" class="form-control" formControlName="email">
+    <p *ngIf="formAddNewEmployee.controls.email.touched
+&& formAddNewEmployee.controls.email.errors?.required" class="text-danger">Vui lòng nhập email</p>
+    <p *ngIf="formAddNewEmployee.controls.email.touched
+&& formAddNewEmployee.controls.email.errors?.email" class="text-danger">Nhập định dạng email</p>
+  </div>
+  <div class="form-group">
+    <p>Số Điện Thoại</p>
+    <input type="text" class="form-control" formControlName="phone">
+    <p *ngIf="false" class="text-danger">Vui lòng điện thoại</p>
+  </div>
+  <div class="form-group">
+    <p>Địa Chỉ</p>
+    <input type="text" class="form-control" formControlName="address">
+    <p *ngIf="false" class="text-danger">Vui lòng nhập địa chỉ</p>
+  </div>
+  <div class="row d-flex justify-content-center mt-3">
+    <button type="submit" class="w-auto btn btn-success" [disabled]="formAddNewEmployee.invalid">Thêm Mới</button>
+  </div>
+</form>
+

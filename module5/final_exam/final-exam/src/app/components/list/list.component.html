@@ -1,0 +1,49 @@
+<div class="row justify-content-between">
+  <h2 class="w-auto">Quản Lý Xe Khách Bến Xe XYZ</h2>
+  <div class="d-flex w-auto">
+    <input type="text" class="form-control mr-3" placeholder="Tìm Kiếm Theo Biển Số Xe" style="width: 300px; margin-right: 1rem;">
+    <button class="btn btn-outline-success">Search</button>
+  </div>
+</div>
+
+<div class="row mt-3">
+  <span>
+    <button class="btn btn-success" [routerLink]="['/add']">Thêm mới</button>
+  </span>
+  <table class="table table-striped mt-3" style="font-size: 13px;">
+    <thead>
+    <tr>
+      <th>Biển số xe</th>
+      <th>Loại xe</th>
+      <th>Tên nhà xe</th>
+      <th>Điểm đi</th>
+      <th>Điểm đến</th>
+      <th>Số điện thoại</th>
+      <th>Email</th>
+      <th>Giờ đi</th>
+      <th>Giờ đến</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let xe of listXe | paginate: { itemsPerPage: 5, currentPage: p }">
+      <td>{{xe.bienSo}}</td>
+      <td>{{xe.loaiXe}}</td>
+      <td>{{xe.tenNhaXe}}</td>
+      <td>{{xe.diemDi.tenDiaDiem}}</td>
+      <td>{{xe.diemDen.tenDiaDiem}}</td>
+      <td>{{xe.soDienThoai}}</td>
+      <td>{{xe.email}}</td>
+      <td>{{xe.gioDi}}</td>
+      <td>{{xe.gioDen}}</td>
+
+      <td style="width: 14%;">
+        <button class="btn btn-sm btn-warning me-3" [routerLink]="['../edit',xe.id]">Sửa</button>
+         <button (click)="openDialogDelete(xe.id ,xe.bienSo)" class="btn btn-sm btn-danger">Xoá</button>
+
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>

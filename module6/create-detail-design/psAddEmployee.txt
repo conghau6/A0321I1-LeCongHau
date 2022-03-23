@@ -1,0 +1,25 @@
+BEGIN PROGRAM
+	AccountRepositoriy
+	  void createAcount(Acount)
+	     Get database connection
+	     Create SQL:
+		INSERT INTO Account
+		VALUE (?,?,?,?,?,?,?);
+	      	Excute SQL
+		Close database connection
+	EmployeeRepository
+	   void createEmployee(Employee)
+	      Get database connection
+	      Create SQL:
+		INSERT INTO Employee
+		VALUE(?,?,?,?,?,?,?,?,?,?,?,?)
+	      	Excute SQL
+		Close database connection
+	EmployeeController
+		Inject employeeService
+		addEmployee(Employee)
+		If info of employee is valid
+		call addEmployee(Employee) 
+		return message "Employee was create successfully !"
+		Else return invalid message at Editing screen
+END PROGRAM

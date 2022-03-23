@@ -1,0 +1,45 @@
+<div class="container-fluid px-0" style="height: 100vh;">
+  <nav class="navbar navbar-expand-sm navbar-dark" style="height: 10%; background: #647d8b;">
+    <!-- Brand -->
+    <a class="navbar-brand" href="#">Final Exam</a>
+
+    <!-- Links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Trang Chủ</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Liên Hệ</a>
+      </li>
+
+      <!-- Dropdown -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+          Tuyển Dụng
+        </a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="#">Link 1</a>
+          <a class="dropdown-item" href="#">Link 2</a>
+          <a class="dropdown-item" href="#">Link 3</a>
+        </div>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="row mx-0" style="height: 90%">
+    <div class="col-2 px-0">
+      <div class="list-group h-100 border border-primary" style="border-radius: unset">
+        <a href="#" class="item-link list-group-item list-group-item-action" [routerLink]="['']">Home</a>
+        <a href="#" class="item-link list-group-item list-group-item-action" [routerLink]="['list']">Link 1</a>
+        <a href="#" class="item-link list-group-item list-group-item-action">Link 2</a>
+        <a href="#" class="item-link list-group-item list-group-item-action">Link 3</a>
+        <a href="#" class="item-link list-group-item list-group-item-action">Link 4</a>
+        <a href="#" class="item-link list-group-item list-group-item-action">Link 5</a>
+      </div>
+    </div>
+
+    <div class="col-10 p-5">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

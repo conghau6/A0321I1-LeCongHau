@@ -1,0 +1,180 @@
+{
+  "diaDiem": [
+    {
+      "id": 1,
+      "tenDiaDiem": "Đà Nẵng"
+    },
+    {
+      "id": 2,
+      "tenDiaDiem": "Hà Nội"
+    },
+    {
+      "id": 3,
+      "tenDiaDiem": "TP HCM"
+    }
+  ],
+  "xe": [
+    {
+      "id": 1,
+      "bienSo": 11444,
+      "loaiXe": "Giường nằm",
+      "tenNhaXe": "Nhà xe 10",
+      "diemDi": {
+        "id": 1,
+        "tenDiaDiem": "Đà Nẵng"
+      },
+      "diemDen": {
+        "id": 2,
+        "tenDiaDiem": "Hà Nội"
+      },
+      "soDienThoai": "0909998887",
+      "email": "hmogwgwg@gm888888ail.com",
+      "gioDi": "07:06",
+      "gioDen": "10:00"
+    },
+    {
+      "id": 2,
+      "bienSo": 51441,
+      "loaiXe": "Giường Nằm",
+      "tenNhaXe": "Nhà xe 1",
+      "diemDi": {
+        "id": 3,
+        "tenDiaDiem": "TP HCM"
+      },
+      "diemDen": {
+        "id": 2,
+        "tenDiaDiem": "Hà Nội"
+      },
+      "soDienThoai": "099987678",
+      "email": "hmogwgwg@gmail.com",
+      "gioDi": "12:00",
+      "gioDen": "18:00"
+    },
+    {
+      "id": 3,
+      "bienSo": 984343,
+      "loaiXe": "Xe xịn",
+      "tenNhaXe": "Nhà xe 1",
+      "diemDi": {
+        "id": 1,
+        "tenDiaDiem": "Đà Nẵng"
+      },
+      "diemDen": {
+        "id": 3,
+        "tenDiaDiem": "TP HCM"
+      },
+      "soDienThoai": "099987678",
+      "email": "hmogwgwg@gmail.com",
+      "gioDi": "11:00",
+      "gioDen": "17:00"
+    },
+    {
+      "id": 4,
+      "bienSo": 985543,
+      "loaiXe": "Xe xịn",
+      "tenNhaXe": "Nhà xe 1",
+      "diemDi": {
+        "id": 1,
+        "tenDiaDiem": "Đà Nẵng"
+      },
+      "diemDen": {
+        "id": 3,
+        "tenDiaDiem": "TP HCM"
+      },
+      "soDienThoai": "099987678",
+      "email": "hmogwgwg@gmail.com",
+      "gioDi": "11:00",
+      "gioDen": "17:00"
+    },
+    {
+      "id": 5,
+      "bienSo": 984333,
+      "loaiXe": "Xe xịn",
+      "tenNhaXe": "Nhà xe 1",
+      "diemDi": {
+        "id": 1,
+        "tenDiaDiem": "Đà Nẵng"
+      },
+      "diemDen": {
+        "id": 3,
+        "tenDiaDiem": "TP HCM"
+      },
+      "soDienThoai": "099987678",
+      "email": "hmogwgwg@gmail.com",
+      "gioDi": "11:00",
+      "gioDen": "17:00"
+    },
+    {
+      "id": 5,
+      "bienSo": 911343,
+      "loaiXe": "Xe xịn",
+      "tenNhaXe": "Nhà xe 1",
+      "diemDi": {
+        "id": 1,
+        "tenDiaDiem": "Đà Nẵng"
+      },
+      "diemDen": {
+        "id": 3,
+        "tenDiaDiem": "TP HCM"
+      },
+      "soDienThoai": "099987678",
+      "email": "hmogwgwg@gmail.com",
+      "gioDi": "11:00",
+      "gioDen": "17:00"
+    },
+    {
+      "id": 6,
+      "bienSo": 986743,
+      "loaiXe": "Xe xịn",
+      "tenNhaXe": "Nhà xe 1",
+      "diemDi": {
+        "id": 1,
+        "tenDiaDiem": "Đà Nẵng"
+      },
+      "diemDen": {
+        "id": 3,
+        "tenDiaDiem": "TP HCM"
+      },
+      "soDienThoai": "099987678",
+      "email": "hmogwgwg@gmail.com",
+      "gioDi": "11:00",
+      "gioDen": "17:00"
+    },
+    {
+      "id": 7,
+      "bienSo": 900343,
+      "loaiXe": "Xe xịn",
+      "tenNhaXe": "Nhà xe 1",
+      "diemDi": {
+        "id": 1,
+        "tenDiaDiem": "Đà Nẵng"
+      },
+      "diemDen": {
+        "id": 3,
+        "tenDiaDiem": "TP HCM"
+      },
+      "soDienThoai": "099987678",
+      "email": "hmogwgwg@gmail.com",
+      "gioDi": "11:00",
+      "gioDen": "17:00"
+    },
+    {
+      "id": 8,
+      "bienSo": 955343,
+      "loaiXe": "Xe xịn",
+      "tenNhaXe": "Nhà xe 1",
+      "diemDi": {
+        "id": 1,
+        "tenDiaDiem": "Đà Nẵng"
+      },
+      "diemDen": {
+        "id": 3,
+        "tenDiaDiem": "TP HCM"
+      },
+      "soDienThoai": "099987678",
+      "email": "hmogwgwg@gmail.com",
+      "gioDi": "11:00",
+      "gioDen": "17:00"
+    }
+  ]
+}
